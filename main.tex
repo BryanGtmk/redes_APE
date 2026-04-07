@@ -1,148 +1,645 @@
 \documentclass{article}
 
-% Language setting
-% Replace `english' with e.g. `spanish' to change the document language
-\usepackage[english]{babel}
+% Configuración de idioma y codificación
+\usepackage[spanish]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
 
+% Tamaño de página y márgenes
 \usepackage[letterpaper,top=2cm,bottom=5cm,left=3cm,right=3cm,marginparwidth=1.75cm]{geometry}
 
-% Useful packages
+% Paquetes útiles
 \usepackage{amsmath}
+\usepackage{amssymb}
 \usepackage{graphicx}
 \usepackage[colorlinks=true, allcolors=blue]{hyperref}
-\usepackage{amssymb} 
 \usepackage{fancyhdr}
-\usepackage{lipsum} % Para generar texto de ejemplo
 \usepackage{multicol}
-\pagestyle{fancy} 
+\usepackage{float}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{verbatim}
 
+\pagestyle{fancy}
+\fancyhf{}
+\setlength{\headheight}{70pt}
 
-
-\fancyhf{} % Limpiar encabezado y pie de página por defecto
-\setlength{\headheight}{70pt} % Ajuste del tamaño del encabezado
-
-% Definición del encabezado
+% Encabezado
 \fancyhead[C]{%
     \begin{minipage}[c]{1.5cm}
         \includegraphics[width=1.5cm]{imagenes/uta.png}
     \end{minipage}%
-    \hfill  % <--- SIN EL SIGNO % (descomentado)
-    \begin{minipage}[c]{10cm} 
+    \hfill
+    \begin{minipage}[c]{10cm}
         \centering
         \small {\textbf{UNIVERSIDAD TÉCNICA DE AMBATO}} \\[0.1cm]
         \scriptsize \textit{FACULTAD DE INGENIERÍA EN SISTEMAS ELECTRÓNICA E INDUSTRIAL} \\[0.1cm]
         \scriptsize \textbf{CARRERA INGENIERÍA DE SOFTWARE - REDES} \\[0.1cm]
         \scriptsize \textbf{CICLO ACADÉMICO: ENERO - JULIO 2026}
-        \vspace{0.2cm} % <--- Espacio entre texto y línea horizontal
+        \vspace{0.2cm}
     \end{minipage}%
-    \hfill  % <--- SIN EL SIGNO % (descomentado)
+    \hfill
     \begin{minipage}[c]{1.5cm}
         \centering
         \includegraphics[width=1.5cm]{imagenes/fisei.png}
     \end{minipage}%
 }
 
-
 \begin{document}
+
 \begin{center}
-    {\large \textbf{INFORME DE GUÍA PRÁCTICA}} \\    
+    {\large \textbf{INFORME DE GUÍA PRÁCTICA}} \\
 \end{center}
 
 \section{Portada}
 \begin{flushleft}
 \begin{tabular}{ l l }
-    \textbf{Tema:} & Inter Vlans \\
-    \textbf{Unidad de Organización Curricular:} & Profesional \\
-    \textbf{Nivel y Paralelo:} & 4to Semestre "B"\\
-    \textbf{Alumnos participante(s):} & Guatemal Avilez Bryan Stalin\\
-    \textbf{Asignatura:} & Redes \\
-    \textbf{Docente:} & Ing.Wilson Gustavo Chango Sailema , Mg. \\
+    \textbf{Tema:} & Inter-VLAN Routing \\[0.1cm]
+    \textbf{Unidad de Organización Curricular:} & Profesional \\[0.1cm]
+    \textbf{Nivel y Paralelo:} & 4to Semestre ``B'' \\[0.1cm]
+    \textbf{Alumno participante:} & Guatemal Avilez Bryan Stalin \\[0.1cm]
+    \textbf{Asignatura:} & Redes \\[0.1cm]
+    \textbf{Docente:} & Ing. Wilson Gustavo Chango Sailema, Mg. \\
 \end{tabular}
 \end{flushleft}
 
-
 \section{Informe de guía práctica}
+
 \subsection{Objetivos}
+
 \subsubsection{General}
-(Especificado en la guía práctica proporcionada por el docente).
+Implementar y verificar el enrutamiento Inter-VLAN en entornos simulados mediante tres técnicas diferentes: Inter-VLAN Routing heredado, Router-on-a-Stick y switch de capa 3 con interfaces virtuales (SVIs), comprobando la conectividad entre dispositivos pertenecientes a distintas VLAN.
+
 \subsubsection{Específicos}
 \begin{itemize}
-    \item (Se recomienda máximo 3).
-    \item 
-    \item 
+    \item Configurar VLAN, puertos de acceso y enlaces troncales en switches para segmentar correctamente la red.
+    \item Implementar el enrutamiento entre VLAN mediante router con interfaces físicas, router con subinterfaces y switch multicapa.
+    \item Validar la comunicación entre redes a través de pruebas de conectividad utilizando el comando \texttt{ping}.
 \end{itemize}
+
 \subsection{Modalidad}
-Detallada en la guía.
+La guía práctica se desarrolló en modalidad de laboratorio con apoyo de simulación, utilizando Cisco Packet Tracer como herramienta para el diseño, configuración y validación de las topologías de red.
 
 \subsection{Tiempo de duración}
-
-Presenciales: Detallado en la guía\\
-No presenciales: Detallado en la guía
-
+\textbf{Presenciales:} De acuerdo con la planificación establecida por el docente en la guía práctica.\\
+\textbf{No presenciales:} Tiempo complementario destinado a la revisión de configuraciones, organización de evidencias y redacción del informe técnico.
 
 \subsection{Instrucciones}
-
-Detalladas en la guía proporcionada por el docente.
-
+De acuerdo con la guía proporcionada en la asignatura, se desarrollaron tres ejercicios principales de Inter-VLAN Routing y un reto final. Para ello fue necesario crear VLAN, asignar puertos de acceso, habilitar enlaces troncales, configurar direcciones IP en hosts y puertas de enlace, así como comprobar la conectividad entre distintas redes mediante pruebas de comunicación.
 
 \subsection{Listado de equipos, materiales y recursos}
 \textbf{Listado de equipos y materiales generales empleados en la guía práctica:}
 \begin{itemize}
-    \item  
+    \item Computador o laptop.
+    \item Simulador Cisco Packet Tracer.
+    \item Guía práctica proporcionada por el docente.
+    \item Editor Visual Studio Code.
+    \item Entorno \LaTeX{} para la elaboración del informe.
 \end{itemize}
 
 \textbf{TAC (Tecnologías para el Aprendizaje y Conocimiento) empleados en la guía práctica:}
 \begin{itemize}
-    \item[$\square$] Plataformas educativas
-    \item[$\square$] Simuladores y laboratorios virtuales
+    \item[$\blacksquare$] Plataformas educativas
+    \item[$\blacksquare$] Simuladores y laboratorios virtuales
     \item[$\square$] Aplicaciones educativas
     \item[$\square$] Recursos audiovisuales
     \item[$\square$] Gamificación
-    \item[$\square$] Inteligencia Artificial
-    \item Otros (Especifique): \underline{\hspace{5cm}}
+    \item[$\blacksquare$] Inteligencia Artificial
+    \item Otros (Especifique): \underline{Cisco Packet Tracer, Visual Studio Code y \LaTeX}
 \end{itemize}
 
-
 \subsection{Actividades por desarrollar}
-
-Detalladas en la guía proporcionada por el docente.
+Para el desarrollo de la guía práctica se realizaron las siguientes actividades:
+\begin{enumerate}
+    \item Revisión del direccionamiento IP asignado al estudiante.
+    \item Diseño y apertura de las topologías en Cisco Packet Tracer.
+    \item Creación de VLAN y asignación de puertos de acceso en los switches.
+    \item Configuración de enlaces troncales entre switches y dispositivos de capa 3.
+    \item Implementación de las tres técnicas de enrutamiento Inter-VLAN.
+    \item Configuración de direcciones IP, máscara y gateway en los hosts.
+    \item Validación de la conectividad mediante pruebas de \texttt{ping}.
+    \item Registro de capturas de pantalla y documentación de resultados.
+\end{enumerate}
 
 \subsection{Resultados obtenidos}
-De acuerdo con el tipo de trabajo, se plasmarán los resultados alcanzados en la guía práctica una vez ejecutadas las actividades. Se pueden emplear figuras y tablas las cuales deben ser numeradas. 
+De acuerdo con la guía práctica, se documentaron tres escenarios distintos de enrutamiento Inter-VLAN. En el caso del estudiante Bryan Guatemal, el direccionamiento principal empleado correspondió a las redes 207.150.75.0/24 y 207.150.150.0/24, cuyas puertas de enlace fueron 207.150.75.1 y 207.150.150.1, respectivamente. En el segundo ejercicio se incorporó adicionalmente una tercera red asociada a la VLAN 30, con direccionamiento 208.160.80.0/24 y gateway 208.160.80.1.
 
+\subsubsection{Direccionamiento principal empleado}
 
+\begin{table}[H]
+\centering
+\caption{Direccionamiento utilizado en la práctica}
+\label{tab:direccionamiento}
+\begin{tabular}{>{\centering\arraybackslash}p{3cm} >{\centering\arraybackslash}p{3.8cm} >{\centering\arraybackslash}p{3.5cm} >{\centering\arraybackslash}p{3cm}}
+\toprule
+\textbf{Segmento} & \textbf{Dirección de red} & \textbf{Gateway} & \textbf{Host de referencia} \\
+\midrule
+VLAN 10 & 207.150.75.0/24 & 207.150.75.1 & 207.150.75.2 \\
+VLAN 20 & 207.150.150.0/24 & 207.150.150.1 & 207.150.150.2 \\
+VLAN 30 & 208.160.80.0/24 & 208.160.80.1 & 208.160.80.2 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsubsection{Ejercicio 1: Inter-VLAN Routing heredado}
+
+En el primer ejercicio se implementó el enrutamiento Inter-VLAN heredado, técnica en la que un router utiliza interfaces físicas independientes para permitir la comunicación entre diferentes VLAN. En este esquema, cada interfaz del router actúa como puerta de enlace predeterminada para una red distinta, lo que permite que el tráfico sea enviado desde una VLAN hacia otra a través de un dispositivo de capa 3 externo.
+
+Para el desarrollo de este escenario se configuraron las VLAN en los switches, se asignaron puertos de acceso para los hosts finales y se habilitaron enlaces troncales entre los switches. Posteriormente, se configuraron las interfaces físicas del router con las direcciones IP 207.150.75.1 y 207.150.150.1, correspondientes a las redes 207.150.75.0/24 y 207.150.150.0/24.
+
+La Figura \ref{fig:ej1_topologia} presenta la topología general utilizada para este ejercicio.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.90\textwidth]{imagenes/interVlanHeredado_topologia.png}
+    \caption{Topología del ejercicio Inter-VLAN Routing heredado}
+    \label{fig:ej1_topologia}
+\end{figure}
+
+La verificación de la creación de VLAN y de la asignación de puertos de acceso se realizó mediante el comando \texttt{show vlan brief}. En la Figura \ref{fig:ej1_vlanbrief} se evidencia la existencia de las VLAN configuradas y la distribución de puertos correspondientes a cada segmento lógico.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.82\textwidth]{imagenes/interVlanHeredado_vlanBrief.png}
+    \caption{Verificación de VLAN mediante \texttt{show vlan brief}}
+    \label{fig:ej1_vlanbrief}
+\end{figure}
+
+Del mismo modo, en la Figura \ref{fig:ej1_trunk} se comprueba el estado de los enlaces troncales a través del comando \texttt{show interfaces trunk}, confirmándose que los puertos destinados al transporte de tráfico entre switches permitían el paso de las VLAN activas.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.82\textwidth]{imagenes/interVlanHeredado_interfacesTrunk.png}
+    \caption{Verificación de enlaces troncales mediante \texttt{show interfaces trunk}}
+    \label{fig:ej1_trunk}
+\end{figure}
+
+La configuración del router se validó con el comando \texttt{show ip interface brief}. En la Figura \ref{fig:ej1_router} se observa que las interfaces físicas del router se encontraban activas y asociadas a las puertas de enlace de ambas redes, permitiendo el enrutamiento entre VLAN.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.70\textwidth]{imagenes/interVlanHeredado_routerIpBrief.png}
+    \caption{Interfaces físicas del router para el enrutamiento heredado}
+    \label{fig:ej1_router}
+\end{figure}
+
+La configuración IP de las estaciones finales también fue comprobada. La Figura \ref{fig:ej1_pc75} muestra una PC de la red 207.150.75.0/24 con gateway 207.150.75.1, mientras que la Figura \ref{fig:ej1_pc150} presenta una PC de la red 207.150.150.0/24 con gateway 207.150.150.1.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.72\textwidth]{imagenes/interVlanHeredado_pcVlan75.png}
+    \caption{Configuración IP de una PC perteneciente a la red 207.150.75.0/24}
+    \label{fig:ej1_pc75}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.72\textwidth]{imagenes/interVlanHeredado_pcVlan150.png}
+    \caption{Configuración IP de una PC perteneciente a la red 207.150.150.0/24}
+    \label{fig:ej1_pc150}
+\end{figure}
+
+Finalmente, la conectividad entre VLAN fue validada mediante pruebas de \texttt{ping}, comprobando que los paquetes podían viajar correctamente entre hosts de diferentes redes. La Figura \ref{fig:ej1_ping} muestra la evidencia de comunicación satisfactoria entre segmentos.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.78\textwidth]{imagenes/interVlanHeredado_pingIntervlan.png}
+    \caption{Prueba de conectividad entre VLAN en el ejercicio heredado}
+    \label{fig:ej1_ping}
+\end{figure}
+
+\paragraph{Comandos de configuración y verificación utilizados}
+Para la implementación y validación del enrutamiento Inter-VLAN heredado se emplearon comandos de configuración en switches, configuración de interfaces físicas en el router y comandos de verificación del estado de la red.
+
+\textbf{Comandos principales en switches:}
+\begin{verbatim}
+enable
+configure terminal
+vlan 10
+name VLAN10
+exit
+vlan 20
+name VLAN20
+exit
+
+interface range f0/10-15
+switchport mode access
+switchport access vlan 10
+exit
+
+interface range f0/16-20
+switchport mode access
+switchport access vlan 20
+exit
+
+interface f0/1
+switchport mode trunk
+exit
+
+interface f0/2
+switchport mode trunk
+exit
+\end{verbatim}
+
+\textbf{Comandos principales en el router:}
+\begin{verbatim}
+enable
+configure terminal
+interface g0/0
+ip address 207.150.75.1 255.255.255.0
+no shutdown
+exit
+
+interface g0/1
+ip address 207.150.150.1 255.255.255.0
+no shutdown
+exit
+\end{verbatim}
+
+\textbf{Comandos de verificación:}
+\begin{verbatim}
+show vlan brief
+show interfaces trunk
+show ip interface brief
+\end{verbatim}
+
+\textbf{Pruebas de conectividad:}
+\begin{verbatim}
+ping 207.150.150.2
+ping 207.150.75.2
+\end{verbatim}
+
+Como resultado, se confirmó que el enrutamiento Inter-VLAN heredado funcionó correctamente. Sin embargo, también se identificó su principal limitación: la baja escalabilidad, ya que requiere una interfaz física del router por cada VLAN configurada.
+
+\subsubsection{Ejercicio 2: Router-on-a-Stick}
+
+En el segundo ejercicio se implementó la técnica Router-on-a-Stick, en la cual un único enlace físico entre el switch y el router transporta el tráfico de múltiples VLAN mediante subinterfaces configuradas con encapsulación IEEE 802.1Q. Esta solución permitió reducir el uso de interfaces físicas del router y mejorar la escalabilidad de la red frente al método heredado.
+
+En este escenario se trabajó con tres VLAN activas: VLAN 10 asociada a la red 207.150.75.0/24, VLAN 20 asociada a la red 207.150.150.0/24 y VLAN 30 asociada a la red 208.160.80.0/24. Cada una de estas redes tuvo como puerta de enlace una subinterfaz del router configurada con encapsulación \texttt{dot1Q}.
+
+La topología implementada se presenta en la Figura \ref{fig:ej2_topologia}, donde se observan los switches, el router y las estaciones finales distribuidas por VLAN.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.90\textwidth]{imagenes/routerOnAStick_topologia.png}
+    \caption{Topología del ejercicio Router-on-a-Stick}
+    \label{fig:ej2_topologia}
+\end{figure}
+
+La configuración de VLAN y la asignación de puertos de acceso se verificaron mediante el comando \texttt{show vlan brief}. En la Figura \ref{fig:ej2_vlanbrief} se evidencia la presencia de las VLAN 10, 20 y 30 en el switch analizado.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.82\textwidth]{imagenes/routerOnAStick_vlanBrief.png}
+    \caption{Verificación de VLAN en el ejercicio Router-on-a-Stick}
+    \label{fig:ej2_vlanbrief}
+\end{figure}
+
+Los enlaces troncales también fueron comprobados con el comando \texttt{show interfaces trunk}. En la Figura \ref{fig:ej2_trunk} se observa que los puertos troncales permitían el paso de las VLAN 10, 20 y 30, condición necesaria para que el enlace entre switch y router transportara el tráfico etiquetado.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.82\textwidth]{imagenes/routerOnAStick_interfacesTrunk.png}
+    \caption{Verificación de enlaces troncales en Router-on-a-Stick}
+    \label{fig:ej2_trunk}
+\end{figure}
+
+La evidencia principal del ejercicio se presenta en la Figura \ref{fig:ej2_router}, donde se observa la configuración del router mediante subinterfaces. Allí se verifica la existencia de las interfaces \texttt{GigabitEthernet0/0.10}, \texttt{GigabitEthernet0/0.20} y \texttt{GigabitEthernet0/0.30}, cada una con su encapsulación \texttt{dot1Q} y su correspondiente dirección IP de gateway.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.72\textwidth]{imagenes/routerOnAStick_subinterfacesRouter.png}
+    \caption{Configuración de subinterfaces del router en Router-on-a-Stick}
+    \label{fig:ej2_router}
+\end{figure}
+
+Las estaciones finales también fueron verificadas. La Figura \ref{fig:ej2_pc10} presenta la configuración de una PC perteneciente a la red 207.150.75.0/24; la Figura \ref{fig:ej2_pc20} muestra una PC de la red 207.150.150.0/24; y la Figura \ref{fig:ej2_pc30} evidencia una estación perteneciente a la red 208.160.80.0/24.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.72\textwidth]{imagenes/routerOnAStick_pcVlan10.png}
+    \caption{Configuración IP de una PC de la VLAN 10}
+    \label{fig:ej2_pc10}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.72\textwidth]{imagenes/routerOnAStick_pcVlan20.png}
+    \caption{Configuración IP de una PC de la VLAN 20}
+    \label{fig:ej2_pc20}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.72\textwidth]{imagenes/routerOnAStick_pcVlan30.png}
+    \caption{Configuración IP de una PC de la VLAN 30}
+    \label{fig:ej2_pc30}
+\end{figure}
+
+La prueba de conectividad se realizó mediante comandos \texttt{ping} entre estaciones de distintas VLAN. La Figura \ref{fig:ej2_ping} muestra respuestas satisfactorias entre la red 208.160.80.0/24 y las redes 207.150.75.0/24 y 207.150.150.0/24, confirmando que el enrutamiento entre VLAN funcionó correctamente.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.78\textwidth]{imagenes/routerOnAStick_pingIntervlan.png}
+    \caption{Prueba de conectividad entre VLAN en Router-on-a-Stick}
+    \label{fig:ej2_ping}
+\end{figure}
+
+\paragraph{Comandos de configuración y verificación utilizados}
+Para la implementación de Router-on-a-Stick se configuraron VLAN en los switches, enlaces troncales y subinterfaces en el router con encapsulación IEEE 802.1Q, permitiendo el transporte de múltiples VLAN a través de un solo enlace físico.
+
+\textbf{Comandos principales en switches:}
+\begin{verbatim}
+enable
+configure terminal
+vlan 10
+name vlan10
+exit
+vlan 20
+name vlan20
+exit
+vlan 30
+name vlan30
+exit
+
+interface range f0/10-15
+switchport mode access
+switchport access vlan 10
+exit
+
+interface range f0/16-20
+switchport mode access
+switchport access vlan 20
+exit
+
+interface range f0/3-7
+switchport mode access
+switchport access vlan 30
+exit
+
+interface f0/1
+switchport mode trunk
+exit
+
+interface f0/2
+switchport mode trunk
+exit
+\end{verbatim}
+
+\textbf{Comandos principales en el router:}
+\begin{verbatim}
+enable
+configure terminal
+interface g0/0
+no shutdown
+exit
+
+interface g0/0.10
+encapsulation dot1Q 10
+ip address 207.150.75.1 255.255.255.0
+exit
+
+interface g0/0.20
+encapsulation dot1Q 20
+ip address 207.150.150.1 255.255.255.0
+exit
+
+interface g0/0.30
+encapsulation dot1Q 30
+ip address 208.160.80.1 255.255.255.0
+exit
+\end{verbatim}
+
+\textbf{Comandos de verificación:}
+\begin{verbatim}
+show vlan brief
+show interfaces trunk
+show running-config
+\end{verbatim}
+
+\textbf{Pruebas de conectividad:}
+\begin{verbatim}
+ping 207.150.75.2
+ping 207.150.150.2
+ping 208.160.80.2
+\end{verbatim}
+
+Como resultado, se comprobó que Router-on-a-Stick constituye una solución más flexible que el enrutamiento heredado, ya que permite enrutar múltiples VLAN sobre un único enlace físico troncal mediante subinterfaces etiquetadas.
+
+\subsubsection{Ejercicio 3: Switch de capa 3 con interfaces virtuales (SVIs)}
+
+En el tercer ejercicio se implementó el enrutamiento entre VLAN utilizando un switch multicapa mediante interfaces virtuales de VLAN, conocidas como SVIs. En este modelo, el propio switch de capa 3 actúa como dispositivo de enrutamiento, eliminando la necesidad de un router externo para la comunicación entre subredes internas.
+
+En este escenario se trabajó con VLAN 10 y VLAN 20, asociadas a las redes 207.150.75.0/24 y 207.150.150.0/24, respectivamente. El switch multicapa fue configurado con las interfaces \texttt{Vlan10} y \texttt{Vlan20}, asignándoles las direcciones IP 207.150.75.1 y 207.150.150.1, que funcionaron como puertas de enlace para los hosts de cada segmento.
+
+La topología empleada se muestra en la Figura \ref{fig:ej3_topologia}, donde se observa un switch capa 3 ubicado en la parte central de la red y varios switches de acceso conectados a él.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.90\textwidth]{imagenes/switchCapa3SVI_topologia.png}
+    \caption{Topología del ejercicio con switch de capa 3 y SVIs}
+    \label{fig:ej3_topologia}
+\end{figure}
+
+La creación y verificación de VLAN se comprobó mediante el comando \texttt{show vlan brief}. En la Figura \ref{fig:ej3_vlanbrief} se evidencian las VLAN 10 y 20 junto con sus puertos de acceso correspondientes.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.82\textwidth]{imagenes/switchCapa3SVI_vlanBrief.png}
+    \caption{Verificación de VLAN en el ejercicio con SVIs}
+    \label{fig:ej3_vlanbrief}
+\end{figure}
+
+Los enlaces troncales entre switches se verificaron con el comando \texttt{show interfaces trunk}. La Figura \ref{fig:ej3_trunk} muestra que los puertos troncales permitían el paso de las VLAN activas, asegurando el transporte de tráfico hacia el switch multicapa.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.82\textwidth]{imagenes/switchCapa3SVI_interfacesTrunk.png}
+    \caption{Verificación de enlaces troncales en la topología con SVIs}
+    \label{fig:ej3_trunk}
+\end{figure}
+
+La capacidad de enrutamiento del switch capa 3 se comprobó mediante el comando \texttt{show ip route}. En la Figura \ref{fig:ej3_iproute} se observa que las redes 207.150.75.0/24 y 207.150.150.0/24 aparecen como directamente conectadas a las interfaces \texttt{Vlan10} y \texttt{Vlan20}, lo cual confirma el funcionamiento del enrutamiento inter-VLAN dentro del switch.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.75\textwidth]{imagenes/switchCapa3SVI_ipRouting.png}
+    \caption{Tabla de rutas del switch multicapa}
+    \label{fig:ej3_iproute}
+\end{figure}
+
+La configuración de las interfaces virtuales se evidencia en la Figura \ref{fig:ej3_svi}, donde se observan las interfaces \texttt{Vlan10} y \texttt{Vlan20} con sus respectivas direcciones IP. Estas interfaces permitieron que el switch capa 3 desempeñara la función de gateway para ambas redes.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.62\textwidth]{imagenes/switchCapa3SVI_sviConfig.png}
+    \caption{Configuración de interfaces virtuales SVIs en el switch capa 3}
+    \label{fig:ej3_svi}
+\end{figure}
+
+La configuración IP de las estaciones finales también fue verificada. La Figura \ref{fig:ej3_pc10} muestra una PC perteneciente a la red 207.150.75.0/24, mientras que la Figura \ref{fig:ej3_pc20} presenta una PC perteneciente a la red 207.150.150.0/24.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.72\textwidth]{imagenes/switchCapa3SVI_pcVlan10.png}
+    \caption{Configuración IP de una PC de la VLAN 10}
+    \label{fig:ej3_pc10}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.72\textwidth]{imagenes/switchCapa3SVI_pcVlan20.png}
+    \caption{Configuración IP de una PC de la VLAN 20}
+    \label{fig:ej3_pc20}
+\end{figure}
+
+Finalmente, la comunicación entre redes se comprobó mediante pruebas de \texttt{ping}. En la Figura \ref{fig:ej3_ping} se evidencia que los hosts de distintas VLAN lograron intercambiar paquetes satisfactoriamente, lo que confirma el correcto funcionamiento del switch multicapa como dispositivo de enrutamiento.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.78\textwidth]{imagenes/switchCapa3SVI_pingIntervlan.png}
+    \caption{Prueba de conectividad entre VLAN en el ejercicio con SVIs}
+    \label{fig:ej3_ping}
+\end{figure}
+
+\paragraph{Comandos de configuración y verificación utilizados}
+En este escenario se utilizó un switch multicapa para realizar el enrutamiento entre VLAN mediante interfaces virtuales de switch (SVIs), centralizando las funciones de conmutación y enrutamiento en un solo dispositivo.
+
+\textbf{Comandos principales en el switch de capa 3:}
+\begin{verbatim}
+enable
+configure terminal
+hostname SW-L3
+ip routing
+
+vlan 10
+name VLAN10
+exit
+
+vlan 20
+name VLAN20
+exit
+
+interface vlan 10
+ip address 207.150.75.1 255.255.255.0
+no shutdown
+exit
+
+interface vlan 20
+ip address 207.150.150.1 255.255.255.0
+no shutdown
+exit
+
+interface f0/24
+switchport mode trunk
+exit
+
+interface g0/1
+switchport mode trunk
+exit
+
+interface g0/2
+switchport mode trunk
+exit
+\end{verbatim}
+
+\textbf{Comandos principales en switches de acceso:}
+\begin{verbatim}
+enable
+configure terminal
+vlan 10
+name VLAN10
+exit
+vlan 20
+name VLAN20
+exit
+
+interface range f0/10-15
+switchport mode access
+switchport access vlan 10
+exit
+
+interface range f0/16-20
+switchport mode access
+switchport access vlan 20
+exit
+
+interface f0/24
+switchport mode trunk
+exit
+
+interface g0/1
+switchport mode trunk
+exit
+
+interface g0/2
+switchport mode trunk
+exit
+\end{verbatim}
+
+\textbf{Comandos de verificación:}
+\begin{verbatim}
+show vlan brief
+show interfaces trunk
+show ip route
+show running-config
+\end{verbatim}
+
+\textbf{Pruebas de conectividad:}
+\begin{verbatim}
+ping 207.150.150.2
+ping 207.150.75.2
+\end{verbatim}
+
+Como resultado, se comprobó que el switch de capa 3 con SVIs constituye una solución eficiente y escalable para el enrutamiento entre VLAN, al integrar en un solo equipo las funciones de conmutación y enrutamiento.
 
 \subsection{Habilidades blandas empleadas en la práctica}
 
 \begin{itemize}
     \item[$\square$] Liderazgo
     \item[$\square$] Trabajo en equipo
-    \item[$\square$] Comunicación asertiva
+    \item[$\blacksquare$] Comunicación asertiva
     \item[$\square$] La empatía
-    \item[$\square$] Pensamiento crítico
+    \item[$\blacksquare$] Pensamiento crítico
     \item[$\square$] Flexibilidad
     \item[$\square$] La resolución de conflictos
-    \item[$\square$] Adaptabilidad
-    \item[$\square$] Responsabilidad
+    \item[$\blacksquare$] Adaptabilidad
+    \item[$\blacksquare$] Responsabilidad
 \end{itemize}
 
-
-
 \subsection{Conclusiones}
-Constituye la respuesta que propone el o los estudiantes para el problema que originó el trabajo desarrollado, de acuerdo con los datos recogidos y la teoría aplicada. 
+La práctica permitió comprender de manera aplicada tres métodos distintos de enrutamiento Inter-VLAN. El método heredado demostró el principio básico de comunicación entre VLAN a través de interfaces físicas de router, pero evidenció limitaciones de escalabilidad. Por su parte, Router-on-a-Stick permitió optimizar recursos al utilizar subinterfaces sobre un único enlace físico troncal, mientras que el switch de capa 3 con SVIs ofreció una solución más integrada, eficiente y adecuada para entornos con mayor demanda de segmentación y rendimiento.
+
+Adicionalmente, la guía fortaleció competencias relacionadas con la segmentación lógica de redes, la configuración de gateways, la administración de puertos de acceso, el uso de enlaces troncales y la verificación del flujo de paquetes entre diferentes dominios de broadcast.
 
 \subsection{Recomendaciones}
-Redactar las sugerencias o acciones concretas que se derivan de la guía práctica desarrollada. \cite{greenwade93}
-
+\begin{itemize}
+    \item Verificar cuidadosamente la coherencia entre VLAN, direccionamiento IP, máscara de subred y puerta de enlace antes de realizar pruebas de conectividad.
+    \item Confirmar que los puertos troncales permitan el paso de todas las VLAN requeridas y que los puertos de acceso estén asignados al segmento correcto.
+    \item Documentar mediante capturas las configuraciones y pruebas realizadas, a fin de respaldar los resultados obtenidos en la práctica.
+    \item Priorizar el uso de switches de capa 3 en escenarios donde se requiera mayor eficiencia y mejor escalabilidad en el enrutamiento entre VLAN.
+\end{itemize}
 
 \subsection{Referencias}
-Insertar las referencias bibliográficas empleadas aplicando la norma IEEE.
+En esta práctica se empleó como base la guía proporcionada por la asignatura de Redes y el entorno Cisco Packet Tracer para la simulación y validación de las topologías.
 
-\vspace{-3em} %reduce el espacio causado por refname vacío
+\vspace{-3em}
 \renewcommand{\refname}{}
+\nocite{uta2026guia,ciscopt}
 \bibliographystyle{ieeetr}
 \bibliography{sample}
 
 \subsection{Anexos}
+Como anexos del presente informe se incluyen las capturas correspondientes a:
+\begin{itemize}
+    \item Topologías implementadas en los tres ejercicios.
+    \item Resultados de \texttt{show vlan brief}.
+    \item Resultados de \texttt{show interfaces trunk}.
+    \item Configuración del router en Router-on-a-Stick.
+    \item Configuración de las interfaces virtuales en el switch capa 3.
+    \item Evidencias de direccionamiento IP en estaciones finales.
+    \item Pruebas de conectividad mediante \texttt{ping}.
+\end{itemize}
+
 \vfill
 \end{document}
