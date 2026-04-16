@@ -1,148 +1,363 @@
-\documentclass{article}
+\documentclass[12pt,a4paper]{article}
 
-% Language setting
-% Replace `english' with e.g. `spanish' to change the document language
-\usepackage[english]{babel}
+% =========================
+% CODIFICACIÓN E IDIOMA
+% =========================
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[main=spanish,english,shorthands=off]{babel}
+\usepackage{csquotes}
 
-\usepackage[letterpaper,top=2cm,bottom=5cm,left=3cm,right=3cm,marginparwidth=1.75cm]{geometry}
-
-% Useful packages
-\usepackage{amsmath}
+% =========================
+% PAQUETES BÁSICOS
+% =========================
 \usepackage{graphicx}
-\usepackage[colorlinks=true, allcolors=blue]{hyperref}
-\usepackage{amssymb} 
+\usepackage{float}
+
+% =========================
+% FUENTE Y FORMATO
+% =========================
+\usepackage{newtxtext,newtxmath}
+\usepackage[a4paper,top=2.4cm,bottom=2.4cm,left=2.3cm,right=2.3cm]{geometry}
+\usepackage{setspace}
+\setstretch{1.15}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.4em}
+
+% =========================
+% PAQUETES ÚTILES
+% =========================
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{amsmath}
+\usepackage{xcolor}
+\usepackage{soulutf8}
+\usepackage{xurl}
+\usepackage{hyperref}
+\usepackage{titlesec}
 \usepackage{fancyhdr}
-\usepackage{lipsum} % Para generar texto de ejemplo
-\usepackage{multicol}
-\pagestyle{fancy} 
+\usepackage{tabularx}
+\Urlmuskip=0mu plus 1mu\relax
 
-
-
-\fancyhf{} % Limpiar encabezado y pie de página por defecto
-\setlength{\headheight}{70pt} % Ajuste del tamaño del encabezado
-
-% Definición del encabezado
-\fancyhead[C]{%
-    \begin{minipage}[c]{1.5cm}
-        \includegraphics[width=1.5cm]{imagenes/uta.png}
-    \end{minipage}%
-    \hfill  % <--- SIN EL SIGNO % (descomentado)
-    \begin{minipage}[c]{10cm} 
-        \centering
-        \small {\textbf{UNIVERSIDAD TÉCNICA DE AMBATO}} \\[0.1cm]
-        \scriptsize \textit{FACULTAD DE INGENIERÍA EN SISTEMAS ELECTRÓNICA E INDUSTRIAL} \\[0.1cm]
-        \scriptsize \textbf{CARRERA INGENIERÍA DE SOFTWARE - REDES} \\[0.1cm]
-        \scriptsize \textbf{CICLO ACADÉMICO: ENERO - JULIO 2026}
-        \vspace{0.2cm} % <--- Espacio entre texto y línea horizontal
-    \end{minipage}%
-    \hfill  % <--- SIN EL SIGNO % (descomentado)
-    \begin{minipage}[c]{1.5cm}
-        \centering
-        \includegraphics[width=1.5cm]{imagenes/fisei.png}
-    \end{minipage}%
+\hypersetup{
+    colorlinks=true,
+    linkcolor=black,
+    citecolor=black,
+    urlcolor=blue,
+    pdftitle={Artículo METANOIA},
+    pdfauthor={Bryan Stalin Guatemal Avilez; Korayma Pico}
 }
 
+\titleformat{\section}{\bfseries\normalsize}{\thesection.}{0.5em}{}
+\titleformat{\subsection}{\bfseries\normalsize}{\thesubsection.}{0.5em}{}
+
+% =========================
+% ENCABEZADO Y PIE DE PÁGINA
+% =========================
+\setlength{\headheight}{32pt}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\small Metanoia: Revista de Ciencia, Tecnología e Innovación\\\small Revista Científica de la Universidad Regional Autónoma de Los Andes}
+\fancyhead[R]{\small ISSN: 2953-6545}
+
+\fancyfoot[C]{\small Volumen 10 | Número 2 | Julio -- Diciembre, 2024}
+\fancyfoot[R]{\small \thepage}
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{0pt}
+
+% =========================
+% COLORES PARA LA INTRODUCCIÓN
+% =========================
+\definecolor{introcontext}{RGB}{230,255,102}
+\definecolor{introproblem}{RGB}{102,255,102}
+\definecolor{introsolution}{RGB}{102,255,255}
+\definecolor{introresults}{RGB}{255,102,255}
+\definecolor{introimp}{RGB}{102,102,255}
+
+\newcommand{\introbox}[2]{%
+    \colorbox{#1}{\strut\footnotesize\textbf{#2}}%
+}
+
+\newcommand{\introhl}[2]{%
+    {\sethlcolor{#1}\hl{#2}}%
+}
+
+% =========================
+% BIBLIOGRAFÍA APA
+% =========================
+\usepackage[
+  backend=biber,
+  style=apa,
+  sorting=nyt,
+  sortcites=true
+]{biblatex}
+\DeclareLanguageMapping{spanish}{spanish-apa}
+\addbibresource{sample.bib}
+
+% =========================
+% NOTAS DE REVISIÓN PENDIENTE
+% =========================
+\newcommand{\revisionpendiente}{
+    \begin{center}
+    \setlength{\fboxsep}{8pt}
+    \colorbox{yellow!45}{
+        \parbox{0.9\linewidth}{
+            \centering \textbf{Esta sección se va a hacer en una próxima revisión.}
+        }
+    }
+    \end{center}
+}
+
+% =========================
+% DATOS DEL ARTÍCULO
+% =========================
+\newcommand{\articletitlees}{Optimización de la gestión dinámica de flujos en arquitecturas SDN mediante Design Science Research}
+\newcommand{\articletitleen}{Optimization of dynamic flow management in SDN architectures through Design Science Research}
+\newcommand{\articledoi}{[DOI por asignar]}
+\newcommand{\fecharecibido}{[dd/mm/aaaa]}
+\newcommand{\fecharevisado}{[dd/mm/aaaa]}
+\newcommand{\fechaaprobado}{[dd/mm/aaaa]}
+\newcommand{\fechapublicado}{[dd/mm/aaaa]}
 
 \begin{document}
+\selectlanguage{spanish}
+
+\vspace*{0.4cm}
+
 \begin{center}
-    {\large \textbf{INFORME DE GUÍA PRÁCTICA}} \\    
+\textbf{ARTÍCULO DE INVESTIGACIÓN}
 \end{center}
 
-\section{Portada}
-\begin{flushleft}
-\begin{tabular}{ l l }
-    \textbf{Tema:} & Inter Vlans \\
-    \textbf{Unidad de Organización Curricular:} & Profesional \\
-    \textbf{Nivel y Paralelo:} & 4to Semestre "B"\\
-    \textbf{Alumnos participante(s):} & Guatemal Avilez Bryan Stalin\\
-    \textbf{Asignatura:} & Redes \\
-    \textbf{Docente:} & Ing.Wilson Gustavo Chango Sailema , Mg. \\
+\vspace{0.7cm}
+
+{\bfseries \articletitlees}
+
+\vspace{0.35cm}
+
+{\small \articletitleen}
+
+\vspace{0.45cm}
+
+\begin{center}
+\textbf{DOI:} \href{\articledoi}{\articledoi}
+\end{center}
+
+\vspace{0.6cm}
+
+\textbf{Bryan Stalin Guatemal Avilez}$^{1}$
+
+{\small
+$^{1}$ E-mail: \href{mailto:bguatemal3993@uta.edu.ec}{bguatemal3993@uta.edu.ec}
+\quad \textbf{Afiliación:} Universidad Técnica de Ambato, Ecuador.
+\quad \textbf{ORCID:} \href{https://orcid.org/0009-0001-0218-4275}{https://orcid.org/0009-0001-0218-4275}
+}
+
+\vspace{0.35cm}
+
+\textbf{Korayma Pico}$^{2}$
+
+{\small
+$^{2}$ E-mail: \href{mailto:bpico3173@uta.edu.ec}{bpico3173@uta.edu.ec}
+\quad \textbf{Afiliación:} Universidad Técnica de Ambato, Ecuador.
+\quad \textbf{ORCID:} \href{https://orcid.org/0009-0006-6245-8385}{https://orcid.org/0009-0006-6245-8385}
+}
+
+\vspace{0.7cm}
+
+\begin{center}
+\begin{tabular}{p{0.22\textwidth} p{0.22\textwidth}}
+\textbf{Recibido:} \fecharecibido & \textbf{Revisado:} \fecharevisado \\[0.2cm]
+\textbf{Aprobado:} \fechaaprobado & \textbf{Publicado:} \fechapublicado
 \end{tabular}
-\end{flushleft}
+\end{center}
+
+\vspace{0.8cm}
+
+\textbf{RESUMEN}
+
+El resumen se redactará al finalizar el artículo completo, una vez consolidadas la introducción, el background, la metodología, los resultados y las conclusiones.
+
+\textbf{DESCRIPTORES:} SDN; gestión de flujos; latencia; throughput; Design Science Research.
+
+\vspace{0.5cm}
+
+\textbf{ABSTRACT}
+
+The abstract will be written once the full article has been completed, after consolidating the introduction, background, methodology, results, and conclusions.
+
+\textbf{DESCRIPTORS:} SDN; flow management; latency; throughput; Design Science Research.
+
+\vspace{0.6cm}
+
+% =========================
+% 1. INTRODUCCIÓN
+% =========================
+\section{Introducción}
+
+El crecimiento exponencial del tráfico de red, impulsado por la proliferación de servicios en la nube, el Internet de las Cosas (IoT) y las aplicaciones multimedia, ha incrementado la presión operativa sobre las arquitecturas de red tradicionales. Dichas arquitecturas se caracterizan por el acoplamiento rígido entre el plano de control y el plano de datos, lo que limita su capacidad para responder de manera flexible y oportuna a escenarios de alta variabilidad del tráfico. En este contexto, métricas como la latencia, el jitter y el throughput adquieren especial relevancia para evaluar el desempeño de la infraestructura, por lo que la administración eficiente de los flujos se ha convertido en una necesidad técnica prioritaria. Frente a estas limitaciones, \textit{Software-Defined Networking} (SDN) ha emergido como un paradigma transformador al separar el plano de control del plano de datos y habilitar una gestión centralizada, programable y dinámica del comportamiento de la red.
+
+Desde el punto de vista conceptual, SDN se sustenta en principios como la centralización lógica del control, la abstracción de la red y la programabilidad de los dispositivos de reenvío mediante protocolos como OpenFlow. Estas características permiten disponer de una visión global del estado de la red y facilitan la implementación de mecanismos adaptativos de ingeniería de tráfico, balanceo de carga y mitigación de congestión. Sin embargo, la sola adopción del paradigma SDN no garantiza por sí misma una mejora automática del rendimiento, ya que la efectividad de la solución depende del diseño del artefacto de control, de la estrategia de monitoreo del estado de los enlaces y de la capacidad del sistema para redireccionar flujos de manera oportuna ante condiciones críticas.
+
+La relevancia de este problema se evidencia en investigaciones recientes que muestran que los mecanismos de enrutamiento estático, como OSPF, resultan insuficientes para responder con rapidez a las fluctuaciones dinámicas del tráfico, generando cuellos de botella y degradación del servicio. Chen et al. (2024) señalan que, bajo condiciones de demanda variable, los enfoques convencionales tienden a deteriorar métricas críticas de rendimiento. En la misma línea, Anadanaiah y Rao (2024) sostienen que la gestión inteligente del tráfico requiere mecanismos cognitivos capaces de equilibrar simultáneamente restricciones de latencia y throughput, objetivo que los sistemas tradicionales no logran satisfacer de forma conjunta. A ello se suma la necesidad de mecanismos de clasificación y priorización del tráfico que proporcionen al controlador insumos suficientes para tomar decisiones adaptativas sobre asignación de recursos.
+
+Los antecedentes investigativos muestran avances importantes, aunque todavía fragmentados. Algunos estudios priorizan la comparación de alternativas de ingeniería de tráfico desde enfoques multicriterio, mientras que otros se concentran en la optimización adaptativa mediante aprendizaje automático. Singh y Sharma (2025), por ejemplo, integran Random Forest en el controlador SDN para clasificar el tráfico en tiempo real, reportando mejoras en precisión, latencia y throughput. Aboughaly y Hannan (2024) proponen un marco híbrido que combina optimización bioinspirada con aprendizaje por refuerzo profundo, obteniendo mejoras en latencia, jitter y pérdida de paquetes. Por su parte, Chen et al. (2024) presentan el algoritmo AVRO, basado en metaheurísticas y centralidad de red, para fortalecer la conciencia topológica del controlador y mejorar el balanceo de carga. Aunque estos aportes son relevantes, la literatura continúa mostrando una limitada integración entre diseño del artefacto, fundamento metodológico y evaluación rigurosa dentro de una misma propuesta.
+
+Sobre esta base teórica y empírica, la presente investigación se desarrolla en un contexto de evaluación controlada sobre arquitecturas SDN, empleando emulación de topologías de red y métricas de rendimiento para comparar el comportamiento del artefacto propuesto frente a arquitecturas convencionales. En este marco, el estudio adopta el enfoque \textit{Design Science Research} (DSR) como sustento metodológico, ya que este paradigma permite abordar problemas de ingeniería mediante el diseño, construcción y evaluación de artefactos tecnológicos. Así, la investigación se justifica tanto por su aporte técnico, al proponer un mecanismo de gestión dinámica de flujos basado en umbrales de saturación, como por su aporte metodológico, al articular revisión sistemática, diseño del artefacto y validación rigurosa en un mismo proceso investigativo.
+
+En consecuencia, la pregunta que guía este artículo es la siguiente: \textit{¿En qué medida el diseño y la implementación de un artefacto de gestión dinámica de flujos en una arquitectura SDN mejora el rendimiento de la red, en términos de latencia, jitter y throughput, en comparación con las arquitecturas de red tradicionales?} En correspondencia con esta pregunta, el objetivo del estudio consiste en diseñar, implementar y evaluar un artefacto de gestión dinámica de flujos en SDN que permita optimizar el rendimiento de la red mediante monitoreo, análisis por umbrales y redireccionamiento automático del tráfico.
+
+% =========================
+% 2. BACKGROUND
+% =========================
+\section{Background}
+
+La gestión dinámica del tráfico en entornos \textit{Software-Defined Networking} (SDN) constituye una línea de investigación activa debido a la creciente demanda de redes más flexibles, programables y capaces de responder en tiempo real a condiciones de congestión. La literatura especializada coincide en que las arquitecturas tradicionales presentan limitaciones para mantener niveles adecuados de rendimiento cuando aumenta la variabilidad del tráfico, especialmente en escenarios donde la calidad del servicio depende de métricas como latencia, jitter y throughput. En este sentido, los estudios recientes se han concentrado en proponer mecanismos de selección de rutas, balanceo de carga, detección temprana de congestión y asignación dinámica de controladores, lo que evidencia la importancia del problema y su vigencia científica \parencite{survey_ai_sdn, openflow_review}.
+
+Desde una perspectiva comparativa, una parte de la literatura se orienta a evaluar y seleccionar alternativas de ingeniería de tráfico. Las propuestas basadas en modelos multicriterio, como MOORA, ofrecen marcos útiles para comparar estrategias con base en diversos indicadores de desempeño, aportando criterios racionales para la toma de decisiones. No obstante, su principal limitación radica en que priorizan la evaluación de alternativas antes que la construcción de artefactos operativos implementables en escenarios reales o emulados. En contraste, otras investigaciones se centran en enfoques de optimización adaptativa basados en aprendizaje automático y aprendizaje por refuerzo profundo, donde el interés recae en la capacidad del sistema para ajustar dinámicamente el comportamiento de la red frente a cambios del entorno. Aunque estos trabajos reportan mejoras en rendimiento, su contribución se focaliza principalmente en el algoritmo, sin integrar de manera suficiente las dimensiones de diseño, implementación y validación metodológica del artefacto \parencite{moora_sdn, ddqn_sdn}.
+
+Otra línea importante de estudios aborda subproblemas específicos asociados a la congestión. Algunas investigaciones han incorporado aprendizaje profundo en controladores como Ryu para detectar patrones tempranos de saturación y prevenir degradaciones del servicio, mientras que otras han propuesto algoritmos de balanceo de carga orientados a calidad de servicio o estrategias adaptativas para ambientes con múltiples controladores SDN. Estos antecedentes confirman que la programabilidad de SDN puede traducirse en mejoras sobre indicadores relevantes del rendimiento de red. Sin embargo, también revelan una limitación recurrente: las soluciones tienden a validarse sobre componentes puntuales del sistema y no sobre un artefacto integral que combine monitoreo, análisis y reencaminamiento dentro de una misma arquitectura metodológicamente justificada \parencite{dynamic_lb_sdn, deep_learning_ryu, qos_lb_sdn, adaptive_lb_sdn}.
+
+De manera complementaria, los trabajos sobre routing cognitivo, asignación dinámica de controladores y control de congestión mediante OpenFlow amplían la comprensión del problema desde distintas dimensiones operativas. Mientras unas propuestas priorizan la reducción del retardo y la selección de rutas óptimas, otras se enfocan en distribuir la carga del control o en mitigar la saturación mediante políticas de redireccionamiento. Estas contribuciones son relevantes porque confirman la utilidad del control programable y la adaptabilidad de SDN en distintos contextos de aplicación. No obstante, la evidencia disponible sigue mostrando una brecha entre estudios de evaluación, estudios de optimización puntual y estudios de control específico, lo que limita el desarrollo de soluciones más integrales y reproducibles \parencite{cognitive_routing_sdn, controller_assignment_sdn, red_openflow_sdn}.
+
+En conjunto, los antecedentes permiten identificar una brecha clara de investigación. Aunque la literatura demuestra el potencial de SDN para optimizar el tráfico y responder ante eventos de congestión, persiste una fragmentación entre enfoques comparativos, algoritmos adaptativos y soluciones centradas en componentes específicos. A partir de esta brecha, la presente investigación se justifica en la necesidad de diseñar y evaluar un artefacto de gestión dinámica de flujos que articule monitoreo, análisis y redireccionamiento automático dentro de un enfoque \textit{Design Science Research} (DSR), con el fin de aportar una solución técnicamente viable, metodológicamente sólida y comparable frente a arquitecturas tradicionales \parencite{b4_google_sdn, congestion_lb_datacenter}.
+
+\begin{table}[H]
+\centering
+\renewcommand{\arraystretch}{1.2}
+\scriptsize
+
+\textbf{Tabla 1}\\[0.12cm]
+\textit{Clasificación de los antecedentes según su enfoque y aporte al problema de investigación}
+
+\vspace{0.2cm}
+
+\begin{tabular}{|p{2.5cm}|p{2.7cm}|p{2.7cm}|p{2.7cm}|p{2.5cm}|}
+\hline
+\textbf{Línea temática} & \textbf{Selección / evaluación} & \textbf{Optimización adaptativa} & \textbf{Control específico} & \textbf{Escala / aplicación} \\
+\hline
+
+Estado del arte y revisiones &
+Belgaum et al. (2020) &
+-- &
+Miguel-Alonso (2023) &
+-- \\
+\hline
+
+Ingeniería de tráfico multicriterio &
+Ramancha (2024) &
+-- &
+-- &
+-- \\
+\hline
+
+Balanceo de carga inteligente &
+-- &
+Gilliard et al. (2024) &
+Alssaheli et al. (2022) &
+Alizadeh et al. (2014) \\
+\hline
+
+Detección temprana de congestión &
+-- &
+Prabhavat et al. (2022) &
+Airaldi et al. (2020) &
+-- \\
+\hline
+
+Asignación dinámica de controladores &
+-- &
+Sharma et al. (2023) &
+Praveen et al. (2022) &
+-- \\
+\hline
+
+Routing cognitivo &
+-- &
+Anadanaiah y Rao (2024) &
+-- &
+-- \\
+\hline
+
+Entornos de gran escala &
+-- &
+-- &
+-- &
+Jain et al. (2013) \\
+\hline
+
+\end{tabular}
+
+\vspace{0.15cm}
+\noindent\textbf{Fuente:} Los autores.
+\end{table}
+
+% =========================
+% 3. METODOLOGÍA
+% =========================
+\section{Metodología}
+
+\subsection{Marco metodológico: Design Science Research (DSR)}
+
+La presente investigación adopta como marco metodológico el enfoque \textit{Design Science Research} (DSR), paradigma orientado a la resolución de problemas relevantes del mundo real mediante el diseño, construcción y evaluación rigurosa de artefactos tecnológicos. Este enfoque resulta pertinente para el estudio porque el objetivo central no es únicamente describir un fenómeno, sino proponer y validar un mecanismo de gestión dinámica de flujos que permita mejorar el rendimiento de una arquitectura SDN frente a escenarios de congestión. En términos metodológicos, el DSR articula tres fases complementarias: relevancia, diseño y rigor. La fase de relevancia permite justificar el problema y definir la solución propuesta; la fase de diseño orienta la construcción del artefacto y el procesamiento analítico de los datos; y la fase de rigor garantiza que la evaluación se sustente en procedimientos reproducibles y criterios de validación científica.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.90\textwidth]{diagramas/prisma.png}
+    \caption{PRISMA-based study selection process for the SDN review.}
+    \label{fig:prisma-sdn}
+\end{figure}
+
+\subsection{Fase de Relevancia}
+
+La fase de relevancia establece el vínculo entre las necesidades del entorno tecnológico y los objetivos de la investigación. En esta fase se identifica el problema principal: las redes IP tradicionales presentan limitaciones estructurales para adaptarse a variaciones dinámicas del tráfico, especialmente en escenarios de alta demanda, debido a que su plano de control distribuido dificulta la reconfiguración centralizada y automatizada de los flujos. Como consecuencia, ante escenarios de saturación, métricas como latencia, jitter y throughput tienden a deteriorarse, afectando la calidad del servicio.
+
+Con el propósito de fundamentar esta problemática y delimitar el estado del arte, se desarrolló una revisión sistemática de literatura mediante la metodología PRISMA (\textit{Preferred Reporting Items for Systematic Reviews and Meta-Analyses}). La búsqueda se planteó en bases de datos científicas de alto impacto, incluyendo IEEE Xplore, ACM Digital Library, Scopus y Web of Science, considerando publicaciones entre 2020 y 2025. El proceso siguió las cuatro etapas de PRISMA: identificación, cribado, elegibilidad e inclusión. En la etapa de identificación se definieron las cadenas de búsqueda relacionadas con SDN, gestión dinámica de flujos, congestión, balanceo de carga y rendimiento de red. En la fase de cribado se eliminaron registros duplicados y estudios que no respondían al objetivo de la investigación. Posteriormente, en la etapa de elegibilidad se revisaron de manera detallada los textos completos para verificar su pertinencia metodológica y temática. Finalmente, en la fase de inclusión se seleccionaron los estudios que aportaron fundamentos teóricos, metodológicos y técnicos para la construcción del artefacto.
+
+A partir del diagnóstico del problema y de los hallazgos de la revisión sistemática, se planteó como solución el diseño de un artefacto de gestión dinámica de flujos sobre una arquitectura SDN, basado en monitoreo del estado de la red, análisis por umbrales de saturación y redireccionamiento automático del tráfico. Esta propuesta busca responder de manera adaptativa a condiciones críticas de congestión y mejorar el rendimiento general de la red en escenarios controlados.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.90\textwidth]{diagramas/DiagramaRedes.png}
+    \caption{Methodological Framework (DSR) Integrating PRISMA and CRISP-DM.}
+    \label{fig:dsr-crispdm}
+\end{figure}
+
+\subsection{Fase de Diseño}
+
+La fase de diseño constituye el núcleo operativo del estudio, ya que en ella se desarrolla el artefacto y se estructura el proceso analítico para el tratamiento de los datos. Para esta fase se adoptó la metodología CRISP-DM (\textit{Cross-Industry Standard Process for Data Mining}), adaptada al enfoque DSR, con el fin de asegurar que el proceso de construcción, análisis y validación del modelo sea ordenado, reproducible y orientado al problema de investigación.
+
+En primer lugar, se desarrolló la preparación de los datos, que comprendió la recolección, depuración, organización y estructuración de los registros obtenidos mediante herramientas como \textit{iperf}, \textit{ping} y los archivos de registro del controlador SDN. Esta fase tuvo como propósito garantizar la integridad, consistencia y comparabilidad de los datos experimentales antes de su análisis. Posteriormente, se realizó el análisis exploratorio, orientado a caracterizar estadísticamente el comportamiento del tráfico y a identificar patrones, valores atípicos y relaciones entre variables relevantes para la detección de congestión.
+
+Una vez estructurado el conjunto de datos, se incorporó una fase de extracción y transformación de características basada en técnicas de reducción de dimensionalidad, específicamente \textit{Principal Component Analysis} (PCA), \textit{Incremental Principal Component Analysis} (IPCA) y \textit{Kernel Principal Component Analysis} (KPCA). La aplicación de estas técnicas permitió analizar distintas representaciones del espacio de datos, reducir redundancias, resaltar patrones latentes y comparar el comportamiento del modelo predictivo bajo enfoques lineales, incrementales y no lineales. Esta fase de características derivadas se consideró necesaria para mejorar la calidad de la información de entrada y fortalecer la capacidad del sistema para identificar estados de congestión con mayor robustez.
+
+Con base en las características originales y derivadas, se desarrolló la etapa de modelización predictiva, en la cual se construyeron modelos orientados a predecir condiciones de congestión y apoyar las decisiones del artefacto de control. Posteriormente, se llevó a cabo la evaluación del modelo mediante métricas de desempeño apropiadas al problema y se analizó la contribución de cada técnica de transformación en términos de precisión, estabilidad y capacidad de generalización. Finalmente, se realizó la visualización de resultados, utilizando tablas, gráficos comparativos y representaciones del comportamiento del tráfico para facilitar la interpretación de los hallazgos y apoyar la discusión de los resultados obtenidos.
+
+Desde la perspectiva del artefacto, el diseño funcional se estructuró en tres componentes interdependientes: un módulo de monitoreo del estado de los enlaces, encargado de recolectar métricas de utilización en tiempo real; un módulo de análisis de umbrales de saturación, orientado a detectar condiciones de congestión incipiente; y un módulo de toma de decisiones, responsable de ejecutar maniobras de redireccionamiento automático de flujos mediante reglas programables en el controlador SDN. Para su implementación se empleó Python como lenguaje de programación del controlador y Mininet como entorno de emulación, lo que permitió reproducir topologías de red y comparar el comportamiento de la arquitectura propuesta frente a una red IP tradicional bajo distintos niveles de carga.
+
+\subsection{Fase de Rigor}
+
+La fase de rigor tuvo como propósito garantizar que la evaluación del artefacto se realizara con procedimientos científicos reproducibles y con criterios que fortalecieran la validez de los hallazgos. Para ello, la utilidad del artefacto se evaluó mediante validación cruzada (\textit{cross-validation}), técnica que permite estimar el comportamiento del modelo frente a distintos subconjuntos de datos y reducir el riesgo de sobreajuste. En particular, se propuso una estrategia de validación cruzada tipo \textit{k-fold}, en la que el conjunto de datos se divide en particiones equivalentes para alternar de manera sistemática los procesos de entrenamiento y prueba.
+
+La validación cruzada se aplicó tanto a los datos originales como a los transformados mediante PCA, IPCA y KPCA, con el objetivo de comparar la estabilidad y la capacidad predictiva del artefacto bajo diferentes configuraciones analíticas. Esta evaluación permitió identificar cuál de los enfoques de reducción de dimensionalidad ofrece mejores condiciones para la predicción de congestión y para la toma de decisiones en la arquitectura SDN propuesta. De este modo, la fase de rigor no solo fortaleció la validez interna del estudio, sino que también aseguró que la propuesta metodológica estuviera alineada con criterios de reproducibilidad, trazabilidad y consistencia científica.
+
+% =========================
+% 4. RESULTADOS Y DISCUSIÓN
+% =========================
+\section{Resultados y Discusión}
+
+\revisionpendiente
+
+% =========================
+% 5. CONCLUSIONES
+% =========================
+\section{Conclusiones}
+
+\revisionpendiente
 
 
-\section{Informe de guía práctica}
-\subsection{Objetivos}
-\subsubsection{General}
-(Especificado en la guía práctica proporcionada por el docente).
-\subsubsection{Específicos}
-\begin{itemize}
-    \item (Se recomienda máximo 3).
-    \item 
-    \item 
-\end{itemize}
-\subsection{Modalidad}
-Detallada en la guía.
+% =========================
+% REFERENCIAS
+% =========================
+\printbibliography[title={Referencias Bibliográficas}]
 
-\subsection{Tiempo de duración}
-
-Presenciales: Detallado en la guía\\
-No presenciales: Detallado en la guía
-
-
-\subsection{Instrucciones}
-
-Detalladas en la guía proporcionada por el docente.
-
-
-\subsection{Listado de equipos, materiales y recursos}
-\textbf{Listado de equipos y materiales generales empleados en la guía práctica:}
-\begin{itemize}
-    \item  
-\end{itemize}
-
-\textbf{TAC (Tecnologías para el Aprendizaje y Conocimiento) empleados en la guía práctica:}
-\begin{itemize}
-    \item[$\square$] Plataformas educativas
-    \item[$\square$] Simuladores y laboratorios virtuales
-    \item[$\square$] Aplicaciones educativas
-    \item[$\square$] Recursos audiovisuales
-    \item[$\square$] Gamificación
-    \item[$\square$] Inteligencia Artificial
-    \item Otros (Especifique): \underline{\hspace{5cm}}
-\end{itemize}
-
-
-\subsection{Actividades por desarrollar}
-
-Detalladas en la guía proporcionada por el docente.
-
-\subsection{Resultados obtenidos}
-De acuerdo con el tipo de trabajo, se plasmarán los resultados alcanzados en la guía práctica una vez ejecutadas las actividades. Se pueden emplear figuras y tablas las cuales deben ser numeradas. 
-
-
-
-\subsection{Habilidades blandas empleadas en la práctica}
-
-\begin{itemize}
-    \item[$\square$] Liderazgo
-    \item[$\square$] Trabajo en equipo
-    \item[$\square$] Comunicación asertiva
-    \item[$\square$] La empatía
-    \item[$\square$] Pensamiento crítico
-    \item[$\square$] Flexibilidad
-    \item[$\square$] La resolución de conflictos
-    \item[$\square$] Adaptabilidad
-    \item[$\square$] Responsabilidad
-\end{itemize}
-
-
-
-\subsection{Conclusiones}
-Constituye la respuesta que propone el o los estudiantes para el problema que originó el trabajo desarrollado, de acuerdo con los datos recogidos y la teoría aplicada. 
-
-\subsection{Recomendaciones}
-Redactar las sugerencias o acciones concretas que se derivan de la guía práctica desarrollada. \cite{greenwade93}
-
-
-\subsection{Referencias}
-Insertar las referencias bibliográficas empleadas aplicando la norma IEEE.
-
-\vspace{-3em} %reduce el espacio causado por refname vacío
-\renewcommand{\refname}{}
-\bibliographystyle{ieeetr}
-\bibliography{sample}
-
-\subsection{Anexos}
-\vfill
 \end{document}
