@@ -1,148 +1,512 @@
 \documentclass{article}
 
 % Language setting
-% Replace `english' with e.g. `spanish' to change the document language
-\usepackage[english]{babel}
+\usepackage[spanish]{babel}
 
-\usepackage[letterpaper,top=2cm,bottom=5cm,left=3cm,right=3cm,marginparwidth=1.75cm]{geometry}
+\usepackage[letterpaper,top=2cm,bottom=3cm,left=3cm,right=3cm,marginparwidth=1.75cm]{geometry}
 
 % Useful packages
 \usepackage{amsmath}
 \usepackage{graphicx}
 \usepackage[colorlinks=true, allcolors=blue]{hyperref}
-\usepackage{amssymb} 
+\usepackage{amssymb}
 \usepackage{fancyhdr}
-\usepackage{lipsum} % Para generar texto de ejemplo
 \usepackage{multicol}
-\pagestyle{fancy} 
+\usepackage{array}
+\usepackage{longtable}
+\usepackage{tabularx}
+\usepackage{booktabs}
+\usepackage{float}
+\usepackage{enumitem}
+\usepackage{xcolor}
+\usepackage{setspace}
 
+\pagestyle{fancy}
+\fancyhf{}
+\setlength{\headheight}{70pt}
 
-
-\fancyhf{} % Limpiar encabezado y pie de página por defecto
-\setlength{\headheight}{70pt} % Ajuste del tamaño del encabezado
-
-% Definición del encabezado
+% Definición del encabezado (membrete APE)
 \fancyhead[C]{%
     \begin{minipage}[c]{1.5cm}
-        \includegraphics[width=1.5cm]{imagenes/uta.png}
+        \centering
+        \IfFileExists{imagenes/uta.png}{\includegraphics[width=1.5cm]{imagenes/uta.png}}{\fbox{\rule{0pt}{1.2cm}\rule{1.2cm}{0pt}}}
     \end{minipage}%
-    \hfill  % <--- SIN EL SIGNO % (descomentado)
-    \begin{minipage}[c]{10cm} 
+    \hfill
+    \begin{minipage}[c]{10cm}
         \centering
         \small {\textbf{UNIVERSIDAD TÉCNICA DE AMBATO}} \\[0.1cm]
         \scriptsize \textit{FACULTAD DE INGENIERÍA EN SISTEMAS ELECTRÓNICA E INDUSTRIAL} \\[0.1cm]
         \scriptsize \textbf{CARRERA INGENIERÍA DE SOFTWARE - REDES} \\[0.1cm]
         \scriptsize \textbf{CICLO ACADÉMICO: ENERO - JULIO 2026}
-        \vspace{0.2cm} % <--- Espacio entre texto y línea horizontal
+        \vspace{0.2cm}
     \end{minipage}%
-    \hfill  % <--- SIN EL SIGNO % (descomentado)
+    \hfill
     \begin{minipage}[c]{1.5cm}
         \centering
-        \includegraphics[width=1.5cm]{imagenes/fisei.png}
+        \IfFileExists{imagenes/fisei.png}{\includegraphics[width=1.5cm]{imagenes/fisei.png}}{\fbox{\rule{0pt}{1.2cm}\rule{1.2cm}{0pt}}}
     \end{minipage}%
 }
 
+\newcommand{\linearespuesta}[1]{\par\noindent\rule{\textwidth}{0.4pt}\par}
+
+\newcommand{\espacioimagen}[2]{%
+\begin{figure}[H]
+    \centering
+    \fbox{\parbox[c][#2][c]{0.9\textwidth}{\centering #1}}
+\end{figure}
+}
+
+\newcommand{\espacioanexo}[1]{%
+\vspace{0.2cm}
+\noindent\fbox{\parbox[c][4cm][c]{0.95\textwidth}{\centering #1}}
+\vspace{0.2cm}
+}
 
 \begin{document}
+
 \begin{center}
-    {\large \textbf{INFORME DE GUÍA PRÁCTICA}} \\    
+    {\large \textbf{INFORME DE PRÁCTICA: ANÁLISIS DE REDES WI-FI}} \\[0.15cm]
+    \textbf{Metodología Kolb -- Aprendizaje Experiencial} \\[0.1cm]
+    \textbf{Packet Tracer + OMNeT++}
 \end{center}
 
-\section{Portada}
+\section*{Datos generales}
 \begin{flushleft}
 \begin{tabular}{ l l }
-    \textbf{Tema:} & Inter Vlans \\
-    \textbf{Unidad de Organización Curricular:} & Profesional \\
-    \textbf{Nivel y Paralelo:} & 4to Semestre "B"\\
-    \textbf{Alumnos participante(s):} & Guatemal Avilez Bryan Stalin\\
+    \textbf{Autor:} & \underline{\hspace{9cm}} \\
+    \textbf{Fecha:} & \underline{\hspace{9cm}} \\
     \textbf{Asignatura:} & Redes \\
-    \textbf{Docente:} & Ing.Wilson Gustavo Chango Sailema , Mg. \\
+    \textbf{Docente:} & Ing. Wilson Gustavo Chango Sailema, Mg. \\
+    \textbf{Nivel y Paralelo:} & \underline{\hspace{5cm}} \\
+    \textbf{Tema:} & Análisis de redes Wi-Fi \\
 \end{tabular}
 \end{flushleft}
 
+\section*{Uso de inteligencia artificial}
+\noindent\textbf{IA utilizada:} $\square$ ChatGPT \hspace{0.5cm} $\square$ Copilot \hspace{0.5cm} $\square$ Claude \hspace{0.5cm} $\square$ Otra: \underline{\hspace{2.5cm}}
 
-\section{Informe de guía práctica}
-\subsection{Objetivos}
-\subsubsection{General}
-(Especificado en la guía práctica proporcionada por el docente).
-\subsubsection{Específicos}
-\begin{itemize}
-    \item (Se recomienda máximo 3).
-    \item 
-    \item 
+\vspace{0.3cm}
+\noindent\textbf{Prompt principal utilizado:}
+
+\linearespuesta{}
+\linearespuesta{}
+\linearespuesta{}
+
+\noindent\textbf{Declaración de uso de IA:}
+
+\noindent``En la elaboración de este informe, utilicé [nombre de IA] para explicar conceptos, depurar código y revisar redacción. Los prompts principales fueron los indicados anteriormente. Toda la interpretación de resultados y conclusiones son de mi autoría.''
+
+\tableofcontents
+\newpage
+
+\section{Experiencia Concreta (EC) -- ¿Qué hice?}
+
+\subsection{Escenario 1: Packet Tracer -- Las 3 direcciones MAC}
+\textbf{Configuración realizada:}
+
+\begin{table}[H]
+\centering
+\begin{tabular}{|p{5cm}|p{6cm}|p{3cm}|}
+\hline
+\textbf{Elemento} & \textbf{Nombre asignado} & \textbf{IP} \\
+\hline
+Switch & & \\
+\hline
+PC Cableada 1 & & \\
+\hline
+PC Cableada 2 (Servidor) & & \\
+\hline
+Router Inalámbrico & & \\
+\hline
+Laptop & & \\
+\hline
+Tablet & & \\
+\hline
+\end{tabular}
+\end{table}
+
+\textbf{Topología construida:}
+\espacioimagen{Pegar captura de pantalla de Packet Tracer}{6cm}
+
+\textbf{Observaciones directas -- Ping cableado (PC0 $\rightarrow$ Servidor):}
+
+\begin{table}[H]
+\centering
+\begin{tabular}{|p{7cm}|p{7cm}|}
+\hline
+\textbf{Campo} & \textbf{Valor observado} \\
+\hline
+MAC origen (PC0) & \\
+\hline
+MAC destino (Switch/Servidor) & \\
+\hline
+IP origen & \\
+\hline
+IP destino & \\
+\hline
+\end{tabular}
+\end{table}
+
+\textbf{Observaciones directas -- Ping inalámbrico (Laptop0 $\rightarrow$ Tablet):}
+
+\begin{table}[H]
+\centering
+\begin{tabular}{|p{7cm}|p{7cm}|}
+\hline
+\textbf{Campo} & \textbf{Valor observado} \\
+\hline
+MAC Address 1 (Receiver) & \\
+\hline
+MAC Address 2 (Transmitter) & \\
+\hline
+MAC Address 3 (Destination) & \\
+\hline
+\end{tabular}
+\end{table}
+
+\textbf{Captura de pantalla de la PDU Wi-Fi:}
+\espacioimagen{Pegar imagen aquí}{6cm}
+
+\subsection{Escenario 2: OMNeT++ -- Throughput vs Distancia}
+\textbf{Configuración de la simulación:}
+
+\begin{table}[H]
+\centering
+\begin{tabular}{|p{7cm}|p{7cm}|}
+\hline
+\textbf{Parámetro} & \textbf{Valor} \\
+\hline
+Estándar Wi-Fi & 802.11n \\
+\hline
+Potencia de transmisión & \underline{\hspace{2cm}} dBm \\
+\hline
+Frecuencia & 2.4 GHz \\
+\hline
+Tamaño de paquete & 1470 bytes \\
+\hline
+Intervalo de envío & 0.01 s \\
+\hline
+\end{tabular}
+\end{table}
+
+\textbf{Resultados obtenidos:}
+
+\begin{table}[H]
+\centering
+\begin{tabular}{|p{2.2cm}|p{3.2cm}|p{3.5cm}|p{5cm}|}
+\hline
+\textbf{Distancia} & \textbf{Throughput (Mbps)} & \textbf{Paquetes perdidos (\%)} & \textbf{Observaciones} \\
+\hline
+5 m & & & \\
+\hline
+10 m & & & \\
+\hline
+20 m & & & \\
+\hline
+30 m & & & \\
+\hline
+50 m & & & \\
+\hline
+\end{tabular}
+\end{table}
+
+\textbf{Gráfica Throughput vs Distancia:}
+\espacioimagen{Pegar captura de pantalla de Scave o gráfica generada}{6cm}
+
+\textbf{Captura de la simulación en OMNeT++:}
+\espacioimagen{Pegar imagen de la ventana Tkenv}{6cm}
+
+\section{Observación Reflexiva (OR) -- ¿Qué vi?}
+
+\subsection{Preguntas de reflexión}
+\textbf{Pregunta 1: ¿Por qué en Wi-Fi aparecen 3 direcciones MAC mientras que en Ethernet solo 2?}
+\linearespuesta{}
+\linearespuesta{}
+\linearespuesta{}
+\linearespuesta{}
+
+\textbf{Pregunta 2: ¿Qué relación observas entre la distancia y el throughput?}
+\linearespuesta{}
+\linearespuesta{}
+\linearespuesta{}
+\linearespuesta{}
+
+\textbf{Pregunta 3: ¿Qué sucede con la forma de la gráfica de throughput cuando hay interferencia?}
+\linearespuesta{}
+\linearespuesta{}
+\linearespuesta{}
+\linearespuesta{}
+
+\textbf{Pregunta 4: ¿Qué diferencia notas entre el comportamiento de una red cableada (Ethernet) y una inalámbrica (Wi-Fi) en términos de estabilidad?}
+\linearespuesta{}
+\linearespuesta{}
+\linearespuesta{}
+\linearespuesta{}
+
+\subsection{Dificultades encontradas}
+\begin{table}[H]
+\centering
+\begin{tabular}{|p{4cm}|p{10cm}|}
+\hline
+\textbf{Problema} & \textbf{Solución aplicada} \\
+\hline
+1. & \\
+\hline
+2. & \\
+\hline
+3. & \\
+\hline
+\end{tabular}
+\end{table}
+
+\section{Conceptualización Abstracta (CA) -- ¿Qué aprendí?}
+
+\subsection{Mapa conceptual}
+\noindent\textbf{Instrucción:} Dibujar o insertar un mapa conceptual que relacione los siguientes conceptos:
+
+\begin{itemize}[leftmargin=1.2cm]
+    \item Capa MAC
+    \item Capa PHY
+    \item Direcciones MAC (origen, destino, BSSID)
+    \item Throughput
+    \item SNR (Relación Señal/Ruido)
+    \item Zona de Fresnel
+    \item Adaptación de tasa
+    \item Pérdida de trayectoria
+    \item CSMA/CA
+    \item Access Point
 \end{itemize}
-\subsection{Modalidad}
-Detallada en la guía.
 
-\subsection{Tiempo de duración}
+\espacioimagen{Insertar mapa conceptual aquí}{7cm}
 
-Presenciales: Detallado en la guía\\
-No presenciales: Detallado en la guía
+\subsection{Relación con teoría}
+\subsubsection*{Concepto clave 1: Las 3 direcciones MAC en 802.11}
 
+\begin{table}[H]
+\centering
+\begin{tabular}{|p{3cm}|p{5.5cm}|p{6cm}|}
+\hline
+\textbf{Dirección} & \textbf{Significado} & \textbf{En mi simulación observé} \\
+\hline
+Address 1 & Receiver (receptor inmediato) & \\
+\hline
+Address 2 & Transmitter (transmisor inmediato) & \\
+\hline
+Address 3 & Destination (destino final) & \\
+\hline
+\end{tabular}
+\end{table}
 
-\subsection{Instrucciones}
+\textbf{Explicación teórica:}
+\linearespuesta{}
+\linearespuesta{}
+\linearespuesta{}
 
-Detalladas en la guía proporcionada por el docente.
+\subsubsection*{Concepto clave 2: Adaptación de tasa (Rate Adaptation)}
 
+\begin{table}[H]
+\centering
+\begin{tabular}{|p{3.5cm}|p{5.5cm}|p{4cm}|}
+\hline
+\textbf{Distancia} & \textbf{Modulación esperada} & \textbf{Throughput teórico} \\
+\hline
+Cerca (5 m) & 64-QAM (MCS 15) & $\sim$120 Mbps \\
+\hline
+Media (20 m) & 16-QAM (MCS 10) & $\sim$60 Mbps \\
+\hline
+Lejos (50 m) & BPSK (MCS 0) & $\sim$6.5 Mbps \\
+\hline
+\end{tabular}
+\end{table}
 
-\subsection{Listado de equipos, materiales y recursos}
-\textbf{Listado de equipos y materiales generales empleados en la guía práctica:}
-\begin{itemize}
-    \item  
+\textbf{Lo que observé en mi simulación:}
+\linearespuesta{}
+\linearespuesta{}
+\linearespuesta{}
+
+\subsubsection*{Concepto clave 3: Modelo de pérdida de trayectoria (Path Loss)}
+\textbf{Fórmula teórica (espacio libre):}
+
+\[
+PL(dB)=20\log_{10}(d)+20\log_{10}(f)+32.44
+\]
+
+\noindent donde $d$ = distancia (km), $f$ = frecuencia (MHz).
+
+\textbf{Cálculo para mi simulación:}
+
+\begin{itemize}[leftmargin=1.2cm]
+    \item Distancia 20 m = 0.02 km
+    \item Frecuencia = 2450 MHz
+    \item $PL = 20\log_{10}(0.02) + 20\log_{10}(2450) + 32.44 = \underline{\hspace{2cm}}\; dB$
 \end{itemize}
 
-\textbf{TAC (Tecnologías para el Aprendizaje y Conocimiento) empleados en la guía práctica:}
-\begin{itemize}
-    \item[$\square$] Plataformas educativas
-    \item[$\square$] Simuladores y laboratorios virtuales
-    \item[$\square$] Aplicaciones educativas
-    \item[$\square$] Recursos audiovisuales
-    \item[$\square$] Gamificación
-    \item[$\square$] Inteligencia Artificial
-    \item Otros (Especifique): \underline{\hspace{5cm}}
+\textbf{Comparación con lo observado:}
+\linearespuesta{}
+\linearespuesta{}
+\linearespuesta{}
+
+\section{Experimentación Activa (EA) -- ¿Qué pasaría si...?}
+
+\subsection{Escenario modificado}
+\textbf{Parámetro que voy a modificar:}
+\begin{itemize}[leftmargin=1.2cm]
+    \item Potencia de transmisión
+    \item Frecuencia (2.4 GHz $\rightarrow$ 5 GHz)
+    \item Altura de antena
+    \item Distancia
+    \item Estándar (802.11n $\rightarrow$ 802.11ac)
+    \item Otro: \underline{\hspace{3cm}}
 \end{itemize}
 
+\noindent\textbf{Valor original:} \underline{\hspace{3cm}}
+\hfill
+\textbf{Nuevo valor:} \underline{\hspace{3cm}}
 
-\subsection{Actividades por desarrollar}
+\vspace{0.3cm}
+\noindent\textbf{Predicción antes de simular: ¿Qué creo que sucederá?}
+\linearespuesta{}
+\linearespuesta{}
+\linearespuesta{}
+\linearespuesta{}
 
-Detalladas en la guía proporcionada por el docente.
+\textbf{Resultado después de simular:}
 
-\subsection{Resultados obtenidos}
-De acuerdo con el tipo de trabajo, se plasmarán los resultados alcanzados en la guía práctica una vez ejecutadas las actividades. Se pueden emplear figuras y tablas las cuales deben ser numeradas. 
+\begin{table}[H]
+\centering
+\begin{tabular}{|p{4cm}|p{3cm}|p{3cm}|p{3cm}|}
+\hline
+\textbf{Parámetro} & \textbf{Antes} & \textbf{Después} & \textbf{Cambio} \\
+\hline
+Throughput & & & \\
+\hline
+Pérdida (dB) & & & \\
+\hline
+\end{tabular}
+\end{table}
 
+\textbf{Captura del nuevo resultado:}
+\espacioimagen{Pegar imagen aquí}{6cm}
 
+\textbf{Comparación predicción vs resultado:}
 
-\subsection{Habilidades blandas empleadas en la práctica}
+\noindent\textbf{Predije que:} \underline{\hspace{10cm}}
 
-\begin{itemize}
-    \item[$\square$] Liderazgo
-    \item[$\square$] Trabajo en equipo
-    \item[$\square$] Comunicación asertiva
-    \item[$\square$] La empatía
-    \item[$\square$] Pensamiento crítico
-    \item[$\square$] Flexibilidad
-    \item[$\square$] La resolución de conflictos
-    \item[$\square$] Adaptabilidad
-    \item[$\square$] Responsabilidad
-\end{itemize}
+\noindent\textbf{Obtuve que:} \underline{\hspace{10.2cm}}
 
+\noindent\textbf{La diferencia se debe a:} \underline{\hspace{8.2cm}}
 
+\subsection{Propuesta de mejora}
+\noindent\textbf{Problema:} Se necesita un enlace Wi-Fi confiable a 100 metros con throughput $>$ 20 Mbps.
 
-\subsection{Conclusiones}
-Constituye la respuesta que propone el o los estudiantes para el problema que originó el trabajo desarrollado, de acuerdo con los datos recogidos y la teoría aplicada. 
+\noindent\textbf{Mi propuesta de configuración:}
 
-\subsection{Recomendaciones}
-Redactar las sugerencias o acciones concretas que se derivan de la guía práctica desarrollada. \cite{greenwade93}
+\begin{table}[H]
+\centering
+\begin{tabular}{|p{4cm}|p{4cm}|p{6cm}|}
+\hline
+\textbf{Parámetro} & \textbf{Valor propuesto} & \textbf{Justificación} \\
+\hline
+Potencia TX & & \\
+\hline
+Antena (ganancia) & & \\
+\hline
+Altura de antena & & \\
+\hline
+Frecuencia & & \\
+\hline
+Estándar & & \\
+\hline
+\end{tabular}
+\end{table}
 
+\textbf{¿Por qué funcionaría esta configuración?}
+\linearespuesta{}
+\linearespuesta{}
+\linearespuesta{}
 
-\subsection{Referencias}
-Insertar las referencias bibliográficas empleadas aplicando la norma IEEE.
+\section{Conclusiones}
 
-\vspace{-3em} %reduce el espacio causado por refname vacío
-\renewcommand{\refname}{}
-\bibliographystyle{ieeetr}
-\bibliography{sample}
+\subsection{Tres aprendizajes principales}
+\linearespuesta{}
+\linearespuesta{}
+\linearespuesta{}
 
-\subsection{Anexos}
-\vfill
+\subsection{Aplicación en el mundo real}
+\textbf{¿Cómo podrías aplicar lo aprendido en un despliegue real de una red Wi-Fi (casa, oficina, campus)?}
+\linearespuesta{}
+\linearespuesta{}
+\linearespuesta{}
+\linearespuesta{}
+
+\subsection{Evaluación de la IA utilizada}
+\begin{table}[H]
+\centering
+\begin{tabular}{|p{6cm}|p{8cm}|}
+\hline
+\textbf{Aspecto} & \textbf{Respuesta} \\
+\hline
+¿Qué IA usaste? & \\
+\hline
+¿En qué te ayudó? & \\
+\hline
+¿Qué información tuvo que corregir o complementar? & \\
+\hline
+¿Recomendarías su uso para futuras prácticas? & \\
+\hline
+\end{tabular}
+\end{table}
+
+\linearespuesta{}
+\linearespuesta{}
+\linearespuesta{}
+
+\section{Anexos}
+
+\subsection*{Anexo A: Código NED completo}
+\espacioanexo{Pegar aquí el código NED utilizado}
+
+\subsection*{Anexo B: Archivo \texttt{omnetpp.ini} completo}
+\espacioanexo{Pegar aquí el archivo de configuración}
+
+\subsection*{Anexo C: Registro de comandos de Packet Tracer}
+\espacioanexo{Pegar aquí los comandos utilizados en Packet Tracer}
+
+\subsection*{Anexo D: Capturas de pantalla adicionales}
+\espacioanexo{Pegar aquí capturas adicionales}
+
+\section*{Rúbrica de autoevaluación}
+\begin{table}[H]
+\centering
+\begin{tabular}{|p{5cm}|p{4cm}|p{5cm}|}
+\hline
+\textbf{Criterio} & \textbf{Mi autoevaluación} & \textbf{Evidencia} \\
+\hline
+EC -- Captura de datos /2 & & \\
+\hline
+OR -- Reflexión /1 & & \\
+\hline
+CA -- Mapa conceptual /2 & & \\
+\hline
+EA -- Experimentación /2 & & \\
+\hline
+Uso de IA /1 & & \\
+\hline
+Presentación /1 & & \\
+\hline
+\end{tabular}
+\end{table}
+
+\noindent\textbf{Mi nota estimada:} \underline{\hspace{2cm}} / 10
+
+\vspace{0.3cm}
+\noindent\textbf{Comentario adicional para el profesor:}
+\linearespuesta{}
+\linearespuesta{}
+
+\vspace{0.4cm}
+\noindent\textbf{Fecha de entrega:} \underline{\hspace{3cm}}
+\hfill
+\textbf{Firma del estudiante:} \underline{\hspace{5cm}}
+
 \end{document}
