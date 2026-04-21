@@ -20,6 +20,7 @@
 \usepackage{enumitem}
 \usepackage{xcolor}
 \usepackage{setspace}
+\usepackage{caption}
 
 \pagestyle{fancy}
 \fancyhf{}
@@ -73,11 +74,11 @@
 \section*{Datos generales}
 \begin{flushleft}
 \begin{tabular}{ l l }
-    \textbf{Autor:} & \underline{\hspace{9cm}} \\
-    \textbf{Fecha:} & \underline{\hspace{9cm}} \\
+    \textbf{Autor:} & Guatemal Avilez Bryan Stalin \\
+    \textbf{Fecha:} & 4/20/2026 \\
     \textbf{Asignatura:} & Redes \\
     \textbf{Docente:} & Ing. Wilson Gustavo Chango Sailema, Mg. \\
-    \textbf{Nivel y Paralelo:} & \underline{\hspace{5cm}} \\
+    \textbf{Nivel y Paralelo:} & 4to Semestre B \\
     \textbf{Tema:} & Análisis de redes Wi-Fi \\
 \end{tabular}
 \end{flushleft}
@@ -110,23 +111,30 @@
 \hline
 \textbf{Elemento} & \textbf{Nombre asignado} & \textbf{IP} \\
 \hline
-Switch & & \\
+Switch & Switch0 & No requiere \\
 \hline
-PC Cableada 1 & & \\
+PC Cableada 1 & PC0 & 207.150.75.2 \\
 \hline
-PC Cableada 2 (Servidor) & & \\
+PC Cableada 2 (Servidor) & Server0 & 207.150.75.4 \\
 \hline
-Router Inalámbrico & & \\
+Router Inalámbrico & Wireless Router0 & 207.150.150.1 \\
 \hline
-Laptop & & \\
+Laptop & Laptop0 & 207.150.150.100 \\
 \hline
-Tablet & & \\
+Tablet & Tablet PC0 & 207.150.150.101 \\
 \hline
 \end{tabular}
 \end{table}
 
+\noindent\textbf{Nota:} En la topología también se configuró un equipo adicional PC1 con dirección IP 207.150.75.3 dentro de la red cableada, de acuerdo con la topología solicitada por el docente.
+
 \textbf{Topología construida:}
-\espacioimagen{Pegar captura de pantalla de Packet Tracer}{6cm}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.92\textwidth]{imagenes/TopologiaCompleta.png}
+    \caption{Topología completa construida en Packet Tracer}
+\end{figure}
 
 \textbf{Observaciones directas -- Ping cableado (PC0 $\rightarrow$ Servidor):}
 
@@ -136,16 +144,28 @@ Tablet & & \\
 \hline
 \textbf{Campo} & \textbf{Valor observado} \\
 \hline
-MAC origen (PC0) & \\
+MAC origen (PC0) & 0002.4AD1.C187 \\
 \hline
-MAC destino (Switch/Servidor) & \\
+MAC destino (Switch/Servidor) & 000A.410D.77AD \\
 \hline
-IP origen & \\
+IP origen & 207.150.75.2 \\
 \hline
-IP destino & \\
+IP destino & 207.150.75.4 \\
 \hline
 \end{tabular}
 \end{table}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.75\textwidth]{imagenes/PDU_cableada_del_ping_PC0aServer0.png}
+    \caption{PDU cableada del ping PC0 $\rightarrow$ Server0 en modo Simulation}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.75\textwidth]{imagenes/pingPC0aServidor.png}
+    \caption{Prueba de conectividad del ping cableado entre PC0 y Server0}
+\end{figure}
 
 \textbf{Observaciones directas -- Ping inalámbrico (Laptop0 $\rightarrow$ Tablet):}
 
@@ -155,17 +175,28 @@ IP destino & \\
 \hline
 \textbf{Campo} & \textbf{Valor observado} \\
 \hline
-MAC Address 1 (Receiver) & \\
+MAC Address 1 (Receiver) & 00D0.BA36.C606 \\
 \hline
-MAC Address 2 (Transmitter) & \\
+MAC Address 2 (Transmitter) & 0001.9792.CEB5 \\
 \hline
-MAC Address 3 (Destination) & \\
+MAC Address 3 (Destination) & 00D0.FF5D.68A7 \\
 \hline
 \end{tabular}
 \end{table}
 
 \textbf{Captura de pantalla de la PDU Wi-Fi:}
-\espacioimagen{Pegar imagen aquí}{6cm}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.75\textwidth]{imagenes/PDU_WiFi_del_ping_Laptop0aTablet_PC0.png}
+    \caption{PDU Wi-Fi del ping Laptop0 $\rightarrow$ Tablet PC0 en modo Simulation}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.75\textwidth]{imagenes/pingLaptop0aTablet.png}
+    \caption{Prueba de conectividad del ping inalámbrico entre Laptop0 y Tablet PC0}
+\end{figure}
 
 \subsection{Escenario 2: OMNeT++ -- Throughput vs Distancia}
 \textbf{Configuración de la simulación:}
@@ -288,11 +319,11 @@ Intervalo de envío & 0.01 s \\
 \hline
 \textbf{Dirección} & \textbf{Significado} & \textbf{En mi simulación observé} \\
 \hline
-Address 1 & Receiver (receptor inmediato) & \\
+Address 1 & Receiver (receptor inmediato) & 00D0.BA36.C606 \\
 \hline
-Address 2 & Transmitter (transmisor inmediato) & \\
+Address 2 & Transmitter (transmisor inmediato) & 0001.9792.CEB5 \\
 \hline
-Address 3 & Destination (destino final) & \\
+Address 3 & Destination (destino final) & 00D0.FF5D.68A7 \\
 \hline
 \end{tabular}
 \end{table}
