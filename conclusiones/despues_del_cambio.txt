@@ -1,0 +1,516 @@
+Experiment	Measurement	Replication	Module	Module Display Path	Name	Count	Mean	StdDev	
+General		#0	WlcApLab.wlc.ethernet	WlcApLab.wlc.ethernet	encapPk:vector(packetBytes)	0	-	-	
+General		#0	WlcApLab.wlc.ethernet	WlcApLab.wlc.ethernet	decapPk:vector(packetBytes)	3	46	0	
+General		#0	WlcApLab.wlc.ethernet	WlcApLab.wlc.ethernet	pauseSent:vector	0	-	-	
+General		#0	WlcApLab.wlc.lo[0].lo	WlcApLab.wlc.lo[0].lo	rcvdPkFromHl:vector(packetBytes)	0	-	-	
+General		#0	WlcApLab.wlc.lo[0].lo	WlcApLab.wlc.lo[0].lo	passedUpPk:vector(packetBytes)	0	-	-	
+General		#0	WlcApLab.wlc.lo[0]	WlcApLab.wlc.lo[0]	packetDropInterfaceDown:vector(packetBytes)	0	-	-	
+General		#0	WlcApLab.wlc.lo[0]	WlcApLab.wlc.lo[0]	packetDropNoCarrier:vector(packetBytes)	0	-	-	
+General		#0	WlcApLab.wlc.eth[0].queue	WlcApLab.wlc.eth[0].queue	queueLength:vector	5	0 pk	0 pk	
+General		#0	WlcApLab.wlc.eth[0].queue	WlcApLab.wlc.eth[0].queue	queueBitLength:vector	5	0 B	0 B	
+General		#0	WlcApLab.wlc.eth[0].queue	WlcApLab.wlc.eth[0].queue	queueingTime:vector	0	-	-	
+General		#0	WlcApLab.wlc.eth[0].queue	WlcApLab.wlc.eth[0].queue	incomingPacketLengths:vector	0	-	-	
+General		#0	WlcApLab.wlc.eth[0].queue	WlcApLab.wlc.eth[0].queue	incomingDataRate:vector	300	0 bps	0 bps	
+General		#0	WlcApLab.wlc.eth[0].queue	WlcApLab.wlc.eth[0].queue	outgoingPacketLengths:vector	0	-	-	
+General		#0	WlcApLab.wlc.eth[0].queue	WlcApLab.wlc.eth[0].queue	outgoingDataRate:vector	300	0 bps	0 bps	
+General		#0	WlcApLab.wlc.eth[0].queue	WlcApLab.wlc.eth[0].queue	droppedPacketLengthsQueueOverflow:vector	0	-	-	
+General		#0	WlcApLab.wlc.eth[0].queue	WlcApLab.wlc.eth[0].queue	flowQueueingTime:vector	0	-	-	
+General		#0	WlcApLab.wlc.eth[0].queue	WlcApLab.wlc.eth[0].queue	flowIncomingDataRate:vector	0	-	-	
+General		#0	WlcApLab.wlc.eth[0].queue	WlcApLab.wlc.eth[0].queue	flowOutgoingDataRate:vector	0	-	-	
+General		#0	WlcApLab.wlc.eth[0].mac	WlcApLab.wlc.eth[0].mac	txPk:vector(packetBytes)	0	-	-	
+General		#0	WlcApLab.wlc.eth[0].mac	WlcApLab.wlc.eth[0].mac	rxPkOk:vector(packetBytes)	3	64	0	
+General		#0	WlcApLab.wlc.eth[0].mac	WlcApLab.wlc.eth[0].mac	passedUpPk:vector(packetBytes)	3	64	0	
+General		#0	WlcApLab.wlc.eth[0].mac	WlcApLab.wlc.eth[0].mac	txPausePkUnits:vector	0	-	-	
+General		#0	WlcApLab.wlc.eth[0].mac	WlcApLab.wlc.eth[0].mac	rxPausePkUnits:vector	0	-	-	
+General		#0	WlcApLab.wlc.eth[0].mac	WlcApLab.wlc.eth[0].mac	packetReceivedFromUpper:vector(packetBytes)	0	-	-	
+General		#0	WlcApLab.wlc.eth[0].mac	WlcApLab.wlc.eth[0].mac	packetDropIncorrectlyReceived:vector(packetBytes)	0	-	-	
+General		#0	WlcApLab.wlc.eth[0].mac	WlcApLab.wlc.eth[0].mac	packetDropInterfaceDown:vector(packetBytes)	0	-	-	
+General		#0	WlcApLab.wlc.eth[0].mac	WlcApLab.wlc.eth[0].mac	packetDropNotAddressedToUs:vector(packetBytes)	0	-	-	
+General		#0	WlcApLab.wlc.eth[0]	WlcApLab.wlc.eth[0]	packetDropInterfaceDown:vector(packetBytes)	0	-	-	
+General		#0	WlcApLab.wlc.eth[0]	WlcApLab.wlc.eth[0]	packetDropNoCarrier:vector(packetBytes)	0	-	-	
+General		#0	WlcApLab.wlc.ipv4.ip	WlcApLab.wlc.ipv4.ip	packetDropAddressResolutionFailed:vector(packetBytes)	0	-	-	
+General		#0	WlcApLab.wlc.ipv4.ip	WlcApLab.wlc.ipv4.ip	packetDropHopLimitReached:vector(packetBytes)	0	-	-	
+General		#0	WlcApLab.wlc.ipv4.ip	WlcApLab.wlc.ipv4.ip	packetDropForwardingDisabled:vector(packetBytes)	0	-	-	
+General		#0	WlcApLab.wlc.ipv4.ip	WlcApLab.wlc.ipv4.ip	packetDropNoInterfaceFound:vector(packetBytes)	0	-	-	
+General		#0	WlcApLab.wlc.ipv4.ip	WlcApLab.wlc.ipv4.ip	packetDropNoRouteFound:vector(packetBytes)	0	-	-	
+General		#0	WlcApLab.wlc.ipv4.ip	WlcApLab.wlc.ipv4.ip	packetDropUndefined:vector(packetBytes)	0	-	-	
+General		#0	WlcApLab.wlc.ipv4.arp	WlcApLab.wlc.ipv4.arp	arpRequestSent:vector(packetBytes)	0	-	-	
+General		#0	WlcApLab.wlc.ipv4.arp	WlcApLab.wlc.ipv4.arp	arpReplySent:vector(packetBytes)	0	-	-	
+General		#0	WlcApLab.wlc.udp	WlcApLab.wlc.udp	packetSent:vector(packetBytes)	0	-	-	
+General		#0	WlcApLab.wlc.udp	WlcApLab.wlc.udp	packetReceived:vector(packetBytes)	0	-	-	
+General		#0	WlcApLab.wlc.udp	WlcApLab.wlc.udp	passedUpPk:vector(count)	1	0	-	
+General		#0	WlcApLab.wlc.udp	WlcApLab.wlc.udp	droppedPkWrongPort:vector(count)	1	0	-	
+General		#0	WlcApLab.wlc.udp	WlcApLab.wlc.udp	droppedPkBadChecksum:vector(count)	1	0	-	
+General		#0	WlcApLab.switch0.bridging	WlcApLab.switch0.bridging	packetDropped:vector(packetBytes)	0	-	-	
+General		#0	WlcApLab.switch0.ethernet	WlcApLab.switch0.ethernet	encapPk:vector(packetBytes)	3 526	~ 1 224.98	~ 59.649 1	
+General		#0	WlcApLab.switch0.ethernet	WlcApLab.switch0.ethernet	decapPk:vector(packetBytes)	3 523	~ 1 225.99	~ 48.744 8	
+General		#0	WlcApLab.switch0.ethernet	WlcApLab.switch0.ethernet	pauseSent:vector	0	-	-	
+General		#0	WlcApLab.switch0.ieee8021q.qTagHeaderInserter	WlcApLab.switch0.ieee8021q.qTagHeaderInserter	incomingPacketLengths:vector	0	-	-	
+General		#0	WlcApLab.switch0.ieee8021q.qTagHeaderInserter	WlcApLab.switch0.ieee8021q.qTagHeaderInserter	incomingDataRate:vector	0	-	-	
+General		#0	WlcApLab.switch0.ieee8021q.qTagHeaderInserter	WlcApLab.switch0.ieee8021q.qTagHeaderInserter	outgoingPacketLengths:vector	0	-	-	
+General		#0	WlcApLab.switch0.ieee8021q.qTagHeaderInserter	WlcApLab.switch0.ieee8021q.qTagHeaderInserter	outgoingDataRate:vector	0	-	-	
+General		#0	WlcApLab.switch0.ieee8021q.qTagHeaderInserter	WlcApLab.switch0.ieee8021q.qTagHeaderInserter	flowIncomingPacketLengths:vector	0	-	-	
+General		#0	WlcApLab.switch0.ieee8021q.qTagHeaderInserter	WlcApLab.switch0.ieee8021q.qTagHeaderInserter	flowIncomingDataRate:vector	0	-	-	
+General		#0	WlcApLab.switch0.ieee8021q.qTagHeaderInserter	WlcApLab.switch0.ieee8021q.qTagHeaderInserter	flowOutgoingPacketLengths:vector	0	-	-	
+General		#0	WlcApLab.switch0.ieee8021q.qTagHeaderInserter	WlcApLab.switch0.ieee8021q.qTagHeaderInserter	flowOutgoingDataRate:vector	0	-	-	
+General		#0	WlcApLab.switch0.ieee8021q.qTagHeaderChecker	WlcApLab.switch0.ieee8021q.qTagHeaderChecker	incomingPacketLengths:vector	0	-	-	
+General		#0	WlcApLab.switch0.ieee8021q.qTagHeaderChecker	WlcApLab.switch0.ieee8021q.qTagHeaderChecker	incomingDataRate:vector	0	-	-	
+General		#0	WlcApLab.switch0.ieee8021q.qTagHeaderChecker	WlcApLab.switch0.ieee8021q.qTagHeaderChecker	outgoingPacketLengths:vector	0	-	-	
+General		#0	WlcApLab.switch0.ieee8021q.qTagHeaderChecker	WlcApLab.switch0.ieee8021q.qTagHeaderChecker	outgoingDataRate:vector	0	-	-	
+General		#0	WlcApLab.switch0.ieee8021q.qTagHeaderChecker	WlcApLab.switch0.ieee8021q.qTagHeaderChecker	droppedPacketLengths:vector	0	-	-	
+General		#0	WlcApLab.switch0.ieee8021q.qTagHeaderChecker	WlcApLab.switch0.ieee8021q.qTagHeaderChecker	droppedDataRate:vector	300	0 bps	0 bps	
+General		#0	WlcApLab.switch0.ieee8021q.qTagHeaderChecker	WlcApLab.switch0.ieee8021q.qTagHeaderChecker	flowIncomingPacketLengths:vector	0	-	-	
+General		#0	WlcApLab.switch0.ieee8021q.qTagHeaderChecker	WlcApLab.switch0.ieee8021q.qTagHeaderChecker	flowIncomingDataRate:vector	0	-	-	
+General		#0	WlcApLab.switch0.ieee8021q.qTagHeaderChecker	WlcApLab.switch0.ieee8021q.qTagHeaderChecker	flowOutgoingPacketLengths:vector	0	-	-	
+General		#0	WlcApLab.switch0.ieee8021q.qTagHeaderChecker	WlcApLab.switch0.ieee8021q.qTagHeaderChecker	flowOutgoingDataRate:vector	0	-	-	
+General		#0	WlcApLab.switch0.ieee8021q.qTagHeaderChecker	WlcApLab.switch0.ieee8021q.qTagHeaderChecker	flowDroppedPacketLengths:vector	0	-	-	
+General		#0	WlcApLab.switch0.ieee8021q.qTagHeaderChecker	WlcApLab.switch0.ieee8021q.qTagHeaderChecker	flowDroppedDataRate:vector	0	-	-	
+General		#0	WlcApLab.switch0.ieee8021r.rTagHeaderInserter	WlcApLab.switch0.ieee8021r.rTagHeaderInserter	incomingPacketLengths:vector	0	-	-	
+General		#0	WlcApLab.switch0.ieee8021r.rTagHeaderInserter	WlcApLab.switch0.ieee8021r.rTagHeaderInserter	incomingDataRate:vector	0	-	-	
+General		#0	WlcApLab.switch0.ieee8021r.rTagHeaderInserter	WlcApLab.switch0.ieee8021r.rTagHeaderInserter	outgoingPacketLengths:vector	0	-	-	
+General		#0	WlcApLab.switch0.ieee8021r.rTagHeaderInserter	WlcApLab.switch0.ieee8021r.rTagHeaderInserter	outgoingDataRate:vector	0	-	-	
+General		#0	WlcApLab.switch0.ieee8021r.rTagHeaderInserter	WlcApLab.switch0.ieee8021r.rTagHeaderInserter	flowIncomingPacketLengths:vector	0	-	-	
+General		#0	WlcApLab.switch0.ieee8021r.rTagHeaderInserter	WlcApLab.switch0.ieee8021r.rTagHeaderInserter	flowIncomingDataRate:vector	0	-	-	
+General		#0	WlcApLab.switch0.ieee8021r.rTagHeaderInserter	WlcApLab.switch0.ieee8021r.rTagHeaderInserter	flowOutgoingPacketLengths:vector	0	-	-	
+General		#0	WlcApLab.switch0.ieee8021r.rTagHeaderInserter	WlcApLab.switch0.ieee8021r.rTagHeaderInserter	flowOutgoingDataRate:vector	0	-	-	
+General		#0	WlcApLab.switch0.ieee8021r.rTagHeaderChecker	WlcApLab.switch0.ieee8021r.rTagHeaderChecker	incomingPacketLengths:vector	0	-	-	
+General		#0	WlcApLab.switch0.ieee8021r.rTagHeaderChecker	WlcApLab.switch0.ieee8021r.rTagHeaderChecker	incomingDataRate:vector	0	-	-	
+General		#0	WlcApLab.switch0.ieee8021r.rTagHeaderChecker	WlcApLab.switch0.ieee8021r.rTagHeaderChecker	outgoingPacketLengths:vector	0	-	-	
+General		#0	WlcApLab.switch0.ieee8021r.rTagHeaderChecker	WlcApLab.switch0.ieee8021r.rTagHeaderChecker	outgoingDataRate:vector	0	-	-	
+General		#0	WlcApLab.switch0.ieee8021r.rTagHeaderChecker	WlcApLab.switch0.ieee8021r.rTagHeaderChecker	droppedPacketLengths:vector	0	-	-	
+General		#0	WlcApLab.switch0.ieee8021r.rTagHeaderChecker	WlcApLab.switch0.ieee8021r.rTagHeaderChecker	droppedDataRate:vector	300	0 bps	0 bps	
+General		#0	WlcApLab.switch0.ieee8021r.rTagHeaderChecker	WlcApLab.switch0.ieee8021r.rTagHeaderChecker	flowIncomingPacketLengths:vector	0	-	-	
+General		#0	WlcApLab.switch0.ieee8021r.rTagHeaderChecker	WlcApLab.switch0.ieee8021r.rTagHeaderChecker	flowIncomingDataRate:vector	0	-	-	
+General		#0	WlcApLab.switch0.ieee8021r.rTagHeaderChecker	WlcApLab.switch0.ieee8021r.rTagHeaderChecker	flowOutgoingPacketLengths:vector	0	-	-	
+General		#0	WlcApLab.switch0.ieee8021r.rTagHeaderChecker	WlcApLab.switch0.ieee8021r.rTagHeaderChecker	flowOutgoingDataRate:vector	0	-	-	
+General		#0	WlcApLab.switch0.ieee8021r.rTagHeaderChecker	WlcApLab.switch0.ieee8021r.rTagHeaderChecker	flowDroppedPacketLengths:vector	0	-	-	
+General		#0	WlcApLab.switch0.ieee8021r.rTagHeaderChecker	WlcApLab.switch0.ieee8021r.rTagHeaderChecker	flowDroppedDataRate:vector	0	-	-	
+General		#0	WlcApLab.switch0.eth[0].queue	WlcApLab.switch0.eth[0].queue	queueLength:vector	8	0 pk	0 pk	
+General		#0	WlcApLab.switch0.eth[0].queue	WlcApLab.switch0.eth[0].queue	queueBitLength:vector	8	0 B	0 B	
+General		#0	WlcApLab.switch0.eth[0].queue	WlcApLab.switch0.eth[0].queue	queueingTime:vector	3	0 s	0 s	
+General		#0	WlcApLab.switch0.eth[0].queue	WlcApLab.switch0.eth[0].queue	incomingPacketLengths:vector	3	64 B	0 B	
+General		#0	WlcApLab.switch0.eth[0].queue	WlcApLab.switch0.eth[0].queue	incomingDataRate:vector	300	51.2 bps	~ 660.104 bps	
+General		#0	WlcApLab.switch0.eth[0].queue	WlcApLab.switch0.eth[0].queue	outgoingPacketLengths:vector	3	64 B	0 B	
+General		#0	WlcApLab.switch0.eth[0].queue	WlcApLab.switch0.eth[0].queue	outgoingDataRate:vector	300	51.2 bps	~ 660.104 bps	
+General		#0	WlcApLab.switch0.eth[0].queue	WlcApLab.switch0.eth[0].queue	droppedPacketLengthsQueueOverflow:vector	0	-	-	
+General		#0	WlcApLab.switch0.eth[0].queue	WlcApLab.switch0.eth[0].queue	flowQueueingTime:vector	0	-	-	
+General		#0	WlcApLab.switch0.eth[0].queue	WlcApLab.switch0.eth[0].queue	flowIncomingDataRate:vector	0	-	-	
+General		#0	WlcApLab.switch0.eth[0].queue	WlcApLab.switch0.eth[0].queue	flowOutgoingDataRate:vector	0	-	-	
+General		#0	WlcApLab.switch0.eth[0].mac	WlcApLab.switch0.eth[0].mac	txPk:vector(packetBytes)	3	64	0	
+General		#0	WlcApLab.switch0.eth[0].mac	WlcApLab.switch0.eth[0].mac	rxPkOk:vector(packetBytes)	0	-	-	
+General		#0	WlcApLab.switch0.eth[0].mac	WlcApLab.switch0.eth[0].mac	passedUpPk:vector(packetBytes)	0	-	-	
+General		#0	WlcApLab.switch0.eth[0].mac	WlcApLab.switch0.eth[0].mac	txPausePkUnits:vector	0	-	-	
+General		#0	WlcApLab.switch0.eth[0].mac	WlcApLab.switch0.eth[0].mac	rxPausePkUnits:vector	0	-	-	
+General		#0	WlcApLab.switch0.eth[0].mac	WlcApLab.switch0.eth[0].mac	packetReceivedFromUpper:vector(packetBytes)	3	64	0	
+General		#0	WlcApLab.switch0.eth[0].mac	WlcApLab.switch0.eth[0].mac	packetDropIncorrectlyReceived:vector(packetBytes)	0	-	-	
+General		#0	WlcApLab.switch0.eth[0].mac	WlcApLab.switch0.eth[0].mac	packetDropInterfaceDown:vector(packetBytes)	0	-	-	
+General		#0	WlcApLab.switch0.eth[0].mac	WlcApLab.switch0.eth[0].mac	packetDropNotAddressedToUs:vector(packetBytes)	0	-	-	
+General		#0	WlcApLab.switch0.eth[0]	WlcApLab.switch0.eth[0]	packetDropInterfaceDown:vector(packetBytes)	0	-	-	
+General		#0	WlcApLab.switch0.eth[0]	WlcApLab.switch0.eth[0]	packetDropNoCarrier:vector(packetBytes)	0	-	-	
+General		#0	WlcApLab.switch0.eth[1].queue	WlcApLab.switch0.eth[1].queue	queueLength:vector	8	0 pk	0 pk	
+General		#0	WlcApLab.switch0.eth[1].queue	WlcApLab.switch0.eth[1].queue	queueBitLength:vector	8	0 B	0 B	
+General		#0	WlcApLab.switch0.eth[1].queue	WlcApLab.switch0.eth[1].queue	queueingTime:vector	3	0 s	0 s	
+General		#0	WlcApLab.switch0.eth[1].queue	WlcApLab.switch0.eth[1].queue	incomingPacketLengths:vector	3	64 B	0 B	
+General		#0	WlcApLab.switch0.eth[1].queue	WlcApLab.switch0.eth[1].queue	incomingDataRate:vector	300	51.2 bps	~ 660.104 bps	
+General		#0	WlcApLab.switch0.eth[1].queue	WlcApLab.switch0.eth[1].queue	outgoingPacketLengths:vector	3	64 B	0 B	
+General		#0	WlcApLab.switch0.eth[1].queue	WlcApLab.switch0.eth[1].queue	outgoingDataRate:vector	300	51.2 bps	~ 660.104 bps	
+General		#0	WlcApLab.switch0.eth[1].queue	WlcApLab.switch0.eth[1].queue	droppedPacketLengthsQueueOverflow:vector	0	-	-	
+General		#0	WlcApLab.switch0.eth[1].queue	WlcApLab.switch0.eth[1].queue	flowQueueingTime:vector	0	-	-	
+General		#0	WlcApLab.switch0.eth[1].queue	WlcApLab.switch0.eth[1].queue	flowIncomingDataRate:vector	0	-	-	
+General		#0	WlcApLab.switch0.eth[1].queue	WlcApLab.switch0.eth[1].queue	flowOutgoingDataRate:vector	0	-	-	
+General		#0	WlcApLab.switch0.eth[1].mac	WlcApLab.switch0.eth[1].mac	txPk:vector(packetBytes)	3	64	0	
+General		#0	WlcApLab.switch0.eth[1].mac	WlcApLab.switch0.eth[1].mac	rxPkOk:vector(packetBytes)	3 520	~ 1 244.99	~ 34.497 2	
+General		#0	WlcApLab.switch0.eth[1].mac	WlcApLab.switch0.eth[1].mac	passedUpPk:vector(packetBytes)	3 520	~ 1 244.99	~ 34.497 2	
+General		#0	WlcApLab.switch0.eth[1].mac	WlcApLab.switch0.eth[1].mac	txPausePkUnits:vector	0	-	-	
+General		#0	WlcApLab.switch0.eth[1].mac	WlcApLab.switch0.eth[1].mac	rxPausePkUnits:vector	0	-	-	
+General		#0	WlcApLab.switch0.eth[1].mac	WlcApLab.switch0.eth[1].mac	packetReceivedFromUpper:vector(packetBytes)	3	64	0	
+General		#0	WlcApLab.switch0.eth[1].mac	WlcApLab.switch0.eth[1].mac	packetDropIncorrectlyReceived:vector(packetBytes)	0	-	-	
+General		#0	WlcApLab.switch0.eth[1].mac	WlcApLab.switch0.eth[1].mac	packetDropInterfaceDown:vector(packetBytes)	0	-	-	
+General		#0	WlcApLab.switch0.eth[1].mac	WlcApLab.switch0.eth[1].mac	packetDropNotAddressedToUs:vector(packetBytes)	0	-	-	
+General		#0	WlcApLab.switch0.eth[1]	WlcApLab.switch0.eth[1]	packetDropInterfaceDown:vector(packetBytes)	0	-	-	
+General		#0	WlcApLab.switch0.eth[1]	WlcApLab.switch0.eth[1]	packetDropNoCarrier:vector(packetBytes)	0	-	-	
+General		#0	WlcApLab.switch0.eth[2].queue	WlcApLab.switch0.eth[2].queue	queueLength:vector	3 525	0 pk	0 pk	
+General		#0	WlcApLab.switch0.eth[2].queue	WlcApLab.switch0.eth[2].queue	queueBitLength:vector	3 525	0 B	0 B	
+General		#0	WlcApLab.switch0.eth[2].queue	WlcApLab.switch0.eth[2].queue	queueingTime:vector	3 520	0 s	0 s	
+General		#0	WlcApLab.switch0.eth[2].queue	WlcApLab.switch0.eth[2].queue	incomingPacketLengths:vector	3 520	~ 1 244.99 B	~ 34.497 2 B	
+General		#0	WlcApLab.switch0.eth[2].queue	WlcApLab.switch0.eth[2].queue	incomingDataRate:vector	300	~ 1.168 63 Mbps	~ 710.212 kbps	
+General		#0	WlcApLab.switch0.eth[2].queue	WlcApLab.switch0.eth[2].queue	outgoingPacketLengths:vector	3 520	~ 1 244.99 B	~ 34.497 2 B	
+General		#0	WlcApLab.switch0.eth[2].queue	WlcApLab.switch0.eth[2].queue	outgoingDataRate:vector	300	~ 1.168 63 Mbps	~ 710.212 kbps	
+General		#0	WlcApLab.switch0.eth[2].queue	WlcApLab.switch0.eth[2].queue	droppedPacketLengthsQueueOverflow:vector	0	-	-	
+General		#0	WlcApLab.switch0.eth[2].queue	WlcApLab.switch0.eth[2].queue	flowQueueingTime:vector	0	-	-	
+General		#0	WlcApLab.switch0.eth[2].queue	WlcApLab.switch0.eth[2].queue	flowIncomingDataRate:vector	0	-	-	
+General		#0	WlcApLab.switch0.eth[2].queue	WlcApLab.switch0.eth[2].queue	flowOutgoingDataRate:vector	0	-	-	
+General		#0	WlcApLab.switch0.eth[2].mac	WlcApLab.switch0.eth[2].mac	txPk:vector(packetBytes)	3 520	~ 1 244.99	~ 34.497 2	
+General		#0	WlcApLab.switch0.eth[2].mac	WlcApLab.switch0.eth[2].mac	rxPkOk:vector(packetBytes)	3	64	0	
+General		#0	WlcApLab.switch0.eth[2].mac	WlcApLab.switch0.eth[2].mac	passedUpPk:vector(packetBytes)	3	64	0	
+General		#0	WlcApLab.switch0.eth[2].mac	WlcApLab.switch0.eth[2].mac	txPausePkUnits:vector	0	-	-	
+General		#0	WlcApLab.switch0.eth[2].mac	WlcApLab.switch0.eth[2].mac	rxPausePkUnits:vector	0	-	-	
+General		#0	WlcApLab.switch0.eth[2].mac	WlcApLab.switch0.eth[2].mac	packetReceivedFromUpper:vector(packetBytes)	3 520	~ 1 244.99	~ 34.497 2	
+General		#0	WlcApLab.switch0.eth[2].mac	WlcApLab.switch0.eth[2].mac	packetDropIncorrectlyReceived:vector(packetBytes)	0	-	-	
+General		#0	WlcApLab.switch0.eth[2].mac	WlcApLab.switch0.eth[2].mac	packetDropInterfaceDown:vector(packetBytes)	0	-	-	
+General		#0	WlcApLab.switch0.eth[2].mac	WlcApLab.switch0.eth[2].mac	packetDropNotAddressedToUs:vector(packetBytes)	0	-	-	
+General		#0	WlcApLab.switch0.eth[2]	WlcApLab.switch0.eth[2]	packetDropInterfaceDown:vector(packetBytes)	0	-	-	
+General		#0	WlcApLab.switch0.eth[2]	WlcApLab.switch0.eth[2]	packetDropNoCarrier:vector(packetBytes)	0	-	-	
+General		#0	WlcApLab.ap1.bridging	WlcApLab.ap1.bridging	packetDropped:vector(packetBytes)	0	-	-	
+General		#0	WlcApLab.ap1.ethernet	WlcApLab.ap1.ethernet	encapPk:vector(packetBytes)	3 523	~ 1 225.97	~ 49.117 4	
+General		#0	WlcApLab.ap1.ethernet	WlcApLab.ap1.ethernet	decapPk:vector(packetBytes)	3 523	~ 1 225.97	~ 49.117 4	
+General		#0	WlcApLab.ap1.ethernet	WlcApLab.ap1.ethernet	pauseSent:vector	0	-	-	
+General		#0	WlcApLab.ap1.wlan[0].mac.dcf.channelAccess.pendingQueue	WlcApLab.ap1.wlan[0].mac.dcf.channelAccess.pendingQueue	queueLength:vector	641	~ 0.508 58 pk	~ 0.512 657 pk	
+General		#0	WlcApLab.ap1.wlan[0].mac.dcf.channelAccess.pendingQueue	WlcApLab.ap1.wlan[0].mac.dcf.channelAccess.pendingQueue	queueBitLength:vector	641	~ 26.567 9 B	~ 27.428 6 B	
+General		#0	WlcApLab.ap1.wlan[0].mac.dcf.channelAccess.pendingQueue	WlcApLab.ap1.wlan[0].mac.dcf.channelAccess.pendingQueue	queueingTime:vector	318	~ 53.071 ms	~ 544.107 ms	
+General		#0	WlcApLab.ap1.wlan[0].mac.dcf.channelAccess.pendingQueue	WlcApLab.ap1.wlan[0].mac.dcf.channelAccess.pendingQueue	incomingPacketLengths:vector	318	~ 51.905 7 B	~ 4.292 6 B	
+General		#0	WlcApLab.ap1.wlan[0].mac.dcf.channelAccess.pendingQueue	WlcApLab.ap1.wlan[0].mac.dcf.channelAccess.pendingQueue	incomingDataRate:vector	300	4.401 6 kbps	~ 1.915 65 kbps	
+General		#0	WlcApLab.ap1.wlan[0].mac.dcf.channelAccess.pendingQueue	WlcApLab.ap1.wlan[0].mac.dcf.channelAccess.pendingQueue	outgoingPacketLengths:vector	318	~ 51.905 7 B	~ 4.292 6 B	
+General		#0	WlcApLab.ap1.wlan[0].mac.dcf.channelAccess.pendingQueue	WlcApLab.ap1.wlan[0].mac.dcf.channelAccess.pendingQueue	outgoingDataRate:vector	300	4.401 6 kbps	~ 1.915 65 kbps	
+General		#0	WlcApLab.ap1.wlan[0].mac.dcf.channelAccess.pendingQueue	WlcApLab.ap1.wlan[0].mac.dcf.channelAccess.pendingQueue	droppedPacketLengthsQueueOverflow:vector	0	-	-	
+General		#0	WlcApLab.ap1.wlan[0].mac.dcf.channelAccess.pendingQueue	WlcApLab.ap1.wlan[0].mac.dcf.channelAccess.pendingQueue	flowQueueingTime:vector	0	-	-	
+General		#0	WlcApLab.ap1.wlan[0].mac.dcf.channelAccess.pendingQueue	WlcApLab.ap1.wlan[0].mac.dcf.channelAccess.pendingQueue	flowIncomingDataRate:vector	0	-	-	
+General		#0	WlcApLab.ap1.wlan[0].mac.dcf.channelAccess.pendingQueue	WlcApLab.ap1.wlan[0].mac.dcf.channelAccess.pendingQueue	flowOutgoingDataRate:vector	0	-	-	
+General		#0	WlcApLab.ap1.wlan[0].mac.dcf.channelAccess.inProgressFrames	WlcApLab.ap1.wlan[0].mac.dcf.channelAccess.inProgressFrames	queueingTime:vector	318	~ 0.000 054 835 4	~ 0.000 061 039 3	
+General		#0	WlcApLab.ap1.wlan[0].mac.dcf.channelAccess.inProgressFrames	WlcApLab.ap1.wlan[0].mac.dcf.channelAccess.inProgressFrames	queueLength:vector	638	~ 0.514 107	~ 0.515 647	
+General		#0	WlcApLab.ap1.wlan[0].mac.dcf.channelAccess.contention	WlcApLab.ap1.wlan[0].mac.dcf.channelAccess.contention	backoffPeriodGenerated:vector	318	~ 15.562 9	~ 9.250 16	
+General		#0	WlcApLab.ap1.wlan[0].mac.dcf.channelAccess.contention	WlcApLab.ap1.wlan[0].mac.dcf.channelAccess.contention	backoffActive:vector	696	~ 0.498 563	~ 0.500 358	
+General		#0	WlcApLab.ap1.wlan[0].mac.dcf.channelAccess.contention	WlcApLab.ap1.wlan[0].mac.dcf.channelAccess.contention	stateChanged:vector	30 802	~ 0.048 243 6	~ 0.301 631	
+General		#0	WlcApLab.ap1.wlan[0].mac.dcf.recipientMacDataService	WlcApLab.ap1.wlan[0].mac.dcf.recipientMacDataService	packetDropDuplicateDetected:vector(packetBytes)	0	-	-	
+General		#0	WlcApLab.ap1.wlan[0].mac.dcf.recoveryProcedure	WlcApLab.ap1.wlan[0].mac.dcf.recoveryProcedure	contentionWindowChanged:vector	1	31	-	
+General		#0	WlcApLab.ap1.wlan[0].mac.dcf	WlcApLab.ap1.wlan[0].mac.dcf	packetSentToPeer:vector(packetBytes)	3 847	~ 17.133 4	~ 10.511 9	
+General		#0	WlcApLab.ap1.wlan[0].mac.dcf	WlcApLab.ap1.wlan[0].mac.dcf	packetSentToPeerUnicast:vector(packetBytes)	3 544	~ 14.142 2	~ 2.490 98	
+General		#0	WlcApLab.ap1.wlan[0].mac.dcf	WlcApLab.ap1.wlan[0].mac.dcf	packetSentToPeerMulticast:vector(packetBytes)	303	~ 52.118 8	~ 1.190 08	
+General		#0	WlcApLab.ap1.wlan[0].mac.dcf	WlcApLab.ap1.wlan[0].mac.dcf	packetSentToPeerBroadcast:vector(packetBytes)	303	~ 52.118 8	~ 1.190 08	
+General		#0	WlcApLab.ap1.wlan[0].mac.dcf	WlcApLab.ap1.wlan[0].mac.dcf	packetSentToPeerWithRetry:vector(packetBytes)	0	-	-	
+General		#0	WlcApLab.ap1.wlan[0].mac.dcf	WlcApLab.ap1.wlan[0].mac.dcf	packetSentToPeerWithoutRetry:vector(packetBytes)	3 847	~ 17.133 4	~ 10.511 9	
+General		#0	WlcApLab.ap1.wlan[0].mac.dcf	WlcApLab.ap1.wlan[0].mac.dcf	packetReceivedFromPeer:vector(packetBytes)	3 547	~ 1 253.54	~ 113.306	
+General		#0	WlcApLab.ap1.wlan[0].mac.dcf	WlcApLab.ap1.wlan[0].mac.dcf	packetReceivedFromPeerUnicast:vector(packetBytes)	3 544	~ 1 254.57	~ 107.631	
+General		#0	WlcApLab.ap1.wlan[0].mac.dcf	WlcApLab.ap1.wlan[0].mac.dcf	packetReceivedFromPeerMulticast:vector(packetBytes)	3	32	0	
+General		#0	WlcApLab.ap1.wlan[0].mac.dcf	WlcApLab.ap1.wlan[0].mac.dcf	packetReceivedFromPeerBroadcast:vector(packetBytes)	3	32	0	
+General		#0	WlcApLab.ap1.wlan[0].mac.dcf	WlcApLab.ap1.wlan[0].mac.dcf	packetReceivedFromPeerWithRetry:vector(packetBytes)	4	1 264	0	
+General		#0	WlcApLab.ap1.wlan[0].mac.dcf	WlcApLab.ap1.wlan[0].mac.dcf	packetReceivedFromPeerWithoutRetry:vector(packetBytes)	3 543	~ 1 253.53	~ 113.369	
+General		#0	WlcApLab.ap1.wlan[0].mac.dcf	WlcApLab.ap1.wlan[0].mac.dcf	packetDrop:vector(packetBytes)	0	-	-	
+General		#0	WlcApLab.ap1.wlan[0].mac.dcf	WlcApLab.ap1.wlan[0].mac.dcf	packetDropNotAddressedToUs:vector(packetBytes)	0	-	-	
+General		#0	WlcApLab.ap1.wlan[0].mac.dcf	WlcApLab.ap1.wlan[0].mac.dcf	packetDropQueueOverflow:vector(packetBytes)	0	-	-	
+General		#0	WlcApLab.ap1.wlan[0].mac.dcf	WlcApLab.ap1.wlan[0].mac.dcf	packetDropRetryLimitReached:vector(packetBytes)	0	-	-	
+General		#0	WlcApLab.ap1.wlan[0].mac.dcf	WlcApLab.ap1.wlan[0].mac.dcf	frameSequenceActive:vector	638	~ 0.498 433	~ 0.500 39	
+General		#0	WlcApLab.ap1.wlan[0].mac.dcf	WlcApLab.ap1.wlan[0].mac.dcf	datarateSelected:vector	3 847	2.4e7	0	
+General		#0	WlcApLab.ap1.wlan[0].mac.rx	WlcApLab.ap1.wlan[0].mac.rx	nav:vector	45	~ 0.000 014 666 7	~ 0.000 020 976 2	
+General		#0	WlcApLab.ap1.wlan[0].mac	WlcApLab.ap1.wlan[0].mac	packetSentToUpper:vector(packetBytes)	3 520	~ 1 234.98	~ 35.022 5	
+General		#0	WlcApLab.ap1.wlan[0].mac	WlcApLab.ap1.wlan[0].mac	packetSentToLower:vector(packetBytes)	3 847	~ 17.133 4	~ 10.511 9	
+General		#0	WlcApLab.ap1.wlan[0].mac	WlcApLab.ap1.wlan[0].mac	packetReceivedFromUpper:vector(packetBytes)	3	54	0	
+General		#0	WlcApLab.ap1.wlan[0].mac	WlcApLab.ap1.wlan[0].mac	packetReceivedFromLower:vector(packetBytes)	3 549	~ 1 253.54	~ 113.274	
+General		#0	WlcApLab.ap1.wlan[0].mac	WlcApLab.ap1.wlan[0].mac	packetDrop:vector(packetBytes)	2	1 264	0	
+General		#0	WlcApLab.ap1.wlan[0].mac	WlcApLab.ap1.wlan[0].mac	packetDropIncorrectlyReceived:vector(packetBytes)	2	1 264	0	
+General		#0	WlcApLab.ap1.wlan[0].mac	WlcApLab.ap1.wlan[0].mac	packetDropNotAddressedToUs:vector(packetBytes)	0	-	-	
+General		#0	WlcApLab.ap1.wlan[0].mac	WlcApLab.ap1.wlan[0].mac	packetDropQueueOverflow:vector(packetBytes)	0	-	-	
+General		#0	WlcApLab.ap1.wlan[0].mac	WlcApLab.ap1.wlan[0].mac	packetDropRetryLimitReached:vector(packetBytes)	0	-	-	
+General		#0	WlcApLab.ap1.wlan[0].mac	WlcApLab.ap1.wlan[0].mac	packetDropDuplicateDetected:vector(packetBytes)	0	-	-	
+General		#0	WlcApLab.ap1.wlan[0].mac	WlcApLab.ap1.wlan[0].mac	packetDropOther:vector(packetBytes)	0	-	-	
+General		#0	WlcApLab.ap1.wlan[0].radio	WlcApLab.ap1.wlan[0].radio	radioMode:vector	7 697	~ 2.499 29	~ 0.501 589	
+General		#0	WlcApLab.ap1.wlan[0].radio	WlcApLab.ap1.wlan[0].radio	receptionState:vector	14 795	~ 1.219 87	~ 1.082 31	
+General		#0	WlcApLab.ap1.wlan[0].radio	WlcApLab.ap1.wlan[0].radio	transmissionState:vector	15 388	1	~ 0.707 13	
+General		#0	WlcApLab.ap1.wlan[0].radio	WlcApLab.ap1.wlan[0].radio	radioChannel:vector	1	6	-	
+General		#0	WlcApLab.ap1.wlan[0]	WlcApLab.ap1.wlan[0]	packetDropInterfaceDown:vector(packetBytes)	0	-	-	
+General		#0	WlcApLab.ap1.wlan[0]	WlcApLab.ap1.wlan[0]	packetDropNoCarrier:vector(packetBytes)	0	-	-	
+General		#0	WlcApLab.ap1.eth[0].queue	WlcApLab.ap1.eth[0].queue	queueLength:vector	3 525	0 pk	0 pk	
+General		#0	WlcApLab.ap1.eth[0].queue	WlcApLab.ap1.eth[0].queue	queueBitLength:vector	3 525	0 B	0 B	
+General		#0	WlcApLab.ap1.eth[0].queue	WlcApLab.ap1.eth[0].queue	queueingTime:vector	3 520	0 s	0 s	
+General		#0	WlcApLab.ap1.eth[0].queue	WlcApLab.ap1.eth[0].queue	incomingPacketLengths:vector	3 520	~ 1 244.98 B	~ 35.022 5 B	
+General		#0	WlcApLab.ap1.eth[0].queue	WlcApLab.ap1.eth[0].queue	incomingDataRate:vector	300	~ 1.168 62 Mbps	~ 709.801 kbps	
+General		#0	WlcApLab.ap1.eth[0].queue	WlcApLab.ap1.eth[0].queue	outgoingPacketLengths:vector	3 520	~ 1 244.98 B	~ 35.022 5 B	
+General		#0	WlcApLab.ap1.eth[0].queue	WlcApLab.ap1.eth[0].queue	outgoingDataRate:vector	300	~ 1.168 62 Mbps	~ 709.801 kbps	
+General		#0	WlcApLab.ap1.eth[0].queue	WlcApLab.ap1.eth[0].queue	droppedPacketLengthsQueueOverflow:vector	0	-	-	
+General		#0	WlcApLab.ap1.eth[0].queue	WlcApLab.ap1.eth[0].queue	flowQueueingTime:vector	0	-	-	
+General		#0	WlcApLab.ap1.eth[0].queue	WlcApLab.ap1.eth[0].queue	flowIncomingDataRate:vector	0	-	-	
+General		#0	WlcApLab.ap1.eth[0].queue	WlcApLab.ap1.eth[0].queue	flowOutgoingDataRate:vector	0	-	-	
+General		#0	WlcApLab.ap1.eth[0].mac	WlcApLab.ap1.eth[0].mac	txPk:vector(packetBytes)	3 520	~ 1 244.99	~ 34.497 2	
+General		#0	WlcApLab.ap1.eth[0].mac	WlcApLab.ap1.eth[0].mac	rxPkOk:vector(packetBytes)	3	64	0	
+General		#0	WlcApLab.ap1.eth[0].mac	WlcApLab.ap1.eth[0].mac	passedUpPk:vector(packetBytes)	3	64	0	
+General		#0	WlcApLab.ap1.eth[0].mac	WlcApLab.ap1.eth[0].mac	txPausePkUnits:vector	0	-	-	
+General		#0	WlcApLab.ap1.eth[0].mac	WlcApLab.ap1.eth[0].mac	rxPausePkUnits:vector	0	-	-	
+General		#0	WlcApLab.ap1.eth[0].mac	WlcApLab.ap1.eth[0].mac	packetReceivedFromUpper:vector(packetBytes)	3 520	~ 1 244.98	~ 35.022 5	
+General		#0	WlcApLab.ap1.eth[0].mac	WlcApLab.ap1.eth[0].mac	packetDropIncorrectlyReceived:vector(packetBytes)	0	-	-	
+General		#0	WlcApLab.ap1.eth[0].mac	WlcApLab.ap1.eth[0].mac	packetDropInterfaceDown:vector(packetBytes)	0	-	-	
+General		#0	WlcApLab.ap1.eth[0].mac	WlcApLab.ap1.eth[0].mac	packetDropNotAddressedToUs:vector(packetBytes)	0	-	-	
+General		#0	WlcApLab.ap1.eth[0]	WlcApLab.ap1.eth[0]	packetDropInterfaceDown:vector(packetBytes)	0	-	-	
+General		#0	WlcApLab.ap1.eth[0]	WlcApLab.ap1.eth[0]	packetDropNoCarrier:vector(packetBytes)	0	-	-	
+General		#0	WlcApLab.sta[0].lo[0].lo	WlcApLab.sta[0].lo[0].lo	rcvdPkFromHl:vector(packetBytes)	0	-	-	
+General		#0	WlcApLab.sta[0].lo[0].lo	WlcApLab.sta[0].lo[0].lo	passedUpPk:vector(packetBytes)	0	-	-	
+General		#0	WlcApLab.sta[0].lo[0]	WlcApLab.sta[0].lo[0]	packetDropInterfaceDown:vector(packetBytes)	0	-	-	
+General		#0	WlcApLab.sta[0].lo[0]	WlcApLab.sta[0].lo[0]	packetDropNoCarrier:vector(packetBytes)	0	-	-	
+General		#0	WlcApLab.sta[0].wlan[0].agent	WlcApLab.sta[0].wlan[0].agent	sentRequest:vector	3	~ 2.333 33	~ 1.527 53	
+General		#0	WlcApLab.sta[0].wlan[0].agent	WlcApLab.sta[0].wlan[0].agent	acceptConfirm:vector	3	~ 2.333 33	~ 1.527 53	
+General		#0	WlcApLab.sta[0].wlan[0].agent	WlcApLab.sta[0].wlan[0].agent	dropConfirm:vector	0	-	-	
+General		#0	WlcApLab.sta[0].wlan[0].mac.dcf.channelAccess.pendingQueue	WlcApLab.sta[0].wlan[0].mac.dcf.channelAccess.pendingQueue	queueLength:vector	2 309	~ 0.501 516 pk	~ 0.502 698 pk	
+General		#0	WlcApLab.sta[0].wlan[0].mac.dcf.channelAccess.pendingQueue	WlcApLab.sta[0].wlan[0].mac.dcf.channelAccess.pendingQueue	queueBitLength:vector	2 309	~ 631.265 B	~ 635.33 B	
+General		#0	WlcApLab.sta[0].wlan[0].mac.dcf.channelAccess.pendingQueue	WlcApLab.sta[0].wlan[0].mac.dcf.channelAccess.pendingQueue	queueingTime:vector	1 152	~ 73.119 2 us	~ 219.789 us	
+General		#0	WlcApLab.sta[0].wlan[0].mac.dcf.channelAccess.pendingQueue	WlcApLab.sta[0].wlan[0].mac.dcf.channelAccess.pendingQueue	incomingPacketLengths:vector	1 152	~ 1 258.69 B	~ 80.501 8 B	
+General		#0	WlcApLab.sta[0].wlan[0].mac.dcf.channelAccess.pendingQueue	WlcApLab.sta[0].wlan[0].mac.dcf.channelAccess.pendingQueue	incomingDataRate:vector	300	~ 386.669 kbps	~ 291.608 kbps	
+General		#0	WlcApLab.sta[0].wlan[0].mac.dcf.channelAccess.pendingQueue	WlcApLab.sta[0].wlan[0].mac.dcf.channelAccess.pendingQueue	outgoingPacketLengths:vector	1 152	~ 1 258.69 B	~ 80.501 8 B	
+General		#0	WlcApLab.sta[0].wlan[0].mac.dcf.channelAccess.pendingQueue	WlcApLab.sta[0].wlan[0].mac.dcf.channelAccess.pendingQueue	outgoingDataRate:vector	300	~ 386.669 kbps	~ 290.668 kbps	
+General		#0	WlcApLab.sta[0].wlan[0].mac.dcf.channelAccess.pendingQueue	WlcApLab.sta[0].wlan[0].mac.dcf.channelAccess.pendingQueue	droppedPacketLengthsQueueOverflow:vector	0	-	-	
+General		#0	WlcApLab.sta[0].wlan[0].mac.dcf.channelAccess.pendingQueue	WlcApLab.sta[0].wlan[0].mac.dcf.channelAccess.pendingQueue	flowQueueingTime:vector	0	-	-	
+General		#0	WlcApLab.sta[0].wlan[0].mac.dcf.channelAccess.pendingQueue	WlcApLab.sta[0].wlan[0].mac.dcf.channelAccess.pendingQueue	flowIncomingDataRate:vector	0	-	-	
+General		#0	WlcApLab.sta[0].wlan[0].mac.dcf.channelAccess.pendingQueue	WlcApLab.sta[0].wlan[0].mac.dcf.channelAccess.pendingQueue	flowOutgoingDataRate:vector	0	-	-	
+General		#0	WlcApLab.sta[0].wlan[0].mac.dcf.channelAccess.inProgressFrames	WlcApLab.sta[0].wlan[0].mac.dcf.channelAccess.inProgressFrames	queueingTime:vector	1 152	~ 0.000 498 35	~ 0.000 106 436	
+General		#0	WlcApLab.sta[0].wlan[0].mac.dcf.channelAccess.inProgressFrames	WlcApLab.sta[0].wlan[0].mac.dcf.channelAccess.inProgressFrames	queueLength:vector	2 306	~ 0.502 168	~ 0.502 7	
+General		#0	WlcApLab.sta[0].wlan[0].mac.dcf.channelAccess.contention	WlcApLab.sta[0].wlan[0].mac.dcf.channelAccess.contention	backoffPeriodGenerated:vector	1 154	~ 15.715 8	~ 9.295 7	
+General		#0	WlcApLab.sta[0].wlan[0].mac.dcf.channelAccess.contention	WlcApLab.sta[0].wlan[0].mac.dcf.channelAccess.contention	backoffActive:vector	2 476	~ 0.499 596	~ 0.500 101	
+General		#0	WlcApLab.sta[0].wlan[0].mac.dcf.channelAccess.contention	WlcApLab.sta[0].wlan[0].mac.dcf.channelAccess.contention	stateChanged:vector	29 598	~ 0.177 039	~ 0.559 357	
+General		#0	WlcApLab.sta[0].wlan[0].mac.dcf.recipientMacDataService	WlcApLab.sta[0].wlan[0].mac.dcf.recipientMacDataService	packetDropDuplicateDetected:vector(packetBytes)	0	-	-	
+General		#0	WlcApLab.sta[0].wlan[0].mac.dcf.recoveryProcedure	WlcApLab.sta[0].wlan[0].mac.dcf.recoveryProcedure	contentionWindowChanged:vector	5	43.8	~ 17.527 1	
+General		#0	WlcApLab.sta[0].wlan[0].mac.dcf	WlcApLab.sta[0].wlan[0].mac.dcf	packetSentToPeer:vector(packetBytes)	1 159	~ 1 253.33	~ 114.464	
+General		#0	WlcApLab.sta[0].wlan[0].mac.dcf	WlcApLab.sta[0].wlan[0].mac.dcf	packetSentToPeerUnicast:vector(packetBytes)	1 158	~ 1 254.38	~ 108.733	
+General		#0	WlcApLab.sta[0].wlan[0].mac.dcf	WlcApLab.sta[0].wlan[0].mac.dcf	packetSentToPeerMulticast:vector(packetBytes)	1	32	-	
+General		#0	WlcApLab.sta[0].wlan[0].mac.dcf	WlcApLab.sta[0].wlan[0].mac.dcf	packetSentToPeerBroadcast:vector(packetBytes)	1	32	-	
+General		#0	WlcApLab.sta[0].wlan[0].mac.dcf	WlcApLab.sta[0].wlan[0].mac.dcf	packetSentToPeerWithRetry:vector(packetBytes)	2	1 264	0	
+General		#0	WlcApLab.sta[0].wlan[0].mac.dcf	WlcApLab.sta[0].wlan[0].mac.dcf	packetSentToPeerWithoutRetry:vector(packetBytes)	1 157	~ 1 253.31	~ 114.562	
+General		#0	WlcApLab.sta[0].wlan[0].mac.dcf	WlcApLab.sta[0].wlan[0].mac.dcf	packetReceivedFromPeer:vector(packetBytes)	1 460	~ 22.016 4	~ 15.540 9	
+General		#0	WlcApLab.sta[0].wlan[0].mac.dcf	WlcApLab.sta[0].wlan[0].mac.dcf	packetReceivedFromPeerUnicast:vector(packetBytes)	1 156	~ 14.145 3	~ 2.518 78	
+General		#0	WlcApLab.sta[0].wlan[0].mac.dcf	WlcApLab.sta[0].wlan[0].mac.dcf	packetReceivedFromPeerMulticast:vector(packetBytes)	304	~ 51.947 4	~ 1.894 2	
+General		#0	WlcApLab.sta[0].wlan[0].mac.dcf	WlcApLab.sta[0].wlan[0].mac.dcf	packetReceivedFromPeerBroadcast:vector(packetBytes)	304	~ 51.947 4	~ 1.894 2	
+General		#0	WlcApLab.sta[0].wlan[0].mac.dcf	WlcApLab.sta[0].wlan[0].mac.dcf	packetReceivedFromPeerWithRetry:vector(packetBytes)	0	-	-	
+General		#0	WlcApLab.sta[0].wlan[0].mac.dcf	WlcApLab.sta[0].wlan[0].mac.dcf	packetReceivedFromPeerWithoutRetry:vector(packetBytes)	1 460	~ 22.016 4	~ 15.540 9	
+General		#0	WlcApLab.sta[0].wlan[0].mac.dcf	WlcApLab.sta[0].wlan[0].mac.dcf	packetDrop:vector(packetBytes)	4 777	~ 634.287	~ 624.924	
+General		#0	WlcApLab.sta[0].wlan[0].mac.dcf	WlcApLab.sta[0].wlan[0].mac.dcf	packetDropNotAddressedToUs:vector(packetBytes)	4 777	~ 634.287	~ 624.924	
+General		#0	WlcApLab.sta[0].wlan[0].mac.dcf	WlcApLab.sta[0].wlan[0].mac.dcf	packetDropQueueOverflow:vector(packetBytes)	0	-	-	
+General		#0	WlcApLab.sta[0].wlan[0].mac.dcf	WlcApLab.sta[0].wlan[0].mac.dcf	packetDropRetryLimitReached:vector(packetBytes)	0	-	-	
+General		#0	WlcApLab.sta[0].wlan[0].mac.dcf	WlcApLab.sta[0].wlan[0].mac.dcf	frameSequenceActive:vector	2 310	~ 0.499 567	~ 0.500 108	
+General		#0	WlcApLab.sta[0].wlan[0].mac.dcf	WlcApLab.sta[0].wlan[0].mac.dcf	datarateSelected:vector	1 159	2.4e7	0	
+General		#0	WlcApLab.sta[0].wlan[0].mac.rx	WlcApLab.sta[0].wlan[0].mac.rx	nav:vector	10 623	~ 0.000 014 666 7	~ 0.000 020 742 8	
+General		#0	WlcApLab.sta[0].wlan[0].mac	WlcApLab.sta[0].wlan[0].mac	packetSentToUpper:vector(packetBytes)	3	42	~ 10.392 3	
+General		#0	WlcApLab.sta[0].wlan[0].mac	WlcApLab.sta[0].wlan[0].mac	packetSentToLower:vector(packetBytes)	1 159	~ 1 253.33	~ 114.464	
+General		#0	WlcApLab.sta[0].wlan[0].mac	WlcApLab.sta[0].wlan[0].mac	packetReceivedFromUpper:vector(packetBytes)	1 148	~ 1 234.95	~ 35.416 9	
+General		#0	WlcApLab.sta[0].wlan[0].mac	WlcApLab.sta[0].wlan[0].mac	packetReceivedFromLower:vector(packetBytes)	6 237	~ 490.962	~ 605.29	
+General		#0	WlcApLab.sta[0].wlan[0].mac	WlcApLab.sta[0].wlan[0].mac	packetDrop:vector(packetBytes)	4 777	~ 634.287	~ 624.924	
+General		#0	WlcApLab.sta[0].wlan[0].mac	WlcApLab.sta[0].wlan[0].mac	packetDropIncorrectlyReceived:vector(packetBytes)	0	-	-	
+General		#0	WlcApLab.sta[0].wlan[0].mac	WlcApLab.sta[0].wlan[0].mac	packetDropNotAddressedToUs:vector(packetBytes)	4 777	~ 634.287	~ 624.924	
+General		#0	WlcApLab.sta[0].wlan[0].mac	WlcApLab.sta[0].wlan[0].mac	packetDropQueueOverflow:vector(packetBytes)	0	-	-	
+General		#0	WlcApLab.sta[0].wlan[0].mac	WlcApLab.sta[0].wlan[0].mac	packetDropRetryLimitReached:vector(packetBytes)	0	-	-	
+General		#0	WlcApLab.sta[0].wlan[0].mac	WlcApLab.sta[0].wlan[0].mac	packetDropDuplicateDetected:vector(packetBytes)	0	-	-	
+General		#0	WlcApLab.sta[0].wlan[0].mac	WlcApLab.sta[0].wlan[0].mac	packetDropOther:vector(packetBytes)	0	-	-	
+General		#0	WlcApLab.sta[0].wlan[0].radio	WlcApLab.sta[0].wlan[0].radio	radioMode:vector	2 321	~ 2.497 63	~ 0.505 247	
+General		#0	WlcApLab.sta[0].wlan[0].radio	WlcApLab.sta[0].wlan[0].radio	receptionState:vector	14 795	~ 1.764 92	~ 1.086 14	
+General		#0	WlcApLab.sta[0].wlan[0].radio	WlcApLab.sta[0].wlan[0].radio	transmissionState:vector	4 636	1	~ 0.707 183	
+General		#0	WlcApLab.sta[0].wlan[0].radio	WlcApLab.sta[0].wlan[0].radio	radioChannel:vector	4	6	0	
+General		#0	WlcApLab.sta[0].wlan[0]	WlcApLab.sta[0].wlan[0]	packetDropInterfaceDown:vector(packetBytes)	0	-	-	
+General		#0	WlcApLab.sta[0].wlan[0]	WlcApLab.sta[0].wlan[0]	packetDropNoCarrier:vector(packetBytes)	0	-	-	
+General		#0	WlcApLab.sta[0].ipv4.ip	WlcApLab.sta[0].ipv4.ip	packetDropAddressResolutionFailed:vector(packetBytes)	0	-	-	
+General		#0	WlcApLab.sta[0].ipv4.ip	WlcApLab.sta[0].ipv4.ip	packetDropHopLimitReached:vector(packetBytes)	0	-	-	
+General		#0	WlcApLab.sta[0].ipv4.ip	WlcApLab.sta[0].ipv4.ip	packetDropForwardingDisabled:vector(packetBytes)	0	-	-	
+General		#0	WlcApLab.sta[0].ipv4.ip	WlcApLab.sta[0].ipv4.ip	packetDropNoInterfaceFound:vector(packetBytes)	0	-	-	
+General		#0	WlcApLab.sta[0].ipv4.ip	WlcApLab.sta[0].ipv4.ip	packetDropNoRouteFound:vector(packetBytes)	0	-	-	
+General		#0	WlcApLab.sta[0].ipv4.ip	WlcApLab.sta[0].ipv4.ip	packetDropUndefined:vector(packetBytes)	0	-	-	
+General		#0	WlcApLab.sta[0].ipv4.arp	WlcApLab.sta[0].ipv4.arp	arpRequestSent:vector(packetBytes)	1	28	-	
+General		#0	WlcApLab.sta[0].ipv4.arp	WlcApLab.sta[0].ipv4.arp	arpReplySent:vector(packetBytes)	0	-	-	
+General		#0	WlcApLab.sta[0].udp	WlcApLab.sta[0].udp	packetSent:vector(packetBytes)	1 147	1 208	0	
+General		#0	WlcApLab.sta[0].udp	WlcApLab.sta[0].udp	packetReceived:vector(packetBytes)	0	-	-	
+General		#0	WlcApLab.sta[0].udp	WlcApLab.sta[0].udp	passedUpPk:vector(count)	1	0	-	
+General		#0	WlcApLab.sta[0].udp	WlcApLab.sta[0].udp	droppedPkWrongPort:vector(count)	1	0	-	
+General		#0	WlcApLab.sta[0].udp	WlcApLab.sta[0].udp	droppedPkBadChecksum:vector(count)	1	0	-	
+General		#0	WlcApLab.sta[0].app[0]	WlcApLab.sta[0].app[0]	packetReceived:vector(packetBytes)	0	-	-	
+General		#0	WlcApLab.sta[0].app[0]	WlcApLab.sta[0].app[0]	throughput:vector	300	0 bps	0 bps	
+General		#0	WlcApLab.sta[0].app[0]	WlcApLab.sta[0].app[0]	packetSent:vector(packetBytes)	1 147	1 200	0	
+General		#0	WlcApLab.sta[0].app[0]	WlcApLab.sta[0].app[0]	rcvdPkLifetime:vector	0	-	-	
+General		#0	WlcApLab.sta[0].app[0]	WlcApLab.sta[0].app[0]	rcvdPkSeqNo:vector	0	-	-	
+General		#0	WlcApLab.sta[1].lo[0].lo	WlcApLab.sta[1].lo[0].lo	rcvdPkFromHl:vector(packetBytes)	0	-	-	
+General		#0	WlcApLab.sta[1].lo[0].lo	WlcApLab.sta[1].lo[0].lo	passedUpPk:vector(packetBytes)	0	-	-	
+General		#0	WlcApLab.sta[1].lo[0]	WlcApLab.sta[1].lo[0]	packetDropInterfaceDown:vector(packetBytes)	0	-	-	
+General		#0	WlcApLab.sta[1].lo[0]	WlcApLab.sta[1].lo[0]	packetDropNoCarrier:vector(packetBytes)	0	-	-	
+General		#0	WlcApLab.sta[1].wlan[0].agent	WlcApLab.sta[1].wlan[0].agent	sentRequest:vector	3	~ 2.333 33	~ 1.527 53	
+General		#0	WlcApLab.sta[1].wlan[0].agent	WlcApLab.sta[1].wlan[0].agent	acceptConfirm:vector	3	~ 2.333 33	~ 1.527 53	
+General		#0	WlcApLab.sta[1].wlan[0].agent	WlcApLab.sta[1].wlan[0].agent	dropConfirm:vector	0	-	-	
+General		#0	WlcApLab.sta[1].wlan[0].mac.dcf.channelAccess.pendingQueue	WlcApLab.sta[1].wlan[0].mac.dcf.channelAccess.pendingQueue	queueLength:vector	2 373	~ 0.502 318 pk	~ 0.503 461 pk	
+General		#0	WlcApLab.sta[1].wlan[0].mac.dcf.channelAccess.pendingQueue	WlcApLab.sta[1].wlan[0].mac.dcf.channelAccess.pendingQueue	queueBitLength:vector	2 373	~ 632.351 B	~ 636.3 B	
+General		#0	WlcApLab.sta[1].wlan[0].mac.dcf.channelAccess.pendingQueue	WlcApLab.sta[1].wlan[0].mac.dcf.channelAccess.pendingQueue	queueingTime:vector	1 184	~ 71.376 3 us	~ 206.283 us	
+General		#0	WlcApLab.sta[1].wlan[0].mac.dcf.channelAccess.pendingQueue	WlcApLab.sta[1].wlan[0].mac.dcf.channelAccess.pendingQueue	incomingPacketLengths:vector	1 184	~ 1 258.83 B	~ 79.410 2 B	
+General		#0	WlcApLab.sta[1].wlan[0].mac.dcf.channelAccess.pendingQueue	WlcApLab.sta[1].wlan[0].mac.dcf.channelAccess.pendingQueue	incomingDataRate:vector	300	~ 397.455 kbps	~ 285.562 kbps	
+General		#0	WlcApLab.sta[1].wlan[0].mac.dcf.channelAccess.pendingQueue	WlcApLab.sta[1].wlan[0].mac.dcf.channelAccess.pendingQueue	outgoingPacketLengths:vector	1 184	~ 1 258.83 B	~ 79.410 2 B	
+General		#0	WlcApLab.sta[1].wlan[0].mac.dcf.channelAccess.pendingQueue	WlcApLab.sta[1].wlan[0].mac.dcf.channelAccess.pendingQueue	outgoingDataRate:vector	300	~ 397.455 kbps	~ 285.562 kbps	
+General		#0	WlcApLab.sta[1].wlan[0].mac.dcf.channelAccess.pendingQueue	WlcApLab.sta[1].wlan[0].mac.dcf.channelAccess.pendingQueue	droppedPacketLengthsQueueOverflow:vector	0	-	-	
+General		#0	WlcApLab.sta[1].wlan[0].mac.dcf.channelAccess.pendingQueue	WlcApLab.sta[1].wlan[0].mac.dcf.channelAccess.pendingQueue	flowQueueingTime:vector	0	-	-	
+General		#0	WlcApLab.sta[1].wlan[0].mac.dcf.channelAccess.pendingQueue	WlcApLab.sta[1].wlan[0].mac.dcf.channelAccess.pendingQueue	flowIncomingDataRate:vector	0	-	-	
+General		#0	WlcApLab.sta[1].wlan[0].mac.dcf.channelAccess.pendingQueue	WlcApLab.sta[1].wlan[0].mac.dcf.channelAccess.pendingQueue	flowOutgoingDataRate:vector	0	-	-	
+General		#0	WlcApLab.sta[1].wlan[0].mac.dcf.channelAccess.inProgressFrames	WlcApLab.sta[1].wlan[0].mac.dcf.channelAccess.inProgressFrames	queueingTime:vector	1 184	~ 0.000 498 071	~ 0.000 082 847	
+General		#0	WlcApLab.sta[1].wlan[0].mac.dcf.channelAccess.inProgressFrames	WlcApLab.sta[1].wlan[0].mac.dcf.channelAccess.inProgressFrames	queueLength:vector	2 370	~ 0.502 954	~ 0.503 462	
+General		#0	WlcApLab.sta[1].wlan[0].mac.dcf.channelAccess.contention	WlcApLab.sta[1].wlan[0].mac.dcf.channelAccess.contention	backoffPeriodGenerated:vector	1 186	~ 15.114 7	~ 9.171 06	
+General		#0	WlcApLab.sta[1].wlan[0].mac.dcf.channelAccess.contention	WlcApLab.sta[1].wlan[0].mac.dcf.channelAccess.contention	backoffActive:vector	2 554	~ 0.499 608	~ 0.500 098	
+General		#0	WlcApLab.sta[1].wlan[0].mac.dcf.channelAccess.contention	WlcApLab.sta[1].wlan[0].mac.dcf.channelAccess.contention	stateChanged:vector	29 598	~ 0.183 391	~ 0.567 639	
+General		#0	WlcApLab.sta[1].wlan[0].mac.dcf.recipientMacDataService	WlcApLab.sta[1].wlan[0].mac.dcf.recipientMacDataService	packetDropDuplicateDetected:vector(packetBytes)	0	-	-	
+General		#0	WlcApLab.sta[1].wlan[0].mac.dcf.recoveryProcedure	WlcApLab.sta[1].wlan[0].mac.dcf.recoveryProcedure	contentionWindowChanged:vector	5	43.8	~ 17.527 1	
+General		#0	WlcApLab.sta[1].wlan[0].mac.dcf	WlcApLab.sta[1].wlan[0].mac.dcf	packetSentToPeer:vector(packetBytes)	1 191	~ 1 253.61	~ 112.928	
+General		#0	WlcApLab.sta[1].wlan[0].mac.dcf	WlcApLab.sta[1].wlan[0].mac.dcf	packetSentToPeerUnicast:vector(packetBytes)	1 190	~ 1 254.64	~ 107.272	
+General		#0	WlcApLab.sta[1].wlan[0].mac.dcf	WlcApLab.sta[1].wlan[0].mac.dcf	packetSentToPeerMulticast:vector(packetBytes)	1	32	-	
+General		#0	WlcApLab.sta[1].wlan[0].mac.dcf	WlcApLab.sta[1].wlan[0].mac.dcf	packetSentToPeerBroadcast:vector(packetBytes)	1	32	-	
+General		#0	WlcApLab.sta[1].wlan[0].mac.dcf	WlcApLab.sta[1].wlan[0].mac.dcf	packetSentToPeerWithRetry:vector(packetBytes)	2	1 264	0	
+General		#0	WlcApLab.sta[1].wlan[0].mac.dcf	WlcApLab.sta[1].wlan[0].mac.dcf	packetSentToPeerWithoutRetry:vector(packetBytes)	1 189	~ 1 253.6	~ 113.022	
+General		#0	WlcApLab.sta[1].wlan[0].mac.dcf	WlcApLab.sta[1].wlan[0].mac.dcf	packetReceivedFromPeer:vector(packetBytes)	1 492	~ 21.844 5	~ 15.417	
+General		#0	WlcApLab.sta[1].wlan[0].mac.dcf	WlcApLab.sta[1].wlan[0].mac.dcf	packetReceivedFromPeerUnicast:vector(packetBytes)	1 188	~ 14.141 4	~ 2.484 7	
+General		#0	WlcApLab.sta[1].wlan[0].mac.dcf	WlcApLab.sta[1].wlan[0].mac.dcf	packetReceivedFromPeerMulticast:vector(packetBytes)	304	~ 51.947 4	~ 1.894 2	
+General		#0	WlcApLab.sta[1].wlan[0].mac.dcf	WlcApLab.sta[1].wlan[0].mac.dcf	packetReceivedFromPeerBroadcast:vector(packetBytes)	304	~ 51.947 4	~ 1.894 2	
+General		#0	WlcApLab.sta[1].wlan[0].mac.dcf	WlcApLab.sta[1].wlan[0].mac.dcf	packetReceivedFromPeerWithRetry:vector(packetBytes)	0	-	-	
+General		#0	WlcApLab.sta[1].wlan[0].mac.dcf	WlcApLab.sta[1].wlan[0].mac.dcf	packetReceivedFromPeerWithoutRetry:vector(packetBytes)	1 492	~ 21.844 5	~ 15.417	
+General		#0	WlcApLab.sta[1].wlan[0].mac.dcf	WlcApLab.sta[1].wlan[0].mac.dcf	packetDrop:vector(packetBytes)	4 713	~ 634.223	~ 624.923	
+General		#0	WlcApLab.sta[1].wlan[0].mac.dcf	WlcApLab.sta[1].wlan[0].mac.dcf	packetDropNotAddressedToUs:vector(packetBytes)	4 713	~ 634.223	~ 624.923	
+General		#0	WlcApLab.sta[1].wlan[0].mac.dcf	WlcApLab.sta[1].wlan[0].mac.dcf	packetDropQueueOverflow:vector(packetBytes)	0	-	-	
+General		#0	WlcApLab.sta[1].wlan[0].mac.dcf	WlcApLab.sta[1].wlan[0].mac.dcf	packetDropRetryLimitReached:vector(packetBytes)	0	-	-	
+General		#0	WlcApLab.sta[1].wlan[0].mac.dcf	WlcApLab.sta[1].wlan[0].mac.dcf	frameSequenceActive:vector	2 374	~ 0.499 579	~ 0.500 105	
+General		#0	WlcApLab.sta[1].wlan[0].mac.dcf	WlcApLab.sta[1].wlan[0].mac.dcf	datarateSelected:vector	1 191	2.4e7	0	
+General		#0	WlcApLab.sta[1].wlan[0].mac.rx	WlcApLab.sta[1].wlan[0].mac.rx	nav:vector	10 623	~ 0.000 014 666 7	~ 0.000 020 742 8	
+General		#0	WlcApLab.sta[1].wlan[0].mac	WlcApLab.sta[1].wlan[0].mac	packetSentToUpper:vector(packetBytes)	3	42	~ 10.392 3	
+General		#0	WlcApLab.sta[1].wlan[0].mac	WlcApLab.sta[1].wlan[0].mac	packetSentToLower:vector(packetBytes)	1 191	~ 1 253.61	~ 112.928	
+General		#0	WlcApLab.sta[1].wlan[0].mac	WlcApLab.sta[1].wlan[0].mac	packetReceivedFromUpper:vector(packetBytes)	1 180	~ 1 234.98	~ 34.933 4	
+General		#0	WlcApLab.sta[1].wlan[0].mac	WlcApLab.sta[1].wlan[0].mac	packetReceivedFromLower:vector(packetBytes)	6 205	~ 486.976	~ 604.291	
+General		#0	WlcApLab.sta[1].wlan[0].mac	WlcApLab.sta[1].wlan[0].mac	packetDrop:vector(packetBytes)	4 713	~ 634.223	~ 624.923	
+General		#0	WlcApLab.sta[1].wlan[0].mac	WlcApLab.sta[1].wlan[0].mac	packetDropIncorrectlyReceived:vector(packetBytes)	0	-	-	
+General		#0	WlcApLab.sta[1].wlan[0].mac	WlcApLab.sta[1].wlan[0].mac	packetDropNotAddressedToUs:vector(packetBytes)	4 713	~ 634.223	~ 624.923	
+General		#0	WlcApLab.sta[1].wlan[0].mac	WlcApLab.sta[1].wlan[0].mac	packetDropQueueOverflow:vector(packetBytes)	0	-	-	
+General		#0	WlcApLab.sta[1].wlan[0].mac	WlcApLab.sta[1].wlan[0].mac	packetDropRetryLimitReached:vector(packetBytes)	0	-	-	
+General		#0	WlcApLab.sta[1].wlan[0].mac	WlcApLab.sta[1].wlan[0].mac	packetDropDuplicateDetected:vector(packetBytes)	0	-	-	
+General		#0	WlcApLab.sta[1].wlan[0].mac	WlcApLab.sta[1].wlan[0].mac	packetDropOther:vector(packetBytes)	0	-	-	
+General		#0	WlcApLab.sta[1].wlan[0].radio	WlcApLab.sta[1].wlan[0].radio	radioMode:vector	2 385	~ 2.497 69	~ 0.505 107	
+General		#0	WlcApLab.sta[1].wlan[0].radio	WlcApLab.sta[1].wlan[0].radio	receptionState:vector	14 795	~ 1.758 43	~ 1.087 7	
+General		#0	WlcApLab.sta[1].wlan[0].radio	WlcApLab.sta[1].wlan[0].radio	transmissionState:vector	4 764	1	~ 0.707 181	
+General		#0	WlcApLab.sta[1].wlan[0].radio	WlcApLab.sta[1].wlan[0].radio	radioChannel:vector	4	6	0	
+General		#0	WlcApLab.sta[1].wlan[0]	WlcApLab.sta[1].wlan[0]	packetDropInterfaceDown:vector(packetBytes)	0	-	-	
+General		#0	WlcApLab.sta[1].wlan[0]	WlcApLab.sta[1].wlan[0]	packetDropNoCarrier:vector(packetBytes)	0	-	-	
+General		#0	WlcApLab.sta[1].ipv4.ip	WlcApLab.sta[1].ipv4.ip	packetDropAddressResolutionFailed:vector(packetBytes)	0	-	-	
+General		#0	WlcApLab.sta[1].ipv4.ip	WlcApLab.sta[1].ipv4.ip	packetDropHopLimitReached:vector(packetBytes)	0	-	-	
+General		#0	WlcApLab.sta[1].ipv4.ip	WlcApLab.sta[1].ipv4.ip	packetDropForwardingDisabled:vector(packetBytes)	0	-	-	
+General		#0	WlcApLab.sta[1].ipv4.ip	WlcApLab.sta[1].ipv4.ip	packetDropNoInterfaceFound:vector(packetBytes)	0	-	-	
+General		#0	WlcApLab.sta[1].ipv4.ip	WlcApLab.sta[1].ipv4.ip	packetDropNoRouteFound:vector(packetBytes)	0	-	-	
+General		#0	WlcApLab.sta[1].ipv4.ip	WlcApLab.sta[1].ipv4.ip	packetDropUndefined:vector(packetBytes)	0	-	-	
+General		#0	WlcApLab.sta[1].ipv4.arp	WlcApLab.sta[1].ipv4.arp	arpRequestSent:vector(packetBytes)	1	28	-	
+General		#0	WlcApLab.sta[1].ipv4.arp	WlcApLab.sta[1].ipv4.arp	arpReplySent:vector(packetBytes)	0	-	-	
+General		#0	WlcApLab.sta[1].udp	WlcApLab.sta[1].udp	packetSent:vector(packetBytes)	1 179	1 208	0	
+General		#0	WlcApLab.sta[1].udp	WlcApLab.sta[1].udp	packetReceived:vector(packetBytes)	0	-	-	
+General		#0	WlcApLab.sta[1].udp	WlcApLab.sta[1].udp	passedUpPk:vector(count)	1	0	-	
+General		#0	WlcApLab.sta[1].udp	WlcApLab.sta[1].udp	droppedPkWrongPort:vector(count)	1	0	-	
+General		#0	WlcApLab.sta[1].udp	WlcApLab.sta[1].udp	droppedPkBadChecksum:vector(count)	1	0	-	
+General		#0	WlcApLab.sta[1].app[0]	WlcApLab.sta[1].app[0]	packetReceived:vector(packetBytes)	0	-	-	
+General		#0	WlcApLab.sta[1].app[0]	WlcApLab.sta[1].app[0]	throughput:vector	300	0 bps	0 bps	
+General		#0	WlcApLab.sta[1].app[0]	WlcApLab.sta[1].app[0]	packetSent:vector(packetBytes)	1 179	1 200	0	
+General		#0	WlcApLab.sta[1].app[0]	WlcApLab.sta[1].app[0]	rcvdPkLifetime:vector	0	-	-	
+General		#0	WlcApLab.sta[1].app[0]	WlcApLab.sta[1].app[0]	rcvdPkSeqNo:vector	0	-	-	
+General		#0	WlcApLab.sta[2].lo[0].lo	WlcApLab.sta[2].lo[0].lo	rcvdPkFromHl:vector(packetBytes)	0	-	-	
+General		#0	WlcApLab.sta[2].lo[0].lo	WlcApLab.sta[2].lo[0].lo	passedUpPk:vector(packetBytes)	0	-	-	
+General		#0	WlcApLab.sta[2].lo[0]	WlcApLab.sta[2].lo[0]	packetDropInterfaceDown:vector(packetBytes)	0	-	-	
+General		#0	WlcApLab.sta[2].lo[0]	WlcApLab.sta[2].lo[0]	packetDropNoCarrier:vector(packetBytes)	0	-	-	
+General		#0	WlcApLab.sta[2].wlan[0].agent	WlcApLab.sta[2].wlan[0].agent	sentRequest:vector	3	~ 2.333 33	~ 1.527 53	
+General		#0	WlcApLab.sta[2].wlan[0].agent	WlcApLab.sta[2].wlan[0].agent	acceptConfirm:vector	3	~ 2.333 33	~ 1.527 53	
+General		#0	WlcApLab.sta[2].wlan[0].agent	WlcApLab.sta[2].wlan[0].agent	dropConfirm:vector	0	-	-	
+General		#0	WlcApLab.sta[2].wlan[0].mac.dcf.channelAccess.pendingQueue	WlcApLab.sta[2].wlan[0].mac.dcf.channelAccess.pendingQueue	queueLength:vector	2 397	~ 0.503 963 pk	~ 0.505 071 pk	
+General		#0	WlcApLab.sta[2].wlan[0].mac.dcf.channelAccess.pendingQueue	WlcApLab.sta[2].wlan[0].mac.dcf.channelAccess.pendingQueue	queueBitLength:vector	2 397	~ 634.456 B	~ 638.345 B	
+General		#0	WlcApLab.sta[2].wlan[0].mac.dcf.channelAccess.pendingQueue	WlcApLab.sta[2].wlan[0].mac.dcf.channelAccess.pendingQueue	queueingTime:vector	1 196	~ 72.887 1 us	~ 212.049 us	
+General		#0	WlcApLab.sta[2].wlan[0].mac.dcf.channelAccess.pendingQueue	WlcApLab.sta[2].wlan[0].mac.dcf.channelAccess.pendingQueue	incomingPacketLengths:vector	1 196	~ 1 258.88 B	~ 79.012 2 B	
+General		#0	WlcApLab.sta[2].wlan[0].mac.dcf.channelAccess.pendingQueue	WlcApLab.sta[2].wlan[0].mac.dcf.channelAccess.pendingQueue	incomingDataRate:vector	300	~ 401.5 kbps	~ 295.664 kbps	
+General		#0	WlcApLab.sta[2].wlan[0].mac.dcf.channelAccess.pendingQueue	WlcApLab.sta[2].wlan[0].mac.dcf.channelAccess.pendingQueue	outgoingPacketLengths:vector	1 196	~ 1 258.88 B	~ 79.012 2 B	
+General		#0	WlcApLab.sta[2].wlan[0].mac.dcf.channelAccess.pendingQueue	WlcApLab.sta[2].wlan[0].mac.dcf.channelAccess.pendingQueue	outgoingDataRate:vector	300	~ 401.5 kbps	~ 296.126 kbps	
+General		#0	WlcApLab.sta[2].wlan[0].mac.dcf.channelAccess.pendingQueue	WlcApLab.sta[2].wlan[0].mac.dcf.channelAccess.pendingQueue	droppedPacketLengthsQueueOverflow:vector	0	-	-	
+General		#0	WlcApLab.sta[2].wlan[0].mac.dcf.channelAccess.pendingQueue	WlcApLab.sta[2].wlan[0].mac.dcf.channelAccess.pendingQueue	flowQueueingTime:vector	0	-	-	
+General		#0	WlcApLab.sta[2].wlan[0].mac.dcf.channelAccess.pendingQueue	WlcApLab.sta[2].wlan[0].mac.dcf.channelAccess.pendingQueue	flowIncomingDataRate:vector	0	-	-	
+General		#0	WlcApLab.sta[2].wlan[0].mac.dcf.channelAccess.pendingQueue	WlcApLab.sta[2].wlan[0].mac.dcf.channelAccess.pendingQueue	flowOutgoingDataRate:vector	0	-	-	
+General		#0	WlcApLab.sta[2].wlan[0].mac.dcf.channelAccess.inProgressFrames	WlcApLab.sta[2].wlan[0].mac.dcf.channelAccess.inProgressFrames	queueingTime:vector	1 196	~ 0.000 497 878	~ 0.000 072 563 5	
+General		#0	WlcApLab.sta[2].wlan[0].mac.dcf.channelAccess.inProgressFrames	WlcApLab.sta[2].wlan[0].mac.dcf.channelAccess.inProgressFrames	queueLength:vector	2 394	~ 0.505 43	~ 0.505 891	
+General		#0	WlcApLab.sta[2].wlan[0].mac.dcf.channelAccess.contention	WlcApLab.sta[2].wlan[0].mac.dcf.channelAccess.contention	backoffPeriodGenerated:vector	1 196	~ 15.714 9	~ 9.436 41	
+General		#0	WlcApLab.sta[2].wlan[0].mac.dcf.channelAccess.contention	WlcApLab.sta[2].wlan[0].mac.dcf.channelAccess.contention	backoffActive:vector	2 532	~ 0.499 605	~ 0.500 099	
+General		#0	WlcApLab.sta[2].wlan[0].mac.dcf.channelAccess.contention	WlcApLab.sta[2].wlan[0].mac.dcf.channelAccess.contention	stateChanged:vector	29 594	~ 0.179 563	~ 0.564 191	
+General		#0	WlcApLab.sta[2].wlan[0].mac.dcf.recipientMacDataService	WlcApLab.sta[2].wlan[0].mac.dcf.recipientMacDataService	packetDropDuplicateDetected:vector(packetBytes)	0	-	-	
+General		#0	WlcApLab.sta[2].wlan[0].mac.dcf.recoveryProcedure	WlcApLab.sta[2].wlan[0].mac.dcf.recoveryProcedure	contentionWindowChanged:vector	1	31	-	
+General		#0	WlcApLab.sta[2].wlan[0].mac.dcf	WlcApLab.sta[2].wlan[0].mac.dcf	packetSentToPeer:vector(packetBytes)	1 201	~ 1 253.7	~ 112.46	
+General		#0	WlcApLab.sta[2].wlan[0].mac.dcf	WlcApLab.sta[2].wlan[0].mac.dcf	packetSentToPeerUnicast:vector(packetBytes)	1 200	~ 1 254.72	~ 106.827	
+General		#0	WlcApLab.sta[2].wlan[0].mac.dcf	WlcApLab.sta[2].wlan[0].mac.dcf	packetSentToPeerMulticast:vector(packetBytes)	1	32	-	
+General		#0	WlcApLab.sta[2].wlan[0].mac.dcf	WlcApLab.sta[2].wlan[0].mac.dcf	packetSentToPeerBroadcast:vector(packetBytes)	1	32	-	
+General		#0	WlcApLab.sta[2].wlan[0].mac.dcf	WlcApLab.sta[2].wlan[0].mac.dcf	packetSentToPeerWithRetry:vector(packetBytes)	0	-	-	
+General		#0	WlcApLab.sta[2].wlan[0].mac.dcf	WlcApLab.sta[2].wlan[0].mac.dcf	packetSentToPeerWithoutRetry:vector(packetBytes)	1 201	~ 1 253.7	~ 112.46	
+General		#0	WlcApLab.sta[2].wlan[0].mac.dcf	WlcApLab.sta[2].wlan[0].mac.dcf	packetReceivedFromPeer:vector(packetBytes)	1 504	~ 21.781 9	~ 15.371 2	
+General		#0	WlcApLab.sta[2].wlan[0].mac.dcf	WlcApLab.sta[2].wlan[0].mac.dcf	packetReceivedFromPeerUnicast:vector(packetBytes)	1 200	14.14	~ 2.472 28	
+General		#0	WlcApLab.sta[2].wlan[0].mac.dcf	WlcApLab.sta[2].wlan[0].mac.dcf	packetReceivedFromPeerMulticast:vector(packetBytes)	304	~ 51.947 4	~ 1.894 2	
+General		#0	WlcApLab.sta[2].wlan[0].mac.dcf	WlcApLab.sta[2].wlan[0].mac.dcf	packetReceivedFromPeerBroadcast:vector(packetBytes)	304	~ 51.947 4	~ 1.894 2	
+General		#0	WlcApLab.sta[2].wlan[0].mac.dcf	WlcApLab.sta[2].wlan[0].mac.dcf	packetReceivedFromPeerWithRetry:vector(packetBytes)	0	-	-	
+General		#0	WlcApLab.sta[2].wlan[0].mac.dcf	WlcApLab.sta[2].wlan[0].mac.dcf	packetReceivedFromPeerWithoutRetry:vector(packetBytes)	1 504	~ 21.781 9	~ 15.371 2	
+General		#0	WlcApLab.sta[2].wlan[0].mac.dcf	WlcApLab.sta[2].wlan[0].mac.dcf	packetDrop:vector(packetBytes)	4 689	~ 634.198	~ 624.922	
+General		#0	WlcApLab.sta[2].wlan[0].mac.dcf	WlcApLab.sta[2].wlan[0].mac.dcf	packetDropNotAddressedToUs:vector(packetBytes)	4 689	~ 634.198	~ 624.922	
+General		#0	WlcApLab.sta[2].wlan[0].mac.dcf	WlcApLab.sta[2].wlan[0].mac.dcf	packetDropQueueOverflow:vector(packetBytes)	0	-	-	
+General		#0	WlcApLab.sta[2].wlan[0].mac.dcf	WlcApLab.sta[2].wlan[0].mac.dcf	packetDropRetryLimitReached:vector(packetBytes)	0	-	-	
+General		#0	WlcApLab.sta[2].wlan[0].mac.dcf	WlcApLab.sta[2].wlan[0].mac.dcf	frameSequenceActive:vector	2 394	~ 0.499 582	~ 0.500 104	
+General		#0	WlcApLab.sta[2].wlan[0].mac.dcf	WlcApLab.sta[2].wlan[0].mac.dcf	datarateSelected:vector	1 201	2.4e7	0	
+General		#0	WlcApLab.sta[2].wlan[0].mac.rx	WlcApLab.sta[2].wlan[0].mac.rx	nav:vector	10 617	~ 0.000 014 666 7	~ 0.000 020 742 8	
+General		#0	WlcApLab.sta[2].wlan[0].mac	WlcApLab.sta[2].wlan[0].mac	packetSentToUpper:vector(packetBytes)	3	42	~ 10.392 3	
+General		#0	WlcApLab.sta[2].wlan[0].mac	WlcApLab.sta[2].wlan[0].mac	packetSentToLower:vector(packetBytes)	1 201	~ 1 253.7	~ 112.46	
+General		#0	WlcApLab.sta[2].wlan[0].mac	WlcApLab.sta[2].wlan[0].mac	packetReceivedFromUpper:vector(packetBytes)	1 192	~ 1 234.99	~ 34.757 1	
+General		#0	WlcApLab.sta[2].wlan[0].mac	WlcApLab.sta[2].wlan[0].mac	packetReceivedFromLower:vector(packetBytes)	6 195	~ 485.721	~ 603.971	
+General		#0	WlcApLab.sta[2].wlan[0].mac	WlcApLab.sta[2].wlan[0].mac	packetDrop:vector(packetBytes)	4 691	~ 634.467	~ 624.924	
+General		#0	WlcApLab.sta[2].wlan[0].mac	WlcApLab.sta[2].wlan[0].mac	packetDropIncorrectlyReceived:vector(packetBytes)	2	1 264	0	
+General		#0	WlcApLab.sta[2].wlan[0].mac	WlcApLab.sta[2].wlan[0].mac	packetDropNotAddressedToUs:vector(packetBytes)	4 689	~ 634.198	~ 624.922	
+General		#0	WlcApLab.sta[2].wlan[0].mac	WlcApLab.sta[2].wlan[0].mac	packetDropQueueOverflow:vector(packetBytes)	0	-	-	
+General		#0	WlcApLab.sta[2].wlan[0].mac	WlcApLab.sta[2].wlan[0].mac	packetDropRetryLimitReached:vector(packetBytes)	0	-	-	
+General		#0	WlcApLab.sta[2].wlan[0].mac	WlcApLab.sta[2].wlan[0].mac	packetDropDuplicateDetected:vector(packetBytes)	0	-	-	
+General		#0	WlcApLab.sta[2].wlan[0].mac	WlcApLab.sta[2].wlan[0].mac	packetDropOther:vector(packetBytes)	0	-	-	
+General		#0	WlcApLab.sta[2].wlan[0].radio	WlcApLab.sta[2].wlan[0].radio	radioMode:vector	2 405	~ 2.497 71	~ 0.505 065	
+General		#0	WlcApLab.sta[2].wlan[0].radio	WlcApLab.sta[2].wlan[0].radio	receptionState:vector	14 795	~ 1.756 4	~ 1.088 18	
+General		#0	WlcApLab.sta[2].wlan[0].radio	WlcApLab.sta[2].wlan[0].radio	transmissionState:vector	4 804	1	~ 0.707 18	
+General		#0	WlcApLab.sta[2].wlan[0].radio	WlcApLab.sta[2].wlan[0].radio	radioChannel:vector	4	6	0	
+General		#0	WlcApLab.sta[2].wlan[0]	WlcApLab.sta[2].wlan[0]	packetDropInterfaceDown:vector(packetBytes)	0	-	-	
+General		#0	WlcApLab.sta[2].wlan[0]	WlcApLab.sta[2].wlan[0]	packetDropNoCarrier:vector(packetBytes)	0	-	-	
+General		#0	WlcApLab.sta[2].ipv4.ip	WlcApLab.sta[2].ipv4.ip	packetDropAddressResolutionFailed:vector(packetBytes)	0	-	-	
+General		#0	WlcApLab.sta[2].ipv4.ip	WlcApLab.sta[2].ipv4.ip	packetDropHopLimitReached:vector(packetBytes)	0	-	-	
+General		#0	WlcApLab.sta[2].ipv4.ip	WlcApLab.sta[2].ipv4.ip	packetDropForwardingDisabled:vector(packetBytes)	0	-	-	
+General		#0	WlcApLab.sta[2].ipv4.ip	WlcApLab.sta[2].ipv4.ip	packetDropNoInterfaceFound:vector(packetBytes)	0	-	-	
+General		#0	WlcApLab.sta[2].ipv4.ip	WlcApLab.sta[2].ipv4.ip	packetDropNoRouteFound:vector(packetBytes)	0	-	-	
+General		#0	WlcApLab.sta[2].ipv4.ip	WlcApLab.sta[2].ipv4.ip	packetDropUndefined:vector(packetBytes)	0	-	-	
+General		#0	WlcApLab.sta[2].ipv4.arp	WlcApLab.sta[2].ipv4.arp	arpRequestSent:vector(packetBytes)	1	28	-	
+General		#0	WlcApLab.sta[2].ipv4.arp	WlcApLab.sta[2].ipv4.arp	arpReplySent:vector(packetBytes)	0	-	-	
+General		#0	WlcApLab.sta[2].udp	WlcApLab.sta[2].udp	packetSent:vector(packetBytes)	1 191	1 208	0	
+General		#0	WlcApLab.sta[2].udp	WlcApLab.sta[2].udp	packetReceived:vector(packetBytes)	0	-	-	
+General		#0	WlcApLab.sta[2].udp	WlcApLab.sta[2].udp	passedUpPk:vector(count)	1	0	-	
+General		#0	WlcApLab.sta[2].udp	WlcApLab.sta[2].udp	droppedPkWrongPort:vector(count)	1	0	-	
+General		#0	WlcApLab.sta[2].udp	WlcApLab.sta[2].udp	droppedPkBadChecksum:vector(count)	1	0	-	
+General		#0	WlcApLab.sta[2].app[0]	WlcApLab.sta[2].app[0]	packetReceived:vector(packetBytes)	0	-	-	
+General		#0	WlcApLab.sta[2].app[0]	WlcApLab.sta[2].app[0]	throughput:vector	300	0 bps	0 bps	
+General		#0	WlcApLab.sta[2].app[0]	WlcApLab.sta[2].app[0]	packetSent:vector(packetBytes)	1 191	1 200	0	
+General		#0	WlcApLab.sta[2].app[0]	WlcApLab.sta[2].app[0]	rcvdPkLifetime:vector	0	-	-	
+General		#0	WlcApLab.sta[2].app[0]	WlcApLab.sta[2].app[0]	rcvdPkSeqNo:vector	0	-	-	
+General		#0	WlcApLab.server.ethernet	WlcApLab.server.ethernet	encapPk:vector(packetBytes)	3	28	0	
+General		#0	WlcApLab.server.ethernet	WlcApLab.server.ethernet	decapPk:vector(packetBytes)	3 520	~ 1 226.99	~ 34.497 2	
+General		#0	WlcApLab.server.ethernet	WlcApLab.server.ethernet	pauseSent:vector	0	-	-	
+General		#0	WlcApLab.server.lo[0].lo	WlcApLab.server.lo[0].lo	rcvdPkFromHl:vector(packetBytes)	0	-	-	
+General		#0	WlcApLab.server.lo[0].lo	WlcApLab.server.lo[0].lo	passedUpPk:vector(packetBytes)	0	-	-	
+General		#0	WlcApLab.server.lo[0]	WlcApLab.server.lo[0]	packetDropInterfaceDown:vector(packetBytes)	0	-	-	
+General		#0	WlcApLab.server.lo[0]	WlcApLab.server.lo[0]	packetDropNoCarrier:vector(packetBytes)	0	-	-	
+General		#0	WlcApLab.server.eth[0].queue	WlcApLab.server.eth[0].queue	queueLength:vector	8	0 pk	0 pk	
+General		#0	WlcApLab.server.eth[0].queue	WlcApLab.server.eth[0].queue	queueBitLength:vector	8	0 B	0 B	
+General		#0	WlcApLab.server.eth[0].queue	WlcApLab.server.eth[0].queue	queueingTime:vector	3	0 s	0 s	
+General		#0	WlcApLab.server.eth[0].queue	WlcApLab.server.eth[0].queue	incomingPacketLengths:vector	3	46 B	0 B	
+General		#0	WlcApLab.server.eth[0].queue	WlcApLab.server.eth[0].queue	incomingDataRate:vector	300	36.8 bps	~ 474.45 bps	
+General		#0	WlcApLab.server.eth[0].queue	WlcApLab.server.eth[0].queue	outgoingPacketLengths:vector	3	46 B	0 B	
+General		#0	WlcApLab.server.eth[0].queue	WlcApLab.server.eth[0].queue	outgoingDataRate:vector	300	36.8 bps	~ 474.45 bps	
+General		#0	WlcApLab.server.eth[0].queue	WlcApLab.server.eth[0].queue	droppedPacketLengthsQueueOverflow:vector	0	-	-	
+General		#0	WlcApLab.server.eth[0].queue	WlcApLab.server.eth[0].queue	flowQueueingTime:vector	0	-	-	
+General		#0	WlcApLab.server.eth[0].queue	WlcApLab.server.eth[0].queue	flowIncomingDataRate:vector	0	-	-	
+General		#0	WlcApLab.server.eth[0].queue	WlcApLab.server.eth[0].queue	flowOutgoingDataRate:vector	0	-	-	
+General		#0	WlcApLab.server.eth[0].mac	WlcApLab.server.eth[0].mac	txPk:vector(packetBytes)	3	64	0	
+General		#0	WlcApLab.server.eth[0].mac	WlcApLab.server.eth[0].mac	rxPkOk:vector(packetBytes)	3 520	~ 1 244.99	~ 34.497 2	
+General		#0	WlcApLab.server.eth[0].mac	WlcApLab.server.eth[0].mac	passedUpPk:vector(packetBytes)	3 520	~ 1 244.99	~ 34.497 2	
+General		#0	WlcApLab.server.eth[0].mac	WlcApLab.server.eth[0].mac	txPausePkUnits:vector	0	-	-	
+General		#0	WlcApLab.server.eth[0].mac	WlcApLab.server.eth[0].mac	rxPausePkUnits:vector	0	-	-	
+General		#0	WlcApLab.server.eth[0].mac	WlcApLab.server.eth[0].mac	packetReceivedFromUpper:vector(packetBytes)	3	46	0	
+General		#0	WlcApLab.server.eth[0].mac	WlcApLab.server.eth[0].mac	packetDropIncorrectlyReceived:vector(packetBytes)	0	-	-	
+General		#0	WlcApLab.server.eth[0].mac	WlcApLab.server.eth[0].mac	packetDropInterfaceDown:vector(packetBytes)	0	-	-	
+General		#0	WlcApLab.server.eth[0].mac	WlcApLab.server.eth[0].mac	packetDropNotAddressedToUs:vector(packetBytes)	0	-	-	
+General		#0	WlcApLab.server.eth[0]	WlcApLab.server.eth[0]	packetDropInterfaceDown:vector(packetBytes)	0	-	-	
+General		#0	WlcApLab.server.eth[0]	WlcApLab.server.eth[0]	packetDropNoCarrier:vector(packetBytes)	0	-	-	
+General		#0	WlcApLab.server.ipv4.ip	WlcApLab.server.ipv4.ip	packetDropAddressResolutionFailed:vector(packetBytes)	0	-	-	
+General		#0	WlcApLab.server.ipv4.ip	WlcApLab.server.ipv4.ip	packetDropHopLimitReached:vector(packetBytes)	0	-	-	
+General		#0	WlcApLab.server.ipv4.ip	WlcApLab.server.ipv4.ip	packetDropForwardingDisabled:vector(packetBytes)	0	-	-	
+General		#0	WlcApLab.server.ipv4.ip	WlcApLab.server.ipv4.ip	packetDropNoInterfaceFound:vector(packetBytes)	0	-	-	
+General		#0	WlcApLab.server.ipv4.ip	WlcApLab.server.ipv4.ip	packetDropNoRouteFound:vector(packetBytes)	0	-	-	
+General		#0	WlcApLab.server.ipv4.ip	WlcApLab.server.ipv4.ip	packetDropUndefined:vector(packetBytes)	0	-	-	
+General		#0	WlcApLab.server.ipv4.arp	WlcApLab.server.ipv4.arp	arpRequestSent:vector(packetBytes)	0	-	-	
+General		#0	WlcApLab.server.ipv4.arp	WlcApLab.server.ipv4.arp	arpReplySent:vector(packetBytes)	3	28	0	
+General		#0	WlcApLab.server.udp	WlcApLab.server.udp	packetSent:vector(packetBytes)	0	-	-	
+General		#0	WlcApLab.server.udp	WlcApLab.server.udp	packetReceived:vector(packetBytes)	3 517	1 208	0	
+General		#0	WlcApLab.server.udp	WlcApLab.server.udp	passedUpPk:vector(count)	3 518	1 758.5	~ 1 015.7	
+General		#0	WlcApLab.server.udp	WlcApLab.server.udp	droppedPkWrongPort:vector(count)	1	0	-	
+General		#0	WlcApLab.server.udp	WlcApLab.server.udp	droppedPkBadChecksum:vector(count)	1	0	-	
+General		#0	WlcApLab.server.app[0]	WlcApLab.server.app[0]	packetReceived:vector(packetBytes)	3 517	1 200	0	
+General		#0	WlcApLab.server.app[0]	WlcApLab.server.app[0]	throughput:vector	300	1.125 44 Mbps	~ 684.25 kbps	
+General		#0	WlcApLab.server.app[0]	WlcApLab.server.app[0]	endToEndDelay:vector	3 517	~ 729.153 us	~ 240.601 us	
+General		#0	WlcApLab.server.app[0]	WlcApLab.server.app[0]	rcvdPkSeqNo:vector	3 517	~ 585.814	~ 338.725	

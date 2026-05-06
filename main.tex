@@ -1,148 +1,748 @@
 \documentclass{article}
 
-% Language setting
-% Replace `english' with e.g. `spanish' to change the document language
-\usepackage[english]{babel}
+% ============================================================
+% IDIOMA Y CODIFICACIÓN
+% ============================================================
+\usepackage[spanish,es-nodecimaldot]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
 
+% ============================================================
+% MÁRGENES
+% ============================================================
 \usepackage[letterpaper,top=2cm,bottom=5cm,left=3cm,right=3cm,marginparwidth=1.75cm]{geometry}
 
-% Useful packages
+% ============================================================
+% PAQUETES
+% ============================================================
 \usepackage{amsmath}
 \usepackage{graphicx}
 \usepackage[colorlinks=true, allcolors=blue]{hyperref}
-\usepackage{amssymb} 
+\usepackage{amssymb}
 \usepackage{fancyhdr}
-\usepackage{lipsum} % Para generar texto de ejemplo
 \usepackage{multicol}
-\pagestyle{fancy} 
+\usepackage{url}
+\usepackage{float}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{caption}
+\usepackage{xcolor}
+\usepackage{listings}
 
+\graphicspath{{imagenes/}}
 
+% ============================================================
+% CONFIGURACIÓN DE CÓDIGO
+% ============================================================
+\lstset{
+    basicstyle=\ttfamily\scriptsize,
+    breaklines=true,
+    breakatwhitespace=false,
+    frame=single,
+    columns=fullflexible,
+    backgroundcolor=\color{gray!8},
+    captionpos=b,
+    inputencoding=utf8,
+    extendedchars=true,
+    literate=
+    {á}{{\'a}}1 {é}{{\'e}}1 {í}{{\'i}}1 {ó}{{\'o}}1 {ú}{{\'u}}1
+    {Á}{{\'A}}1 {É}{{\'E}}1 {Í}{{\'I}}1 {Ó}{{\'O}}1 {Ú}{{\'U}}1
+    {ñ}{{\~n}}1 {Ñ}{{\~N}}1
+    {¿}{{?`}}1 {¡}{{!`}}1
+}
 
-\fancyhf{} % Limpiar encabezado y pie de página por defecto
-\setlength{\headheight}{70pt} % Ajuste del tamaño del encabezado
+% ============================================================
+% IMAGEN SEGURA
+% ============================================================
+\newcommand{\imagensegura}[4]{
+\begin{figure}[H]
+    \centering
+    \IfFileExists{imagenes/#1}{
+        \includegraphics[width=#2\textwidth]{#1}
+    }{
+        \fbox{
+        \begin{minipage}{0.85\textwidth}
+            \centering
+            \vspace{0.5cm}
+            Imagen no encontrada: \texttt{#1}
+            \vspace{0.5cm}
+        \end{minipage}
+        }
+    }
+    \caption{#3}
+    \label{#4}
+\end{figure}
+}
 
-% Definición del encabezado
+% ============================================================
+% ENCABEZADO
+% ============================================================
+\pagestyle{fancy}
+\fancyhf{}
+\setlength{\headheight}{70pt}
+
 \fancyhead[C]{%
     \begin{minipage}[c]{1.5cm}
-        \includegraphics[width=1.5cm]{imagenes/uta.png}
+        \IfFileExists{imagenes/uta.png}{
+            \includegraphics[width=1.5cm]{uta.png}
+        }{}
     \end{minipage}%
-    \hfill  % <--- SIN EL SIGNO % (descomentado)
-    \begin{minipage}[c]{10cm} 
+    \hfill
+    \begin{minipage}[c]{10cm}
         \centering
         \small {\textbf{UNIVERSIDAD TÉCNICA DE AMBATO}} \\[0.1cm]
         \scriptsize \textit{FACULTAD DE INGENIERÍA EN SISTEMAS ELECTRÓNICA E INDUSTRIAL} \\[0.1cm]
         \scriptsize \textbf{CARRERA INGENIERÍA DE SOFTWARE - REDES} \\[0.1cm]
         \scriptsize \textbf{CICLO ACADÉMICO: ENERO - JULIO 2026}
-        \vspace{0.2cm} % <--- Espacio entre texto y línea horizontal
+        \vspace{0.2cm}
     \end{minipage}%
-    \hfill  % <--- SIN EL SIGNO % (descomentado)
+    \hfill
     \begin{minipage}[c]{1.5cm}
         \centering
-        \includegraphics[width=1.5cm]{imagenes/fisei.png}
+        \IfFileExists{imagenes/fisei.png}{
+            \includegraphics[width=1.5cm]{fisei.png}
+        }{}
     \end{minipage}%
 }
 
-
 \begin{document}
+
 \begin{center}
-    {\large \textbf{INFORME DE GUÍA PRÁCTICA}} \\    
+    {\large \textbf{INFORME DE GUÍA PRÁCTICA}} \\
 \end{center}
 
+% ============================================================
+% PORTADA
+% ============================================================
 \section{Portada}
+
 \begin{flushleft}
-\begin{tabular}{ l l }
-    \textbf{Tema:} & Inter Vlans \\
+\begin{tabular}{ l p{10cm} }
+    \textbf{Tema:} & Simulación de red Wi-Fi con WLC y AP en OMNeT++/INET \\
     \textbf{Unidad de Organización Curricular:} & Profesional \\
-    \textbf{Nivel y Paralelo:} & 4to Semestre "B"\\
-    \textbf{Alumnos participante(s):} & Guatemal Avilez Bryan Stalin\\
+    \textbf{Nivel y Paralelo:} & 4to Semestre ``B'' \\
+    \textbf{Alumno participante:} & Guatemal Avilez Bryan Stalin \\
     \textbf{Asignatura:} & Redes \\
-    \textbf{Docente:} & Ing.Wilson Gustavo Chango Sailema , Mg. \\
+    \textbf{Docente:} & Ing. Wilson Gustavo Chango Sailema, Mg. \\
 \end{tabular}
 \end{flushleft}
 
-
+% ============================================================
+% INFORME
+% ============================================================
 \section{Informe de guía práctica}
+
 \subsection{Objetivos}
+
 \subsubsection{General}
-(Especificado en la guía práctica proporcionada por el docente).
+
+Analizar el comportamiento de una red inalámbrica empresarial compuesta por un controlador WLC, un punto de acceso, tres estaciones Wi-Fi, un switch Ethernet y un servidor cableado, mediante OMNeT++ e INET, con la finalidad de comprobar la asociación inalámbrica, el puenteo Wi-Fi/Ethernet y la recepción de tráfico UDP en el servidor.
+
 \subsubsection{Específicos}
+
 \begin{itemize}
-    \item (Se recomienda máximo 3).
-    \item 
-    \item 
+    \item Implementar la topología de red WLC--AP en OMNeT++ utilizando módulos de INET como \textit{AccessPoint}, \textit{WirelessHost}, \textit{EthernetSwitch} y \textit{StandardHost}.
+    \item Identificar el error de configuración que impedía el reenvío correcto del tráfico entre la red inalámbrica y la red cableada.
+    \item Comparar las métricas obtenidas antes y después de la corrección, considerando asociación Wi-Fi, resolución ARP, tráfico Ethernet, paquetes recibidos y throughput.
 \end{itemize}
+
 \subsection{Modalidad}
-Detallada en la guía.
+
+La práctica se desarrolló en modalidad experimental mediante simulación computacional. Se utilizó OMNeT++ junto con el framework INET para construir, ejecutar y analizar una red Wi-Fi. La actividad permitió observar el comportamiento de los dispositivos de red sin requerir equipos físicos.
 
 \subsection{Tiempo de duración}
 
-Presenciales: Detallado en la guía\\
-No presenciales: Detallado en la guía
-
+Presenciales: Detallado en la guía práctica proporcionada por el docente.\\
+No presenciales: Desarrollo, pruebas, corrección de errores, análisis de resultados y elaboración del informe.
 
 \subsection{Instrucciones}
 
-Detalladas en la guía proporcionada por el docente.
-
+La práctica consistió en crear un proyecto en OMNeT++, agregar la referencia a INET, definir la topología en el archivo \texttt{WlcApLab.ned}, configurar la simulación mediante \texttt{omnetpp.ini}, ejecutar la red durante 30 segundos y analizar los archivos generados en la carpeta \texttt{results}. Posteriormente, se revisaron las métricas de asociación Wi-Fi, tráfico UDP, resolución ARP, tráfico Ethernet y throughput del servidor.
 
 \subsection{Listado de equipos, materiales y recursos}
+
 \textbf{Listado de equipos y materiales generales empleados en la guía práctica:}
+
 \begin{itemize}
-    \item  
+    \item Computadora personal con sistema operativo Windows 11.
+    \item OMNeT++ instalado y configurado.
+    \item Framework INET referenciado en el proyecto.
+    \item Proyecto \texttt{WLC\_AP\_Lab3}.
+    \item Archivos de simulación \texttt{WlcApLab.ned} y \texttt{omnetpp.ini}.
+    \item Carpeta de resultados con archivos \texttt{vectors.vec}, \texttt{vectors.vci}, \texttt{scalars.sca} y \texttt{General-\#0.elog}.
+    \item Visual Studio Code para la elaboración del informe en LaTeX.
 \end{itemize}
 
 \textbf{TAC (Tecnologías para el Aprendizaje y Conocimiento) empleados en la guía práctica:}
+
 \begin{itemize}
     \item[$\square$] Plataformas educativas
-    \item[$\square$] Simuladores y laboratorios virtuales
-    \item[$\square$] Aplicaciones educativas
+    \item[$\boxtimes$] Simuladores y laboratorios virtuales
+    \item[$\boxtimes$] Aplicaciones educativas
     \item[$\square$] Recursos audiovisuales
     \item[$\square$] Gamificación
-    \item[$\square$] Inteligencia Artificial
-    \item Otros (Especifique): \underline{\hspace{5cm}}
+    \item[$\boxtimes$] Inteligencia Artificial
+    \item Otros: \underline{OMNeT++, INET y Visual Studio Code}
 \end{itemize}
 
-
+% ============================================================
+% ACTIVIDADES
+% ============================================================
 \subsection{Actividades por desarrollar}
 
-Detalladas en la guía proporcionada por el docente.
+\subsubsection{Creación del proyecto}
 
+Se creó un proyecto en OMNeT++ con el nombre \texttt{WLC\_AP\_Lab3}. Luego se configuró la referencia al framework INET, ya que los módulos utilizados en la simulación pertenecen a dicha librería. Esta referencia fue necesaria para emplear dispositivos como \texttt{AccessPoint}, \texttt{WirelessHost}, \texttt{EthernetSwitch} y \texttt{StandardHost}.
+
+\subsubsection{Definición de la topología}
+
+La topología se definió en el archivo \texttt{WlcApLab.ned}. Esta red incluye un WLC lógico, un switch Ethernet, un punto de acceso, tres estaciones inalámbricas y un servidor cableado. El AP cumple el rol de enlace entre los clientes Wi-Fi y la red cableada.
+
+\imagensegura{Figura_1_Topologia_WLC_AP_Corregida.png}{0.85}{Topología corregida de la red WLC--AP en OMNeT++/INET.}{fig:topologia-corregida}
+
+\subsubsection{Configuración inicial de la simulación}
+
+En la primera configuración se mantuvo activa la línea:
+
+\begin{lstlisting}
+*.ap1.bridge.typename = "MacRelayUnit"
+\end{lstlisting}
+
+Esta configuración provocó que el AP no realizara correctamente el puenteo entre la interfaz Wi-Fi y la interfaz Ethernet. Como consecuencia, aunque las estaciones generaban tráfico UDP, el servidor no recibía paquetes.
+
+\imagensegura{ANTES_01_Error_MacRelayUnit_omnetpp.png}{0.95}{Configuración inicial con \texttt{MacRelayUnit} activa.}{fig:error-macrelay}
+
+\subsubsection{Ejecución de la simulación inicial}
+
+La simulación inicial se ejecutó hasta alcanzar el tiempo límite de 30 segundos. Esto permitió generar los archivos de resultados para analizar el comportamiento de la red antes de la corrección.
+
+\imagensegura{ANTES_03_Simulacion_Finalizada_30s.png}{0.85}{Simulación inicial finalizada a los 30 segundos.}{fig:antes-finalizada}
+
+\subsubsection{Archivos generados antes de la corrección}
+
+Luego de ejecutar la simulación inicial, OMNeT++ generó archivos de resultados en la carpeta \texttt{results}. Estos archivos permitieron revisar métricas como paquetes enviados, paquetes recibidos, errores ARP y tráfico Ethernet.
+
+\imagensegura{ANTES_04_Archivos_Resultados.png}{0.80}{Archivos de resultados generados antes de la corrección.}{fig:antes-resultados}
+
+\subsubsection{Corrección aplicada en \texttt{omnetpp.ini}}
+
+Para corregir la simulación se realizaron varios ajustes. Primero, se comentó la línea \texttt{MacRelayUnit}, debido a que forzaba un puente incorrecto en el AP. Luego, se declaró explícitamente el agente de asociación Wi-Fi de las estaciones mediante \texttt{Ieee80211AgentSta}. También se configuró el escaneo del canal 6, se activó el forwarding del switch, se aumentó la potencia de transmisión y se retrasó el inicio del tráfico UDP para permitir que las estaciones se asociaran antes de enviar paquetes.
+
+\begin{lstlisting}
+*.sta[*].wlan[0].agent.typename = "Ieee80211AgentSta"
+*.sta[*].wlan[0].agent.defaultSsid = "CorpWiFi"
+*.sta[*].wlan[0].agent.channelsToScan = "6"
+
+*.ap1.hasBridge = true
+# *.ap1.bridge.typename = "MacRelayUnit"
+# *.ap1.bridge.typename = "Ieee8021dRelay"
+
+*.switch0.forwarding = true
+*.sta[*].app[0].startTime = uniform(5s,6s)
+\end{lstlisting}
+
+\imagensegura{Figura_2_Configuracion_omnetpp_Corregida.png}{0.95}{Configuración corregida en el archivo \texttt{omnetpp.ini}.}{fig:config-corregida}
+
+\subsubsection{Ejecución de la simulación corregida}
+
+Después de aplicar las correcciones, la simulación se volvió a ejecutar hasta los 30 segundos. La ejecución finalizó correctamente y permitió obtener nuevas métricas para comparar el comportamiento antes y después del cambio.
+
+\imagensegura{Figura_3_Simulacion_Finalizada_30s.png}{0.85}{Simulación corregida finalizada a los 30 segundos.}{fig:despues-finalizada}
+
+\imagensegura{Figura_4_Archivos_Resultados.png}{0.80}{Archivos de resultados generados después de la corrección.}{fig:despues-resultados}
+
+% ============================================================
+% RESULTADOS
+% ============================================================
 \subsection{Resultados obtenidos}
-De acuerdo con el tipo de trabajo, se plasmarán los resultados alcanzados en la guía práctica una vez ejecutadas las actividades. Se pueden emplear figuras y tablas las cuales deben ser numeradas. 
 
+\subsubsection{Resultados antes de la corrección}
 
+En la primera ejecución, las estaciones sí intentaron enviar tráfico UDP hacia el servidor. Por ejemplo, la estación \texttt{sta[0]} registró 1380 paquetes enviados con un tamaño promedio de 1200 bytes. Sin embargo, el servidor recibió 0 paquetes. Esto indica que el tráfico no logró atravesar correctamente el AP hacia la red cableada.
 
+\imagensegura{ANTES_05_Paquetes_Enviados_sta0.png}{0.95}{Paquetes enviados por \texttt{sta[0]} antes de la corrección.}{fig:antes-packetsent}
+
+\imagensegura{ANTES_06_Paquetes_Recibidos_Servidor.png}{0.95}{Paquetes recibidos por el servidor antes de la corrección.}{fig:antes-server}
+
+Además, se observó que \texttt{sta[0]} tuvo 1355 paquetes descartados por fallo de resolución de direcciones. Esto demuestra que la comunicación de capa superior no pudo resolverse correctamente debido a problemas de conectividad entre la red inalámbrica y la red cableada.
+
+\imagensegura{ANTES_07_Descartes_ARP_sta0.png}{0.95}{Descartes por fallo ARP en \texttt{sta[0]} antes de la corrección.}{fig:antes-arpdrop}
+
+También se verificó que la estación enviaba solicitudes ARP, pero estas no lograban resolver correctamente la dirección del destino.
+
+\imagensegura{ANTES_08_Solicitudes_ARP_sta0.png}{0.95}{Solicitudes ARP enviadas por \texttt{sta[0]} antes de la corrección.}{fig:antes-arprequest}
+
+El tráfico Ethernet del AP permanecía en cero, lo cual confirmaba que el AP no reenviaba tráfico hacia el switch.
+
+\imagensegura{ANTES_09_Trafico_Ethernet_AP_txPk.png}{0.95}{Tráfico Ethernet del AP antes de la corrección.}{fig:antes-ap-ethernet}
+
+Sin embargo, sí existía actividad Wi-Fi, ya que el AP transmitía tramas inalámbricas. Esto permitió concluir que el problema no era la existencia de radio Wi-Fi, sino el puenteo hacia Ethernet.
+
+\imagensegura{ANTES_10_Trafico_WiFi_AP_packetSentToPeer.png}{0.95}{Tráfico Wi-Fi del AP antes de la corrección.}{fig:antes-wifi-ap}
+
+\subsubsection{Resultados después de la corrección}
+
+Después de corregir el archivo \texttt{omnetpp.ini}, las estaciones lograron asociarse correctamente al AP. La métrica \texttt{acceptConfirm} de \texttt{sta[0]} cambió de 0 a 3, mientras que \texttt{dropConfirm} quedó en 0. Esto evidencia que el proceso de asociación Wi-Fi se completó correctamente.
+
+\imagensegura{Figura_5_Asociacion_WiFi_acceptConfirm.png}{0.95}{Asociación Wi-Fi correcta mediante la métrica \texttt{acceptConfirm}.}{fig:acceptconfirm}
+
+Luego de la corrección, ya no se registraron descartes por fallo de resolución ARP en \texttt{sta[0]}. Esto demuestra que la estación logró resolver correctamente la dirección del destino.
+
+\imagensegura{Figura_6_Sin_Fallos_ARP_sta0.png}{0.95}{Ausencia de fallos ARP en \texttt{sta[0]} después de la corrección.}{fig:sin-arp}
+
+El AP también comenzó a transmitir tráfico por su interfaz Ethernet. La métrica \texttt{ap1.eth[0].mac txPk} registró 3520 paquetes, lo que confirma que el AP ya funcionaba como puente entre Wi-Fi y Ethernet.
+
+\imagensegura{Figura_7_Trafico_Ethernet_AP_txPk.png.png}{0.95}{Tráfico Ethernet transmitido por el AP después de la corrección.}{fig:ap-txpk}
+
+El switch recibió 3520 paquetes, por lo que se comprobó que el tráfico enviado desde el AP ingresó correctamente a la red cableada.
+
+\imagensegura{Figura_8_Trafico_Switch_rxPkOk.png}{0.95}{Tráfico recibido por el switch después de la corrección.}{fig:switch-rx}
+
+Finalmente, el servidor recibió 3517 paquetes UDP con un tamaño promedio de 1200 bytes. Este resultado confirma que la comunicación entre las estaciones Wi-Fi y el servidor cableado fue exitosa.
+
+\imagensegura{Figura_9_Paquetes_Recibidos_Servidor.png}{0.95}{Paquetes UDP recibidos por el servidor después de la corrección.}{fig:server-packetreceived}
+
+El throughput promedio del servidor fue de 1.12544 Mbps, lo que demuestra que la red corregida no solo permitió conectividad, sino también transferencia efectiva de datos.
+
+\imagensegura{Figura_10_Throughput_Servidor.png}{0.95}{Throughput del servidor después de la corrección.}{fig:throughput-server}
+
+\subsubsection{Comparación antes y después}
+
+\begin{table}[H]
+\centering
+\caption{Comparación de métricas antes y después de la corrección}
+\label{tab:comparacion}
+\begin{tabular}{p{5.2cm}p{2cm}p{2cm}p{4.2cm}}
+\toprule
+\textbf{Métrica} & \textbf{Antes} & \textbf{Después} & \textbf{Interpretación} \\
+\midrule
+\texttt{acceptConfirm} & 0 & 3 & La estación logró asociarse al AP. \\
+\texttt{dropConfirm} & 74 & 0 & Ya no se rechaza la asociación. \\
+\texttt{packetDropAddressResolutionFailed} & 1355 & 0 & Se corrigió el fallo de resolución ARP. \\
+\texttt{ap1.eth[0].mac txPk} & 0 & 3520 & El AP ya transmite por Ethernet. \\
+\texttt{switch0.eth[1].mac rxPkOk} & 0 & 3520 & El switch recibe tráfico desde el AP. \\
+\texttt{server.app[0] packetReceived} & 0 & 3517 & El servidor recibe paquetes UDP. \\
+\texttt{server.app[0] throughput} & 0 bps & 1.12544 Mbps & Existe transferencia útil de datos. \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsubsection{Análisis técnico}
+
+El problema inicial se produjo porque el AP no estaba funcionando correctamente como puente entre la red inalámbrica y la red cableada. Aunque las estaciones generaban paquetes UDP, el tráfico no llegaba al servidor. Esto se evidenció en tres métricas principales: el servidor recibía 0 paquetes, el AP transmitía 0 paquetes por Ethernet y las estaciones acumulaban descartes por fallo de resolución ARP.
+
+La corrección consistió en eliminar el uso forzado de \texttt{MacRelayUnit}, declarar explícitamente el agente de asociación Wi-Fi \texttt{Ieee80211AgentSta}, configurar el escaneo del canal 6, activar el forwarding del switch, aumentar la potencia de transmisión y retrasar el inicio del tráfico. Con estos cambios, las estaciones lograron asociarse al AP, se resolvió ARP correctamente y el servidor recibió tráfico UDP.
+
+% ============================================================
+% HABILIDADES
+% ============================================================
 \subsection{Habilidades blandas empleadas en la práctica}
 
 \begin{itemize}
     \item[$\square$] Liderazgo
-    \item[$\square$] Trabajo en equipo
-    \item[$\square$] Comunicación asertiva
+    \item[$\boxtimes$] Trabajo en equipo
+    \item[$\boxtimes$] Comunicación asertiva
     \item[$\square$] La empatía
-    \item[$\square$] Pensamiento crítico
-    \item[$\square$] Flexibilidad
-    \item[$\square$] La resolución de conflictos
-    \item[$\square$] Adaptabilidad
-    \item[$\square$] Responsabilidad
+    \item[$\boxtimes$] Pensamiento crítico
+    \item[$\boxtimes$] Flexibilidad
+    \item[$\boxtimes$] La resolución de conflictos
+    \item[$\boxtimes$] Adaptabilidad
+    \item[$\boxtimes$] Responsabilidad
 \end{itemize}
 
-
-
+% ============================================================
+% CONCLUSIONES
+% ============================================================
 \subsection{Conclusiones}
-Constituye la respuesta que propone el o los estudiantes para el problema que originó el trabajo desarrollado, de acuerdo con los datos recogidos y la teoría aplicada. 
 
+Se implementó correctamente una red Wi-Fi empresarial en OMNeT++/INET compuesta por un WLC lógico, un switch Ethernet, un punto de acceso, tres estaciones inalámbricas y un servidor cableado. La simulación permitió observar el comportamiento de la asociación Wi-Fi, el tráfico UDP, ARP y el puenteo entre la red inalámbrica y la red cableada.
+
+En la configuración inicial, la red no funcionó correctamente debido al uso de \texttt{MacRelayUnit} en el puente del AP y a la falta de una configuración explícita del agente de asociación Wi-Fi. Como resultado, el servidor recibió 0 paquetes, el AP no transmitió tráfico por Ethernet y se generaron múltiples descartes por fallo de resolución ARP.
+
+Después de aplicar las correcciones, las estaciones se asociaron correctamente al AP, el tráfico Ethernet del AP alcanzó 3520 paquetes, el switch recibió tráfico y el servidor obtuvo 3517 paquetes UDP con un throughput promedio de 1.12544 Mbps. Por lo tanto, se comprobó que la corrección permitió restablecer la conectividad entre los clientes Wi-Fi y el servidor cableado.
+
+% ============================================================
+% RECOMENDACIONES
+% ============================================================
 \subsection{Recomendaciones}
-Redactar las sugerencias o acciones concretas que se derivan de la guía práctica desarrollada. \cite{greenwade93}
 
+Se recomienda revisar siempre las métricas de asociación Wi-Fi antes de analizar el tráfico de capa superior, ya que si las estaciones no se asocian correctamente al AP, los paquetes UDP no podrán llegar al servidor.
 
+También se recomienda evitar forzar manualmente el tipo de bridge del AP cuando INET ya proporciona una configuración funcional por defecto. En este caso, comentar la línea \texttt{MacRelayUnit} permitió que el AP actuara correctamente como puente entre Wi-Fi y Ethernet.
+
+Finalmente, se recomienda iniciar el tráfico de aplicación después de algunos segundos de simulación, para permitir que primero se complete la asociación inalámbrica y la resolución ARP. Esto evita errores de conectividad provocados por el envío prematuro de paquetes.
+
+% ============================================================
+% REFERENCIAS
+% ============================================================
 \subsection{Referencias}
-Insertar las referencias bibliográficas empleadas aplicando la norma IEEE.
 
-\vspace{-3em} %reduce el espacio causado por refname vacío
-\renewcommand{\refname}{}
-\bibliographystyle{ieeetr}
-\bibliography{sample}
+\begin{thebibliography}{9}
 
-\subsection{Anexos}
-\vfill
+\bibitem{omnet}
+A. Varga, \textit{OMNeT++ Discrete Event Simulator}. OpenSim Ltd. [En línea]. Disponible en: \url{https://omnetpp.org/}
+
+\bibitem{inet}
+INET Framework, \textit{INET Framework Documentation}. [En línea]. Disponible en: \url{https://inet.omnetpp.org/}
+
+\bibitem{ieee80211}
+IEEE, \textit{IEEE Standard for Information Technology--Telecommunications and Information Exchange Between Systems Local and Metropolitan Area Networks--Specific Requirements Part 11: Wireless LAN Medium Access Control (MAC) and Physical Layer (PHY) Specifications}, IEEE Std 802.11.
+
+\end{thebibliography}
+
+% ============================================================
+% ANEXOS
+% ============================================================
+\clearpage
+\appendix
+\section{Anexos}
+
+\subsection{Anexo A: Archivo \texttt{omnetpp.ini} antes de la modificación}
+
+En este anexo se muestra únicamente el archivo \texttt{omnetpp.ini} utilizado antes de aplicar las correcciones. Esta versión mantiene activo \texttt{MacRelayUnit}, no declara explícitamente el agente \texttt{Ieee80211AgentSta} y usa el inicio de tráfico entre 1 y 2 segundos.
+
+\begin{lstlisting}[caption={Archivo omnetpp.ini antes de la modificación}]
+[General]
+network = src.WlcApLab
+sim-time-limit = 30s
+# ============================================================
+# RESULTS
+# ============================================================
+record-eventlog = true
+output-vector-file = results/vectors.vec
+output-scalar-file = results/scalars.sca
+# ============================================================
+# NETWORK CONFIGURATOR (Configuración automática - SIN XML)
+# ============================================================
+*.configurator.typename = "Ipv4NetworkConfigurator"
+*.configurator.addDefaultRoutes = true
+*.configurator.addStaticRoutes = true
+*.configurator.assignAddresses = true
+# La siguiente línea es la que causa el error - ELIMÍNALA o coméntala:
+# *.configurator.config = xmldoc("xml/config.xml")
+# ============================================================
+# WLAN MANAGEMENT
+# ============================================================
+*.ap1.wlan[0].mgmt.typename = "Ieee80211MgmtAp"
+*.ap1.wlan[0].mgmt.ssid = "CorpWiFi"
+*.ap1.wlan[0].mgmt.beaconInterval = 100ms
+*.sta[*].wlan[0].mgmt.typename = "Ieee80211MgmtSta"
+*.sta[*].wlan[0].agent.defaultSsid = "CorpWiFi"
+# ============================================================
+# BRIDGING Y FORWARDING
+# ============================================================
+*.ap1.hasBridge = true
+*.ap1.bridge.typename = "MacRelayUnit"
+*.ap1.forwarding = true
+*.ap1.ipv4.forwarding = true
+*.wlc.ipv4.forwarding = true
+*.wlc.hasBridge = true
+# ============================================================
+# APPLICATIONS
+# ============================================================
+*.server.numApps = 1
+*.server.app[0].typename = "UdpSink"
+*.server.app[0].localPort = 5000
+*.sta[*].numApps = 1
+*.sta[*].app[0].typename = "UdpBasicApp"
+*.sta[*].app[0].destAddresses = "server"
+*.sta[*].app[0].destPort = 5000
+*.sta[*].app[0].messageLength = 1200B
+*.sta[*].app[0].sendInterval = exponential(0.02s)
+*.sta[*].app[0].startTime = uniform(1s,2s)
+*.sta[*].app[0].stopTime = 29s
+# ============================================================
+# RADIO MEDIUM
+# ============================================================
+*.radioMedium.typename = "Ieee80211ScalarRadioMedium"
+*.radioMedium.backgroundNoise.typename = "IsotropicScalarBackgroundNoise"
+*.radioMedium.backgroundNoise.power = -110dBm
+# ============================================================
+# WIFI AP
+# ============================================================
+*.ap1.wlan[0].mac.typename = "Ieee80211Mac"
+*.ap1.wlan[0].radio.typename = "Ieee80211ScalarRadio"
+*.ap1.wlan[0].radio.antenna.typename = "IsotropicAntenna"
+*.ap1.wlan[0].radio.transmitter.power = 20mW
+*.ap1.wlan[0].radio.channelNumber = 6
+*.ap1.wlan[0].radio.bitrate = 54Mbps
+# ============================================================
+# WIFI STATIONS
+# ============================================================
+*.sta[*].wlan[0].mac.typename = "Ieee80211Mac"
+*.sta[*].wlan[0].radio.typename = "Ieee80211ScalarRadio"
+*.sta[*].wlan[0].radio.antenna.typename = "IsotropicAntenna"
+*.sta[*].wlan[0].radio.transmitter.power = 15mW
+*.sta[*].wlan[0].radio.channelNumber = 6
+*.sta[*].wlan[0].radio.bitrate = 54Mbps
+# ============================================================
+# MOBILITY
+# ============================================================
+*.wlc.mobility.typename = "StationaryMobility"
+*.wlc.mobility.initialX = 100m
+*.wlc.mobility.initialY = 200m
+*.wlc.mobility.initialZ = 0m
+*.server.mobility.typename = "StationaryMobility"
+*.server.mobility.initialX = 550m
+*.server.mobility.initialY = 300m
+*.server.mobility.initialZ = 0m
+*.ap1.mobility.typename = "StationaryMobility"
+*.ap1.mobility.initialX = 400m
+*.ap1.mobility.initialY = 200m
+*.ap1.mobility.initialZ = 0m
+*.sta[*].mobility.typename = "StationaryMobility"
+*.sta[*].mobility.initFromDisplayString = false
+*.sta[*].mobility.initialZ = 0m
+*.sta[0].mobility.initialX = 560m
+*.sta[0].mobility.initialY = 85m
+*.sta[1].mobility.initialX = 650m
+*.sta[1].mobility.initialY = 85m
+*.sta[2].mobility.initialX = 740m
+*.sta[2].mobility.initialY = 85m
+\end{lstlisting}
+
+\clearpage
+\subsection{Anexo B: Archivo \texttt{WlcApLab.ned} antes de la modificación}
+
+En este anexo se muestra el archivo \texttt{WlcApLab.ned} utilizado antes de la modificación. La topología ya contenía un WLC lógico, un switch Ethernet, un AP, tres estaciones inalámbricas y un servidor cableado.
+
+\begin{lstlisting}[caption={Archivo WlcApLab.ned antes de la modificación}]
+package src;
+import inet.node.ethernet.Eth100M;
+import inet.physicallayer.wireless.ieee80211.packetlevel.Ieee80211ScalarRadioMedium;
+import inet.physicallayer.wireless.common.antenna.IsotropicAntenna;
+import inet.node.wireless.AccessPoint;
+import inet.node.inet.WirelessHost;
+import inet.node.ethernet.EthernetSwitch;
+import inet.node.inet.StandardHost;
+import inet.networklayer.configurator.ipv4.Ipv4NetworkConfigurator;
+network WlcApLab
+{
+ parameters:
+ int numSta = default(3);
+ @display("bgb=800,400");
+ submodules:
+ configurator: Ipv4NetworkConfigurator {
+ @display("p=50,50");
+ }
+ radioMedium: Ieee80211ScalarRadioMedium {
+ @display("p=100,100;i=misc/sun_s");
+ }
+ wlc: StandardHost {
+ @display("p=100,200;i=device/server");
+ }
+ switch0: EthernetSwitch {
+ @display("p=250,200");
+ }
+ ap1: AccessPoint {
+ @display("p=400,200;i=device/accesspoint");
+ }
+ sta[numSta]: WirelessHost {
+ @display("p=560,85");
+ }
+ server: StandardHost {
+ @display("p=550,300;i=device/server");
+ }
+ connections allowunconnected:
+ wlc.ethg++ <--> Eth100M <--> switch0.ethg++;
+ ap1.ethg++ <--> Eth100M <--> switch0.ethg++;
+ server.ethg++ <--> Eth100M <--> switch0.ethg++;
+}
+\end{lstlisting}
+
+\clearpage
+\subsection{Anexo C: Archivo \texttt{omnetpp.ini} después de la modificación}
+
+En este anexo se muestra únicamente el archivo \texttt{omnetpp.ini} después de aplicar las correcciones. En esta versión se agregó el agente \texttt{Ieee80211AgentSta}, se configuró el escaneo del canal 6, se comentó \texttt{MacRelayUnit}, se activó el forwarding del switch, se aumentó la potencia y se retrasó el inicio del tráfico.
+
+\begin{lstlisting}[caption={Archivo omnetpp.ini después de la modificación}]
+[General]
+network = src.WlcApLab
+sim-time-limit = 30s
+
+# ============================================================
+# RESULTS
+# ============================================================
+record-eventlog = true
+output-vector-file = results/vectors.vec
+output-scalar-file = results/scalars.sca
+**.scalar-recording = true
+**.vector-recording = true
+
+# ============================================================
+# NETWORK CONFIGURATOR
+# ============================================================
+*.configurator.typename = "Ipv4NetworkConfigurator"
+*.configurator.addDefaultRoutes = true
+*.configurator.addStaticRoutes = true
+*.configurator.assignAddresses = true
+
+# No se usará archivo XML
+# *.configurator.config = xmldoc("xml/config.xml")
+
+# ============================================================
+# WLAN MANAGEMENT - ASOCIACIÓN WI-FI
+# ============================================================
+*.ap1.wlan[0].mgmt.typename = "Ieee80211MgmtAp"
+*.ap1.wlan[0].mgmt.ssid = "CorpWiFi"
+*.ap1.wlan[0].mgmt.beaconInterval = 100ms
+
+*.sta[*].wlan[0].mgmt.typename = "Ieee80211MgmtSta"
+*.sta[*].wlan[0].agent.typename = "Ieee80211AgentSta"
+*.sta[*].wlan[0].agent.defaultSsid = "CorpWiFi"
+
+# Las estaciones escanean el mismo canal del AP
+*.sta[*].wlan[0].agent.channelsToScan = "6"
+
+# ============================================================
+# BRIDGING Y FORWARDING - CORRECCIÓN DEL AP
+# ============================================================
+
+# Se activa el puente del AP
+*.ap1.hasBridge = true
+
+# ANTES DE LA CORRECCIÓN:
+# Esta línea causaba el problema de puenteo Wi-Fi/Ethernet
+# *.ap1.bridge.typename = "MacRelayUnit"
+
+# CORRECCIÓN:
+# No se fuerza manualmente el bridge.typename.
+# INET utilizará el puente correspondiente por defecto.
+# *.ap1.bridge.typename = "Ieee8021dRelay"
+
+*.ap1.forwarding = true
+*.ap1.ipv4.forwarding = true
+
+# Switch y WLC
+*.switch0.forwarding = true
+*.wlc.ipv4.forwarding = true
+# *.wlc.hasBridge = true
+
+# ============================================================
+# APPLICATIONS
+# ============================================================
+*.server.numApps = 1
+*.server.app[0].typename = "UdpSink"
+*.server.app[0].localPort = 5000
+
+*.sta[*].numApps = 1
+*.sta[*].app[0].typename = "UdpBasicApp"
+*.sta[*].app[0].destAddresses = "server"
+*.sta[*].app[0].destPort = 5000
+*.sta[*].app[0].messageLength = 1200B
+*.sta[*].app[0].sendInterval = exponential(0.02s)
+
+# Se retrasa el tráfico para dar tiempo a la asociación Wi-Fi
+*.sta[*].app[0].startTime = uniform(5s,6s)
+*.sta[*].app[0].stopTime = 29s
+
+# ============================================================
+# RADIO MEDIUM
+# ============================================================
+*.radioMedium.typename = "Ieee80211ScalarRadioMedium"
+*.radioMedium.backgroundNoise.typename = "IsotropicScalarBackgroundNoise"
+*.radioMedium.backgroundNoise.power = -110dBm
+
+# ============================================================
+# WIFI AP
+# ============================================================
+*.ap1.wlan[0].mac.typename = "Ieee80211Mac"
+*.ap1.wlan[0].radio.typename = "Ieee80211ScalarRadio"
+*.ap1.wlan[0].radio.antenna.typename = "IsotropicAntenna"
+*.ap1.wlan[0].radio.transmitter.power = 100mW
+*.ap1.wlan[0].radio.channelNumber = 6
+*.ap1.wlan[0].radio.bitrate = 54Mbps
+
+# ============================================================
+# WIFI STATIONS
+# ============================================================
+*.sta[*].wlan[0].mac.typename = "Ieee80211Mac"
+*.sta[*].wlan[0].radio.typename = "Ieee80211ScalarRadio"
+*.sta[*].wlan[0].radio.antenna.typename = "IsotropicAntenna"
+*.sta[*].wlan[0].radio.transmitter.power = 100mW
+*.sta[*].wlan[0].radio.channelNumber = 6
+*.sta[*].wlan[0].radio.bitrate = 54Mbps
+
+# ============================================================
+# MOBILITY
+# ============================================================
+*.wlc.mobility.typename = "StationaryMobility"
+*.wlc.mobility.initialX = 100m
+*.wlc.mobility.initialY = 200m
+*.wlc.mobility.initialZ = 0m
+
+*.server.mobility.typename = "StationaryMobility"
+*.server.mobility.initialX = 550m
+*.server.mobility.initialY = 300m
+*.server.mobility.initialZ = 0m
+
+*.ap1.mobility.typename = "StationaryMobility"
+*.ap1.mobility.initialX = 400m
+*.ap1.mobility.initialY = 200m
+*.ap1.mobility.initialZ = 0m
+
+*.sta[*].mobility.typename = "StationaryMobility"
+*.sta[*].mobility.initFromDisplayString = false
+*.sta[*].mobility.initialZ = 0m
+
+# Estaciones cerca del AP
+*.sta[0].mobility.initialX = 450m
+*.sta[0].mobility.initialY = 130m
+
+*.sta[1].mobility.initialX = 500m
+*.sta[1].mobility.initialY = 200m
+
+*.sta[2].mobility.initialX = 450m
+*.sta[2].mobility.initialY = 270m
+\end{lstlisting}
+
+\clearpage
+\subsection{Anexo D: Archivo \texttt{WlcApLab.ned} después de la modificación}
+
+En este anexo se muestra el archivo \texttt{WlcApLab.ned} utilizado después de la modificación. La estructura de la topología se mantuvo igual; los cambios funcionales se aplicaron principalmente en el archivo \texttt{omnetpp.ini}.
+
+\begin{lstlisting}[caption={Archivo WlcApLab.ned después de la modificación}]
+package src;
+import inet.node.ethernet.Eth100M;
+import inet.physicallayer.wireless.ieee80211.packetlevel.Ieee80211ScalarRadioMedium;
+import inet.physicallayer.wireless.common.antenna.IsotropicAntenna;
+import inet.node.wireless.AccessPoint;
+import inet.node.inet.WirelessHost;
+import inet.node.ethernet.EthernetSwitch;
+import inet.node.inet.StandardHost;
+import inet.networklayer.configurator.ipv4.Ipv4NetworkConfigurator;
+network WlcApLab
+{
+ parameters:
+ int numSta = default(3);
+ @display("bgb=800,400");
+ submodules:
+ configurator: Ipv4NetworkConfigurator {
+ @display("p=50,50");
+ }
+ radioMedium: Ieee80211ScalarRadioMedium {
+ @display("p=100,100;i=misc/sun_s");
+ }
+ wlc: StandardHost {
+ @display("p=100,200;i=device/server");
+ }
+ switch0: EthernetSwitch {
+ @display("p=250,200");
+ }
+ ap1: AccessPoint {
+ @display("p=400,200;i=device/accesspoint");
+ }
+ sta[numSta]: WirelessHost {
+ @display("p=560,85");
+ }
+ server: StandardHost {
+ @display("p=550,300;i=device/server");
+ }
+ connections allowunconnected:
+ wlc.ethg++ <--> Eth100M <--> switch0.ethg++;
+ ap1.ethg++ <--> Eth100M <--> switch0.ethg++;
+ server.ethg++ <--> Eth100M <--> switch0.ethg++;
+}
+\end{lstlisting}
+
 \end{document}
