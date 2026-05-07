@@ -1,0 +1,373 @@
+Experiment	Measurement	Replication	Module	Module Display Path	Name	Value	
+SinRTSCTS		#0	WifiKolbNetwork.radioMedium.propagation	WifiKolbNetwork.radioMedium.propagation	Arrival computation count	286	
+SinRTSCTS		#0	WifiKolbNetwork.radioMedium	WifiKolbNetwork.radioMedium	transmission count	143	
+SinRTSCTS		#0	WifiKolbNetwork.radioMedium	WifiKolbNetwork.radioMedium	signal send count	286	
+SinRTSCTS		#0	WifiKolbNetwork.radioMedium	WifiKolbNetwork.radioMedium	reception computation count	286	
+SinRTSCTS		#0	WifiKolbNetwork.radioMedium	WifiKolbNetwork.radioMedium	interference computation count	844	
+SinRTSCTS		#0	WifiKolbNetwork.radioMedium	WifiKolbNetwork.radioMedium	reception decision computation count	144	
+SinRTSCTS		#0	WifiKolbNetwork.radioMedium	WifiKolbNetwork.radioMedium	listening decision computation count	469	
+SinRTSCTS		#0	WifiKolbNetwork.radioMedium	WifiKolbNetwork.radioMedium	reception cache hit	~ 81.404 4 %	
+SinRTSCTS		#0	WifiKolbNetwork.radioMedium	WifiKolbNetwork.radioMedium	interference cache hit	~ 66.666 7 %	
+SinRTSCTS		#0	WifiKolbNetwork.radioMedium	WifiKolbNetwork.radioMedium	noise cache hit	0 %	
+SinRTSCTS		#0	WifiKolbNetwork.radioMedium	WifiKolbNetwork.radioMedium	snir cache hit	50 %	
+SinRTSCTS		#0	WifiKolbNetwork.radioMedium	WifiKolbNetwork.radioMedium	reception decision cache hit	50 %	
+SinRTSCTS		#0	WifiKolbNetwork.radioMedium	WifiKolbNetwork.radioMedium	reception result cache hit	0 %	
+SinRTSCTS		#0	WifiKolbNetwork.hostA.lo[0].lo	WifiKolbNetwork.hostA.lo[0].lo	rcvdPkFromHl:count	0	
+SinRTSCTS		#0	WifiKolbNetwork.hostA.lo[0].lo	WifiKolbNetwork.hostA.lo[0].lo	rcvdPkFromHl:sum(packetBytes)	0	
+SinRTSCTS		#0	WifiKolbNetwork.hostA.lo[0].lo	WifiKolbNetwork.hostA.lo[0].lo	passedUpPk:count	0	
+SinRTSCTS		#0	WifiKolbNetwork.hostA.lo[0].lo	WifiKolbNetwork.hostA.lo[0].lo	passedUpPk:sum(packetBytes)	0	
+SinRTSCTS		#0	WifiKolbNetwork.hostA.lo[0]	WifiKolbNetwork.hostA.lo[0]	packetDropInterfaceDown:count	0	
+SinRTSCTS		#0	WifiKolbNetwork.hostA.lo[0]	WifiKolbNetwork.hostA.lo[0]	packetDropInterfaceDown:sum(packetBytes)	0	
+SinRTSCTS		#0	WifiKolbNetwork.hostA.lo[0]	WifiKolbNetwork.hostA.lo[0]	packetDropNoCarrier:count	0	
+SinRTSCTS		#0	WifiKolbNetwork.hostA.lo[0]	WifiKolbNetwork.hostA.lo[0]	packetDropNoCarrier:sum(packetBytes)	0	
+SinRTSCTS		#0	WifiKolbNetwork.hostA.wlan[0].mac.dcf.channelAccess.pendingQueue	WifiKolbNetwork.hostA.wlan[0].mac.dcf.channelAccess.pendingQueue	queueLength:last	0 pk	
+SinRTSCTS		#0	WifiKolbNetwork.hostA.wlan[0].mac.dcf.channelAccess.pendingQueue	WifiKolbNetwork.hostA.wlan[0].mac.dcf.channelAccess.pendingQueue	queueLength:max	1 pk	
+SinRTSCTS		#0	WifiKolbNetwork.hostA.wlan[0].mac.dcf.channelAccess.pendingQueue	WifiKolbNetwork.hostA.wlan[0].mac.dcf.channelAccess.pendingQueue	queueLength:timeavg	0 pk	
+SinRTSCTS		#0	WifiKolbNetwork.hostA.wlan[0].mac.dcf.channelAccess.pendingQueue	WifiKolbNetwork.hostA.wlan[0].mac.dcf.channelAccess.pendingQueue	queueBitLength:last	0 B	
+SinRTSCTS		#0	WifiKolbNetwork.hostA.wlan[0].mac.dcf.channelAccess.pendingQueue	WifiKolbNetwork.hostA.wlan[0].mac.dcf.channelAccess.pendingQueue	queueBitLength:max	1 064 B	
+SinRTSCTS		#0	WifiKolbNetwork.hostA.wlan[0].mac.dcf.channelAccess.pendingQueue	WifiKolbNetwork.hostA.wlan[0].mac.dcf.channelAccess.pendingQueue	queueBitLength:timeavg	0 B	
+SinRTSCTS		#0	WifiKolbNetwork.hostA.wlan[0].mac.dcf.channelAccess.pendingQueue	WifiKolbNetwork.hostA.wlan[0].mac.dcf.channelAccess.pendingQueue	outgoingPackets:count	18 pk	
+SinRTSCTS		#0	WifiKolbNetwork.hostA.wlan[0].mac.dcf.channelAccess.pendingQueue	WifiKolbNetwork.hostA.wlan[0].mac.dcf.channelAccess.pendingQueue	outgoingPacketLengths:sum	19.152 kB	
+SinRTSCTS		#0	WifiKolbNetwork.hostA.wlan[0].mac.dcf.channelAccess.pendingQueue	WifiKolbNetwork.hostA.wlan[0].mac.dcf.channelAccess.pendingQueue	incomingPackets:count	18 pk	
+SinRTSCTS		#0	WifiKolbNetwork.hostA.wlan[0].mac.dcf.channelAccess.pendingQueue	WifiKolbNetwork.hostA.wlan[0].mac.dcf.channelAccess.pendingQueue	incomingPacketLengths:sum	19.152 kB	
+SinRTSCTS		#0	WifiKolbNetwork.hostA.wlan[0].mac.dcf.channelAccess.pendingQueue	WifiKolbNetwork.hostA.wlan[0].mac.dcf.channelAccess.pendingQueue	droppedPacketsQueueOverflow:count	0 pk	
+SinRTSCTS		#0	WifiKolbNetwork.hostA.wlan[0].mac.dcf.channelAccess.pendingQueue	WifiKolbNetwork.hostA.wlan[0].mac.dcf.channelAccess.pendingQueue	droppedPacketLengthsQueueOverflow:sum	0 B	
+SinRTSCTS		#0	WifiKolbNetwork.hostA.wlan[0].mac.dcf.channelAccess.inProgressFrames	WifiKolbNetwork.hostA.wlan[0].mac.dcf.channelAccess.inProgressFrames	queueLength:max	1	
+SinRTSCTS		#0	WifiKolbNetwork.hostA.wlan[0].mac.dcf.channelAccess.inProgressFrames	WifiKolbNetwork.hostA.wlan[0].mac.dcf.channelAccess.inProgressFrames	queueLength:timeavg	~ 0.004 184 4	
+SinRTSCTS		#0	WifiKolbNetwork.hostA.wlan[0].mac.dcf.channelAccess.contention	WifiKolbNetwork.hostA.wlan[0].mac.dcf.channelAccess.contention	stateChanged:count	506	
+SinRTSCTS		#0	WifiKolbNetwork.hostA.wlan[0].mac.dcf.channelAccess.contention	WifiKolbNetwork.hostA.wlan[0].mac.dcf.channelAccess.contention	channelAccessGranted:count	54	
+SinRTSCTS		#0	WifiKolbNetwork.hostA.wlan[0].mac.dcf.channelAccess	WifiKolbNetwork.hostA.wlan[0].mac.dcf.channelAccess	channelOwnershipChanged:count	108	
+SinRTSCTS		#0	WifiKolbNetwork.hostA.wlan[0].mac.dcf.originatorMacDataService	WifiKolbNetwork.hostA.wlan[0].mac.dcf.originatorMacDataService	packetAggregated:count	0	
+SinRTSCTS		#0	WifiKolbNetwork.hostA.wlan[0].mac.dcf.originatorMacDataService	WifiKolbNetwork.hostA.wlan[0].mac.dcf.originatorMacDataService	packetFragmented:count	0	
+SinRTSCTS		#0	WifiKolbNetwork.hostA.wlan[0].mac.dcf.recipientMacDataService	WifiKolbNetwork.hostA.wlan[0].mac.dcf.recipientMacDataService	packetDropDuplicateDetected:count	0	
+SinRTSCTS		#0	WifiKolbNetwork.hostA.wlan[0].mac.dcf.recipientMacDataService	WifiKolbNetwork.hostA.wlan[0].mac.dcf.recipientMacDataService	packetDropDuplicateDetected:sum(packetBytes)	0	
+SinRTSCTS		#0	WifiKolbNetwork.hostA.wlan[0].mac.dcf.recipientMacDataService	WifiKolbNetwork.hostA.wlan[0].mac.dcf.recipientMacDataService	packetDeaggregated:count	0	
+SinRTSCTS		#0	WifiKolbNetwork.hostA.wlan[0].mac.dcf.recipientMacDataService	WifiKolbNetwork.hostA.wlan[0].mac.dcf.recipientMacDataService	packetDefragmented:count	0	
+SinRTSCTS		#0	WifiKolbNetwork.hostA.wlan[0].mac.dcf.recoveryProcedure	WifiKolbNetwork.hostA.wlan[0].mac.dcf.recoveryProcedure	retryLimitReached:count	0	
+SinRTSCTS		#0	WifiKolbNetwork.hostA.wlan[0].mac.dcf	WifiKolbNetwork.hostA.wlan[0].mac.dcf	packetReceivedFromPeer:count	18	
+SinRTSCTS		#0	WifiKolbNetwork.hostA.wlan[0].mac.dcf	WifiKolbNetwork.hostA.wlan[0].mac.dcf	packetReceivedFromPeer:sum(packetBytes)	252	
+SinRTSCTS		#0	WifiKolbNetwork.hostA.wlan[0].mac.dcf	WifiKolbNetwork.hostA.wlan[0].mac.dcf	packetReceivedFromPeerUnicast:count	18	
+SinRTSCTS		#0	WifiKolbNetwork.hostA.wlan[0].mac.dcf	WifiKolbNetwork.hostA.wlan[0].mac.dcf	packetReceivedFromPeerUnicast:sum(packetBytes)	252	
+SinRTSCTS		#0	WifiKolbNetwork.hostA.wlan[0].mac.dcf	WifiKolbNetwork.hostA.wlan[0].mac.dcf	packetReceivedFromPeerMulticast:count	0	
+SinRTSCTS		#0	WifiKolbNetwork.hostA.wlan[0].mac.dcf	WifiKolbNetwork.hostA.wlan[0].mac.dcf	packetReceivedFromPeerMulticast:sum(packetBytes)	0	
+SinRTSCTS		#0	WifiKolbNetwork.hostA.wlan[0].mac.dcf	WifiKolbNetwork.hostA.wlan[0].mac.dcf	packetReceivedFromPeerBroadcast:count	0	
+SinRTSCTS		#0	WifiKolbNetwork.hostA.wlan[0].mac.dcf	WifiKolbNetwork.hostA.wlan[0].mac.dcf	packetReceivedFromPeerBroadcast:sum(packetBytes)	0	
+SinRTSCTS		#0	WifiKolbNetwork.hostA.wlan[0].mac.dcf	WifiKolbNetwork.hostA.wlan[0].mac.dcf	packetReceivedFromPeerWithRetry:count	0	
+SinRTSCTS		#0	WifiKolbNetwork.hostA.wlan[0].mac.dcf	WifiKolbNetwork.hostA.wlan[0].mac.dcf	packetReceivedFromPeerWithRetry:sum(packetBytes)	0	
+SinRTSCTS		#0	WifiKolbNetwork.hostA.wlan[0].mac.dcf	WifiKolbNetwork.hostA.wlan[0].mac.dcf	packetReceivedFromPeerWithoutRetry:count	18	
+SinRTSCTS		#0	WifiKolbNetwork.hostA.wlan[0].mac.dcf	WifiKolbNetwork.hostA.wlan[0].mac.dcf	packetReceivedFromPeerWithoutRetry:sum(packetBytes)	252	
+SinRTSCTS		#0	WifiKolbNetwork.hostA.wlan[0].mac.dcf	WifiKolbNetwork.hostA.wlan[0].mac.dcf	packetSentToPeer:count	54	
+SinRTSCTS		#0	WifiKolbNetwork.hostA.wlan[0].mac.dcf	WifiKolbNetwork.hostA.wlan[0].mac.dcf	packetSentToPeer:sum(packetBytes)	57 456	
+SinRTSCTS		#0	WifiKolbNetwork.hostA.wlan[0].mac.dcf	WifiKolbNetwork.hostA.wlan[0].mac.dcf	packetSentToPeerUnicast:count	54	
+SinRTSCTS		#0	WifiKolbNetwork.hostA.wlan[0].mac.dcf	WifiKolbNetwork.hostA.wlan[0].mac.dcf	packetSentToPeerUnicast:sum(packetBytes)	57 456	
+SinRTSCTS		#0	WifiKolbNetwork.hostA.wlan[0].mac.dcf	WifiKolbNetwork.hostA.wlan[0].mac.dcf	packetSentToPeerMulticast:count	0	
+SinRTSCTS		#0	WifiKolbNetwork.hostA.wlan[0].mac.dcf	WifiKolbNetwork.hostA.wlan[0].mac.dcf	packetSentToPeerMulticast:sum(packetBytes)	0	
+SinRTSCTS		#0	WifiKolbNetwork.hostA.wlan[0].mac.dcf	WifiKolbNetwork.hostA.wlan[0].mac.dcf	packetSentToPeerBroadcast:count	0	
+SinRTSCTS		#0	WifiKolbNetwork.hostA.wlan[0].mac.dcf	WifiKolbNetwork.hostA.wlan[0].mac.dcf	packetSentToPeerBroadcast:sum(packetBytes)	0	
+SinRTSCTS		#0	WifiKolbNetwork.hostA.wlan[0].mac.dcf	WifiKolbNetwork.hostA.wlan[0].mac.dcf	packetSentToPeerWithRetry:count	36	
+SinRTSCTS		#0	WifiKolbNetwork.hostA.wlan[0].mac.dcf	WifiKolbNetwork.hostA.wlan[0].mac.dcf	packetSentToPeerWithRetry:sum(packetBytes)	38 304	
+SinRTSCTS		#0	WifiKolbNetwork.hostA.wlan[0].mac.dcf	WifiKolbNetwork.hostA.wlan[0].mac.dcf	packetSentToPeerWithoutRetry:count	18	
+SinRTSCTS		#0	WifiKolbNetwork.hostA.wlan[0].mac.dcf	WifiKolbNetwork.hostA.wlan[0].mac.dcf	packetSentToPeerWithoutRetry:sum(packetBytes)	19 152	
+SinRTSCTS		#0	WifiKolbNetwork.hostA.wlan[0].mac.dcf	WifiKolbNetwork.hostA.wlan[0].mac.dcf	packetDrop:count	18	
+SinRTSCTS		#0	WifiKolbNetwork.hostA.wlan[0].mac.dcf	WifiKolbNetwork.hostA.wlan[0].mac.dcf	packetDrop:sum(packetBytes)	252	
+SinRTSCTS		#0	WifiKolbNetwork.hostA.wlan[0].mac.dcf	WifiKolbNetwork.hostA.wlan[0].mac.dcf	packetDropNotAddressedToUs:count	18	
+SinRTSCTS		#0	WifiKolbNetwork.hostA.wlan[0].mac.dcf	WifiKolbNetwork.hostA.wlan[0].mac.dcf	packetDropNotAddressedToUs:sum(packetBytes)	252	
+SinRTSCTS		#0	WifiKolbNetwork.hostA.wlan[0].mac.dcf	WifiKolbNetwork.hostA.wlan[0].mac.dcf	packetDropQueueOverflow:count	0	
+SinRTSCTS		#0	WifiKolbNetwork.hostA.wlan[0].mac.dcf	WifiKolbNetwork.hostA.wlan[0].mac.dcf	packetDropQueueOverflow:sum(packetBytes)	0	
+SinRTSCTS		#0	WifiKolbNetwork.hostA.wlan[0].mac.dcf	WifiKolbNetwork.hostA.wlan[0].mac.dcf	packetDropRetryLimitReached:count	0	
+SinRTSCTS		#0	WifiKolbNetwork.hostA.wlan[0].mac.dcf	WifiKolbNetwork.hostA.wlan[0].mac.dcf	packetDropRetryLimitReached:sum(packetBytes)	0	
+SinRTSCTS		#0	WifiKolbNetwork.hostA.wlan[0].mac.dcf	WifiKolbNetwork.hostA.wlan[0].mac.dcf	linkBroken:count	0	
+SinRTSCTS		#0	WifiKolbNetwork.hostA.wlan[0].mac.dcf	WifiKolbNetwork.hostA.wlan[0].mac.dcf	frameSequenceFinished:count	54	
+SinRTSCTS		#0	WifiKolbNetwork.hostA.wlan[0].mac	WifiKolbNetwork.hostA.wlan[0].mac	packetReceivedFromLower:count	36	
+SinRTSCTS		#0	WifiKolbNetwork.hostA.wlan[0].mac	WifiKolbNetwork.hostA.wlan[0].mac	packetReceivedFromLower:sum(packetBytes)	504	
+SinRTSCTS		#0	WifiKolbNetwork.hostA.wlan[0].mac	WifiKolbNetwork.hostA.wlan[0].mac	packetSentToLower:count	54	
+SinRTSCTS		#0	WifiKolbNetwork.hostA.wlan[0].mac	WifiKolbNetwork.hostA.wlan[0].mac	packetSentToLower:sum(packetBytes)	57 456	
+SinRTSCTS		#0	WifiKolbNetwork.hostA.wlan[0].mac	WifiKolbNetwork.hostA.wlan[0].mac	packetReceivedFromUpper:count	18	
+SinRTSCTS		#0	WifiKolbNetwork.hostA.wlan[0].mac	WifiKolbNetwork.hostA.wlan[0].mac	packetReceivedFromUpper:sum(packetBytes)	18 648	
+SinRTSCTS		#0	WifiKolbNetwork.hostA.wlan[0].mac	WifiKolbNetwork.hostA.wlan[0].mac	packetSentToUpper:count	0	
+SinRTSCTS		#0	WifiKolbNetwork.hostA.wlan[0].mac	WifiKolbNetwork.hostA.wlan[0].mac	packetSentToUpper:sum(packetBytes)	0	
+SinRTSCTS		#0	WifiKolbNetwork.hostA.wlan[0].mac	WifiKolbNetwork.hostA.wlan[0].mac	packetDrop:count	18	
+SinRTSCTS		#0	WifiKolbNetwork.hostA.wlan[0].mac	WifiKolbNetwork.hostA.wlan[0].mac	packetDrop:sum(packetBytes)	252	
+SinRTSCTS		#0	WifiKolbNetwork.hostA.wlan[0].mac	WifiKolbNetwork.hostA.wlan[0].mac	packetDropIncorrectlyReceived:count	0	
+SinRTSCTS		#0	WifiKolbNetwork.hostA.wlan[0].mac	WifiKolbNetwork.hostA.wlan[0].mac	packetDropIncorrectlyReceived:sum(packetBytes)	0	
+SinRTSCTS		#0	WifiKolbNetwork.hostA.wlan[0].mac	WifiKolbNetwork.hostA.wlan[0].mac	packetDropNotAddressedToUs:count	18	
+SinRTSCTS		#0	WifiKolbNetwork.hostA.wlan[0].mac	WifiKolbNetwork.hostA.wlan[0].mac	packetDropNotAddressedToUs:sum(packetBytes)	252	
+SinRTSCTS		#0	WifiKolbNetwork.hostA.wlan[0].mac	WifiKolbNetwork.hostA.wlan[0].mac	packetDropQueueOverflow:count	0	
+SinRTSCTS		#0	WifiKolbNetwork.hostA.wlan[0].mac	WifiKolbNetwork.hostA.wlan[0].mac	packetDropQueueOverflow:sum(packetBytes)	0	
+SinRTSCTS		#0	WifiKolbNetwork.hostA.wlan[0].mac	WifiKolbNetwork.hostA.wlan[0].mac	packetDropRetryLimitReached:count	0	
+SinRTSCTS		#0	WifiKolbNetwork.hostA.wlan[0].mac	WifiKolbNetwork.hostA.wlan[0].mac	packetDropRetryLimitReached:sum(packetBytes)	0	
+SinRTSCTS		#0	WifiKolbNetwork.hostA.wlan[0].mac	WifiKolbNetwork.hostA.wlan[0].mac	packetDropDuplicateDetected:count	0	
+SinRTSCTS		#0	WifiKolbNetwork.hostA.wlan[0].mac	WifiKolbNetwork.hostA.wlan[0].mac	packetDropDuplicateDetected:sum(packetBytes)	0	
+SinRTSCTS		#0	WifiKolbNetwork.hostA.wlan[0].mac	WifiKolbNetwork.hostA.wlan[0].mac	packetDropOther:count	0	
+SinRTSCTS		#0	WifiKolbNetwork.hostA.wlan[0].mac	WifiKolbNetwork.hostA.wlan[0].mac	packetDropOther:sum(packetBytes)	0	
+SinRTSCTS		#0	WifiKolbNetwork.hostA.wlan[0].mac	WifiKolbNetwork.hostA.wlan[0].mac	linkBroken:count	0	
+SinRTSCTS		#0	WifiKolbNetwork.hostA.wlan[0].radio	WifiKolbNetwork.hostA.wlan[0].radio	transmissionState:count	216	
+SinRTSCTS		#0	WifiKolbNetwork.hostA.wlan[0].radio	WifiKolbNetwork.hostA.wlan[0].radio	receptionState:count	181	
+SinRTSCTS		#0	WifiKolbNetwork.hostA.wlan[0].radio	WifiKolbNetwork.hostA.wlan[0].radio	radioMode:count	111	
+SinRTSCTS		#0	WifiKolbNetwork.hostA.wlan[0]	WifiKolbNetwork.hostA.wlan[0]	packetDropInterfaceDown:count	0	
+SinRTSCTS		#0	WifiKolbNetwork.hostA.wlan[0]	WifiKolbNetwork.hostA.wlan[0]	packetDropInterfaceDown:sum(packetBytes)	0	
+SinRTSCTS		#0	WifiKolbNetwork.hostA.wlan[0]	WifiKolbNetwork.hostA.wlan[0]	packetDropNoCarrier:count	0	
+SinRTSCTS		#0	WifiKolbNetwork.hostA.wlan[0]	WifiKolbNetwork.hostA.wlan[0]	packetDropNoCarrier:sum(packetBytes)	0	
+SinRTSCTS		#0	WifiKolbNetwork.hostA.ipv4.ip	WifiKolbNetwork.hostA.ipv4.ip	packetDropAddressResolutionFailed:count	0	
+SinRTSCTS		#0	WifiKolbNetwork.hostA.ipv4.ip	WifiKolbNetwork.hostA.ipv4.ip	packetDropAddressResolutionFailed:sum(packetBytes)	0	
+SinRTSCTS		#0	WifiKolbNetwork.hostA.ipv4.ip	WifiKolbNetwork.hostA.ipv4.ip	packetDropHopLimitReached:count	0	
+SinRTSCTS		#0	WifiKolbNetwork.hostA.ipv4.ip	WifiKolbNetwork.hostA.ipv4.ip	packetDropHopLimitReached:sum(packetBytes)	0	
+SinRTSCTS		#0	WifiKolbNetwork.hostA.ipv4.ip	WifiKolbNetwork.hostA.ipv4.ip	packetDropForwardingDisabled:count	0	
+SinRTSCTS		#0	WifiKolbNetwork.hostA.ipv4.ip	WifiKolbNetwork.hostA.ipv4.ip	packetDropForwardingDisabled:sum(packetBytes)	0	
+SinRTSCTS		#0	WifiKolbNetwork.hostA.ipv4.ip	WifiKolbNetwork.hostA.ipv4.ip	packetDropNoInterfaceFound:count	0	
+SinRTSCTS		#0	WifiKolbNetwork.hostA.ipv4.ip	WifiKolbNetwork.hostA.ipv4.ip	packetDropNoInterfaceFound:sum(packetBytes)	0	
+SinRTSCTS		#0	WifiKolbNetwork.hostA.ipv4.ip	WifiKolbNetwork.hostA.ipv4.ip	packetDropNoRouteFound:count	0	
+SinRTSCTS		#0	WifiKolbNetwork.hostA.ipv4.ip	WifiKolbNetwork.hostA.ipv4.ip	packetDropNoRouteFound:sum(packetBytes)	0	
+SinRTSCTS		#0	WifiKolbNetwork.hostA.ipv4.ip	WifiKolbNetwork.hostA.ipv4.ip	packetDropUndefined:count	0	
+SinRTSCTS		#0	WifiKolbNetwork.hostA.ipv4.ip	WifiKolbNetwork.hostA.ipv4.ip	packetDropUndefined:sum(packetBytes)	0	
+SinRTSCTS		#0	WifiKolbNetwork.hostA.udp	WifiKolbNetwork.hostA.udp	packetReceived:count	0	
+SinRTSCTS		#0	WifiKolbNetwork.hostA.udp	WifiKolbNetwork.hostA.udp	packetReceived:sum(packetBytes)	0	
+SinRTSCTS		#0	WifiKolbNetwork.hostA.udp	WifiKolbNetwork.hostA.udp	packetSent:count	18	
+SinRTSCTS		#0	WifiKolbNetwork.hostA.udp	WifiKolbNetwork.hostA.udp	packetSent:sum(packetBytes)	18 144	
+SinRTSCTS		#0	WifiKolbNetwork.hostA.udp	WifiKolbNetwork.hostA.udp	passedUpPk:count	0	
+SinRTSCTS		#0	WifiKolbNetwork.hostA.udp	WifiKolbNetwork.hostA.udp	droppedPkWrongPort:count	0	
+SinRTSCTS		#0	WifiKolbNetwork.hostA.udp	WifiKolbNetwork.hostA.udp	droppedPkBadChecksum:count	0	
+SinRTSCTS		#0	WifiKolbNetwork.hostA.app[0]	WifiKolbNetwork.hostA.app[0]	packets sent	18	
+SinRTSCTS		#0	WifiKolbNetwork.hostA.app[0]	WifiKolbNetwork.hostA.app[0]	packets received	0	
+SinRTSCTS		#0	WifiKolbNetwork.hostA.app[0]	WifiKolbNetwork.hostA.app[0]	packetReceived:count	0	
+SinRTSCTS		#0	WifiKolbNetwork.hostA.app[0]	WifiKolbNetwork.hostA.app[0]	packetReceived:sum(packetBytes)	0	
+SinRTSCTS		#0	WifiKolbNetwork.hostA.app[0]	WifiKolbNetwork.hostA.app[0]	packetSent:count	18	
+SinRTSCTS		#0	WifiKolbNetwork.hostA.app[0]	WifiKolbNetwork.hostA.app[0]	packetSent:sum(packetBytes)	18 000	
+SinRTSCTS		#0	WifiKolbNetwork.hostB.lo[0].lo	WifiKolbNetwork.hostB.lo[0].lo	rcvdPkFromHl:count	0	
+SinRTSCTS		#0	WifiKolbNetwork.hostB.lo[0].lo	WifiKolbNetwork.hostB.lo[0].lo	rcvdPkFromHl:sum(packetBytes)	0	
+SinRTSCTS		#0	WifiKolbNetwork.hostB.lo[0].lo	WifiKolbNetwork.hostB.lo[0].lo	passedUpPk:count	0	
+SinRTSCTS		#0	WifiKolbNetwork.hostB.lo[0].lo	WifiKolbNetwork.hostB.lo[0].lo	passedUpPk:sum(packetBytes)	0	
+SinRTSCTS		#0	WifiKolbNetwork.hostB.lo[0]	WifiKolbNetwork.hostB.lo[0]	packetDropInterfaceDown:count	0	
+SinRTSCTS		#0	WifiKolbNetwork.hostB.lo[0]	WifiKolbNetwork.hostB.lo[0]	packetDropInterfaceDown:sum(packetBytes)	0	
+SinRTSCTS		#0	WifiKolbNetwork.hostB.lo[0]	WifiKolbNetwork.hostB.lo[0]	packetDropNoCarrier:count	0	
+SinRTSCTS		#0	WifiKolbNetwork.hostB.lo[0]	WifiKolbNetwork.hostB.lo[0]	packetDropNoCarrier:sum(packetBytes)	0	
+SinRTSCTS		#0	WifiKolbNetwork.hostB.wlan[0].mac.dcf.channelAccess.pendingQueue	WifiKolbNetwork.hostB.wlan[0].mac.dcf.channelAccess.pendingQueue	queueLength:last	0 pk	
+SinRTSCTS		#0	WifiKolbNetwork.hostB.wlan[0].mac.dcf.channelAccess.pendingQueue	WifiKolbNetwork.hostB.wlan[0].mac.dcf.channelAccess.pendingQueue	queueLength:max	0 pk	
+SinRTSCTS		#0	WifiKolbNetwork.hostB.wlan[0].mac.dcf.channelAccess.pendingQueue	WifiKolbNetwork.hostB.wlan[0].mac.dcf.channelAccess.pendingQueue	queueLength:timeavg	0 pk	
+SinRTSCTS		#0	WifiKolbNetwork.hostB.wlan[0].mac.dcf.channelAccess.pendingQueue	WifiKolbNetwork.hostB.wlan[0].mac.dcf.channelAccess.pendingQueue	queueBitLength:last	0 B	
+SinRTSCTS		#0	WifiKolbNetwork.hostB.wlan[0].mac.dcf.channelAccess.pendingQueue	WifiKolbNetwork.hostB.wlan[0].mac.dcf.channelAccess.pendingQueue	queueBitLength:max	0 B	
+SinRTSCTS		#0	WifiKolbNetwork.hostB.wlan[0].mac.dcf.channelAccess.pendingQueue	WifiKolbNetwork.hostB.wlan[0].mac.dcf.channelAccess.pendingQueue	queueBitLength:timeavg	0 B	
+SinRTSCTS		#0	WifiKolbNetwork.hostB.wlan[0].mac.dcf.channelAccess.pendingQueue	WifiKolbNetwork.hostB.wlan[0].mac.dcf.channelAccess.pendingQueue	outgoingPackets:count	0 pk	
+SinRTSCTS		#0	WifiKolbNetwork.hostB.wlan[0].mac.dcf.channelAccess.pendingQueue	WifiKolbNetwork.hostB.wlan[0].mac.dcf.channelAccess.pendingQueue	outgoingPacketLengths:sum	0 B	
+SinRTSCTS		#0	WifiKolbNetwork.hostB.wlan[0].mac.dcf.channelAccess.pendingQueue	WifiKolbNetwork.hostB.wlan[0].mac.dcf.channelAccess.pendingQueue	incomingPackets:count	0 pk	
+SinRTSCTS		#0	WifiKolbNetwork.hostB.wlan[0].mac.dcf.channelAccess.pendingQueue	WifiKolbNetwork.hostB.wlan[0].mac.dcf.channelAccess.pendingQueue	incomingPacketLengths:sum	0 B	
+SinRTSCTS		#0	WifiKolbNetwork.hostB.wlan[0].mac.dcf.channelAccess.pendingQueue	WifiKolbNetwork.hostB.wlan[0].mac.dcf.channelAccess.pendingQueue	droppedPacketsQueueOverflow:count	0 pk	
+SinRTSCTS		#0	WifiKolbNetwork.hostB.wlan[0].mac.dcf.channelAccess.pendingQueue	WifiKolbNetwork.hostB.wlan[0].mac.dcf.channelAccess.pendingQueue	droppedPacketLengthsQueueOverflow:sum	0 B	
+SinRTSCTS		#0	WifiKolbNetwork.hostB.wlan[0].mac.dcf.channelAccess.inProgressFrames	WifiKolbNetwork.hostB.wlan[0].mac.dcf.channelAccess.inProgressFrames	queueLength:max	0	
+SinRTSCTS		#0	WifiKolbNetwork.hostB.wlan[0].mac.dcf.channelAccess.inProgressFrames	WifiKolbNetwork.hostB.wlan[0].mac.dcf.channelAccess.inProgressFrames	queueLength:timeavg	0	
+SinRTSCTS		#0	WifiKolbNetwork.hostB.wlan[0].mac.dcf.channelAccess.contention	WifiKolbNetwork.hostB.wlan[0].mac.dcf.channelAccess.contention	stateChanged:count	502	
+SinRTSCTS		#0	WifiKolbNetwork.hostB.wlan[0].mac.dcf.channelAccess.contention	WifiKolbNetwork.hostB.wlan[0].mac.dcf.channelAccess.contention	channelAccessGranted:count	0	
+SinRTSCTS		#0	WifiKolbNetwork.hostB.wlan[0].mac.dcf.channelAccess	WifiKolbNetwork.hostB.wlan[0].mac.dcf.channelAccess	channelOwnershipChanged:count	0	
+SinRTSCTS		#0	WifiKolbNetwork.hostB.wlan[0].mac.dcf.originatorMacDataService	WifiKolbNetwork.hostB.wlan[0].mac.dcf.originatorMacDataService	packetAggregated:count	0	
+SinRTSCTS		#0	WifiKolbNetwork.hostB.wlan[0].mac.dcf.originatorMacDataService	WifiKolbNetwork.hostB.wlan[0].mac.dcf.originatorMacDataService	packetFragmented:count	0	
+SinRTSCTS		#0	WifiKolbNetwork.hostB.wlan[0].mac.dcf.recipientMacDataService	WifiKolbNetwork.hostB.wlan[0].mac.dcf.recipientMacDataService	packetDropDuplicateDetected:count	0	
+SinRTSCTS		#0	WifiKolbNetwork.hostB.wlan[0].mac.dcf.recipientMacDataService	WifiKolbNetwork.hostB.wlan[0].mac.dcf.recipientMacDataService	packetDropDuplicateDetected:sum(packetBytes)	0	
+SinRTSCTS		#0	WifiKolbNetwork.hostB.wlan[0].mac.dcf.recipientMacDataService	WifiKolbNetwork.hostB.wlan[0].mac.dcf.recipientMacDataService	packetDeaggregated:count	0	
+SinRTSCTS		#0	WifiKolbNetwork.hostB.wlan[0].mac.dcf.recipientMacDataService	WifiKolbNetwork.hostB.wlan[0].mac.dcf.recipientMacDataService	packetDefragmented:count	36	
+SinRTSCTS		#0	WifiKolbNetwork.hostB.wlan[0].mac.dcf.recoveryProcedure	WifiKolbNetwork.hostB.wlan[0].mac.dcf.recoveryProcedure	retryLimitReached:count	0	
+SinRTSCTS		#0	WifiKolbNetwork.hostB.wlan[0].mac.dcf	WifiKolbNetwork.hostB.wlan[0].mac.dcf	packetReceivedFromPeer:count	36	
+SinRTSCTS		#0	WifiKolbNetwork.hostB.wlan[0].mac.dcf	WifiKolbNetwork.hostB.wlan[0].mac.dcf	packetReceivedFromPeer:sum(packetBytes)	38 304	
+SinRTSCTS		#0	WifiKolbNetwork.hostB.wlan[0].mac.dcf	WifiKolbNetwork.hostB.wlan[0].mac.dcf	packetReceivedFromPeerUnicast:count	36	
+SinRTSCTS		#0	WifiKolbNetwork.hostB.wlan[0].mac.dcf	WifiKolbNetwork.hostB.wlan[0].mac.dcf	packetReceivedFromPeerUnicast:sum(packetBytes)	38 304	
+SinRTSCTS		#0	WifiKolbNetwork.hostB.wlan[0].mac.dcf	WifiKolbNetwork.hostB.wlan[0].mac.dcf	packetReceivedFromPeerMulticast:count	0	
+SinRTSCTS		#0	WifiKolbNetwork.hostB.wlan[0].mac.dcf	WifiKolbNetwork.hostB.wlan[0].mac.dcf	packetReceivedFromPeerMulticast:sum(packetBytes)	0	
+SinRTSCTS		#0	WifiKolbNetwork.hostB.wlan[0].mac.dcf	WifiKolbNetwork.hostB.wlan[0].mac.dcf	packetReceivedFromPeerBroadcast:count	0	
+SinRTSCTS		#0	WifiKolbNetwork.hostB.wlan[0].mac.dcf	WifiKolbNetwork.hostB.wlan[0].mac.dcf	packetReceivedFromPeerBroadcast:sum(packetBytes)	0	
+SinRTSCTS		#0	WifiKolbNetwork.hostB.wlan[0].mac.dcf	WifiKolbNetwork.hostB.wlan[0].mac.dcf	packetReceivedFromPeerWithRetry:count	36	
+SinRTSCTS		#0	WifiKolbNetwork.hostB.wlan[0].mac.dcf	WifiKolbNetwork.hostB.wlan[0].mac.dcf	packetReceivedFromPeerWithRetry:sum(packetBytes)	38 304	
+SinRTSCTS		#0	WifiKolbNetwork.hostB.wlan[0].mac.dcf	WifiKolbNetwork.hostB.wlan[0].mac.dcf	packetReceivedFromPeerWithoutRetry:count	0	
+SinRTSCTS		#0	WifiKolbNetwork.hostB.wlan[0].mac.dcf	WifiKolbNetwork.hostB.wlan[0].mac.dcf	packetReceivedFromPeerWithoutRetry:sum(packetBytes)	0	
+SinRTSCTS		#0	WifiKolbNetwork.hostB.wlan[0].mac.dcf	WifiKolbNetwork.hostB.wlan[0].mac.dcf	packetSentToPeer:count	36	
+SinRTSCTS		#0	WifiKolbNetwork.hostB.wlan[0].mac.dcf	WifiKolbNetwork.hostB.wlan[0].mac.dcf	packetSentToPeer:sum(packetBytes)	504	
+SinRTSCTS		#0	WifiKolbNetwork.hostB.wlan[0].mac.dcf	WifiKolbNetwork.hostB.wlan[0].mac.dcf	packetSentToPeerUnicast:count	36	
+SinRTSCTS		#0	WifiKolbNetwork.hostB.wlan[0].mac.dcf	WifiKolbNetwork.hostB.wlan[0].mac.dcf	packetSentToPeerUnicast:sum(packetBytes)	504	
+SinRTSCTS		#0	WifiKolbNetwork.hostB.wlan[0].mac.dcf	WifiKolbNetwork.hostB.wlan[0].mac.dcf	packetSentToPeerMulticast:count	0	
+SinRTSCTS		#0	WifiKolbNetwork.hostB.wlan[0].mac.dcf	WifiKolbNetwork.hostB.wlan[0].mac.dcf	packetSentToPeerMulticast:sum(packetBytes)	0	
+SinRTSCTS		#0	WifiKolbNetwork.hostB.wlan[0].mac.dcf	WifiKolbNetwork.hostB.wlan[0].mac.dcf	packetSentToPeerBroadcast:count	0	
+SinRTSCTS		#0	WifiKolbNetwork.hostB.wlan[0].mac.dcf	WifiKolbNetwork.hostB.wlan[0].mac.dcf	packetSentToPeerBroadcast:sum(packetBytes)	0	
+SinRTSCTS		#0	WifiKolbNetwork.hostB.wlan[0].mac.dcf	WifiKolbNetwork.hostB.wlan[0].mac.dcf	packetSentToPeerWithRetry:count	0	
+SinRTSCTS		#0	WifiKolbNetwork.hostB.wlan[0].mac.dcf	WifiKolbNetwork.hostB.wlan[0].mac.dcf	packetSentToPeerWithRetry:sum(packetBytes)	0	
+SinRTSCTS		#0	WifiKolbNetwork.hostB.wlan[0].mac.dcf	WifiKolbNetwork.hostB.wlan[0].mac.dcf	packetSentToPeerWithoutRetry:count	36	
+SinRTSCTS		#0	WifiKolbNetwork.hostB.wlan[0].mac.dcf	WifiKolbNetwork.hostB.wlan[0].mac.dcf	packetSentToPeerWithoutRetry:sum(packetBytes)	504	
+SinRTSCTS		#0	WifiKolbNetwork.hostB.wlan[0].mac.dcf	WifiKolbNetwork.hostB.wlan[0].mac.dcf	packetDrop:count	0	
+SinRTSCTS		#0	WifiKolbNetwork.hostB.wlan[0].mac.dcf	WifiKolbNetwork.hostB.wlan[0].mac.dcf	packetDrop:sum(packetBytes)	0	
+SinRTSCTS		#0	WifiKolbNetwork.hostB.wlan[0].mac.dcf	WifiKolbNetwork.hostB.wlan[0].mac.dcf	packetDropNotAddressedToUs:count	0	
+SinRTSCTS		#0	WifiKolbNetwork.hostB.wlan[0].mac.dcf	WifiKolbNetwork.hostB.wlan[0].mac.dcf	packetDropNotAddressedToUs:sum(packetBytes)	0	
+SinRTSCTS		#0	WifiKolbNetwork.hostB.wlan[0].mac.dcf	WifiKolbNetwork.hostB.wlan[0].mac.dcf	packetDropQueueOverflow:count	0	
+SinRTSCTS		#0	WifiKolbNetwork.hostB.wlan[0].mac.dcf	WifiKolbNetwork.hostB.wlan[0].mac.dcf	packetDropQueueOverflow:sum(packetBytes)	0	
+SinRTSCTS		#0	WifiKolbNetwork.hostB.wlan[0].mac.dcf	WifiKolbNetwork.hostB.wlan[0].mac.dcf	packetDropRetryLimitReached:count	0	
+SinRTSCTS		#0	WifiKolbNetwork.hostB.wlan[0].mac.dcf	WifiKolbNetwork.hostB.wlan[0].mac.dcf	packetDropRetryLimitReached:sum(packetBytes)	0	
+SinRTSCTS		#0	WifiKolbNetwork.hostB.wlan[0].mac.dcf	WifiKolbNetwork.hostB.wlan[0].mac.dcf	linkBroken:count	0	
+SinRTSCTS		#0	WifiKolbNetwork.hostB.wlan[0].mac.dcf	WifiKolbNetwork.hostB.wlan[0].mac.dcf	frameSequenceFinished:count	0	
+SinRTSCTS		#0	WifiKolbNetwork.hostB.wlan[0].mac	WifiKolbNetwork.hostB.wlan[0].mac	packetReceivedFromLower:count	72	
+SinRTSCTS		#0	WifiKolbNetwork.hostB.wlan[0].mac	WifiKolbNetwork.hostB.wlan[0].mac	packetReceivedFromLower:sum(packetBytes)	76 608	
+SinRTSCTS		#0	WifiKolbNetwork.hostB.wlan[0].mac	WifiKolbNetwork.hostB.wlan[0].mac	packetSentToLower:count	36	
+SinRTSCTS		#0	WifiKolbNetwork.hostB.wlan[0].mac	WifiKolbNetwork.hostB.wlan[0].mac	packetSentToLower:sum(packetBytes)	504	
+SinRTSCTS		#0	WifiKolbNetwork.hostB.wlan[0].mac	WifiKolbNetwork.hostB.wlan[0].mac	packetReceivedFromUpper:count	0	
+SinRTSCTS		#0	WifiKolbNetwork.hostB.wlan[0].mac	WifiKolbNetwork.hostB.wlan[0].mac	packetReceivedFromUpper:sum(packetBytes)	0	
+SinRTSCTS		#0	WifiKolbNetwork.hostB.wlan[0].mac	WifiKolbNetwork.hostB.wlan[0].mac	packetSentToUpper:count	36	
+SinRTSCTS		#0	WifiKolbNetwork.hostB.wlan[0].mac	WifiKolbNetwork.hostB.wlan[0].mac	packetSentToUpper:sum(packetBytes)	37 296	
+SinRTSCTS		#0	WifiKolbNetwork.hostB.wlan[0].mac	WifiKolbNetwork.hostB.wlan[0].mac	packetDrop:count	36	
+SinRTSCTS		#0	WifiKolbNetwork.hostB.wlan[0].mac	WifiKolbNetwork.hostB.wlan[0].mac	packetDrop:sum(packetBytes)	38 304	
+SinRTSCTS		#0	WifiKolbNetwork.hostB.wlan[0].mac	WifiKolbNetwork.hostB.wlan[0].mac	packetDropIncorrectlyReceived:count	36	
+SinRTSCTS		#0	WifiKolbNetwork.hostB.wlan[0].mac	WifiKolbNetwork.hostB.wlan[0].mac	packetDropIncorrectlyReceived:sum(packetBytes)	38 304	
+SinRTSCTS		#0	WifiKolbNetwork.hostB.wlan[0].mac	WifiKolbNetwork.hostB.wlan[0].mac	packetDropNotAddressedToUs:count	0	
+SinRTSCTS		#0	WifiKolbNetwork.hostB.wlan[0].mac	WifiKolbNetwork.hostB.wlan[0].mac	packetDropNotAddressedToUs:sum(packetBytes)	0	
+SinRTSCTS		#0	WifiKolbNetwork.hostB.wlan[0].mac	WifiKolbNetwork.hostB.wlan[0].mac	packetDropQueueOverflow:count	0	
+SinRTSCTS		#0	WifiKolbNetwork.hostB.wlan[0].mac	WifiKolbNetwork.hostB.wlan[0].mac	packetDropQueueOverflow:sum(packetBytes)	0	
+SinRTSCTS		#0	WifiKolbNetwork.hostB.wlan[0].mac	WifiKolbNetwork.hostB.wlan[0].mac	packetDropRetryLimitReached:count	0	
+SinRTSCTS		#0	WifiKolbNetwork.hostB.wlan[0].mac	WifiKolbNetwork.hostB.wlan[0].mac	packetDropRetryLimitReached:sum(packetBytes)	0	
+SinRTSCTS		#0	WifiKolbNetwork.hostB.wlan[0].mac	WifiKolbNetwork.hostB.wlan[0].mac	packetDropDuplicateDetected:count	0	
+SinRTSCTS		#0	WifiKolbNetwork.hostB.wlan[0].mac	WifiKolbNetwork.hostB.wlan[0].mac	packetDropDuplicateDetected:sum(packetBytes)	0	
+SinRTSCTS		#0	WifiKolbNetwork.hostB.wlan[0].mac	WifiKolbNetwork.hostB.wlan[0].mac	packetDropOther:count	0	
+SinRTSCTS		#0	WifiKolbNetwork.hostB.wlan[0].mac	WifiKolbNetwork.hostB.wlan[0].mac	packetDropOther:sum(packetBytes)	0	
+SinRTSCTS		#0	WifiKolbNetwork.hostB.wlan[0].mac	WifiKolbNetwork.hostB.wlan[0].mac	linkBroken:count	0	
+SinRTSCTS		#0	WifiKolbNetwork.hostB.wlan[0].radio	WifiKolbNetwork.hostB.wlan[0].radio	transmissionState:count	144	
+SinRTSCTS		#0	WifiKolbNetwork.hostB.wlan[0].radio	WifiKolbNetwork.hostB.wlan[0].radio	receptionState:count	232	
+SinRTSCTS		#0	WifiKolbNetwork.hostB.wlan[0].radio	WifiKolbNetwork.hostB.wlan[0].radio	radioMode:count	75	
+SinRTSCTS		#0	WifiKolbNetwork.hostB.wlan[0]	WifiKolbNetwork.hostB.wlan[0]	packetDropInterfaceDown:count	0	
+SinRTSCTS		#0	WifiKolbNetwork.hostB.wlan[0]	WifiKolbNetwork.hostB.wlan[0]	packetDropInterfaceDown:sum(packetBytes)	0	
+SinRTSCTS		#0	WifiKolbNetwork.hostB.wlan[0]	WifiKolbNetwork.hostB.wlan[0]	packetDropNoCarrier:count	0	
+SinRTSCTS		#0	WifiKolbNetwork.hostB.wlan[0]	WifiKolbNetwork.hostB.wlan[0]	packetDropNoCarrier:sum(packetBytes)	0	
+SinRTSCTS		#0	WifiKolbNetwork.hostB.ipv4.ip	WifiKolbNetwork.hostB.ipv4.ip	packetDropAddressResolutionFailed:count	0	
+SinRTSCTS		#0	WifiKolbNetwork.hostB.ipv4.ip	WifiKolbNetwork.hostB.ipv4.ip	packetDropAddressResolutionFailed:sum(packetBytes)	0	
+SinRTSCTS		#0	WifiKolbNetwork.hostB.ipv4.ip	WifiKolbNetwork.hostB.ipv4.ip	packetDropHopLimitReached:count	0	
+SinRTSCTS		#0	WifiKolbNetwork.hostB.ipv4.ip	WifiKolbNetwork.hostB.ipv4.ip	packetDropHopLimitReached:sum(packetBytes)	0	
+SinRTSCTS		#0	WifiKolbNetwork.hostB.ipv4.ip	WifiKolbNetwork.hostB.ipv4.ip	packetDropForwardingDisabled:count	0	
+SinRTSCTS		#0	WifiKolbNetwork.hostB.ipv4.ip	WifiKolbNetwork.hostB.ipv4.ip	packetDropForwardingDisabled:sum(packetBytes)	0	
+SinRTSCTS		#0	WifiKolbNetwork.hostB.ipv4.ip	WifiKolbNetwork.hostB.ipv4.ip	packetDropNoInterfaceFound:count	0	
+SinRTSCTS		#0	WifiKolbNetwork.hostB.ipv4.ip	WifiKolbNetwork.hostB.ipv4.ip	packetDropNoInterfaceFound:sum(packetBytes)	0	
+SinRTSCTS		#0	WifiKolbNetwork.hostB.ipv4.ip	WifiKolbNetwork.hostB.ipv4.ip	packetDropNoRouteFound:count	0	
+SinRTSCTS		#0	WifiKolbNetwork.hostB.ipv4.ip	WifiKolbNetwork.hostB.ipv4.ip	packetDropNoRouteFound:sum(packetBytes)	0	
+SinRTSCTS		#0	WifiKolbNetwork.hostB.ipv4.ip	WifiKolbNetwork.hostB.ipv4.ip	packetDropUndefined:count	0	
+SinRTSCTS		#0	WifiKolbNetwork.hostB.ipv4.ip	WifiKolbNetwork.hostB.ipv4.ip	packetDropUndefined:sum(packetBytes)	0	
+SinRTSCTS		#0	WifiKolbNetwork.hostB.udp	WifiKolbNetwork.hostB.udp	packetReceived:count	36	
+SinRTSCTS		#0	WifiKolbNetwork.hostB.udp	WifiKolbNetwork.hostB.udp	packetReceived:sum(packetBytes)	36 288	
+SinRTSCTS		#0	WifiKolbNetwork.hostB.udp	WifiKolbNetwork.hostB.udp	packetSent:count	0	
+SinRTSCTS		#0	WifiKolbNetwork.hostB.udp	WifiKolbNetwork.hostB.udp	packetSent:sum(packetBytes)	0	
+SinRTSCTS		#0	WifiKolbNetwork.hostB.udp	WifiKolbNetwork.hostB.udp	passedUpPk:count	36	
+SinRTSCTS		#0	WifiKolbNetwork.hostB.udp	WifiKolbNetwork.hostB.udp	droppedPkWrongPort:count	0	
+SinRTSCTS		#0	WifiKolbNetwork.hostB.udp	WifiKolbNetwork.hostB.udp	droppedPkBadChecksum:count	0	
+SinRTSCTS		#0	WifiKolbNetwork.hostB.app[0]	WifiKolbNetwork.hostB.app[0]	packetReceived:count	36	
+SinRTSCTS		#0	WifiKolbNetwork.hostB.app[0]	WifiKolbNetwork.hostB.app[0]	packetReceived:sum(packetBytes)	36 000	
+SinRTSCTS		#0	WifiKolbNetwork.hostC.lo[0].lo	WifiKolbNetwork.hostC.lo[0].lo	rcvdPkFromHl:count	0	
+SinRTSCTS		#0	WifiKolbNetwork.hostC.lo[0].lo	WifiKolbNetwork.hostC.lo[0].lo	rcvdPkFromHl:sum(packetBytes)	0	
+SinRTSCTS		#0	WifiKolbNetwork.hostC.lo[0].lo	WifiKolbNetwork.hostC.lo[0].lo	passedUpPk:count	0	
+SinRTSCTS		#0	WifiKolbNetwork.hostC.lo[0].lo	WifiKolbNetwork.hostC.lo[0].lo	passedUpPk:sum(packetBytes)	0	
+SinRTSCTS		#0	WifiKolbNetwork.hostC.lo[0]	WifiKolbNetwork.hostC.lo[0]	packetDropInterfaceDown:count	0	
+SinRTSCTS		#0	WifiKolbNetwork.hostC.lo[0]	WifiKolbNetwork.hostC.lo[0]	packetDropInterfaceDown:sum(packetBytes)	0	
+SinRTSCTS		#0	WifiKolbNetwork.hostC.lo[0]	WifiKolbNetwork.hostC.lo[0]	packetDropNoCarrier:count	0	
+SinRTSCTS		#0	WifiKolbNetwork.hostC.lo[0]	WifiKolbNetwork.hostC.lo[0]	packetDropNoCarrier:sum(packetBytes)	0	
+SinRTSCTS		#0	WifiKolbNetwork.hostC.wlan[0].mac.dcf.channelAccess.pendingQueue	WifiKolbNetwork.hostC.wlan[0].mac.dcf.channelAccess.pendingQueue	queueLength:last	0 pk	
+SinRTSCTS		#0	WifiKolbNetwork.hostC.wlan[0].mac.dcf.channelAccess.pendingQueue	WifiKolbNetwork.hostC.wlan[0].mac.dcf.channelAccess.pendingQueue	queueLength:max	1 pk	
+SinRTSCTS		#0	WifiKolbNetwork.hostC.wlan[0].mac.dcf.channelAccess.pendingQueue	WifiKolbNetwork.hostC.wlan[0].mac.dcf.channelAccess.pendingQueue	queueLength:timeavg	0 pk	
+SinRTSCTS		#0	WifiKolbNetwork.hostC.wlan[0].mac.dcf.channelAccess.pendingQueue	WifiKolbNetwork.hostC.wlan[0].mac.dcf.channelAccess.pendingQueue	queueBitLength:last	0 B	
+SinRTSCTS		#0	WifiKolbNetwork.hostC.wlan[0].mac.dcf.channelAccess.pendingQueue	WifiKolbNetwork.hostC.wlan[0].mac.dcf.channelAccess.pendingQueue	queueBitLength:max	1 064 B	
+SinRTSCTS		#0	WifiKolbNetwork.hostC.wlan[0].mac.dcf.channelAccess.pendingQueue	WifiKolbNetwork.hostC.wlan[0].mac.dcf.channelAccess.pendingQueue	queueBitLength:timeavg	0 B	
+SinRTSCTS		#0	WifiKolbNetwork.hostC.wlan[0].mac.dcf.channelAccess.pendingQueue	WifiKolbNetwork.hostC.wlan[0].mac.dcf.channelAccess.pendingQueue	outgoingPackets:count	18 pk	
+SinRTSCTS		#0	WifiKolbNetwork.hostC.wlan[0].mac.dcf.channelAccess.pendingQueue	WifiKolbNetwork.hostC.wlan[0].mac.dcf.channelAccess.pendingQueue	outgoingPacketLengths:sum	19.152 kB	
+SinRTSCTS		#0	WifiKolbNetwork.hostC.wlan[0].mac.dcf.channelAccess.pendingQueue	WifiKolbNetwork.hostC.wlan[0].mac.dcf.channelAccess.pendingQueue	incomingPackets:count	18 pk	
+SinRTSCTS		#0	WifiKolbNetwork.hostC.wlan[0].mac.dcf.channelAccess.pendingQueue	WifiKolbNetwork.hostC.wlan[0].mac.dcf.channelAccess.pendingQueue	incomingPacketLengths:sum	19.152 kB	
+SinRTSCTS		#0	WifiKolbNetwork.hostC.wlan[0].mac.dcf.channelAccess.pendingQueue	WifiKolbNetwork.hostC.wlan[0].mac.dcf.channelAccess.pendingQueue	droppedPacketsQueueOverflow:count	0 pk	
+SinRTSCTS		#0	WifiKolbNetwork.hostC.wlan[0].mac.dcf.channelAccess.pendingQueue	WifiKolbNetwork.hostC.wlan[0].mac.dcf.channelAccess.pendingQueue	droppedPacketLengthsQueueOverflow:sum	0 B	
+SinRTSCTS		#0	WifiKolbNetwork.hostC.wlan[0].mac.dcf.channelAccess.inProgressFrames	WifiKolbNetwork.hostC.wlan[0].mac.dcf.channelAccess.inProgressFrames	queueLength:max	1	
+SinRTSCTS		#0	WifiKolbNetwork.hostC.wlan[0].mac.dcf.channelAccess.inProgressFrames	WifiKolbNetwork.hostC.wlan[0].mac.dcf.channelAccess.inProgressFrames	queueLength:timeavg	~ 0.003 739 4	
+SinRTSCTS		#0	WifiKolbNetwork.hostC.wlan[0].mac.dcf.channelAccess.contention	WifiKolbNetwork.hostC.wlan[0].mac.dcf.channelAccess.contention	stateChanged:count	498	
+SinRTSCTS		#0	WifiKolbNetwork.hostC.wlan[0].mac.dcf.channelAccess.contention	WifiKolbNetwork.hostC.wlan[0].mac.dcf.channelAccess.contention	channelAccessGranted:count	53	
+SinRTSCTS		#0	WifiKolbNetwork.hostC.wlan[0].mac.dcf.channelAccess	WifiKolbNetwork.hostC.wlan[0].mac.dcf.channelAccess	channelOwnershipChanged:count	106	
+SinRTSCTS		#0	WifiKolbNetwork.hostC.wlan[0].mac.dcf.originatorMacDataService	WifiKolbNetwork.hostC.wlan[0].mac.dcf.originatorMacDataService	packetAggregated:count	0	
+SinRTSCTS		#0	WifiKolbNetwork.hostC.wlan[0].mac.dcf.originatorMacDataService	WifiKolbNetwork.hostC.wlan[0].mac.dcf.originatorMacDataService	packetFragmented:count	0	
+SinRTSCTS		#0	WifiKolbNetwork.hostC.wlan[0].mac.dcf.recipientMacDataService	WifiKolbNetwork.hostC.wlan[0].mac.dcf.recipientMacDataService	packetDropDuplicateDetected:count	0	
+SinRTSCTS		#0	WifiKolbNetwork.hostC.wlan[0].mac.dcf.recipientMacDataService	WifiKolbNetwork.hostC.wlan[0].mac.dcf.recipientMacDataService	packetDropDuplicateDetected:sum(packetBytes)	0	
+SinRTSCTS		#0	WifiKolbNetwork.hostC.wlan[0].mac.dcf.recipientMacDataService	WifiKolbNetwork.hostC.wlan[0].mac.dcf.recipientMacDataService	packetDeaggregated:count	0	
+SinRTSCTS		#0	WifiKolbNetwork.hostC.wlan[0].mac.dcf.recipientMacDataService	WifiKolbNetwork.hostC.wlan[0].mac.dcf.recipientMacDataService	packetDefragmented:count	0	
+SinRTSCTS		#0	WifiKolbNetwork.hostC.wlan[0].mac.dcf.recoveryProcedure	WifiKolbNetwork.hostC.wlan[0].mac.dcf.recoveryProcedure	retryLimitReached:count	0	
+SinRTSCTS		#0	WifiKolbNetwork.hostC.wlan[0].mac.dcf	WifiKolbNetwork.hostC.wlan[0].mac.dcf	packetReceivedFromPeer:count	18	
+SinRTSCTS		#0	WifiKolbNetwork.hostC.wlan[0].mac.dcf	WifiKolbNetwork.hostC.wlan[0].mac.dcf	packetReceivedFromPeer:sum(packetBytes)	252	
+SinRTSCTS		#0	WifiKolbNetwork.hostC.wlan[0].mac.dcf	WifiKolbNetwork.hostC.wlan[0].mac.dcf	packetReceivedFromPeerUnicast:count	18	
+SinRTSCTS		#0	WifiKolbNetwork.hostC.wlan[0].mac.dcf	WifiKolbNetwork.hostC.wlan[0].mac.dcf	packetReceivedFromPeerUnicast:sum(packetBytes)	252	
+SinRTSCTS		#0	WifiKolbNetwork.hostC.wlan[0].mac.dcf	WifiKolbNetwork.hostC.wlan[0].mac.dcf	packetReceivedFromPeerMulticast:count	0	
+SinRTSCTS		#0	WifiKolbNetwork.hostC.wlan[0].mac.dcf	WifiKolbNetwork.hostC.wlan[0].mac.dcf	packetReceivedFromPeerMulticast:sum(packetBytes)	0	
+SinRTSCTS		#0	WifiKolbNetwork.hostC.wlan[0].mac.dcf	WifiKolbNetwork.hostC.wlan[0].mac.dcf	packetReceivedFromPeerBroadcast:count	0	
+SinRTSCTS		#0	WifiKolbNetwork.hostC.wlan[0].mac.dcf	WifiKolbNetwork.hostC.wlan[0].mac.dcf	packetReceivedFromPeerBroadcast:sum(packetBytes)	0	
+SinRTSCTS		#0	WifiKolbNetwork.hostC.wlan[0].mac.dcf	WifiKolbNetwork.hostC.wlan[0].mac.dcf	packetReceivedFromPeerWithRetry:count	0	
+SinRTSCTS		#0	WifiKolbNetwork.hostC.wlan[0].mac.dcf	WifiKolbNetwork.hostC.wlan[0].mac.dcf	packetReceivedFromPeerWithRetry:sum(packetBytes)	0	
+SinRTSCTS		#0	WifiKolbNetwork.hostC.wlan[0].mac.dcf	WifiKolbNetwork.hostC.wlan[0].mac.dcf	packetReceivedFromPeerWithoutRetry:count	18	
+SinRTSCTS		#0	WifiKolbNetwork.hostC.wlan[0].mac.dcf	WifiKolbNetwork.hostC.wlan[0].mac.dcf	packetReceivedFromPeerWithoutRetry:sum(packetBytes)	252	
+SinRTSCTS		#0	WifiKolbNetwork.hostC.wlan[0].mac.dcf	WifiKolbNetwork.hostC.wlan[0].mac.dcf	packetSentToPeer:count	53	
+SinRTSCTS		#0	WifiKolbNetwork.hostC.wlan[0].mac.dcf	WifiKolbNetwork.hostC.wlan[0].mac.dcf	packetSentToPeer:sum(packetBytes)	56 392	
+SinRTSCTS		#0	WifiKolbNetwork.hostC.wlan[0].mac.dcf	WifiKolbNetwork.hostC.wlan[0].mac.dcf	packetSentToPeerUnicast:count	53	
+SinRTSCTS		#0	WifiKolbNetwork.hostC.wlan[0].mac.dcf	WifiKolbNetwork.hostC.wlan[0].mac.dcf	packetSentToPeerUnicast:sum(packetBytes)	56 392	
+SinRTSCTS		#0	WifiKolbNetwork.hostC.wlan[0].mac.dcf	WifiKolbNetwork.hostC.wlan[0].mac.dcf	packetSentToPeerMulticast:count	0	
+SinRTSCTS		#0	WifiKolbNetwork.hostC.wlan[0].mac.dcf	WifiKolbNetwork.hostC.wlan[0].mac.dcf	packetSentToPeerMulticast:sum(packetBytes)	0	
+SinRTSCTS		#0	WifiKolbNetwork.hostC.wlan[0].mac.dcf	WifiKolbNetwork.hostC.wlan[0].mac.dcf	packetSentToPeerBroadcast:count	0	
+SinRTSCTS		#0	WifiKolbNetwork.hostC.wlan[0].mac.dcf	WifiKolbNetwork.hostC.wlan[0].mac.dcf	packetSentToPeerBroadcast:sum(packetBytes)	0	
+SinRTSCTS		#0	WifiKolbNetwork.hostC.wlan[0].mac.dcf	WifiKolbNetwork.hostC.wlan[0].mac.dcf	packetSentToPeerWithRetry:count	35	
+SinRTSCTS		#0	WifiKolbNetwork.hostC.wlan[0].mac.dcf	WifiKolbNetwork.hostC.wlan[0].mac.dcf	packetSentToPeerWithRetry:sum(packetBytes)	37 240	
+SinRTSCTS		#0	WifiKolbNetwork.hostC.wlan[0].mac.dcf	WifiKolbNetwork.hostC.wlan[0].mac.dcf	packetSentToPeerWithoutRetry:count	18	
+SinRTSCTS		#0	WifiKolbNetwork.hostC.wlan[0].mac.dcf	WifiKolbNetwork.hostC.wlan[0].mac.dcf	packetSentToPeerWithoutRetry:sum(packetBytes)	19 152	
+SinRTSCTS		#0	WifiKolbNetwork.hostC.wlan[0].mac.dcf	WifiKolbNetwork.hostC.wlan[0].mac.dcf	packetDrop:count	18	
+SinRTSCTS		#0	WifiKolbNetwork.hostC.wlan[0].mac.dcf	WifiKolbNetwork.hostC.wlan[0].mac.dcf	packetDrop:sum(packetBytes)	252	
+SinRTSCTS		#0	WifiKolbNetwork.hostC.wlan[0].mac.dcf	WifiKolbNetwork.hostC.wlan[0].mac.dcf	packetDropNotAddressedToUs:count	18	
+SinRTSCTS		#0	WifiKolbNetwork.hostC.wlan[0].mac.dcf	WifiKolbNetwork.hostC.wlan[0].mac.dcf	packetDropNotAddressedToUs:sum(packetBytes)	252	
+SinRTSCTS		#0	WifiKolbNetwork.hostC.wlan[0].mac.dcf	WifiKolbNetwork.hostC.wlan[0].mac.dcf	packetDropQueueOverflow:count	0	
+SinRTSCTS		#0	WifiKolbNetwork.hostC.wlan[0].mac.dcf	WifiKolbNetwork.hostC.wlan[0].mac.dcf	packetDropQueueOverflow:sum(packetBytes)	0	
+SinRTSCTS		#0	WifiKolbNetwork.hostC.wlan[0].mac.dcf	WifiKolbNetwork.hostC.wlan[0].mac.dcf	packetDropRetryLimitReached:count	0	
+SinRTSCTS		#0	WifiKolbNetwork.hostC.wlan[0].mac.dcf	WifiKolbNetwork.hostC.wlan[0].mac.dcf	packetDropRetryLimitReached:sum(packetBytes)	0	
+SinRTSCTS		#0	WifiKolbNetwork.hostC.wlan[0].mac.dcf	WifiKolbNetwork.hostC.wlan[0].mac.dcf	linkBroken:count	0	
+SinRTSCTS		#0	WifiKolbNetwork.hostC.wlan[0].mac.dcf	WifiKolbNetwork.hostC.wlan[0].mac.dcf	frameSequenceFinished:count	53	
+SinRTSCTS		#0	WifiKolbNetwork.hostC.wlan[0].mac	WifiKolbNetwork.hostC.wlan[0].mac	packetReceivedFromLower:count	36	
+SinRTSCTS		#0	WifiKolbNetwork.hostC.wlan[0].mac	WifiKolbNetwork.hostC.wlan[0].mac	packetReceivedFromLower:sum(packetBytes)	504	
+SinRTSCTS		#0	WifiKolbNetwork.hostC.wlan[0].mac	WifiKolbNetwork.hostC.wlan[0].mac	packetSentToLower:count	53	
+SinRTSCTS		#0	WifiKolbNetwork.hostC.wlan[0].mac	WifiKolbNetwork.hostC.wlan[0].mac	packetSentToLower:sum(packetBytes)	56 392	
+SinRTSCTS		#0	WifiKolbNetwork.hostC.wlan[0].mac	WifiKolbNetwork.hostC.wlan[0].mac	packetReceivedFromUpper:count	18	
+SinRTSCTS		#0	WifiKolbNetwork.hostC.wlan[0].mac	WifiKolbNetwork.hostC.wlan[0].mac	packetReceivedFromUpper:sum(packetBytes)	18 648	
+SinRTSCTS		#0	WifiKolbNetwork.hostC.wlan[0].mac	WifiKolbNetwork.hostC.wlan[0].mac	packetSentToUpper:count	0	
+SinRTSCTS		#0	WifiKolbNetwork.hostC.wlan[0].mac	WifiKolbNetwork.hostC.wlan[0].mac	packetSentToUpper:sum(packetBytes)	0	
+SinRTSCTS		#0	WifiKolbNetwork.hostC.wlan[0].mac	WifiKolbNetwork.hostC.wlan[0].mac	packetDrop:count	18	
+SinRTSCTS		#0	WifiKolbNetwork.hostC.wlan[0].mac	WifiKolbNetwork.hostC.wlan[0].mac	packetDrop:sum(packetBytes)	252	
+SinRTSCTS		#0	WifiKolbNetwork.hostC.wlan[0].mac	WifiKolbNetwork.hostC.wlan[0].mac	packetDropIncorrectlyReceived:count	0	
+SinRTSCTS		#0	WifiKolbNetwork.hostC.wlan[0].mac	WifiKolbNetwork.hostC.wlan[0].mac	packetDropIncorrectlyReceived:sum(packetBytes)	0	
+SinRTSCTS		#0	WifiKolbNetwork.hostC.wlan[0].mac	WifiKolbNetwork.hostC.wlan[0].mac	packetDropNotAddressedToUs:count	18	
+SinRTSCTS		#0	WifiKolbNetwork.hostC.wlan[0].mac	WifiKolbNetwork.hostC.wlan[0].mac	packetDropNotAddressedToUs:sum(packetBytes)	252	
+SinRTSCTS		#0	WifiKolbNetwork.hostC.wlan[0].mac	WifiKolbNetwork.hostC.wlan[0].mac	packetDropQueueOverflow:count	0	
+SinRTSCTS		#0	WifiKolbNetwork.hostC.wlan[0].mac	WifiKolbNetwork.hostC.wlan[0].mac	packetDropQueueOverflow:sum(packetBytes)	0	
+SinRTSCTS		#0	WifiKolbNetwork.hostC.wlan[0].mac	WifiKolbNetwork.hostC.wlan[0].mac	packetDropRetryLimitReached:count	0	
+SinRTSCTS		#0	WifiKolbNetwork.hostC.wlan[0].mac	WifiKolbNetwork.hostC.wlan[0].mac	packetDropRetryLimitReached:sum(packetBytes)	0	
+SinRTSCTS		#0	WifiKolbNetwork.hostC.wlan[0].mac	WifiKolbNetwork.hostC.wlan[0].mac	packetDropDuplicateDetected:count	0	
+SinRTSCTS		#0	WifiKolbNetwork.hostC.wlan[0].mac	WifiKolbNetwork.hostC.wlan[0].mac	packetDropDuplicateDetected:sum(packetBytes)	0	
+SinRTSCTS		#0	WifiKolbNetwork.hostC.wlan[0].mac	WifiKolbNetwork.hostC.wlan[0].mac	packetDropOther:count	0	
+SinRTSCTS		#0	WifiKolbNetwork.hostC.wlan[0].mac	WifiKolbNetwork.hostC.wlan[0].mac	packetDropOther:sum(packetBytes)	0	
+SinRTSCTS		#0	WifiKolbNetwork.hostC.wlan[0].mac	WifiKolbNetwork.hostC.wlan[0].mac	linkBroken:count	0	
+SinRTSCTS		#0	WifiKolbNetwork.hostC.wlan[0].radio	WifiKolbNetwork.hostC.wlan[0].radio	transmissionState:count	212	
+SinRTSCTS		#0	WifiKolbNetwork.hostC.wlan[0].radio	WifiKolbNetwork.hostC.wlan[0].radio	receptionState:count	179	
+SinRTSCTS		#0	WifiKolbNetwork.hostC.wlan[0].radio	WifiKolbNetwork.hostC.wlan[0].radio	radioMode:count	109	
+SinRTSCTS		#0	WifiKolbNetwork.hostC.wlan[0]	WifiKolbNetwork.hostC.wlan[0]	packetDropInterfaceDown:count	0	
+SinRTSCTS		#0	WifiKolbNetwork.hostC.wlan[0]	WifiKolbNetwork.hostC.wlan[0]	packetDropInterfaceDown:sum(packetBytes)	0	
+SinRTSCTS		#0	WifiKolbNetwork.hostC.wlan[0]	WifiKolbNetwork.hostC.wlan[0]	packetDropNoCarrier:count	0	
+SinRTSCTS		#0	WifiKolbNetwork.hostC.wlan[0]	WifiKolbNetwork.hostC.wlan[0]	packetDropNoCarrier:sum(packetBytes)	0	
+SinRTSCTS		#0	WifiKolbNetwork.hostC.ipv4.ip	WifiKolbNetwork.hostC.ipv4.ip	packetDropAddressResolutionFailed:count	0	
+SinRTSCTS		#0	WifiKolbNetwork.hostC.ipv4.ip	WifiKolbNetwork.hostC.ipv4.ip	packetDropAddressResolutionFailed:sum(packetBytes)	0	
+SinRTSCTS		#0	WifiKolbNetwork.hostC.ipv4.ip	WifiKolbNetwork.hostC.ipv4.ip	packetDropHopLimitReached:count	0	
+SinRTSCTS		#0	WifiKolbNetwork.hostC.ipv4.ip	WifiKolbNetwork.hostC.ipv4.ip	packetDropHopLimitReached:sum(packetBytes)	0	
+SinRTSCTS		#0	WifiKolbNetwork.hostC.ipv4.ip	WifiKolbNetwork.hostC.ipv4.ip	packetDropForwardingDisabled:count	0	
+SinRTSCTS		#0	WifiKolbNetwork.hostC.ipv4.ip	WifiKolbNetwork.hostC.ipv4.ip	packetDropForwardingDisabled:sum(packetBytes)	0	
+SinRTSCTS		#0	WifiKolbNetwork.hostC.ipv4.ip	WifiKolbNetwork.hostC.ipv4.ip	packetDropNoInterfaceFound:count	0	
+SinRTSCTS		#0	WifiKolbNetwork.hostC.ipv4.ip	WifiKolbNetwork.hostC.ipv4.ip	packetDropNoInterfaceFound:sum(packetBytes)	0	
+SinRTSCTS		#0	WifiKolbNetwork.hostC.ipv4.ip	WifiKolbNetwork.hostC.ipv4.ip	packetDropNoRouteFound:count	0	
+SinRTSCTS		#0	WifiKolbNetwork.hostC.ipv4.ip	WifiKolbNetwork.hostC.ipv4.ip	packetDropNoRouteFound:sum(packetBytes)	0	
+SinRTSCTS		#0	WifiKolbNetwork.hostC.ipv4.ip	WifiKolbNetwork.hostC.ipv4.ip	packetDropUndefined:count	0	
+SinRTSCTS		#0	WifiKolbNetwork.hostC.ipv4.ip	WifiKolbNetwork.hostC.ipv4.ip	packetDropUndefined:sum(packetBytes)	0	
+SinRTSCTS		#0	WifiKolbNetwork.hostC.udp	WifiKolbNetwork.hostC.udp	packetReceived:count	0	
+SinRTSCTS		#0	WifiKolbNetwork.hostC.udp	WifiKolbNetwork.hostC.udp	packetReceived:sum(packetBytes)	0	
+SinRTSCTS		#0	WifiKolbNetwork.hostC.udp	WifiKolbNetwork.hostC.udp	packetSent:count	18	
+SinRTSCTS		#0	WifiKolbNetwork.hostC.udp	WifiKolbNetwork.hostC.udp	packetSent:sum(packetBytes)	18 144	
+SinRTSCTS		#0	WifiKolbNetwork.hostC.udp	WifiKolbNetwork.hostC.udp	passedUpPk:count	0	
+SinRTSCTS		#0	WifiKolbNetwork.hostC.udp	WifiKolbNetwork.hostC.udp	droppedPkWrongPort:count	0	
+SinRTSCTS		#0	WifiKolbNetwork.hostC.udp	WifiKolbNetwork.hostC.udp	droppedPkBadChecksum:count	0	
+SinRTSCTS		#0	WifiKolbNetwork.hostC.app[0]	WifiKolbNetwork.hostC.app[0]	packets sent	18	
+SinRTSCTS		#0	WifiKolbNetwork.hostC.app[0]	WifiKolbNetwork.hostC.app[0]	packets received	0	
+SinRTSCTS		#0	WifiKolbNetwork.hostC.app[0]	WifiKolbNetwork.hostC.app[0]	packetReceived:count	0	
+SinRTSCTS		#0	WifiKolbNetwork.hostC.app[0]	WifiKolbNetwork.hostC.app[0]	packetReceived:sum(packetBytes)	0	
+SinRTSCTS		#0	WifiKolbNetwork.hostC.app[0]	WifiKolbNetwork.hostC.app[0]	packetSent:count	18	
+SinRTSCTS		#0	WifiKolbNetwork.hostC.app[0]	WifiKolbNetwork.hostC.app[0]	packetSent:sum(packetBytes)	18 000	

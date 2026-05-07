@@ -1,8 +1,9 @@
 \documentclass{article}
 
 % Language setting
-% Replace `english' with e.g. `spanish' to change the document language
-\usepackage[english]{babel}
+\usepackage[spanish]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
 
 \usepackage[letterpaper,top=2cm,bottom=5cm,left=3cm,right=3cm,marginparwidth=1.75cm]{geometry}
 
@@ -12,137 +13,719 @@
 \usepackage[colorlinks=true, allcolors=blue]{hyperref}
 \usepackage{amssymb} 
 \usepackage{fancyhdr}
-\usepackage{lipsum} % Para generar texto de ejemplo
 \usepackage{multicol}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{float}
+\usepackage{xcolor}
+\usepackage{listings}
+\usepackage{caption}
+
 \pagestyle{fancy} 
 
-
-
-\fancyhf{} % Limpiar encabezado y pie de página por defecto
-\setlength{\headheight}{70pt} % Ajuste del tamaño del encabezado
+\fancyhf{}
+\setlength{\headheight}{70pt}
 
 % Definición del encabezado
 \fancyhead[C]{%
     \begin{minipage}[c]{1.5cm}
         \includegraphics[width=1.5cm]{imagenes/uta.png}
     \end{minipage}%
-    \hfill  % <--- SIN EL SIGNO % (descomentado)
+    \hfill
     \begin{minipage}[c]{10cm} 
         \centering
         \small {\textbf{UNIVERSIDAD TÉCNICA DE AMBATO}} \\[0.1cm]
-        \scriptsize \textit{FACULTAD DE INGENIERÍA EN SISTEMAS ELECTRÓNICA E INDUSTRIAL} \\[0.1cm]
+        \scriptsize \textit{FACULTAD DE INGENIERÍA EN SISTEMAS, ELECTRÓNICA E INDUSTRIAL} \\[0.1cm]
         \scriptsize \textbf{CARRERA INGENIERÍA DE SOFTWARE - REDES} \\[0.1cm]
         \scriptsize \textbf{CICLO ACADÉMICO: ENERO - JULIO 2026}
-        \vspace{0.2cm} % <--- Espacio entre texto y línea horizontal
+        \vspace{0.2cm}
     \end{minipage}%
-    \hfill  % <--- SIN EL SIGNO % (descomentado)
+    \hfill
     \begin{minipage}[c]{1.5cm}
         \centering
         \includegraphics[width=1.5cm]{imagenes/fisei.png}
     \end{minipage}%
 }
 
+\fancyfoot[C]{\thepage}
+
+% Configuración para código
+\lstdefinestyle{codigo}{
+    basicstyle=\ttfamily\small,
+    breaklines=true,
+    frame=single,
+    backgroundcolor=\color{gray!8},
+    keywordstyle=\color{blue},
+    commentstyle=\color{gray},
+    stringstyle=\color{red!60!black},
+    showstringspaces=false
+}
+
+% Comando para insertar imágenes
+\newcommand{\insertarimagen}[2]{
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.88\textwidth]{#1}
+    \caption{#2}
+\end{figure}
+}
 
 \begin{document}
+
 \begin{center}
     {\large \textbf{INFORME DE GUÍA PRÁCTICA}} \\    
 \end{center}
 
 \section{Portada}
+
 \begin{flushleft}
-\begin{tabular}{ l l }
-    \textbf{Tema:} & Inter Vlans \\
+\begin{tabular}{ l p{10cm} }
+    \textbf{Tema:} & Comparación del rendimiento de una red Wi-Fi con y sin RTS/CTS en OMNeT++ \\
     \textbf{Unidad de Organización Curricular:} & Profesional \\
-    \textbf{Nivel y Paralelo:} & 4to Semestre "B"\\
-    \textbf{Alumnos participante(s):} & Guatemal Avilez Bryan Stalin\\
+    \textbf{Nivel y Paralelo:} & 4to Semestre ``B''\\
+    \textbf{Alumno participante:} & Guatemal Avilez Bryan Stalin\\
     \textbf{Asignatura:} & Redes \\
-    \textbf{Docente:} & Ing.Wilson Gustavo Chango Sailema , Mg. \\
+    \textbf{Docente:} & Ing. Wilson Gustavo Chango Sailema, Mg. \\
 \end{tabular}
 \end{flushleft}
 
-
 \section{Informe de guía práctica}
+
 \subsection{Objetivos}
+
 \subsubsection{General}
-(Especificado en la guía práctica proporcionada por el docente).
+
+Simular y comparar el rendimiento de una red inalámbrica IEEE 802.11 con y sin el mecanismo RTS/CTS en OMNeT++, utilizando una topología de tres nodos bajo condiciones de nodo oculto.
+
 \subsubsection{Específicos}
+
 \begin{itemize}
-    \item (Se recomienda máximo 3).
-    \item 
-    \item 
+    \item Diseñar una topología inalámbrica formada por los nodos hostA, hostB y hostC, donde hostA y hostC transmiten tráfico UDP hacia hostB.
+    \item Ejecutar dos escenarios de simulación: uno con RTS/CTS desactivado y otro con RTS/CTS activado.
+    \item Analizar paquetes enviados, paquetes recibidos, throughput útil, recepciones incorrectas y uso del canal inalámbrico.
 \end{itemize}
+
 \subsection{Modalidad}
-Detallada en la guía.
+
+La práctica se desarrolló de forma experimental mediante simulación en OMNeT++ e INET. Se aplicó la metodología de aprendizaje de Kolb, considerando las fases de experiencia concreta, observación reflexiva, conceptualización abstracta y experimentación activa.
 
 \subsection{Tiempo de duración}
 
-Presenciales: Detallado en la guía\\
-No presenciales: Detallado en la guía
+Presenciales: detallado en la guía práctica.\\
+No presenciales: ejecución de simulaciones, captura de evidencias, análisis de métricas y elaboración del informe.\\
 
+El tiempo de simulación configurado para el reto fue de 30 segundos, de acuerdo con el escenario base solicitado.
 
 \subsection{Instrucciones}
 
-Detalladas en la guía proporcionada por el docente.
-
+\begin{itemize}
+    \item Crear una red inalámbrica de tres nodos denominada \texttt{WifiKolbNetwork}.
+    \item Configurar una topología lineal con los nodos hostA, hostB y hostC.
+    \item Ubicar los nodos con distancias de 50 m entre hostA y hostB, y 50 m entre hostB y hostC.
+    \item Generar tráfico UDP desde hostA y hostC hacia hostB.
+    \item Ejecutar el primer escenario con RTS/CTS desactivado.
+    \item Ejecutar el segundo escenario con RTS/CTS activado.
+    \item Revisar los resultados escalares en \textit{Browse Data} de OMNeT++.
+    \item Comparar los resultados obtenidos en ambos escenarios.
+\end{itemize}
 
 \subsection{Listado de equipos, materiales y recursos}
+
 \textbf{Listado de equipos y materiales generales empleados en la guía práctica:}
+
 \begin{itemize}
-    \item  
+    \item Computador con sistema operativo Windows 11.
+    \item OMNeT++ IDE.
+    \item Framework INET.
+    \item Proyecto de simulación \texttt{WifiKolbProject}.
+    \item Archivo de topología \texttt{WIFIKolb.ned}.
+    \item Archivo de configuración \texttt{WIFIKolb.ini}.
+    \item Ventana de análisis \texttt{.anf}.
+    \item Resultados escalares obtenidos desde \textit{Browse Data}.
 \end{itemize}
 
 \textbf{TAC (Tecnologías para el Aprendizaje y Conocimiento) empleados en la guía práctica:}
+
 \begin{itemize}
-    \item[$\square$] Plataformas educativas
-    \item[$\square$] Simuladores y laboratorios virtuales
+    \item[$\boxtimes$] Plataformas educativas
+    \item[$\boxtimes$] Simuladores y laboratorios virtuales
     \item[$\square$] Aplicaciones educativas
     \item[$\square$] Recursos audiovisuales
     \item[$\square$] Gamificación
-    \item[$\square$] Inteligencia Artificial
-    \item Otros (Especifique): \underline{\hspace{5cm}}
+    \item[$\boxtimes$] Inteligencia Artificial
+    \item Otros: OMNeT++ e INET Framework.
 \end{itemize}
-
 
 \subsection{Actividades por desarrollar}
 
-Detalladas en la guía proporcionada por el docente.
+\subsubsection{Descripción del reto}
+
+El reto consiste en diseñar, simular y analizar una red inalámbrica IEEE 802.11 de tres nodos. En esta red, hostA y hostC transmiten datos simultáneamente hacia hostB. La condición principal del escenario es el nodo oculto, es decir, hostA y hostC no se escuchan directamente entre sí, pero ambos pueden comunicarse con hostB.
+
+La pregunta principal del reto es: \textit{¿en qué condiciones el uso de RTS/CTS mejora significativamente el rendimiento de una red Wi-Fi y cuándo puede ser contraproducente?}
+
+\subsubsection{Escenario base}
+
+\begin{table}[H]
+\centering
+\caption{Parámetros del escenario base}
+\begin{tabular}{p{5cm}p{8cm}}
+\toprule
+\textbf{Parámetro} & \textbf{Valor} \\
+\midrule
+Topología & A -- B -- C en línea recta \\
+Nodo emisor 1 & hostA \\
+Nodo receptor & hostB \\
+Nodo emisor 2 & hostC \\
+Distancia A-B & 50 m \\
+Distancia B-C & 50 m \\
+Distancia A-C & 100 m \\
+Tráfico & UDP constante desde hostA y hostC hacia hostB \\
+Mecanismo comparado & Sin RTS/CTS y con RTS/CTS \\
+Potencia de transmisión & Baja, 1 mW \\
+Herramienta & OMNeT++ con INET Framework \\
+Tiempo de simulación & 30 segundos \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsubsection{Variables del experimento}
+
+\begin{table}[H]
+\centering
+\caption{Variables configuradas para la comparación}
+\begin{tabular}{p{3cm}p{3cm}p{3cm}p{5cm}}
+\toprule
+\textbf{Experimento} & \textbf{RTS/CTS} & \textbf{Potencia TX} & \textbf{Descripción} \\
+\midrule
+Caso 1 & Desactivado & 1 mW & Nodo oculto activo sin reserva previa del canal. \\
+Caso 2 & Activado & 1 mW & Misma topología con intercambio RTS/CTS. \\
+Caso 3 & Activado & 20 mW & Opcional, todos los nodos pueden escucharse. \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{Experiencia concreta: observación de la simulación}
+
+\subsubsection{Capturas de pantalla sin RTS/CTS}
+
+\insertarimagen{imagenes/sin_rtscts_qtenv.png}{Simulación de la red Wi-Fi sin RTS/CTS en Qtenv.}
+
+\insertarimagen{imagenes/sin_rtscts_qtenv_parte2.png}{Transmisión y confirmaciones observadas en el caso sin RTS/CTS.}
+
+\subsubsection{Descripción cualitativa sin RTS/CTS}
+
+En el escenario sin RTS/CTS, hostA y hostC transmiten paquetes UDP hacia hostB. Debido a la condición de nodo oculto, los emisores pueden intentar transmitir sin detectar correctamente la actividad del otro nodo. Esto puede provocar interferencias o recepciones incorrectas en el receptor. En la simulación observada, hostB logró recibir los paquetes de aplicación, aunque se registraron eventos de recepción incorrecta a nivel MAC.
+
+\subsubsection{Capturas de pantalla con RTS/CTS}
+
+\insertarimagen{imagenes/con_rtscts_qtenv.png}{Simulación de la red Wi-Fi con RTS/CTS en Qtenv.}
+
+\insertarimagen{imagenes/con_rtscts_qtenv_parte2.png}{Transmisión observada en el escenario con RTS/CTS activado.}
+
+\subsubsection{Descripción cualitativa con RTS/CTS}
+
+Al activar RTS/CTS, el acceso al medio inalámbrico se controla mediante tramas de solicitud y autorización de transmisión. Este mecanismo busca reservar el canal antes del envío de datos, reduciendo el impacto del nodo oculto. En la simulación ejecutada se observó que el resultado final a nivel de aplicación fue igual al caso sin RTS/CTS, ya que hostB recibió la misma cantidad de paquetes.
+
+\subsection{Observación reflexiva}
+
+\subsubsection{¿Por qué se producen colisiones en el caso sin RTS/CTS?}
+
+Las colisiones o recepciones incorrectas pueden producirse porque hostA y hostC no se escuchan entre sí. Al no detectar la transmisión del otro nodo, ambos pueden considerar que el canal está libre y transmitir al mismo tiempo. Aunque las señales salen desde nodos distintos, estas pueden coincidir en hostB y producir interferencia.
+
+\subsubsection{¿Cómo evita RTS/CTS esa colisión?}
+
+RTS/CTS evita el problema mediante un intercambio previo de control. Antes de enviar datos, el nodo emisor transmite una trama RTS (\textit{Request to Send}). Si el receptor está disponible, responde con una trama CTS (\textit{Clear to Send}). Los nodos que escuchan el CTS reservan el medio y esperan, reduciendo la probabilidad de transmisiones simultáneas hacia el mismo receptor.
+
+\subsubsection{¿Qué desventaja introduce RTS/CTS?}
+
+La principal desventaja de RTS/CTS es el overhead. Antes de enviar los datos se agregan tramas de control, lo que consume tiempo del canal. Si el tráfico es bajo, los paquetes son pequeños o no existe un problema fuerte de nodo oculto, RTS/CTS puede ser contraproducente porque aumenta la latencia y reduce la eficiencia útil del canal.
+
+\subsection{Conceptualización abstracta}
+
+\subsubsection{Parámetros utilizados en OMNeT++}
+
+\begin{table}[H]
+\centering
+\caption{Relación entre concepto teórico y parámetro de simulación}
+\begin{tabular}{p{4.2cm}p{5.6cm}p{3.5cm}}
+\toprule
+\textbf{Concepto teórico 802.11} & \textbf{Parámetro en OMNeT++/INET} & \textbf{Valor usado} \\
+\midrule
+Activación de RTS/CTS & \texttt{**.wlan[*].mac.useRtsCts} & \texttt{false / true} \\
+Potencia de transmisión & \texttt{**.wlan[*].radio.transmitter.power} & \texttt{1mW} \\
+Umbral RTS & \texttt{**.wlan[*].mac.rtsThresholdBytes} & \texttt{0B} \\
+Tráfico UDP & \texttt{UdpBasicApp} & hostA y hostC hacia hostB \\
+Receptor UDP & \texttt{UdpSink} & hostB \\
+Medio inalámbrico & \texttt{radioMedium} & IEEE 802.11 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsubsection{Fragmento del archivo \texttt{.ini} usado}
+
+\begin{lstlisting}[style=codigo, caption={Fragmento de configuración utilizado en OMNeT++.}]
+[General]
+network = WifiKolbNetwork
+sim-time-limit = 30s
+
+# Parametros del experimento
+**.wlan[*].radio.transmitter.power = 1mW
+**.wlan[*].mac.rtsThresholdBytes = 0B
+
+# Host A envia paquetes UDP hacia Host B
+*.hostA.numApps = 1
+*.hostA.app[0].typename = "UdpBasicApp"
+*.hostA.app[0].destAddresses = "hostB"
+*.hostA.app[0].destPort = 5000
+*.hostA.app[0].messageLength = 1000B
+*.hostA.app[0].sendInterval = 1s
+
+# Host C envia paquetes UDP hacia Host B
+*.hostC.numApps = 1
+*.hostC.app[0].typename = "UdpBasicApp"
+*.hostC.app[0].destAddresses = "hostB"
+*.hostC.app[0].destPort = 5000
+*.hostC.app[0].messageLength = 1000B
+*.hostC.app[0].sendInterval = 1s
+
+# Host B recibe paquetes UDP
+*.hostB.numApps = 1
+*.hostB.app[0].typename = "UdpSink"
+*.hostB.app[0].localPort = 5000
+
+# Configuracion Wi-Fi
+**.wlan[*].typename = "Ieee80211Interface"
+**.wlan[*].radio.radioMediumModule = "radioMedium"
+**.wlan[*].mgmt.typename = "Ieee80211MgmtAdhoc"
+
+# Caso sin RTS/CTS
+**.wlan[*].mac.useRtsCts = false
+
+# Caso con RTS/CTS
+**.wlan[*].mac.useRtsCts = true
+\end{lstlisting}
+
+\subsection{Experimentación activa: recolección de datos}
+
+\subsubsection{Resultados escalares sin RTS/CTS}
+
+\insertarimagen{imagenes/sin_rtscts_scalars.png}{Vista general de resultados escalares del caso sin RTS/CTS.}
+
+\insertarimagen{imagenes/sin_rtscts_packet_sent.png}{Paquetes enviados por hostA y hostC en el caso sin RTS/CTS.}
+
+\insertarimagen{imagenes/sin_rtscts_packet_received.png}{Paquetes recibidos por hostB en el caso sin RTS/CTS.}
+
+\insertarimagen{imagenes/sin_rtscts_radiomedium.png}{Uso del medio inalámbrico en el caso sin RTS/CTS.}
+
+\subsubsection{Resultados escalares con RTS/CTS}
+
+\insertarimagen{imagenes/con_rtscts_scalars.png}{Vista general de resultados escalares del caso con RTS/CTS.}
+
+\insertarimagen{imagenes/con_rtscts_packet_sent.png}{Paquetes enviados por hostA y hostC en el caso con RTS/CTS.}
+
+\insertarimagen{imagenes/con_rtscts_packet_received.png}{Paquetes recibidos por hostB en el caso con RTS/CTS.}
+
+\insertarimagen{imagenes/con_rtscts_radiomedium.png}{Uso del medio inalámbrico en el caso con RTS/CTS.}
+
+\subsubsection{Gráfico de la ventana de análisis}
+
+\insertarimagen{imagenes/grafico_anf.png}{Gráfico o vista de análisis generada desde la ventana \texttt{.anf}.}
+
+\subsection{Cálculos realizados}
+
+Para calcular el throughput útil se utilizó la siguiente fórmula:
+
+\[
+Throughput\ útil = \frac{Paquetes\ recibidos}{Tiempo\ de\ simulación}
+\]
+
+Como hostB recibió 36 paquetes y el tiempo de simulación configurado fue de 30 segundos:
+
+\[
+Throughput\ útil = \frac{36}{30} = 1.2\ paquetes/s
+\]
+
+El throughput en bits por segundo se calculó mediante:
+
+\[
+Throughput\ (bps) = \frac{Bytes\ recibidos \times 8}{Tiempo\ de\ simulación}
+\]
+
+Como hostB recibió 36000 bytes:
+
+\[
+Throughput = \frac{36000 \times 8}{30} = 9600\ bps
+\]
+
+\[
+Throughput = 9.6\ kbps
+\]
+
+La pérdida de paquetes se calculó con:
+
+\[
+Packet\ Loss = \frac{Paquetes\ enviados - Paquetes\ recibidos}{Paquetes\ enviados} \times 100
+\]
+
+\[
+Packet\ Loss = \frac{36 - 36}{36} \times 100 = 0\%
+\]
+
+\subsection{Tabla de resultados}
+
+\begin{table}[H]
+\centering
+\caption{Comparación de resultados sin RTS/CTS y con RTS/CTS}
+\begin{tabular}{p{5.5cm}cc}
+\toprule
+\textbf{Métrica} & \textbf{Caso 1: Sin RTS/CTS} & \textbf{Caso 2: Con RTS/CTS} \\
+\midrule
+Paquetes enviados por hostA & 18 & 18 \\
+Paquetes enviados por hostC & 18 & 18 \\
+Paquetes UDP enviados A + C & 36 & 36 \\
+Paquetes recibidos por hostB & 36 & 36 \\
+Bytes recibidos por hostB & 36000 B & 36000 B \\
+Throughput útil & 1.2 pkt/s & 1.2 pkt/s \\
+Throughput en bits/s & 9600 bps & 9600 bps \\
+Throughput en kbps & 9.6 kbps & 9.6 kbps \\
+Pérdida de paquetes & 0\% & 0\% \\
+Transmission count & 143 & 143 \\
+Signal send count & 286 & 286 \\
+Recepciones incorrectas en MAC de B & 36 & 36 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\textbf{Nota técnica:} en los resultados exportados no se identificó un contador directo denominado \textit{collision}. Por ello, se tomó como referencia el contador de recepciones incorrectas en la capa MAC de hostB, específicamente \texttt{packetDropIncorrectlyReceived:count}, ya que representa tramas que llegaron al receptor pero no pudieron ser procesadas correctamente.
 
 \subsection{Resultados obtenidos}
-De acuerdo con el tipo de trabajo, se plasmarán los resultados alcanzados en la guía práctica una vez ejecutadas las actividades. Se pueden emplear figuras y tablas las cuales deben ser numeradas. 
 
+De acuerdo con los datos obtenidos, ambos escenarios presentaron la misma cantidad de paquetes enviados y recibidos. hostA envió 18 paquetes, hostC envió 18 paquetes y hostB recibió 36 paquetes en ambos casos. Por tanto, a nivel de aplicación UDP no se registró pérdida de paquetes.
 
+El throughput útil fue igual en ambos escenarios, con un valor de 1.2 paquetes por segundo. De igual manera, el throughput en bits por segundo fue de 9600 bps, equivalente a 9.6 kbps. Esto indica que, con los parámetros utilizados, la activación de RTS/CTS no produjo una mejora visible en el rendimiento.
+
+También se observó que el contador \texttt{transmission count} fue de 143 en ambos casos. Esto demuestra que el número de transmisiones registradas en el medio inalámbrico fue equivalente en las dos simulaciones. Por esta razón, se concluye que el escenario actual no generó una diferencia significativa entre activar o desactivar RTS/CTS.
+
+\subsection{Respuesta al reto principal}
+
+El uso de RTS/CTS mejora significativamente el rendimiento cuando existe un problema real de nodo oculto, alto tráfico, paquetes de mayor tamaño o varios nodos transmitiendo simultáneamente hacia el mismo receptor. En esas condiciones, RTS/CTS puede reducir colisiones porque reserva el canal antes de transmitir los datos.
+
+Sin embargo, RTS/CTS puede ser contraproducente cuando el tráfico es bajo, los paquetes son pequeños o los nodos sí pueden escucharse entre sí. En esos casos, las tramas RTS y CTS agregan sobrecarga de control, aumentando el tiempo de transmisión y reduciendo la eficiencia del canal.
+
+En la simulación realizada, los resultados sin RTS/CTS y con RTS/CTS fueron iguales. Esto indica que, bajo la configuración actual, el mecanismo RTS/CTS no produjo una mejora visible. Para evidenciar una diferencia mayor, sería recomendable aumentar la carga de tráfico, reducir el intervalo de envío o ajustar la potencia para reforzar la condición de nodo oculto.
+
+\subsection{Reflexión sobre la metodología Kolb}
+
+\begin{table}[H]
+\centering
+\caption{Aplicación de la metodología Kolb}
+\begin{tabular}{p{4cm}p{5cm}p{5cm}}
+\toprule
+\textbf{Fase Kolb} & \textbf{Actividad realizada} & \textbf{Aprendizaje obtenido} \\
+\midrule
+Experiencia concreta & Ejecución de la simulación en Qtenv. & Se observó el comportamiento de una red Wi-Fi con tráfico UDP entre tres nodos. \\
+Observación reflexiva & Revisión de paquetes enviados, paquetes recibidos y eventos en \textit{Browse Data}. & Se identificó que ambos escenarios entregaron los mismos valores de rendimiento. \\
+Conceptualización abstracta & Relación entre RTS/CTS, nodo oculto y acceso al medio inalámbrico. & Se comprendió que RTS/CTS es útil cuando existe contención fuerte o nodos ocultos reales. \\
+Experimentación activa & Comparación entre los casos sin RTS/CTS y con RTS/CTS. & Se determinó que los parámetros actuales no generan una diferencia significativa y que se puede mejorar el experimento aumentando el tráfico. \\
+\bottomrule
+\end{tabular}
+\end{table}
 
 \subsection{Habilidades blandas empleadas en la práctica}
 
 \begin{itemize}
     \item[$\square$] Liderazgo
     \item[$\square$] Trabajo en equipo
-    \item[$\square$] Comunicación asertiva
+    \item[$\boxtimes$] Comunicación asertiva
     \item[$\square$] La empatía
-    \item[$\square$] Pensamiento crítico
-    \item[$\square$] Flexibilidad
-    \item[$\square$] La resolución de conflictos
-    \item[$\square$] Adaptabilidad
-    \item[$\square$] Responsabilidad
+    \item[$\boxtimes$] Pensamiento crítico
+    \item[$\boxtimes$] Flexibilidad
+    \item[$\boxtimes$] La resolución de conflictos
+    \item[$\boxtimes$] Adaptabilidad
+    \item[$\boxtimes$] Responsabilidad
 \end{itemize}
 
+\subsection{Uso de Inteligencia Artificial}
 
+Durante el desarrollo de la práctica se utilizó ChatGPT como herramienta de apoyo académico. Su uso se enfocó en la comprensión del funcionamiento de RTS/CTS, la interpretación de resultados de OMNeT++, la organización del informe y la redacción técnica. La ejecución de la simulación, la recolección de resultados y el análisis final fueron realizados por el estudiante.
 
 \subsection{Conclusiones}
-Constituye la respuesta que propone el o los estudiantes para el problema que originó el trabajo desarrollado, de acuerdo con los datos recogidos y la teoría aplicada. 
+
+\begin{itemize}
+    \item Se simuló una red inalámbrica IEEE 802.11 formada por tres nodos, donde hostA y hostC transmitieron tráfico UDP hacia hostB.
+    \item En los resultados obtenidos, tanto el escenario sin RTS/CTS como el escenario con RTS/CTS registraron 36 paquetes enviados en total y 36 paquetes recibidos por hostB.
+    \item La pérdida de paquetes fue de 0\% en ambos casos, por lo que no se evidenció una mejora significativa al activar RTS/CTS bajo los parámetros actuales.
+    \item El throughput útil fue de 1.2 paquetes por segundo en ambos escenarios, lo que confirma que el rendimiento a nivel de aplicación fue equivalente.
+    \item RTS/CTS es beneficioso cuando existen nodos ocultos y alta contención del medio, pero puede ser contraproducente en redes con bajo tráfico debido al overhead de control.
+\end{itemize}
 
 \subsection{Recomendaciones}
-Redactar las sugerencias o acciones concretas que se derivan de la guía práctica desarrollada. \cite{greenwade93}
 
+\begin{itemize}
+    \item Repetir el experimento aumentando la carga de tráfico, por ejemplo reduciendo \texttt{sendInterval} de \texttt{1s} a \texttt{0.05s}.
+    \item Verificar que la potencia de transmisión realmente produzca la condición de nodo oculto, es decir, que hostA y hostC no puedan escucharse entre sí.
+    \item Comparar también el caso opcional con RTS/CTS y potencia alta de 20 mW para observar el comportamiento cuando todos los nodos pueden escucharse.
+    \item Generar gráficos en la ventana \texttt{.anf} para comparar visualmente el throughput de ambos escenarios.
+    \item Guardar capturas de Qtenv y \textit{Browse Data} como evidencia de la ejecución de cada caso.
+\end{itemize}
 
 \subsection{Referencias}
-Insertar las referencias bibliográficas empleadas aplicando la norma IEEE.
 
-\vspace{-3em} %reduce el espacio causado por refname vacío
-\renewcommand{\refname}{}
-\bibliographystyle{ieeetr}
-\bibliography{sample}
+\begin{thebibliography}{00}
+
+\bibitem{ieee80211}
+IEEE, \textit{IEEE Standard for Information Technology--Telecommunications and Information Exchange Between Systems Local and Metropolitan Area Networks--Specific Requirements Part 11: Wireless LAN Medium Access Control (MAC) and Physical Layer (PHY) Specifications}, IEEE Std 802.11.
+
+\bibitem{omnet}
+A. Varga, \textit{OMNeT++ Discrete Event Simulator Documentation}. OpenSim Ltd.
+
+\bibitem{inet}
+INET Framework, \textit{INET Framework User Guide and Reference Documentation for OMNeT++}.
+
+\bibitem{kolb}
+D. A. Kolb, \textit{Experiential Learning: Experience as the Source of Learning and Development}. Prentice Hall, 1984.
+
+\end{thebibliography}
 
 \subsection{Anexos}
+
+\subsubsection{Anexo A: Archivo \texttt{WIFIKolb.ned}}
+
+\begin{lstlisting}[style=codigo, caption={Código base del archivo WIFIKolb.ned utilizado en el reto Wi-Fi.}]
+package src;
+
+import inet.node.inet.AdhocHost;
+import inet.physicallayer.wireless.common.medium.RadioMedium;
+import inet.networklayer.configurator.ipv4.Ipv4NetworkConfigurator;
+
+network WifiKolbNetwork
+{
+    submodules:
+        radioMedium: RadioMedium {
+            @display("p=300,100");
+        }
+
+        configurator: Ipv4NetworkConfigurator {
+            @display("p=300,50");
+        }
+
+        hostA: AdhocHost {
+            @display("p=100,200");
+        }
+
+        hostB: AdhocHost {
+            @display("p=300,200");
+        }
+
+        hostC: AdhocHost {
+            @display("p=500,200");
+        }
+}
+\end{lstlisting}
+
+\subsubsection{Anexo B: Archivo \texttt{WIFIKolb.ini}}
+
+\begin{lstlisting}[style=codigo, caption={Código base del archivo WIFIKolb.ini utilizado en el reto Wi-Fi.}]
+[General]
+network = WifiKolbNetwork
+sim-time-limit = 30s
+
+# Configuracion de aplicaciones
+*.hostA.numApps = 1
+*.hostA.app[0].typename = "UdpBasicApp"
+*.hostA.app[0].destAddresses = "hostB"
+*.hostA.app[0].destPort = 5000
+*.hostA.app[0].messageLength = 1000B
+*.hostA.app[0].sendInterval = 1s
+
+*.hostC.numApps = 1
+*.hostC.app[0].typename = "UdpBasicApp"
+*.hostC.app[0].destAddresses = "hostB"
+*.hostC.app[0].destPort = 5000
+*.hostC.app[0].messageLength = 1000B
+*.hostC.app[0].sendInterval = 1s
+
+*.hostB.numApps = 1
+*.hostB.app[0].typename = "UdpSink"
+*.hostB.app[0].localPort = 5000
+
+# Configuracion Wi-Fi
+**.wlan[*].typename = "Ieee80211Interface"
+**.wlan[*].radio.radioMediumModule = "radioMedium"
+**.wlan[*].mgmt.typename = "Ieee80211MgmtAdhoc"
+**.wlan[*].radio.transmitter.power = 1mW
+**.wlan[*].mac.rtsThresholdBytes = 0B
+
+# Caso sin RTS/CTS
+[Config SinRTSCTS]
+**.wlan[*].mac.useRtsCts = false
+
+# Caso con RTS/CTS
+[Config ConRTSCTS]
+**.wlan[*].mac.useRtsCts = true
+\end{lstlisting}
+
+\subsubsection{Anexo C: Métricas revisadas en OMNeT++}
+
+\begin{itemize}
+    \item \texttt{hostA.app[0].packetSent:count}
+    \item \texttt{hostC.app[0].packetSent:count}
+    \item \texttt{hostB.app[0].packetReceived:count}
+    \item \texttt{hostB.app[0].packetReceived:sum(packetBytes)}
+    \item \texttt{radioMedium.transmission count}
+    \item \texttt{radioMedium.signal send count}
+    \item \texttt{hostB.wlan[0].mac.packetDropIncorrectlyReceived:count}
+\end{itemize}
+
+\subsubsection{Anexo D: Archivo \texttt{EthernetBusScenario.ned}}
+
+\begin{lstlisting}[style=codigo, caption={Código del archivo EthernetBusScenario.ned.}]
+package ethernetbusscenario;
+
+import inet.node.ethernet.EthernetHub;
+import inet.node.inet.StandardHost;
+import inet.common.misc.ThruputMeteringChannel;
+import inet.networklayer.configurator.ipv4.Ipv4NetworkConfigurator;
+
+network EthernetBusScenario
+{
+    parameters:
+        @display("bgb=800,500,white");
+
+    types:
+        channel C extends ThruputMeteringChannel {
+            datarate = 10Mbps;
+            delay = 10us;
+        }
+
+    submodules:
+        bus: EthernetHub {
+            @display("p=400,300;shape=box;b=400,5");
+        }
+
+        configurator: Ipv4NetworkConfigurator {
+            @display("p=50,50");
+        }
+
+        host1: StandardHost {
+            parameters:
+                numEthInterfaces = 1;
+            @display("p=100,150");
+        }
+
+        host2: StandardHost {
+            parameters:
+                numEthInterfaces = 1;
+            @display("p=220,150");
+        }
+
+        host3: StandardHost {
+            parameters:
+                numEthInterfaces = 1;
+            @display("p=340,150");
+        }
+
+        host4: StandardHost {
+            parameters:
+                numEthInterfaces = 1;
+            @display("p=460,150");
+        }
+
+        host5: StandardHost {
+            parameters:
+                numEthInterfaces = 1;
+            @display("p=580,150");
+        }
+
+        host6: StandardHost {
+            parameters:
+                numEthInterfaces = 1;
+            @display("p=700,150");
+        }
+
+        host7: StandardHost {
+            parameters:
+                numEthInterfaces = 1;
+            @display("p=820,150");
+        }
+
+    connections:
+        host1.ethg[0] <--> C <--> bus.ethg++;
+        host2.ethg[0] <--> C <--> bus.ethg++;
+        host3.ethg[0] <--> C <--> bus.ethg++;
+        host4.ethg[0] <--> C <--> bus.ethg++;
+        host5.ethg[0] <--> C <--> bus.ethg++;
+        host6.ethg[0] <--> C <--> bus.ethg++;
+        host7.ethg[0] <--> C <--> bus.ethg++;
+}
+\end{lstlisting}
+
+\subsubsection{Anexo E: Archivo \texttt{omnetpp.ini} del escenario Ethernet}
+
+\begin{lstlisting}[style=codigo, caption={Configuración del archivo omnetpp.ini para el escenario Ethernet.}]
+[General]
+network = ethernetbusscenario.EthernetBusScenario
+sim-time-limit = 60s
+
+# 1. Configuracion de Capa Fisica y MAC (CSMA/CD)
+**.host*.ethg[0].mac.fullDuplex = false
+**.host*.ethg[0].mac.backoffPolicy = "exponential"
+
+# 2. Configuracion de ARP
+**.host*.ipv4.arp.typename = "GlobalArp"
+
+# 3. Aplicaciones UDP
+**.host*.numApps = 1
+**.host*.app[0].typename = "UdpBasicApp"
+**.host*.app[0].destPort = 5000
+
+# Definicion de destinos por host
+**.host1.app[0].destAddresses = "host3"
+**.host1.app[0].messageLength = 1000B
+**.host1.app[0].sendInterval = 1.5s
+**.host1.app[0].startTime = 1s
+
+**.host2.app[0].destAddresses = "host4"
+**.host2.app[0].messageLength = 1200B
+**.host2.app[0].sendInterval = 1.2s
+**.host2.app[0].startTime = 1.2s
+
+**.host3.app[0].destAddresses = "host5"
+**.host3.app[0].messageLength = 800B
+**.host3.app[0].sendInterval = 1.0s
+**.host3.app[0].startTime = 1.5s
+
+**.host4.app[0].destAddresses = "host6"
+**.host4.app[0].messageLength = 900B
+**.host4.app[0].sendInterval = 1.8s
+**.host4.app[0].startTime = 0.8s
+
+**.host5.app[0].destAddresses = "host7"
+**.host5.app[0].messageLength = 1100B
+**.host5.app[0].sendInterval = 1.6s
+**.host5.app[0].startTime = 1.1s
+
+**.host6.app[0].destAddresses = "host2"
+**.host6.app[0].messageLength = 700B
+**.host6.app[0].sendInterval = 1.4s
+**.host6.app[0].startTime = 1.3s
+
+**.host7.app[0].destAddresses = "host1"
+**.host7.app[0].messageLength = 950B
+**.host7.app[0].sendInterval = 1.7s
+**.host7.app[0].startTime = 1.4s
+
+# Estadisticas adicionales
+**.host*.ethg[0].mac.collision.result-recording-modes = +count, +vector
+**.host*.app[0].receivedPacketBitRate.result-recording-modes = +vector, +scalar
+**.host*.eth[0].mac.typename = "EthernetCsmaMac"
+\end{lstlisting}
+
+\subsubsection{Anexo F: Observación técnica del escenario Ethernet}
+
+El código presentado en los anexos D y E corresponde a un escenario Ethernet con CSMA/CD. Este escenario se considera complementario, ya que permite observar el comportamiento de una red cableada con medio compartido y compararlo conceptualmente con el escenario inalámbrico IEEE 802.11. El reto principal del presente informe se centra en la red Wi-Fi y en la comparación del rendimiento con RTS/CTS desactivado y activado.
+
 \vfill
+
 \end{document}
