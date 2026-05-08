@@ -21,6 +21,12 @@
 \usepackage{xcolor}
 \usepackage{setspace}
 \usepackage{caption}
+\usepackage{listings}
+\graphicspath{{imagenes/}}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta,positioning,shapes.geometric}
 
 \pagestyle{fancy}
 \fancyhf{}
@@ -63,6 +69,19 @@
 \vspace{0.2cm}
 }
 
+
+% Configuración para mostrar código fuente en anexos
+\lstdefinestyle{codigo}{
+    basicstyle=\ttfamily\small,
+    breaklines=true,
+    breakatwhitespace=false,
+    columns=fullflexible,
+    frame=single,
+    tabsize=4,
+    showstringspaces=false,
+    keepspaces=true
+}
+
 \begin{document}
 
 \begin{center}
@@ -88,7 +107,7 @@
 
 \vspace{0.3cm}
 \noindent\textbf{Prompt principal utilizado:}
-Ayúdame paso a paso a desarrollar el punto 1 del informe de práctica de análisis de redes Wi-Fi en Cisco Packet Tracer. Necesito configurar la topología cableada e inalámbrica según mi tabla de direcciones IP, asignar correctamente IP, máscara, gateway y DNS en cada dispositivo, verificar la conectividad con ping entre PC0 y Server0 y entre Laptop0 y Tablet PC0, identificar en modo Simulation las direcciones MAC del ping cableado y las tres direcciones MAC de la PDU Wi-Fi (Address 1, Address 2 y Address 3), y finalmente redactar en formato LaTeX el apartado 1.1 del informe con tablas, observaciones y espacios para capturas.
+Ayúdame paso a paso a desarrollar el punto 1 del informe de práctica de análisis de redes Wi-Fi en Cisco Packet Tracer. Necesito configurar la topología cableada e inalámbrica según mi tabla de direcciones IP, asignar correctamente IP, máscara, gateway y DNS en cada dispositivo, verificar la conectividad con ping entre PC0 y Server0 y entre Laptop0 y Tablet PC0, identificar en modo Simulation las direcciones MAC del ping cableado y las tres direcciones MAC de la PDU Wi-Fi (Address 1, Address 2 y Address 3), y finalmente redactar en formato LaTeX el apartado 1.1 del informe con tablas, observaciones y espacios para capturas. Además, ayudar a interpretar los resultados obtenidos en OMNeT++ para el análisis de throughput frente a la distancia.
 
 
 \noindent\textbf{Declaración de uso de IA:}
@@ -130,7 +149,7 @@ Tablet & Tablet PC0 & 207.150.150.101 \\
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.92\textwidth]{imagenes/TopologiaCompleta.png}
+    \IfFileExists{imagenes/TopologiaCompleta.png}{\includegraphics[width=0.92\textwidth]{imagenes/TopologiaCompleta.png}}{\fbox{\parbox[c][5cm][c]{0.9\textwidth}{\centering Falta agregar la imagen: \texttt{\detokenize{imagenes/TopologiaCompleta.png}}}}}
     \caption{Topología completa construida en Packet Tracer}
 \end{figure}
 
@@ -155,13 +174,13 @@ IP destino & 207.150.75.4 \\
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.75\textwidth]{imagenes/PDU_cableada_del_ping_PC0aServer0.png}
+    \IfFileExists{imagenes/PDU_cableada_del_ping_PC0aServer0.png}{\includegraphics[width=0.75\textwidth]{imagenes/PDU_cableada_del_ping_PC0aServer0.png}}{\fbox{\parbox[c][5cm][c]{0.9\textwidth}{\centering Falta agregar la imagen: \texttt{\detokenize{imagenes/PDU_cableada_del_ping_PC0aServer0.png}}}}}
     \caption{PDU cableada del ping PC0 $\rightarrow$ Server0 en modo Simulation}
 \end{figure}
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.75\textwidth]{imagenes/pingPC0aServidor.png}
+    \IfFileExists{imagenes/pingPC0aServidor.png}{\includegraphics[width=0.75\textwidth]{imagenes/pingPC0aServidor.png}}{\fbox{\parbox[c][5cm][c]{0.9\textwidth}{\centering Falta agregar la imagen: \texttt{\detokenize{imagenes/pingPC0aServidor.png}}}}}
     \caption{Prueba de conectividad del ping cableado entre PC0 y Server0}
 \end{figure}
 
@@ -186,13 +205,13 @@ MAC Address 3 (Destination) & 00D0.FF5D.68A7 \\
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.75\textwidth]{imagenes/PDU_WiFi_del_ping_Laptop0aTablet_PC0.png}
+    \IfFileExists{imagenes/PDU_WiFi_del_ping_Laptop0aTablet_PC0.png}{\includegraphics[width=0.75\textwidth]{imagenes/PDU_WiFi_del_ping_Laptop0aTablet_PC0.png}}{\fbox{\parbox[c][5cm][c]{0.9\textwidth}{\centering Falta agregar la imagen: \texttt{\detokenize{imagenes/PDU_WiFi_del_ping_Laptop0aTablet_PC0.png}}}}}
     \caption{PDU Wi-Fi del ping Laptop0 $\rightarrow$ Tablet PC0 en modo Simulation}
 \end{figure}
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.75\textwidth]{imagenes/pingLaptop0aTablet.png}
+    \IfFileExists{imagenes/pingLaptop0aTablet.png}{\includegraphics[width=0.75\textwidth]{imagenes/pingLaptop0aTablet.png}}{\fbox{\parbox[c][5cm][c]{0.9\textwidth}{\centering Falta agregar la imagen: \texttt{\detokenize{imagenes/pingLaptop0aTablet.png}}}}}
     \caption{Prueba de conectividad del ping inalámbrico entre Laptop0 y Tablet PC0}
 \end{figure}
 
@@ -205,9 +224,9 @@ MAC Address 3 (Destination) & 00D0.FF5D.68A7 \\
 \hline
 \textbf{Parámetro} & \textbf{Valor} \\
 \hline
-Estándar Wi-Fi & 802.11n \\
+Estándar Wi-Fi & IEEE 802.11 con 	exttt{Ieee80211Interface}; 802.11n usado como referencia teórica \\
 \hline
-Potencia de transmisión & \underline{\hspace{2cm}} dBm \\
+Potencia de transmisión & 3.01 dBm (2 mW) \\
 \hline
 Frecuencia & 2.4 GHz \\
 \hline
@@ -218,59 +237,81 @@ Intervalo de envío & 0.01 s \\
 \end{tabular}
 \end{table}
 
+\noindent\textbf{Nota sobre el estándar usado:} La simulación se implementó con el módulo \texttt{Ieee80211Interface} de INET. El estándar 802.11n se utiliza como referencia teórica del análisis, mientras que el comportamiento práctico del enlace se evalúa con los parámetros configurados en OMNeT++.
+
 \textbf{Resultados obtenidos:}
 
 \begin{table}[H]
 \centering
 \begin{tabular}{|p{2.2cm}|p{3.2cm}|p{3.5cm}|p{5cm}|}
 \hline
-\textbf{Distancia} & \textbf{Throughput (Mbps)} & \textbf{Paquetes perdidos (\%)} & \textbf{Observaciones} \\
+\textbf{Distancia} & \textbf{Throughput (Mbps)} & \textbf{Diferencia de paquetes registrados (\%)} & \textbf{Observaciones} \\
 \hline
-5 m & & & \\
+5 m & 1.18 & 0.05 & Enlace estable; se registraron 1900 paquetes recibidos de 1901 generados. \\
 \hline
-10 m & & & \\
+10 m & 1.18 & 0.05 & No se observó degradación del rendimiento respecto a 5 m; el enlace se mantuvo estable. \\
 \hline
-20 m & & & \\
+20 m & 1.18 & 0.05 & El throughput se mantuvo constante; la tasa UDP generada no saturó el enlace. \\
 \hline
-30 m & & & \\
+30 m & 1.18 & 0.05 & El canal inalámbrico continuó estable, sin degradación visible en el rendimiento. \\
 \hline
-50 m & & & \\
+50 m & 1.18 & 0.05 & A mayor distancia, el rendimiento se conservó porque la capacidad del enlace superó la tasa de tráfico generada. \\
 \hline
 \end{tabular}
+\caption{Resultados de throughput y diferencia de paquetes registrados para cada distancia simulada en OMNeT++.}
 \end{table}
 
+\noindent En cada escenario, la aplicación emisora generó 1901 paquetes y el receptor registró 1900 paquetes recibidos. Por ello, la diferencia de paquetes registrada fue:
+
+\[
+\text{Diferencia registrada}=\frac{1901-1900}{1901}\times 100 \approx 0.05\%
+\]
+
+\noindent Esta diferencia no necesariamente representa una pérdida real causada por el canal inalámbrico, ya que puede estar asociada al último paquete en tránsito cuando la simulación finaliza en el segundo 20. Por esta razón, el resultado se interpreta como una diferencia mínima de registro entre paquetes generados y paquetes recibidos.
+
+\noindent El throughput se calculó con los bytes recibidos por la aplicación receptora durante el tiempo activo de transmisión. Como la simulación duró 20 s y el tráfico inició en 1 s, se consideraron 19 s de transmisión efectiva:
+
+\[
+\text{Throughput}=\frac{2\,793\,000\times 8}{19}\approx 1.18\;\text{Mbps}
+\]
+
+\noindent\textbf{Nota técnica:} aunque el objetivo era observar la variación del throughput con la distancia, los resultados muestran una línea constante porque la tasa de envío configurada por la aplicación UDP fue menor que la capacidad disponible del enlace inalámbrico. Por ello, el cuello de botella no fue la distancia, sino la tasa de tráfico generada. Para observar una caída más marcada sería necesario aumentar la tasa de envío, reducir la potencia de transmisión, incrementar el ruido o añadir interferencia.
+
 \textbf{Gráfica Throughput vs Distancia:}
-\espacioimagen{Pegar captura de pantalla de Scave o gráfica generada}{6cm}
+
+\begin{figure}[H]
+    \centering
+    \IfFileExists{imagenes/scave_resultados.png}
+    {\includegraphics[width=0.85\textwidth]{imagenes/scave_resultados.png}}
+    {\fbox{\parbox[c][6cm][c]{0.9\textwidth}{\centering Falta agregar la imagen: \texttt{imagenes/scave_resultados.png}}}}
+    \caption{Gráfica Throughput vs Distancia generada con los resultados de las simulaciones en OMNeT++.}
+\end{figure}
 
 \textbf{Captura de la simulación en OMNeT++:}
-\espacioimagen{Pegar imagen de la ventana Tkenv}{6cm}
+\begin{figure}[H]
+    \centering
+    \IfFileExists{imagenes/omnet_tkenv_50m.png}{\includegraphics[width=0.85\textwidth]{imagenes/omnet_tkenv_50m.png}}{\fbox{\parbox[c][6cm][c]{0.9\textwidth}{\centering Pegar aquí la captura de la ventana Tkenv de OMNeT++}}}
+    \caption{Simulación Wi-Fi en OMNeT++ para el análisis de throughput frente a la distancia.}
+\end{figure}
 
 \section{Observación Reflexiva (OR) -- ¿Qué vi?}
 
 \subsection{Preguntas de reflexión}
 \textbf{Pregunta 1: ¿Por qué en Wi-Fi aparecen 3 direcciones MAC mientras que en Ethernet solo 2?}
-\linearespuesta{}
-\linearespuesta{}
-\linearespuesta{}
-\linearespuesta{}
+
+En Ethernet normalmente se observan dos direcciones MAC principales: una de origen y una de destino, porque la comunicación se realiza en un medio cableado con un enlace más directo. En Wi-Fi, las tramas 802.11 pueden incluir tres direcciones porque se debe identificar al receptor inmediato, al transmisor inmediato y al destino final de la trama. Esto es necesario porque el medio inalámbrico es compartido y, cuando interviene un punto de acceso, la trama puede pasar por un dispositivo intermedio antes de llegar al destino final.
 
 \textbf{Pregunta 2: ¿Qué relación observas entre la distancia y el throughput?}
-\linearespuesta{}
-\linearespuesta{}
-\linearespuesta{}
-\linearespuesta{}
+
+En teoría, al aumentar la distancia disminuye la potencia de la señal recibida, baja la relación señal/ruido y el throughput puede reducirse. Sin embargo, en la simulación realizada el throughput se mantuvo constante en aproximadamente 1.18 Mbps desde 5 m hasta 50 m. Esto indica que, con la potencia, ruido y tasa de envío configurados, el enlace todavía fue suficiente para transportar el tráfico generado sin degradación visible. Además, se identifica que la tasa UDP generada por la aplicación fue el principal límite del throughput medido, por lo que la gráfica no refleja una saturación real del enlace inalámbrico.
 
 \textbf{Pregunta 3: ¿Qué sucede con la forma de la gráfica de throughput cuando hay interferencia?}
-\linearespuesta{}
-\linearespuesta{}
-\linearespuesta{}
-\linearespuesta{}
+
+Cuando existe interferencia, la gráfica de throughput deja de ser estable y puede presentar caídas, variaciones o picos irregulares. Esto ocurre porque las colisiones, retransmisiones y el aumento del ruido reducen la eficiencia del canal. En una red Wi-Fi real, la interferencia puede provocar menor velocidad efectiva, mayor retardo y pérdida de paquetes.
 
 \textbf{Pregunta 4: ¿Qué diferencia notas entre el comportamiento de una red cableada (Ethernet) y una inalámbrica (Wi-Fi) en términos de estabilidad?}
-\linearespuesta{}
-\linearespuesta{}
-\linearespuesta{}
-\linearespuesta{}
+
+La red cableada Ethernet suele ser más estable porque utiliza un medio físico guiado, con menor exposición al ruido externo y menor variación de la señal. En cambio, Wi-Fi depende del aire como medio de transmisión, por lo que puede verse afectado por distancia, obstáculos, interferencia, potencia de transmisión, ruido y cantidad de usuarios conectados.
 
 \subsection{Dificultades encontradas}
 \begin{table}[H]
@@ -279,13 +320,14 @@ Intervalo de envío & 0.01 s \\
 \hline
 \textbf{Problema} & \textbf{Solución aplicada} \\
 \hline
-1. & \\
+1. Separación del código NED y del archivo \texttt{omnetpp.ini}. & Se dividió la definición de la red en \texttt{WifiKolbNetwork.ned} y la configuración de parámetros en \texttt{omnetpp.ini}. \\
 \hline
-2. & \\
+2. Configuración de las distancias en OMNeT++. & Se dejó fijo el nodo receptor \texttt{hostB} y se modificó la posición del nodo emisor \texttt{hostA} para obtener 5 m, 10 m, 20 m, 30 m y 50 m. \\
 \hline
-3. & \\
+3. Interpretación de las métricas exportadas. & Se revisaron los valores de paquetes enviados, paquetes recibidos y bytes recibidos para calcular throughput y pérdida de paquetes. \\
 \hline
 \end{tabular}
+\caption{Dificultades encontradas durante la práctica y soluciones aplicadas.}
 \end{table}
 
 \section{Conceptualización Abstracta (CA) -- ¿Qué aprendí?}
@@ -306,7 +348,38 @@ Intervalo de envío & 0.01 s \\
     \item Access Point
 \end{itemize}
 
-\espacioimagen{Insertar mapa conceptual aquí}{7cm}
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}[
+    node distance=1.2cm and 1.5cm,
+    concepto/.style={rectangle, rounded corners, draw, align=center, minimum width=2.8cm, minimum height=0.9cm},
+    relacion/.style={-Latex}
+]
+\node[concepto] (wifi) {Red Wi-Fi\\802.11};
+\node[concepto, below left=of wifi] (mac) {Capa MAC\\CSMA/CA};
+\node[concepto, below right=of wifi] (phy) {Capa PHY\\Señal inalámbrica};
+\node[concepto, below=of mac] (dirs) {Direcciones MAC\\Receiver, Transmitter, Destination};
+\node[concepto, below=of phy] (snr) {SNR\\Ruido e interferencia};
+\node[concepto, below=of dirs] (ap) {Access Point\\BSSID};
+\node[concepto, below=of snr] (loss) {Pérdida de trayectoria\\Distancia};
+\node[concepto, below=of wifi, yshift=-4.1cm] (throughput) {Throughput\\Rendimiento efectivo};
+\node[concepto, below=of throughput] (rate) {Adaptación de tasa\\Modulación};
+\node[concepto, right=of loss] (fresnel) {Zona de Fresnel\\Línea de vista};
+
+\draw[relacion] (wifi) -- (mac);
+\draw[relacion] (wifi) -- (phy);
+\draw[relacion] (mac) -- (dirs);
+\draw[relacion] (dirs) -- (ap);
+\draw[relacion] (phy) -- (snr);
+\draw[relacion] (snr) -- (loss);
+\draw[relacion] (loss) -- (throughput);
+\draw[relacion] (snr) -- (throughput);
+\draw[relacion] (throughput) -- (rate);
+\draw[relacion] (fresnel) -- (loss);
+\draw[relacion] (mac) -- (throughput);
+\end{tikzpicture}
+\caption{Mapa conceptual de los factores que influyen en el rendimiento de una red Wi-Fi.}
+\end{figure}
 
 \subsection{Relación con teoría}
 \subsubsection*{Concepto clave 1: Las 3 direcciones MAC en 802.11}
@@ -327,9 +400,8 @@ Address 3 & Destination (destino final) & 00D0.FF5D.68A7 \\
 \end{table}
 
 \textbf{Explicación teórica:}
-\linearespuesta{}
-\linearespuesta{}
-\linearespuesta{}
+
+En una trama Wi-Fi 802.11 pueden aparecer varias direcciones MAC porque la comunicación inalámbrica necesita diferenciar entre el equipo que transmite, el equipo que recibe directamente la señal y el destino final de la información. En la práctica realizada se observó que \textit{Address 1} corresponde al receptor inmediato, \textit{Address 2} al transmisor inmediato y \textit{Address 3} al destino final. Esta estructura permite que la red Wi-Fi funcione correctamente cuando existe un punto de acceso o cuando las tramas deben pasar por un dispositivo intermedio.
 
 \subsubsection*{Concepto clave 2: Adaptación de tasa (Rate Adaptation)}
 
@@ -349,9 +421,8 @@ Lejos (50 m) & BPSK (MCS 0) & $\sim$6.5 Mbps \\
 \end{table}
 
 \textbf{Lo que observé en mi simulación:}
-\linearespuesta{}
-\linearespuesta{}
-\linearespuesta{}
+
+En los resultados de OMNeT++ no se observó una reducción del throughput al aumentar la distancia de 5 m a 50 m. El valor se mantuvo cerca de 1.18 Mbps porque la tasa de tráfico generada por la aplicación fue menor que la capacidad disponible del enlace. Por esta razón, aunque teóricamente una mayor distancia puede obligar a usar modulaciones más robustas y menor velocidad, en esta simulación el canal todavía soportó el tráfico configurado sin degradación significativa. Esto evidencia una limitación experimental: para comprobar con mayor claridad la adaptación de tasa sería necesario exigir más al enlace, por ejemplo reduciendo potencia, aumentando ruido, agregando interferencia o elevando la tasa de envío UDP.
 
 \subsubsection*{Concepto clave 3: Modelo de pérdida de trayectoria (Path Loss)}
 \textbf{Fórmula teórica (espacio libre):}
@@ -367,37 +438,27 @@ PL(dB)=20\log_{10}(d)+20\log_{10}(f)+32.44
 \begin{itemize}[leftmargin=1.2cm]
     \item Distancia 20 m = 0.02 km
     \item Frecuencia = 2450 MHz
-    \item $PL = 20\log_{10}(0.02) + 20\log_{10}(2450) + 32.44 = \underline{\hspace{2cm}}\; dB$
+    \item $PL = 20\log_{10}(0.02) + 20\log_{10}(2450) + 32.44 = 66.24\; dB$
 \end{itemize}
 
 \textbf{Comparación con lo observado:}
-\linearespuesta{}
-\linearespuesta{}
-\linearespuesta{}
+
+El modelo de pérdida de trayectoria indica que, al aumentar la distancia, la pérdida de señal también aumenta. Para 20 m se obtuvo una pérdida aproximada de 66.24 dB. Sin embargo, en la simulación el throughput se mantuvo constante porque el enlace aún tuvo condiciones suficientes para transportar el tráfico UDP configurado. Esto demuestra que la distancia afecta la señal, pero el impacto visible en el throughput depende también de la potencia, el ruido, la modulación, la sensibilidad del receptor y la tasa de envío utilizada. En este caso, la distancia no fue el cuello de botella principal dentro del rango evaluado.
 
 \section{Experimentación Activa (EA) -- ¿Qué pasaría si...?}
 
 \subsection{Escenario modificado}
-\textbf{Parámetro que voy a modificar:}
-\begin{itemize}[leftmargin=1.2cm]
-    \item Potencia de transmisión
-    \item Frecuencia (2.4 GHz $\rightarrow$ 5 GHz)
-    \item Altura de antena
-    \item Distancia
-    \item Estándar (802.11n $\rightarrow$ 802.11ac)
-    \item Otro: \underline{\hspace{3cm}}
-\end{itemize}
+\textbf{Parámetro que voy a modificar:} Distancia entre el nodo emisor \texttt{hostA} y el nodo receptor \texttt{hostB}.
 
-\noindent\textbf{Valor original:} \underline{\hspace{3cm}}
+\vspace{0.2cm}
+\noindent\textbf{Valor original:} 5 m
 \hfill
-\textbf{Nuevo valor:} \underline{\hspace{3cm}}
+\textbf{Nuevo valor:} 50 m
 
 \vspace{0.3cm}
 \noindent\textbf{Predicción antes de simular: ¿Qué creo que sucederá?}
-\linearespuesta{}
-\linearespuesta{}
-\linearespuesta{}
-\linearespuesta{}
+
+Antes de ejecutar la simulación se esperaba que, al aumentar la distancia entre los nodos, el throughput disminuyera debido a una mayor pérdida de trayectoria. También se esperaba un posible aumento de paquetes perdidos, ya que la señal recibida sería menor y el enlace inalámbrico tendría condiciones menos favorables.
 
 \textbf{Resultado después de simular:}
 
@@ -407,23 +468,30 @@ PL(dB)=20\log_{10}(d)+20\log_{10}(f)+32.44
 \hline
 \textbf{Parámetro} & \textbf{Antes} & \textbf{Después} & \textbf{Cambio} \\
 \hline
-Throughput & & & \\
+Throughput & 1.18 Mbps & 1.18 Mbps & Sin cambio visible \\
 \hline
-Pérdida (dB) & & & \\
+Pérdida de trayectoria & 54.20 dB & 74.20 dB & Aumentó 20 dB \\
+\hline
+Diferencia de paquetes registrados & 0.05\% & 0.05\% & Sin cambio visible \\
 \hline
 \end{tabular}
+\caption{Comparación del escenario modificado entre 5 m y 50 m.}
 \end{table}
 
 \textbf{Captura del nuevo resultado:}
-\espacioimagen{Pegar imagen aquí}{6cm}
+\begin{figure}[H]
+    \centering
+    \IfFileExists{imagenes/resultado_50m.png}{\includegraphics[width=0.85\textwidth]{imagenes/resultado_50m.png}}{\fbox{\parbox[c][6cm][c]{0.9\textwidth}{\centering Pegar aquí la captura del resultado de OMNeT++ o Scave para 50 m}}}
+    \caption{Resultado del escenario modificado con distancia de 50 m.}
+\end{figure}
 
 \textbf{Comparación predicción vs resultado:}
 
-\noindent\textbf{Predije que:} \underline{\hspace{10cm}}
+\noindent\textbf{Predije que:} el throughput disminuiría al aumentar la distancia de 5 m a 50 m.
 
-\noindent\textbf{Obtuve que:} \underline{\hspace{10.2cm}}
+\noindent\textbf{Obtuve que:} el throughput se mantuvo aproximadamente constante en 1.18 Mbps.
 
-\noindent\textbf{La diferencia se debe a:} \underline{\hspace{8.2cm}}
+\noindent\textbf{La diferencia se debe a:} la tasa de tráfico generada fue baja en comparación con la capacidad disponible del enlace. Además, el nivel de ruido configurado permitió que la comunicación se mantuviera estable hasta 50 m. Para obtener una diferencia más visible, se debería repetir el experimento con mayor tasa de envío, menor potencia de transmisión, mayor ruido de fondo o con un nodo interferente.
 
 \subsection{Propuesta de mejora}
 \noindent\textbf{Problema:} Se necesita un enlace Wi-Fi confiable a 100 metros con throughput $>$ 20 Mbps.
@@ -436,37 +504,34 @@ Pérdida (dB) & & & \\
 \hline
 \textbf{Parámetro} & \textbf{Valor propuesto} & \textbf{Justificación} \\
 \hline
-Potencia TX & & \\
+Potencia TX & 20 dBm & Aumenta el alcance del enlace y mejora la potencia recibida en el receptor. \\
 \hline
-Antena (ganancia) & & \\
+Antena (ganancia) & 8 a 12 dBi direccional & Concentra la señal hacia el receptor y ayuda a mantener mejor SNR. \\
 \hline
-Altura de antena & & \\
+Altura de antena & 3 a 5 m & Reduce obstáculos y mejora la línea de vista entre los equipos. \\
 \hline
-Frecuencia & & \\
+Frecuencia & 5 GHz & Permite mayor capacidad y menor saturación si existe línea de vista directa. \\
 \hline
-Estándar & & \\
+Estándar & 802.11ac & Ofrece mayor rendimiento que 802.11n en enlaces bien alineados. \\
 \hline
 \end{tabular}
+\caption{Propuesta de configuración para un enlace Wi-Fi confiable a 100 m.}
 \end{table}
 
 \textbf{¿Por qué funcionaría esta configuración?}
-\linearespuesta{}
-\linearespuesta{}
-\linearespuesta{}
+
+Esta configuración funcionaría porque combina mayor potencia de transmisión, antenas direccionales y mejor ubicación física de los equipos. Al mejorar la línea de vista y la relación señal/ruido, el enlace tendría mejores condiciones para sostener un throughput superior a 20 Mbps. Además, el uso de 802.11ac permitiría aprovechar una mayor capacidad del canal. Sin embargo, al trabajar en 5 GHz se debe cuidar más la línea de vista, ya que esta banda tiene menor penetración ante obstáculos que 2.4 GHz. Por ello, la zona de Fresnel debe mantenerse lo más despejada posible.
 
 \section{Conclusiones}
 
 \subsection{Tres aprendizajes principales}
-\linearespuesta{}
-\linearespuesta{}
-\linearespuesta{}
+
+Primero, se comprendió que las tramas Wi-Fi pueden manejar más direcciones MAC que Ethernet, debido a la forma en que se identifica el transmisor, el receptor inmediato y el destino final. Segundo, se verificó que el throughput depende de factores como distancia, ruido, potencia y tasa de envío; sin embargo, en esta simulación el enlace fue estable entre 5 m y 50 m porque la tasa UDP configurada no saturó la capacidad inalámbrica disponible. Tercero, se aprendió a usar OMNeT++ para analizar métricas de red como paquetes generados, paquetes recibidos, bytes recibidos, diferencia de paquetes registrados y throughput. Además, se reconoció la importancia de interpretar los resultados de simulación con criterio técnico y no únicamente como valores numéricos.
 
 \subsection{Aplicación en el mundo real}
 \textbf{¿Cómo podrías aplicar lo aprendido en un despliegue real de una red Wi-Fi (casa, oficina, campus)?}
-\linearespuesta{}
-\linearespuesta{}
-\linearespuesta{}
-\linearespuesta{}
+
+Lo aprendido puede aplicarse al diseñar una red Wi-Fi en una casa, oficina o campus universitario, ya que permite considerar la distancia entre dispositivos, la ubicación del punto de acceso, la interferencia y la potencia de transmisión. También ayuda a entender por qué una red inalámbrica puede perder rendimiento cuando existen obstáculos, muchos usuarios o ruido en el canal. En un despliegue real, se debería medir la cobertura, ubicar correctamente los equipos y seleccionar el estándar Wi-Fi más adecuado para lograr estabilidad y buen throughput.
 
 \subsection{Evaluación de la IA utilizada}
 \begin{table}[H]
@@ -475,34 +540,221 @@ Estándar & & \\
 \hline
 \textbf{Aspecto} & \textbf{Respuesta} \\
 \hline
-¿Qué IA usaste? & \\
+¿Qué IA usaste? & ChatGPT \\
 \hline
-¿En qué te ayudó? & \\
+¿En qué te ayudó? & Ayudó a organizar el informe, explicar conceptos de Wi-Fi, revisar el código de OMNeT++ e interpretar los resultados de throughput. \\
 \hline
-¿Qué información tuvo que corregir o complementar? & \\
+¿Qué información tuvo que corregir o complementar? & Se tuvo que verificar que el código estuviera separado en archivos NED e INI, ajustar tamaño de paquete, intervalo de envío y distancias, y complementar la interpretación técnica para no confundir una diferencia mínima de paquetes con pérdida real del canal. \\
 \hline
-¿Recomendarías su uso para futuras prácticas? & \\
+¿Recomendarías su uso para futuras prácticas? & Sí, porque sirve como apoyo para comprender conceptos y mejorar la redacción, siempre que los resultados sean comprobados por el estudiante. \\
 \hline
 \end{tabular}
+\caption{Evaluación del uso de IA en la práctica.}
 \end{table}
-
-\linearespuesta{}
-\linearespuesta{}
-\linearespuesta{}
 
 \section{Anexos}
 
-\subsection*{Anexo A: Código NED completo}
-\espacioanexo{Pegar aquí el código NED utilizado}
+\subsection*{Anexo A: Código NED completo -- \texttt{WifiKolbNetwork.ned}}
+
+El siguiente código corresponde únicamente al archivo \texttt{WifiKolbNetwork.ned}, donde se define la estructura de la red inalámbrica, el medio de radio, el configurador IP y los nodos \texttt{hostA} y \texttt{hostB}.
+
+\begin{lstlisting}[style=codigo]
+package src;
+
+import inet.node.inet.AdhocHost;
+import inet.physicallayer.wireless.ieee80211.packetlevel.Ieee80211ScalarRadioMedium;
+import inet.networklayer.configurator.ipv4.Ipv4NetworkConfigurator;
+
+network WifiKolbNetwork
+{
+    submodules:
+
+        radioMedium: Ieee80211ScalarRadioMedium {
+            @display("p=300,100");
+        }
+
+        configurator: Ipv4NetworkConfigurator {
+            @display("p=300,50");
+        }
+
+        hostA: AdhocHost {
+            @display("p=100,200");
+        }
+
+        hostB: AdhocHost {
+            @display("p=300,200");
+        }
+}
+\end{lstlisting}
 
 \subsection*{Anexo B: Archivo \texttt{omnetpp.ini} completo}
-\espacioanexo{Pegar aquí el archivo de configuración}
+
+El siguiente código corresponde únicamente al archivo \texttt{omnetpp.ini}, donde se configuran las aplicaciones UDP, la interfaz Wi-Fi, las estadísticas, la movilidad y las configuraciones por distancia.
+
+\begin{lstlisting}[style=codigo]
+[General]
+network = src.WifiKolbNetwork
+sim-time-limit = 20s
+
+# ========================
+# CONFIGURADOR IP
+# ========================
+*.configurator.typename = "Ipv4NetworkConfigurator"
+*.configurator.addStaticRoutes = true
+*.configurator.assignAddresses = true
+
+# ========================
+# APLICACION UDP
+# ========================
+*.hostA.numApps = 1
+*.hostA.app[0].typename = "UdpBasicApp"
+*.hostA.app[0].destAddresses = "hostB"
+*.hostA.app[0].destPort = 5000
+*.hostA.app[0].messageLength = 1470B
+*.hostA.app[0].sendInterval = 0.01s
+*.hostA.app[0].startTime = 1s
+
+*.hostB.numApps = 1
+*.hostB.app[0].typename = "UdpSink"
+*.hostB.app[0].localPort = 5000
+
+# ========================
+# WIFI
+# ========================
+**.wlan[*].typename = "Ieee80211Interface"
+**.wlan[*].radio.radioMediumModule = "radioMedium"
+**.wlan[*].radio.transmitter.power = 2mW
+**.wlan[*].mgmt.typename = "Ieee80211MgmtAdhoc"
+**.wlan[*].mac.useRtsCts = false
+
+# ========================
+# RED
+# ========================
+**.hasIpv4 = true
+**.ipv4.arp.typename = "GlobalArp"
+
+# ========================
+# MEDIO FISICO
+# ========================
+**.radioMedium.backgroundNoise.power = -120dBm
+
+# ========================
+# ESTADiSTICAS
+# ========================
+**.statistic-recording = true
+**.vector-recording = true
+**.scalar-recording = true
+
+*.hostA.app[0].packetSent.recordVector = true
+*.hostA.app[0].packetSent.recordCount = true
+
+*.hostB.app[0].receivedPackets.recordVector = true
+*.hostB.app[0].receivedPackets.recordCount = true
+*.hostB.app[0].receivedBytes.recordVector = true
+*.hostB.app[0].receivedBytes.recordCount = true
+*.hostB.app[0].throughput.recordVector = true
+*.hostB.app[0].throughput.recordStatistic = true
+*.hostB.app[0].endToEndDelay.recordVector = true
+*.hostB.app[0].endToEndDelay.recordStatistic = true
+
+# ========================
+# POSICIONES BASE
+# ========================
+*.hostB.mobility.typename = "StationaryMobility"
+*.hostB.mobility.initialX = 300m
+*.hostB.mobility.initialY = 200m
+
+*.hostA.mobility.typename = "StationaryMobility"
+*.hostA.mobility.initialY = 200m
+
+# ========================
+# CONFIGURACIONES POR DISTANCIA
+# Ejecuta una por una
+# ========================
+
+[Config Distancia_5m]
+*.hostA.mobility.initialX = 295m
+
+[Config Distancia_10m]
+*.hostA.mobility.initialX = 290m
+
+[Config Distancia_20m]
+*.hostA.mobility.initialX = 280m
+
+[Config Distancia_30m]
+*.hostA.mobility.initialX = 270m
+
+[Config Distancia_50m]
+*.hostA.mobility.initialX = 250m
+\end{lstlisting}
 
 \subsection*{Anexo C: Registro de comandos de Packet Tracer}
-\espacioanexo{Pegar aquí los comandos utilizados en Packet Tracer}
+\begin{verbatim}
+PC0> ping 207.150.75.4
+Laptop0> ping 207.150.150.101
+
+En modo Simulation se inspeccionaron las PDU generadas para identificar:
+- MAC origen y destino en Ethernet.
+- Address 1, Address 2 y Address 3 en Wi-Fi.
+\end{verbatim}
 
 \subsection*{Anexo D: Capturas de pantalla adicionales}
-\espacioanexo{Pegar aquí capturas adicionales}
+
+\begin{figure}[H]
+    \centering
+    \IfFileExists{imagenes/scave_resultados.png}
+    {\includegraphics[width=0.85\textwidth]{imagenes/scave_resultados.png}}
+    {\fbox{\parbox[c][5cm][c]{0.9\textwidth}{\centering Falta agregar la imagen: \texttt{imagenes/scave_resultados.png}}}}
+    \caption{Gráfica Throughput vs Distancia generada con los resultados obtenidos.}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \IfFileExists{imagenes/resultado_50m.png}
+    {\includegraphics[width=0.9\textwidth]{imagenes/resultado_50m.png}}
+    {\fbox{\parbox[c][5cm][c]{0.9\textwidth}{\centering Falta agregar la imagen: \texttt{imagenes/resultado_50m.png}}}}
+    \caption{Resultados exportados para la simulación a 50 m, donde se observa la cantidad de paquetes recibidos y bytes recibidos.}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \IfFileExists{imagenes/omnet_tkenv_50m.png}
+    {\includegraphics[width=0.9\textwidth]{imagenes/omnet_tkenv_50m.png}}
+    {\fbox{\parbox[c][5cm][c]{0.9\textwidth}{\centering Falta agregar la imagen: \texttt{imagenes/omnet_tkenv_50m.png}}}}
+    \caption{Ventana de ejecución de OMNeT++ para la simulación de 50 m.}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \IfFileExists{imagenes/5m_Simulacion.png}
+    {\includegraphics[width=0.85\textwidth]{imagenes/5m_Simulacion.png}}
+    {\fbox{\parbox[c][5cm][c]{0.9\textwidth}{\centering Falta agregar la imagen: \texttt{imagenes/5m\_Simulacion.png}}}}
+    \caption{Captura de la simulación correspondiente a la distancia de 5 m.}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \IfFileExists{imagenes/10m_simulacion.png}
+    {\includegraphics[width=0.85\textwidth]{imagenes/10m_simulacion.png}}
+    {\fbox{\parbox[c][5cm][c]{0.9\textwidth}{\centering Falta agregar la imagen: \texttt{imagenes/10m\_simulacion.png}}}}
+    \caption{Captura de la simulación correspondiente a la distancia de 10 m.}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \IfFileExists{imagenes/20m_Simulacion.png}
+    {\includegraphics[width=0.85\textwidth]{imagenes/20m_Simulacion.png}}
+    {\fbox{\parbox[c][5cm][c]{0.9\textwidth}{\centering Falta agregar la imagen: \texttt{imagenes/20m\_Simulacion.png}}}}
+    \caption{Captura de la simulación correspondiente a la distancia de 20 m.}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \IfFileExists{imagenes/30m_Simulacion.png}
+    {\includegraphics[width=0.85\textwidth]{imagenes/30m_Simulacion.png}}
+    {\fbox{\parbox[c][5cm][c]{0.9\textwidth}{\centering Falta agregar la imagen: \texttt{imagenes/30m\_Simulacion.png}}}}
+    \caption{Captura de la simulación correspondiente a la distancia de 30 m.}
+\end{figure}
 
 \section*{Rúbrica de autoevaluación}
 \begin{table}[H]
@@ -511,31 +763,31 @@ Estándar & & \\
 \hline
 \textbf{Criterio} & \textbf{Mi autoevaluación} & \textbf{Evidencia} \\
 \hline
-EC -- Captura de datos /2 & & \\
+EC -- Captura de datos /2 & 2/2 & Tablas, capturas de Packet Tracer y resultados de OMNeT++. \\
 \hline
-OR -- Reflexión /1 & & \\
+OR -- Reflexión /1 & 1/1 & Respuestas de análisis sobre MAC, distancia, interferencia y estabilidad. \\
 \hline
-CA -- Mapa conceptual /2 & & \\
+CA -- Mapa conceptual /2 & 2/2 & Mapa conceptual, explicación teórica, adaptación de tasa y path loss. \\
 \hline
-EA -- Experimentación /2 & & \\
+EA -- Experimentación /2 & 1.8/2 & Comparación entre 5 m y 50 m, análisis de limitación experimental y propuesta de mejora a 100 m. \\
 \hline
-Uso de IA /1 & & \\
+Uso de IA /1 & 1/1 & Declaración de uso de ChatGPT incluida. \\
 \hline
-Presentación /1 & & \\
+Presentación /1 & 1/1 & Informe estructurado en formato LaTeX. \\
 \hline
 \end{tabular}
 \end{table}
 
-\noindent\textbf{Mi nota estimada:} \underline{\hspace{2cm}} / 10
+\noindent\textbf{Mi nota estimada:} 9.1 / 10
 
 \vspace{0.3cm}
 \noindent\textbf{Comentario adicional para el profesor:}
-\linearespuesta{}
-\linearespuesta{}
+
+El informe integra la práctica realizada en Packet Tracer y OMNeT++, aplicando la metodología de Kolb para observar, analizar, conceptualizar y proponer mejoras en una red Wi-Fi.
 
 \vspace{0.4cm}
-\noindent\textbf{Fecha de entrega:} \underline{\hspace{3cm}}
+\noindent\textbf{Fecha de entrega:} \underline{20/04/2026}
 \hfill
-\textbf{Firma del estudiante:} \underline{\hspace{5cm}}
+\textbf{Firma del estudiante:} \underline{Guatemal Avilez Bryan Stalin}
 
 \end{document}
