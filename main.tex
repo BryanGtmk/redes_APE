@@ -1,148 +1,654 @@
-\documentclass{article}
+\documentclass[12pt]{article}
 
-% Language setting
-% Replace `english' with e.g. `spanish' to change the document language
-\usepackage[english]{babel}
-
+%========================================================
+% CONFIGURACIÓN GENERAL
+%========================================================
+\usepackage[spanish,es-tabla]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
 \usepackage[letterpaper,top=2cm,bottom=5cm,left=3cm,right=3cm,marginparwidth=1.75cm]{geometry}
 
-% Useful packages
 \usepackage{amsmath}
+\usepackage{amssymb}
 \usepackage{graphicx}
-\usepackage[colorlinks=true, allcolors=blue]{hyperref}
-\usepackage{amssymb} 
+\usepackage{float}
+\usepackage{array}
+\usepackage{booktabs}
+\usepackage{caption}
+\usepackage{enumitem}
+\usepackage[colorlinks=true,allcolors=blue]{hyperref}
 \usepackage{fancyhdr}
-\usepackage{lipsum} % Para generar texto de ejemplo
 \usepackage{multicol}
-\pagestyle{fancy} 
+\usepackage{listings}
+\usepackage{xcolor}
 
+\pagestyle{fancy}
+\fancyhf{}
+\setlength{\headheight}{70pt}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt}
+\sloppy
 
+%========================================================
+% CONFIGURACIÓN PARA CÓDIGO
+%========================================================
+\lstset{
+    basicstyle=\ttfamily\small,
+    breaklines=true,
+    columns=fullflexible,
+    frame=single,
+    numbers=none,
+    backgroundcolor=\color{gray!8},
+    showstringspaces=false
+}
 
-\fancyhf{} % Limpiar encabezado y pie de página por defecto
-\setlength{\headheight}{70pt} % Ajuste del tamaño del encabezado
-
-% Definición del encabezado
+%========================================================
+% ENCABEZADO
+%========================================================
 \fancyhead[C]{%
     \begin{minipage}[c]{1.5cm}
         \includegraphics[width=1.5cm]{imagenes/uta.png}
     \end{minipage}%
-    \hfill  % <--- SIN EL SIGNO % (descomentado)
-    \begin{minipage}[c]{10cm} 
+    \hfill
+    \begin{minipage}[c]{10cm}
         \centering
         \small {\textbf{UNIVERSIDAD TÉCNICA DE AMBATO}} \\[0.1cm]
-        \scriptsize \textit{FACULTAD DE INGENIERÍA EN SISTEMAS ELECTRÓNICA E INDUSTRIAL} \\[0.1cm]
-        \scriptsize \textbf{CARRERA INGENIERÍA DE SOFTWARE - REDES} \\[0.1cm]
+        \scriptsize \textit{FACULTAD DE INGENIERÍA EN SISTEMAS, ELECTRÓNICA E INDUSTRIAL} \\[0.1cm]
+        \scriptsize \textbf{CARRERA DE INGENIERÍA DE SOFTWARE - REDES} \\[0.1cm]
         \scriptsize \textbf{CICLO ACADÉMICO: ENERO - JULIO 2026}
-        \vspace{0.2cm} % <--- Espacio entre texto y línea horizontal
+        \vspace{0.2cm}
     \end{minipage}%
-    \hfill  % <--- SIN EL SIGNO % (descomentado)
+    \hfill
     \begin{minipage}[c]{1.5cm}
         \centering
         \includegraphics[width=1.5cm]{imagenes/fisei.png}
     \end{minipage}%
 }
 
-
 \begin{document}
+
 \begin{center}
     {\large \textbf{INFORME DE GUÍA PRÁCTICA}} \\    
 \end{center}
 
+%========================================================
 \section{Portada}
+
 \begin{flushleft}
-\begin{tabular}{ l l }
-    \textbf{Tema:} & Inter Vlans \\
+\begin{tabular}{ l p{10cm} }
+    \textbf{Tema:} & Configuración de rutas estáticas IPv4 e IPv6 en Packet Tracer \\
     \textbf{Unidad de Organización Curricular:} & Profesional \\
-    \textbf{Nivel y Paralelo:} & 4to Semestre "B"\\
-    \textbf{Alumnos participante(s):} & Guatemal Avilez Bryan Stalin\\
+    \textbf{Nivel y Paralelo:} & 4to Semestre ``B'' \\
+    \textbf{Alumno participante:} & Guatemal Avilez Bryan Stalin \\
     \textbf{Asignatura:} & Redes \\
-    \textbf{Docente:} & Ing.Wilson Gustavo Chango Sailema , Mg. \\
+    \textbf{Docente:} & Ing. Wilson Gustavo Chango Sailema, Mg. \\
 \end{tabular}
 \end{flushleft}
 
-
+%========================================================
 \section{Informe de guía práctica}
+
 \subsection{Objetivos}
+
 \subsubsection{General}
-(Especificado en la guía práctica proporcionada por el docente).
+
+Configurar y verificar rutas estáticas IPv4 e IPv6 en una topología de red empresarial simulada en Cisco Packet Tracer, con el propósito de comprender el funcionamiento del enrutamiento manual, la comunicación entre redes remotas y la validación de conectividad mediante comandos de diagnóstico.
+
 \subsubsection{Específicos}
+
 \begin{itemize}
-    \item (Se recomienda máximo 3).
-    \item 
-    \item 
+    \item Configurar direcciones IPv4 e IPv6 en routers y equipos finales de acuerdo con el direccionamiento asignado al Grupo 8.
+    \item Implementar rutas estáticas IPv4 e IPv6 para permitir la comunicación entre las cuatro redes LAN.
+    \item Verificar la conectividad mediante comandos como \texttt{ping}, \texttt{tracert}, \texttt{show ip route} y \texttt{show ipv6 route}.
 \end{itemize}
+
 \subsection{Modalidad}
-Detallada en la guía.
+
+La práctica se desarrolló de forma experimental mediante el simulador Cisco Packet Tracer. Se configuró una topología de red con routers, switches y PCs, aplicando direccionamiento IPv4 e IPv6, rutas estáticas y pruebas de conectividad entre diferentes redes LAN.
 
 \subsection{Tiempo de duración}
 
-Presenciales: Detallado en la guía\\
-No presenciales: Detallado en la guía
-
+\textbf{Presenciales:} Detallado en la guía práctica proporcionada por el docente.\\
+\textbf{No presenciales:} Detallado en la guía práctica proporcionada por el docente.
 
 \subsection{Instrucciones}
 
-Detalladas en la guía proporcionada por el docente.
-
+La actividad consistió en crear una red en Packet Tracer con cuatro routers, cuatro switches y ocho PCs. Posteriormente, se configuraron las interfaces de red, las direcciones IPv4 e IPv6, el enrutamiento estático y las pruebas de conectividad entre las LAN del Grupo 8.
 
 \subsection{Listado de equipos, materiales y recursos}
+
 \textbf{Listado de equipos y materiales generales empleados en la guía práctica:}
+
 \begin{itemize}
-    \item  
+    \item 4 routers ISR4321.
+    \item 4 switches Cisco 2960.
+    \item 8 PCs.
+    \item Cableado de cobre directo para las conexiones PC-Switch y Switch-Router.
+    \item Cableado serial para las conexiones Router-Router.
+    \item Cisco Packet Tracer.
+    \item Computador con sistema operativo Windows.
 \end{itemize}
 
 \textbf{TAC (Tecnologías para el Aprendizaje y Conocimiento) empleados en la guía práctica:}
+
 \begin{itemize}
     \item[$\square$] Plataformas educativas
-    \item[$\square$] Simuladores y laboratorios virtuales
+    \item[$\blacksquare$] Simuladores y laboratorios virtuales
     \item[$\square$] Aplicaciones educativas
     \item[$\square$] Recursos audiovisuales
     \item[$\square$] Gamificación
     \item[$\square$] Inteligencia Artificial
-    \item Otros (Especifique): \underline{\hspace{5cm}}
+    \item Otros: Cisco Packet Tracer.
 \end{itemize}
 
-
+%========================================================
 \subsection{Actividades por desarrollar}
 
-Detalladas en la guía proporcionada por el docente.
+Para el desarrollo de la práctica se realizaron las siguientes actividades:
 
+\begin{enumerate}
+    \item Se creó una topología en Cisco Packet Tracer con cuatro routers, cuatro switches y ocho PCs.
+    \item Se conectaron las PCs a los switches mediante cable de cobre directo.
+    \item Se conectaron los switches a los routers mediante interfaces GigabitEthernet.
+    \item Se conectaron los routers entre sí mediante enlaces seriales.
+    \item Se configuraron direcciones IPv4 e IPv6 en las interfaces LAN y WAN de cada router.
+    \item Se configuraron direcciones IPv4 e IPv6 en los equipos finales.
+    \item Se habilitó el enrutamiento IPv6 mediante el comando \texttt{ipv6 unicast-routing}.
+    \item Se configuraron rutas estáticas IPv4 e IPv6 en cada router.
+    \item Se verificó el estado de las interfaces y las tablas de enrutamiento.
+    \item Se realizaron pruebas de conectividad con \texttt{ping} y \texttt{tracert}.
+\end{enumerate}
+
+%========================================================
+\subsection{Direccionamiento utilizado}
+
+El direccionamiento empleado corresponde al Grupo 8. En la Tabla \ref{tab:direccionamiento-lan} se presentan las redes LAN utilizadas en la práctica.
+
+\begin{table}[H]
+\centering
+\caption{Direccionamiento LAN del Grupo 8}
+\label{tab:direccionamiento-lan}
+\begin{tabular}{cccc}
+\toprule
+\textbf{LAN} & \textbf{Red IPv4} & \textbf{Gateway IPv4} & \textbf{Red IPv6} \\
+\midrule
+LAN1 & 192.168.81.0/24 & 192.168.81.1 & 2001:DB8:8:1::/64 \\
+LAN2 & 192.168.82.0/24 & 192.168.82.1 & 2001:DB8:8:2::/64 \\
+LAN3 & 192.168.83.0/24 & 192.168.83.1 & 2001:DB8:8:3::/64 \\
+LAN4 & 192.168.84.0/24 & 192.168.84.1 & 2001:DB8:8:4::/64 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{table}[H]
+\centering
+\caption{Direccionamiento WAN utilizado entre routers}
+\label{tab:direccionamiento-wan}
+\begin{tabular}{ccccc}
+\toprule
+\textbf{Enlace} & \textbf{Router} & \textbf{Interfaz} & \textbf{IPv4} & \textbf{IPv6} \\
+\midrule
+R1-R2 & R1 & Se0/1/0 & 10.8.12.1/30 & 2001:DB8:8:12::1/64 \\
+R1-R2 & R2 & Se0/1/0 & 10.8.12.2/30 & 2001:DB8:8:12::2/64 \\
+R2-R3 & R2 & Se0/1/1 & 10.8.23.1/30 & 2001:DB8:8:23::1/64 \\
+R2-R3 & R3 & Se0/1/0 & 10.8.23.2/30 & 2001:DB8:8:23::2/64 \\
+R3-R4 & R3 & Se0/1/1 & 10.8.34.1/30 & 2001:DB8:8:34::1/64 \\
+R3-R4 & R4 & Se0/1/0 & 10.8.34.2/30 & 2001:DB8:8:34::2/64 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+%========================================================
 \subsection{Resultados obtenidos}
-De acuerdo con el tipo de trabajo, se plasmarán los resultados alcanzados en la guía práctica una vez ejecutadas las actividades. Se pueden emplear figuras y tablas las cuales deben ser numeradas. 
 
+Una vez configurada la red, se verificó que las interfaces LAN y WAN de los routers se encontraran activas. Además, se comprobó que las PCs pudieran comunicarse con sus respectivas puertas de enlace en IPv4 e IPv6.
 
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.95\textwidth]{imagenes/01_topologia_completa_grupo8.png}
+    \caption{Topología completa del Grupo 8 en Cisco Packet Tracer.}
+\end{figure}
 
+\subsubsection{Configuración IP de los equipos finales}
+
+En las siguientes figuras se evidencia la configuración IPv4 e IPv6 de una PC por cada LAN.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.90\textwidth]{imagenes/02_configuracion_ip_PC1_LAN1.png}
+    \caption{Configuración IP de PC1 perteneciente a LAN1.}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.90\textwidth]{imagenes/03_configuracion_ip_PC3_LAN2.png}
+    \caption{Configuración IP de PC3 perteneciente a LAN2.}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.90\textwidth]{imagenes/04_configuracion_ip_PC5_LAN3.png}
+    \caption{Configuración IP de PC5 perteneciente a LAN3.}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.90\textwidth]{imagenes/05_configuracion_ip_PC7_LAN4.png}
+    \caption{Configuración IP de PC7 perteneciente a LAN4.}
+\end{figure}
+
+\subsubsection{Verificación de interfaces}
+
+Se utilizó el comando \texttt{show ip interface brief} para verificar que las interfaces utilizadas en cada router se encuentren en estado \texttt{up/up}.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.95\textwidth]{imagenes/06_R1_show_ip_interface_brief.png}
+    \caption{Verificación de interfaces activas en R1.}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.95\textwidth]{imagenes/07_R2_show_ip_interface_brief.png}
+    \caption{Verificación de interfaces activas en R2.}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.95\textwidth]{imagenes/08_R3_show_ip_interface_brief.png}
+    \caption{Verificación de interfaces activas en R3.}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.95\textwidth]{imagenes/09_R4_show_ip_interface_brief.png}
+    \caption{Verificación de interfaces activas en R4.}
+\end{figure}
+
+\subsubsection{Verificación de tablas de enrutamiento IPv4}
+
+Se verificaron las tablas de enrutamiento IPv4 en cada router. En dichas tablas se identificaron rutas conectadas directamente y rutas estáticas marcadas con la letra \texttt{S}.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.95\textwidth]{imagenes/10_R1_show_ip_route_IPV4.png}
+    \caption{Tabla de enrutamiento IPv4 de R1.}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.95\textwidth]{imagenes/11_R2_show_ip_route_IPV4.png}
+    \caption{Tabla de enrutamiento IPv4 de R2.}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.95\textwidth]{imagenes/12_R3_show_ip_route_IPV4.png}
+    \caption{Tabla de enrutamiento IPv4 de R3.}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.95\textwidth]{imagenes/13_R4_show_ip_route_IPV4.png}
+    \caption{Tabla de enrutamiento IPv4 de R4.}
+\end{figure}
+
+\subsubsection{Verificación de tablas de enrutamiento IPv6}
+
+Se utilizó el comando \texttt{show ipv6 route} para comprobar la existencia de rutas IPv6 conectadas y rutas estáticas hacia las redes remotas.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.95\textwidth]{imagenes/14_R1_show_ipv6_route.png}
+    \caption{Tabla de enrutamiento IPv6 de R1.}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.95\textwidth]{imagenes/15_R2_show_ipv6_route.png}
+    \caption{Tabla de enrutamiento IPv6 de R2.}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.95\textwidth]{imagenes/16_R3_show_ipv6_route.png}
+    \caption{Tabla de enrutamiento IPv6 de R3.}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.95\textwidth]{imagenes/17_R4_show_ipv6_route.png}
+    \caption{Tabla de enrutamiento IPv6 de R4.}
+\end{figure}
+
+\subsubsection{Pruebas de conectividad}
+
+Las pruebas de conectividad permitieron comprobar que las LAN remotas podían comunicarse correctamente. Desde PC1 se realizaron pruebas hacia LAN2, LAN3 y LAN4 mediante IPv4 e IPv6.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.95\textwidth]{imagenes/18_ping_ipv4_PC1_a_LAN2_LAN3_LAN4.png}
+    \caption{Pruebas de conectividad IPv4 desde PC1 hacia LAN2, LAN3 y LAN4.}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.95\textwidth]{imagenes/19_ping_ipv6_PC1_a_LAN2_LAN3_LAN4.png}
+    \caption{Pruebas de conectividad IPv6 desde PC1 hacia LAN2, LAN3 y LAN4.}
+\end{figure}
+
+También se realizó una prueba desde PC8 hacia PC1, validando la comunicación desde la última red LAN hacia la primera red LAN.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.95\textwidth]{imagenes/20_ping_PC8_a_PC1_ipv4_ipv6.png}
+    \caption{Prueba de conectividad IPv4 e IPv6 desde PC8 hacia PC1.}
+\end{figure}
+
+\subsubsection{Pruebas de traceroute}
+
+El comando \texttt{tracert} permitió observar la ruta seguida por los paquetes desde PC1 hacia LAN4, atravesando los routers intermedios de la topología.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.95\textwidth]{imagenes/21_tracert_PC1_a_PC7_LAN4.png}
+    \caption{Traceroute IPv4 desde PC1 hacia PC7 en LAN4.}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.95\textwidth]{imagenes/22_tracert_ipv6_PC1_a_PC7_LAN4.png}
+    \caption{Traceroute IPv6 desde PC1 hacia PC7 en LAN4.}
+\end{figure}
+
+%========================================================
+\subsection{Análisis de resultados}
+
+Los resultados obtenidos evidencian que el enrutamiento estático fue configurado correctamente, ya que las PCs de diferentes redes LAN lograron comunicarse entre sí tanto en IPv4 como en IPv6.
+
+En IPv4, los paquetes enviados desde PC1 hacia las redes 192.168.82.0/24, 192.168.83.0/24 y 192.168.84.0/24 fueron respondidos correctamente. Esto demuestra que los routers conocen las redes remotas mediante rutas estáticas.
+
+En IPv6, también se verificó la conectividad hacia las redes 2001:DB8:8:2::/64, 2001:DB8:8:3::/64 y 2001:DB8:8:4::/64. Para esto fue necesario habilitar el enrutamiento IPv6 en los routers mediante el comando \texttt{ipv6 unicast-routing}.
+
+Las tablas de enrutamiento permitieron comprobar la presencia de rutas estáticas, identificadas con la letra \texttt{S}. Estas rutas indican que el router conoce una red remota porque fue configurada manualmente por el administrador de red.
+
+También se comprobó que, si una dirección IP está mal escrita en una PC, la comunicación puede fallar aunque las rutas estén correctamente configuradas. Por esta razón, es importante verificar la dirección IP, máscara, gateway y prefijo IPv6 de cada equipo final.
+
+%========================================================
 \subsection{Habilidades blandas empleadas en la práctica}
 
 \begin{itemize}
     \item[$\square$] Liderazgo
     \item[$\square$] Trabajo en equipo
-    \item[$\square$] Comunicación asertiva
+    \item[$\blacksquare$] Comunicación asertiva
     \item[$\square$] La empatía
-    \item[$\square$] Pensamiento crítico
-    \item[$\square$] Flexibilidad
+    \item[$\blacksquare$] Pensamiento crítico
+    \item[$\blacksquare$] Flexibilidad
     \item[$\square$] La resolución de conflictos
-    \item[$\square$] Adaptabilidad
-    \item[$\square$] Responsabilidad
+    \item[$\blacksquare$] Adaptabilidad
+    \item[$\blacksquare$] Responsabilidad
 \end{itemize}
 
-
-
+%========================================================
 \subsection{Conclusiones}
-Constituye la respuesta que propone el o los estudiantes para el problema que originó el trabajo desarrollado, de acuerdo con los datos recogidos y la teoría aplicada. 
 
+Se configuró correctamente una topología de red compuesta por cuatro routers, cuatro switches y ocho PCs, aplicando direccionamiento IPv4 e IPv6 correspondiente al Grupo 8.
+
+El enrutamiento estático permitió la comunicación entre redes LAN remotas sin utilizar protocolos de enrutamiento dinámico. Para ello, fue necesario configurar manualmente las rutas hacia cada red no conectada directamente.
+
+La verificación mediante \texttt{ping}, \texttt{tracert}, \texttt{show ip route} y \texttt{show ipv6 route} confirmó que los routers reenviaban correctamente los paquetes entre las distintas LAN.
+
+IPv6 requiere una configuración adicional en los routers, principalmente la activación del comando \texttt{ipv6 unicast-routing}, ya que sin esta instrucción el router no reenvía paquetes IPv6 entre redes.
+
+%========================================================
 \subsection{Recomendaciones}
-Redactar las sugerencias o acciones concretas que se derivan de la guía práctica desarrollada. \cite{greenwade93}
 
+Se recomienda revisar cuidadosamente el direccionamiento IP de cada PC, debido a que un error en la dirección IPv4, IPv6, gateway o prefijo puede impedir la conectividad.
 
+También se recomienda verificar el estado de las interfaces con \texttt{show ip interface brief} antes de realizar las pruebas de conectividad, ya que las interfaces deben encontrarse en estado \texttt{up/up}.
+
+Finalmente, se recomienda guardar la configuración de cada router con \texttt{write memory} para evitar la pérdida de los cambios realizados durante la práctica.
+
+%========================================================
 \subsection{Referencias}
-Insertar las referencias bibliográficas empleadas aplicando la norma IEEE.
 
-\vspace{-3em} %reduce el espacio causado por refname vacío
-\renewcommand{\refname}{}
-\bibliographystyle{ieeetr}
-\bibliography{sample}
+\begin{thebibliography}{00}
 
+\bibitem{guia}
+W. G. Chango Sailema, \textit{Guía práctica: Protocolos de enrutamiento estático IPv4 e IPv6}. Universidad Técnica de Ambato, Facultad de Ingeniería en Sistemas, Electrónica e Industrial, 2026.
+
+\bibitem{cisco}
+Cisco Networking Academy, \textit{Introducción a redes: conceptos de direccionamiento y enrutamiento}. Cisco Systems, material académico.
+
+\bibitem{rfc8200}
+S. Deering and R. Hinden, ``Internet Protocol, Version 6 (IPv6) Specification,'' RFC 8200, Internet Engineering Task Force, 2017.
+
+\end{thebibliography}
+
+%========================================================
 \subsection{Anexos}
-\vfill
+
+Como anexo se adjunta el archivo de simulación desarrollado en Cisco Packet Tracer:
+
+\begin{itemize}
+    \item \texttt{Grupo8\_Rutas\_Estaticas\_IPv4\_IPv6\_Bryan.pkt}
+\end{itemize}
+
+\subsubsection{Anexo A: Comandos utilizados en Router 1}
+
+\begin{lstlisting}
+enable
+configure terminal
+hostname R1
+no ip domain-lookup
+ipv6 unicast-routing
+
+interface gigabitEthernet 0/0/0
+ip address 192.168.81.1 255.255.255.0
+ipv6 address 2001:DB8:8:1::1/64
+no shutdown
+exit
+
+interface serial 0/1/0
+ip address 10.8.12.1 255.255.255.252
+ipv6 address 2001:DB8:8:12::1/64
+clock rate 64000
+no shutdown
+exit
+
+ip route 192.168.82.0 255.255.255.0 10.8.12.2
+ip route 192.168.83.0 255.255.255.0 10.8.12.2
+ip route 192.168.84.0 255.255.255.0 10.8.12.2
+
+ipv6 route 2001:DB8:8:2::/64 2001:DB8:8:12::2
+ipv6 route 2001:DB8:8:3::/64 2001:DB8:8:12::2
+ipv6 route 2001:DB8:8:4::/64 2001:DB8:8:12::2
+
+end
+write memory
+\end{lstlisting}
+
+\subsubsection{Anexo B: Comandos utilizados en Router 2}
+
+\begin{lstlisting}
+enable
+configure terminal
+hostname R2
+no ip domain-lookup
+ipv6 unicast-routing
+
+interface gigabitEthernet 0/0/0
+ip address 192.168.82.1 255.255.255.0
+ipv6 address 2001:DB8:8:2::1/64
+no shutdown
+exit
+
+interface serial 0/1/0
+ip address 10.8.12.2 255.255.255.252
+ipv6 address 2001:DB8:8:12::2/64
+no shutdown
+exit
+
+interface serial 0/1/1
+ip address 10.8.23.1 255.255.255.252
+ipv6 address 2001:DB8:8:23::1/64
+clock rate 64000
+no shutdown
+exit
+
+ip route 192.168.81.0 255.255.255.0 10.8.12.1
+ip route 192.168.83.0 255.255.255.0 10.8.23.2
+ip route 192.168.84.0 255.255.255.0 10.8.23.2
+
+ipv6 route 2001:DB8:8:1::/64 2001:DB8:8:12::1
+ipv6 route 2001:DB8:8:3::/64 2001:DB8:8:23::2
+ipv6 route 2001:DB8:8:4::/64 2001:DB8:8:23::2
+
+end
+write memory
+\end{lstlisting}
+
+\subsubsection{Anexo C: Comandos utilizados en Router 3}
+
+\begin{lstlisting}
+enable
+configure terminal
+hostname R3
+no ip domain-lookup
+ipv6 unicast-routing
+
+interface gigabitEthernet 0/0/0
+ip address 192.168.83.1 255.255.255.0
+ipv6 address 2001:DB8:8:3::1/64
+no shutdown
+exit
+
+interface serial 0/1/0
+ip address 10.8.23.2 255.255.255.252
+ipv6 address 2001:DB8:8:23::2/64
+no shutdown
+exit
+
+interface serial 0/1/1
+ip address 10.8.34.1 255.255.255.252
+ipv6 address 2001:DB8:8:34::1/64
+clock rate 64000
+no shutdown
+exit
+
+ip route 192.168.81.0 255.255.255.0 10.8.23.1
+ip route 192.168.82.0 255.255.255.0 10.8.23.1
+ip route 192.168.84.0 255.255.255.0 10.8.34.2
+
+ipv6 route 2001:DB8:8:1::/64 2001:DB8:8:23::1
+ipv6 route 2001:DB8:8:2::/64 2001:DB8:8:23::1
+ipv6 route 2001:DB8:8:4::/64 2001:DB8:8:34::2
+
+end
+write memory
+\end{lstlisting}
+
+\subsubsection{Anexo D: Comandos utilizados en Router 4}
+
+\begin{lstlisting}
+enable
+configure terminal
+hostname R4
+no ip domain-lookup
+ipv6 unicast-routing
+
+interface gigabitEthernet 0/0/0
+ip address 192.168.84.1 255.255.255.0
+ipv6 address 2001:DB8:8:4::1/64
+no shutdown
+exit
+
+interface serial 0/1/0
+ip address 10.8.34.2 255.255.255.252
+ipv6 address 2001:DB8:8:34::2/64
+no shutdown
+exit
+
+ip route 192.168.81.0 255.255.255.0 10.8.34.1
+ip route 192.168.82.0 255.255.255.0 10.8.34.1
+ip route 192.168.83.0 255.255.255.0 10.8.34.1
+
+ipv6 route 2001:DB8:8:1::/64 2001:DB8:8:34::1
+ipv6 route 2001:DB8:8:2::/64 2001:DB8:8:34::1
+ipv6 route 2001:DB8:8:3::/64 2001:DB8:8:34::1
+
+end
+write memory
+\end{lstlisting}
+
+\subsubsection{Anexo E: Comandos de verificación utilizados en los routers}
+
+\begin{lstlisting}
+show ip interface brief
+show ip route
+show ip route static
+show ipv6 route
+show running-config
+\end{lstlisting}
+
+\subsubsection{Anexo F: Comandos de prueba utilizados en las PCs}
+
+\textbf{Pruebas desde PC1 hacia su puerta de enlace:}
+
+\begin{lstlisting}
+ping 192.168.81.1
+ping 2001:DB8:8:1::1
+\end{lstlisting}
+
+\textbf{Pruebas desde PC3 hacia su puerta de enlace:}
+
+\begin{lstlisting}
+ping 192.168.82.1
+ping 2001:DB8:8:2::1
+\end{lstlisting}
+
+\textbf{Pruebas desde PC5 hacia su puerta de enlace:}
+
+\begin{lstlisting}
+ping 192.168.83.1
+ping 2001:DB8:8:3::1
+\end{lstlisting}
+
+\textbf{Pruebas desde PC7 hacia su puerta de enlace:}
+
+\begin{lstlisting}
+ping 192.168.84.1
+ping 2001:DB8:8:4::1
+\end{lstlisting}
+
+\textbf{Pruebas IPv4 desde PC1 hacia redes remotas:}
+
+\begin{lstlisting}
+ping 192.168.82.10
+ping 192.168.83.10
+ping 192.168.84.10
+\end{lstlisting}
+
+\textbf{Pruebas IPv6 desde PC1 hacia redes remotas:}
+
+\begin{lstlisting}
+ping 2001:DB8:8:2::10
+ping 2001:DB8:8:3::20
+ping 2001:DB8:8:4::10
+\end{lstlisting}
+
+\textbf{Pruebas desde PC8 hacia PC1:}
+
+\begin{lstlisting}
+ping 192.168.81.10
+ping 2001:DB8:8:1::10
+\end{lstlisting}
+
+\textbf{Pruebas de trazado de ruta:}
+
+\begin{lstlisting}
+tracert 192.168.84.10
+tracert 2001:DB8:8:4::10
+\end{lstlisting}
+
 \end{document}
