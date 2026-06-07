@@ -1,1 +1,850 @@
-girt
+\documentclass[12pt,letterpaper]{article}
+
+% ============================================================
+% CONFIGURACIÓN GENERAL
+% ============================================================
+\usepackage[spanish]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+
+\usepackage[
+    letterpaper,
+    top=2cm,
+    bottom=3cm,
+    left=2.5cm,
+    right=2.5cm
+]{geometry}
+
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{amssymb}
+\usepackage{fancyhdr}
+\usepackage{array}
+\usepackage{tabularx}
+\usepackage{booktabs}
+\usepackage{xcolor}
+\usepackage{listings}
+\usepackage{float}
+\usepackage{enumitem}
+\usepackage{ragged2e}
+\usepackage[colorlinks=true, allcolors=blue, hypertexnames=false]{hyperref}
+\usepackage{bookmark}
+
+% ============================================================
+% AJUSTES PARA EVITAR DESBORDES
+% ============================================================
+\sloppy
+\setlength{\emergencystretch}{3em}
+\renewcommand{\arraystretch}{1.25}
+
+\newcolumntype{Y}{>{\RaggedRight\arraybackslash}X}
+\newcolumntype{L}[1]{>{\RaggedRight\arraybackslash}p{#1}}
+
+% ============================================================
+% CONFIGURACIÓN DE ENCABEZADO
+% ============================================================
+\pagestyle{fancy}
+\fancyhf{}
+\setlength{\headheight}{75pt}
+
+\fancyhead[C]{%
+    \begin{minipage}[c]{1.6cm}
+        \centering
+        \IfFileExists{imagenes/uta.png}
+        {\includegraphics[width=1.4cm]{imagenes/uta.png}}
+        {\fbox{\small UTA}}
+    \end{minipage}%
+    \hfill
+    \begin{minipage}[c]{10.5cm}
+        \centering
+        {\small \textbf{UNIVERSIDAD TÉCNICA DE AMBATO}}\\[0.1cm]
+        {\fontsize{7.5}{9}\selectfont \textit{FACULTAD DE INGENIERÍA EN SISTEMAS, ELECTRÓNICA E INDUSTRIAL}}\\[0.1cm]
+        {\fontsize{7.5}{9}\selectfont \textbf{CARRERA DE INGENIERÍA DE SOFTWARE - REDES}}\\[0.1cm]
+        {\fontsize{7.5}{9}\selectfont \textbf{CICLO ACADÉMICO: ENERO - JULIO 2026}}
+    \end{minipage}%
+    \hfill
+    \begin{minipage}[c]{1.6cm}
+        \centering
+        \IfFileExists{imagenes/fisei.png}
+        {\includegraphics[width=1.4cm]{imagenes/fisei.png}}
+        {\fbox{\small FISEI}}
+    \end{minipage}%
+}
+
+\fancyfoot[C]{\thepage}
+
+% ============================================================
+% CONFIGURACIÓN PARA CÓDIGO
+% ============================================================
+\definecolor{codegray}{rgb}{0.95,0.95,0.95}
+
+\lstdefinestyle{cisco}{
+    backgroundcolor=\color{codegray},
+    basicstyle=\ttfamily\small,
+    breaklines=true,
+    frame=single,
+    columns=fullflexible,
+    keepspaces=true,
+    showstringspaces=false
+}
+
+\lstset{style=cisco}
+
+% ============================================================
+% COMANDOS PERSONALIZADOS
+% ============================================================
+\newcommand{\caja}{\ensuremath{\square}}
+\newcommand{\checkcaja}{\ensuremath{\checkmark}}
+
+\begin{document}
+
+\begin{center}
+    {\large \textbf{INFORME DE GUÍA PRÁCTICA}}\\[0.3cm]
+\end{center}
+
+% ============================================================
+% PORTADA
+% ============================================================
+\section{Portada}
+
+\begin{flushleft}
+\begin{tabularx}{\textwidth}{L{5cm}Y}
+    \textbf{Tema:} & Implementación y verificación de OSPF \\
+    \textbf{Unidad de Organización Curricular:} & Profesional \\
+    \textbf{Nivel y Paralelo:} & 4to Semestre ``B'' \\
+    \textbf{Alumno participante:} & Guatemal Avilez Bryan Stalin \\
+    \textbf{Asignatura:} & Redes \\
+    \textbf{Docente:} & Ing. Wilson Gustavo Chango Sailema, Mg. \\
+\end{tabularx}
+\end{flushleft}
+
+% ============================================================
+% INFORME DE GUÍA PRÁCTICA
+% ============================================================
+\section{Informe de guía práctica}
+
+\subsection{Objetivos}
+
+\subsubsection{General}
+
+Implementar y verificar el protocolo de enrutamiento dinámico OSPF en una topología de seis routers en Cisco Packet Tracer, manteniendo el direccionamiento y la estructura física utilizada en la práctica anterior con RIP.
+
+\subsubsection{Específicos}
+
+\begin{itemize}
+    \item Eliminar la configuración de RIP en los routers de la topología y reemplazarla por OSPFv2 para IPv4.
+    \item Configurar Router ID únicos y anunciar las redes directamente conectadas en el área 0 de OSPF.
+    \item Verificar la formación de vecinos OSPF, las rutas aprendidas y la conectividad entre las redes LAN.
+\end{itemize}
+
+\subsection{Modalidad}
+
+La práctica se desarrolló en modalidad experimental mediante simulación en Cisco Packet Tracer. Se trabajó sobre una topología previamente funcional con RIP/RIPng, manteniendo los mismos routers, enlaces, interfaces y direcciones IP.
+
+\subsection{Tiempo de duración}
+
+\textbf{Presencial:} Según lo establecido en la guía práctica proporcionada por el docente.\\
+\textbf{No presencial:} Tiempo adicional destinado a configuración, verificación, corrección de errores y elaboración del informe.
+
+\subsection{Instrucciones}
+
+Se debe realizar el reto de migrar la práctica anterior desde RIP hacia OSPF, sin modificar la topología física. Para ello, se deben eliminar las configuraciones previas de RIP, activar OSPF en los routers correspondientes, anunciar las redes conectadas y verificar la conectividad mediante comandos de diagnóstico.
+
+\subsection{Listado de equipos, materiales y recursos}
+
+\textbf{Equipos y materiales empleados:}
+
+\begin{itemize}
+    \item Computador personal.
+    \item Cisco Packet Tracer.
+    \item Router Cisco 2911: R1.
+    \item Router Cisco 2911: R2.
+    \item Router Cisco 2911: R3.
+    \item Router Cisco 2911: R4.
+    \item Router Cisco 2911: R5.
+    \item Router Cisco 2911: R6.
+    \item Switch Cisco 2960 para la Red A.
+    \item PCs para las redes A, B, C y D.
+\end{itemize}
+
+\textbf{TAC empleadas en la guía práctica:}
+
+\begin{itemize}
+    \item[\checkcaja] Plataformas educativas.
+    \item[\checkcaja] Simuladores y laboratorios virtuales.
+    \item[\caja] Aplicaciones educativas.
+    \item[\caja] Recursos audiovisuales.
+    \item[\caja] Gamificación.
+    \item[\checkcaja] Inteligencia Artificial.
+    \item Otros: Cisco Packet Tracer.
+\end{itemize}
+
+% ============================================================
+% DESARROLLO TÉCNICO
+% ============================================================
+\section{Desarrollo técnico de la práctica}
+
+\subsection{Descripción de la topología}
+
+La topología utilizada está compuesta por seis routers, identificados como R1, R2, R3, R4, R5 y R6. Además, se manejan cuatro redes LAN: Red A, Red B, Red C y Red D.
+
+La práctica se realizó sobre la misma topología empleada en la configuración anterior con RIP. No se cambiaron cables, interfaces, direcciones IP ni gateways. El cambio principal fue reemplazar el protocolo de enrutamiento dinámico RIP por OSPF.
+
+\subsection{Direccionamiento IPv4 utilizado}
+
+\subsubsection{Redes LAN}
+
+\begin{table}[H]
+\centering
+\small
+\begin{tabularx}{\textwidth}{|L{2.5cm}|L{4cm}|L{4cm}|Y|}
+\hline
+\textbf{Red} & \textbf{Dispositivo / Interfaz} & \textbf{Dirección IP} & \textbf{Observación} \\ \hline
+Red A & R5 G0/0 & 195.0.20.3/24 & Gateway de la Red A \\ \hline
+Red A & PC3 & 195.0.20.10/24 & Gateway: 195.0.20.3 \\ \hline
+Red B & R3 G0/0 & 195.0.30.1/24 & Gateway de la Red B \\ \hline
+Red B & PC Red B & 195.0.30.10/24 & Gateway: 195.0.30.1 \\ \hline
+Red C & R4 G0/0 & 195.0.40.1/24 & Gateway de la Red C \\ \hline
+Red C & PC Red C & 195.0.40.10/24 & Gateway: 195.0.40.1 \\ \hline
+Red D & R6 G0/0 & 195.0.50.1/24 & Gateway de la Red D \\ \hline
+Red D & PC Red D & 195.0.50.10/24 & Gateway: 195.0.50.1 \\ \hline
+\end{tabularx}
+\caption{Direccionamiento IPv4 de las redes LAN.}
+\end{table}
+
+\subsubsection{Enlaces entre routers}
+
+\begin{table}[H]
+\centering
+\small
+\begin{tabularx}{\textwidth}{|L{3.5cm}|L{3.5cm}|Y|}
+\hline
+\textbf{Enlace} & \textbf{Red} & \textbf{Direcciones utilizadas} \\ \hline
+R1 -- R3 & 10.0.1.0/30 & R1: 10.0.1.1, R3: 10.0.1.2 \\ \hline
+R1 -- R4 & 10.0.2.0/30 & R1: 10.0.2.1, R4: 10.0.2.2 \\ \hline
+R2 -- R4 & 10.0.3.0/30 & R2: 10.0.3.1, R4: 10.0.3.2 \\ \hline
+R2 -- R6 & 10.0.4.0/30 & R2: 10.0.4.1, R6: 10.0.4.2 \\ \hline
+R3 -- R4 & 10.0.5.0/30 & R3: 10.0.5.1, R4: 10.0.5.2 \\ \hline
+R5 -- R2 & 10.0.6.0/30 & R5: 10.0.6.1, R2: 10.0.6.2 \\ \hline
+R5 -- R1 & 10.0.7.0/30 & R5: 10.0.7.1, R1: 10.0.7.2 \\ \hline
+\end{tabularx}
+\caption{Direccionamiento IPv4 de los enlaces entre routers.}
+\end{table}
+
+\subsection{Comando general para eliminar RIP}
+
+Antes de configurar OSPF, se eliminó RIP en los routers R1, R2, R3, R4, R5 y R6.
+
+\begin{lstlisting}
+enable
+configure terminal
+no router rip
+no ipv6 router rip 1
+end
+write memory
+\end{lstlisting}
+
+% ============================================================
+% METODOLOGÍA KOLB
+% ============================================================
+\section{Metodología Kolb}
+
+\subsection{Experiencia concreta: ¿Qué se hizo?}
+
+En esta fase se realizó la configuración de OSPF en la topología. Se mantuvo la estructura de red usada anteriormente y se activó el proceso OSPF 1 en todos los routers. Cada router recibió un Router ID único y se anunciaron las redes conectadas en el área 0.
+
+\subsubsection{Configuración OSPF en R1}
+
+R1 participa en tres redes OSPF: el enlace con R5, el enlace con R3 y el enlace con R4.
+
+\begin{lstlisting}
+enable
+configure terminal
+router ospf 1
+router-id 1.1.1.1
+network 10.0.7.0 0.0.0.3 area 0
+network 10.0.1.0 0.0.0.3 area 0
+network 10.0.2.0 0.0.0.3 area 0
+end
+write memory
+\end{lstlisting}
+
+\subsubsection{Configuración OSPF en R2}
+
+R2 participa en el enlace con R5, el enlace con R4 y el enlace con R6.
+
+\begin{lstlisting}
+enable
+configure terminal
+router ospf 1
+router-id 2.2.2.2
+network 10.0.6.0 0.0.0.3 area 0
+network 10.0.3.0 0.0.0.3 area 0
+network 10.0.4.0 0.0.0.3 area 0
+end
+write memory
+\end{lstlisting}
+
+\subsubsection{Configuración OSPF en R3}
+
+En R3 inicialmente se ingresaron por accidente redes correspondientes a R2. Para corregirlo, se eliminó el proceso OSPF y se configuró nuevamente con las redes correctas.
+
+\textbf{Configuración incorrecta ingresada inicialmente:}
+
+\begin{lstlisting}
+enable
+configure terminal
+router ospf 1
+router-id 2.2.2.2
+network 10.0.6.0 0.0.0.3 area 0
+network 10.0.3.0 0.0.0.3 area 0
+network 10.0.4.0 0.0.0.3 area 0
+end
+write memory
+\end{lstlisting}
+
+\textbf{Corrección aplicada en R3:}
+
+\begin{lstlisting}
+enable
+configure terminal
+no router ospf 1
+router ospf 1
+router-id 3.3.3.3
+network 195.0.30.0 0.0.0.255 area 0
+network 10.0.1.0 0.0.0.3 area 0
+network 10.0.5.0 0.0.0.3 area 0
+end
+write memory
+clear ip ospf process
+\end{lstlisting}
+
+Cuando el router solicitó confirmación, se respondió \texttt{yes}.
+
+\begin{lstlisting}
+Reset ALL OSPF processes? [no]: yes
+\end{lstlisting}
+
+\subsubsection{Configuración OSPF en R4}
+
+R4 participa en la Red C y en los enlaces con R1, R2 y R3.
+
+\begin{lstlisting}
+enable
+configure terminal
+router ospf 1
+router-id 4.4.4.4
+network 195.0.40.0 0.0.0.255 area 0
+network 10.0.2.0 0.0.0.3 area 0
+network 10.0.3.0 0.0.0.3 area 0
+network 10.0.5.0 0.0.0.3 area 0
+end
+write memory
+\end{lstlisting}
+
+\subsubsection{Configuración OSPF en R5}
+
+R5 participa en la Red A y en los enlaces hacia R1 y R2.
+
+\begin{lstlisting}
+enable
+configure terminal
+router ospf 1
+router-id 5.5.5.5
+network 195.0.20.0 0.0.0.255 area 0
+network 10.0.7.0 0.0.0.3 area 0
+network 10.0.6.0 0.0.0.3 area 0
+end
+write memory
+\end{lstlisting}
+
+\subsubsection{Configuración OSPF en R6}
+
+R6 participa en la Red D y en el enlace con R2.
+
+\begin{lstlisting}
+enable
+configure terminal
+router ospf 1
+router-id 6.6.6.6
+network 195.0.50.0 0.0.0.255 area 0
+network 10.0.4.0 0.0.0.3 area 0
+end
+write memory
+clear ip ospf process
+\end{lstlisting}
+
+Cuando el router solicitó confirmación, se respondió \texttt{yes}.
+
+\begin{lstlisting}
+Reset ALL OSPF processes? [no]: yes
+\end{lstlisting}
+
+\subsection{Observación reflexiva: ¿Qué se observó?}
+
+Después de aplicar la configuración, se ejecutaron comandos de verificación para comprobar si OSPF estaba funcionando correctamente. Se verificaron protocolos activos, vecinos OSPF y rutas aprendidas.
+
+\subsubsection{Verificación con \texttt{show ip protocols} en R3}
+
+\begin{lstlisting}
+show ip protocols
+\end{lstlisting}
+
+Salida relevante observada:
+
+\begin{lstlisting}
+Routing Protocol is "ospf 1"
+Router ID 3.3.3.3
+
+Routing for Networks:
+  195.0.30.0 0.0.0.255 area 0
+  10.0.1.0 0.0.0.3 area 0
+  10.0.5.0 0.0.0.3 area 0
+
+Distance: (default is 110)
+\end{lstlisting}
+
+Esta salida confirmó que R3 quedó configurado con el Router ID correcto y con las redes que realmente pertenecen a ese router.
+
+\subsubsection{Vecinos OSPF observados en R3}
+
+\begin{lstlisting}
+show ip ospf neighbor
+\end{lstlisting}
+
+Salida observada:
+
+\begin{lstlisting}
+Neighbor ID     Pri   State           Dead Time   Address         Interface
+1.1.1.1           0   FULL/  -        00:00:32    10.0.1.1        Serial0/0/0
+4.4.4.4           0   FULL/  -        00:00:31    10.0.5.2        Serial0/0/1
+\end{lstlisting}
+
+Se observó que R3 formó vecindad correctamente con R1 y R4. El estado \texttt{FULL} indica que la relación de vecinos OSPF está completamente establecida y que los routers intercambiaron información de estado de enlace.
+
+\subsubsection{Rutas OSPF observadas en R3}
+
+\begin{lstlisting}
+show ip route ospf
+\end{lstlisting}
+
+Salida observada:
+
+\begin{lstlisting}
+10.0.0.0/8 is variably subnetted, 7 subnets, 2 masks
+O       10.0.2.0 [110/128] via 10.0.1.1, 00:01:17, Serial0/0/0
+                 [110/128] via 10.0.5.2, 00:01:17, Serial0/0/1
+O       10.0.3.0 [110/128] via 10.0.5.2, 00:01:17, Serial0/0/1
+O       10.0.7.0 [110/65] via 10.0.1.1, 00:01:17, Serial0/0/0
+O    195.0.20.0 [110/66] via 10.0.1.1, 00:01:17, Serial0/0/0
+O    195.0.40.0 [110/65] via 10.0.5.2, 00:01:17, Serial0/0/1
+\end{lstlisting}
+
+La letra \texttt{O} indica que las rutas fueron aprendidas mediante OSPF. En la salida se comprobó que R3 aprendió rutas remotas hacia otras redes, como 195.0.20.0/24 y 195.0.40.0/24.
+
+\subsubsection{Evidencia en R6}
+
+Después de configurar R6 y reiniciar el proceso OSPF, se observó temporalmente el estado \texttt{EXSTART} con R2.
+
+\begin{lstlisting}
+Neighbor ID     Pri   State           Dead Time   Address         Interface
+2.2.2.2           0   EXSTART/  -     00:00:35    10.0.4.1        Serial0/0/0
+\end{lstlisting}
+
+Luego, OSPF completó la negociación y la vecindad cambió a \texttt{FULL}.
+
+\begin{lstlisting}
+%OSPF-5-ADJCHG: Process 1, Nbr 2.2.2.2 on Serial0/0/0 
+from LOADING to FULL, Loading Done
+\end{lstlisting}
+
+Esto confirmó que R6 formó vecindad correctamente con R2.
+
+\subsubsection{Comandos de verificación utilizados}
+
+\begin{table}[H]
+\centering
+\small
+\begin{tabularx}{\textwidth}{|L{5.2cm}|L{2.2cm}|Y|}
+\hline
+\textbf{Comando} & \textbf{Usado} & \textbf{Salida relevante} \\ \hline
+\texttt{show ip ospf neighbor} & Sí & Muestra vecinos OSPF y estado FULL. \\ \hline
+\texttt{show ip route ospf} & Sí & Muestra rutas aprendidas con la letra O. \\ \hline
+\texttt{show ip protocols} & Sí & Confirma proceso OSPF, Router ID y redes anunciadas. \\ \hline
+\texttt{show ip interface brief} & Sí & Verifica estado físico y lógico de interfaces. \\ \hline
+\texttt{show running-config} & Sí & Permite revisar la configuración completa. \\ \hline
+\texttt{show running-config | section router ospf} & Sí & Muestra solamente la sección de OSPF. \\ \hline
+\end{tabularx}
+\caption{Comandos de verificación utilizados en la práctica.}
+\end{table}
+
+\subsection{Conceptualización abstracta: ¿Qué se aprendió?}
+
+OSPF es un protocolo de enrutamiento dinámico de estado de enlace. A diferencia de RIP, que trabaja con saltos como métrica principal, OSPF utiliza el costo de los enlaces para seleccionar la mejor ruta. En esta práctica se utilizó OSPF en área única 0, lo cual permitió que todos los routers compartieran información de enrutamiento dentro de la misma área.
+
+\subsubsection{Conceptos principales de OSPF}
+
+\begin{table}[H]
+\centering
+\small
+\begin{tabularx}{\textwidth}{|L{4cm}|Y|}
+\hline
+\textbf{Concepto} & \textbf{Definición} \\ \hline
+OSPF & Protocolo de enrutamiento dinámico de estado de enlace que calcula la mejor ruta usando el algoritmo SPF. \\ \hline
+Router ID & Identificador único del router dentro del dominio OSPF. En la práctica se usaron valores como 1.1.1.1, 2.2.2.2 y 3.3.3.3. \\ \hline
+Área OSPF & División lógica de la red. En esta práctica todos los routers se configuraron en el área 0. \\ \hline
+Vecindad OSPF & Relación que se forma entre routers conectados directamente para intercambiar información de enrutamiento. \\ \hline
+Estado FULL & Estado que indica que los routers vecinos completaron el intercambio de información OSPF. \\ \hline
+Ruta OSPF & Ruta aprendida dinámicamente por OSPF. En la tabla de enrutamiento aparece identificada con la letra O. \\ \hline
+\end{tabularx}
+\caption{Conceptos principales aprendidos durante la práctica.}
+\end{table}
+
+\subsubsection{Comparación entre RIP y OSPF}
+
+\begin{table}[H]
+\centering
+\small
+\begin{tabularx}{\textwidth}{|L{3.5cm}|Y|Y|}
+\hline
+\textbf{Aspecto} & \textbf{RIP} & \textbf{OSPF} \\ \hline
+Tipo de protocolo & Vector distancia. & Estado de enlace. \\ \hline
+Métrica principal & Número de saltos. & Costo del enlace. \\ \hline
+Convergencia & Más lenta. & Más rápida. \\ \hline
+Escalabilidad & Recomendada para redes pequeñas. & Recomendada para redes medianas o grandes. \\ \hline
+Identificación de rutas & R en la tabla de enrutamiento. & O en la tabla de enrutamiento. \\ \hline
+\end{tabularx}
+\caption{Comparación entre RIP y OSPF.}
+\end{table}
+
+\subsection{Experimentación activa: ¿Qué se podría mejorar?}
+
+Como mejora, se podría modificar el costo de algunos enlaces para observar cómo cambia la ruta seleccionada por OSPF. Por ejemplo, se puede asignar un costo manual a un enlace serial para obligar al protocolo a seleccionar una ruta alternativa.
+
+\begin{lstlisting}
+interface serial0/1/0
+ip ospf cost 500
+\end{lstlisting}
+
+También se podría apagar temporalmente un enlace para comprobar la convergencia de OSPF y verificar si la red utiliza una ruta redundante.
+
+\begin{lstlisting}
+interface serial0/0/0
+shutdown
+\end{lstlisting}
+
+Después de realizar el cambio, se pueden usar los siguientes comandos:
+
+\begin{lstlisting}
+show ip ospf neighbor
+show ip route ospf
+ping 195.0.50.10
+\end{lstlisting}
+
+El resultado esperado es que OSPF actualice su tabla de enrutamiento y seleccione una ruta alternativa si existe conectividad por otro camino.
+
+% ============================================================
+% RESULTADOS OBTENIDOS
+% ============================================================
+\section{Resultados obtenidos}
+
+Se logró migrar la red desde RIP hacia OSPF manteniendo la misma topología. Los routers fueron configurados con el proceso OSPF 1, Router ID únicos y redes anunciadas en el área 0.
+
+En R3 se verificó que el protocolo activo era OSPF y que las redes configuradas correspondían a las interfaces correctas. Además, se observó que R3 formó vecindad con R1 y R4 en estado \texttt{FULL}. También se verificaron rutas aprendidas dinámicamente con la letra \texttt{O} en la tabla de enrutamiento.
+
+En R6 se observó inicialmente el estado \texttt{EXSTART}; posteriormente, el vecino R2 cambió a estado \texttt{FULL}, lo cual confirmó que la negociación OSPF finalizó correctamente.
+
+\subsection{Pruebas de conectividad recomendadas}
+
+Para comprobar la conectividad entre las redes, se recomiendan las siguientes pruebas desde routers y PCs:
+
+\begin{lstlisting}
+ping 195.0.20.3
+ping 195.0.30.1
+ping 195.0.40.1
+ping 195.0.50.1
+
+ping 195.0.20.10
+ping 195.0.30.10
+ping 195.0.40.10
+ping 195.0.50.10
+\end{lstlisting}
+
+% ============================================================
+% PROBLEMAS Y SOLUCIONES
+% ============================================================
+\section{Problemas encontrados y soluciones}
+
+\subsection{Error de configuración en R3}
+
+En R3 se ingresaron inicialmente redes que pertenecían a R2. Esto provocaba que OSPF no representara correctamente las redes conectadas al router. Para corregir el problema, se eliminó el proceso OSPF y se configuró nuevamente.
+
+\begin{lstlisting}
+no router ospf 1
+router ospf 1
+router-id 3.3.3.3
+network 195.0.30.0 0.0.0.255 area 0
+network 10.0.1.0 0.0.0.3 area 0
+network 10.0.5.0 0.0.0.3 area 0
+\end{lstlisting}
+
+\subsection{Reinicio del proceso OSPF}
+
+Después de corregir la configuración, se reinició el proceso OSPF.
+
+\begin{lstlisting}
+clear ip ospf process
+\end{lstlisting}
+
+El reinicio provocó que las vecindades bajaran temporalmente, pero después volvieron a establecerse correctamente.
+
+\subsection{Estado EXSTART en R6}
+
+En R6 se observó temporalmente el estado \texttt{EXSTART} con R2. Este estado forma parte del proceso de negociación OSPF. Después de completar la sincronización, la vecindad cambió a \texttt{FULL}.
+
+% ============================================================
+% HABILIDADES BLANDAS
+% ============================================================
+\section{Habilidades blandas empleadas en la práctica}
+
+\begin{itemize}
+    \item[\caja] Liderazgo.
+    \item[\checkcaja] Trabajo en equipo.
+    \item[\checkcaja] Comunicación asertiva.
+    \item[\caja] Empatía.
+    \item[\checkcaja] Pensamiento crítico.
+    \item[\checkcaja] Flexibilidad.
+    \item[\checkcaja] Resolución de conflictos.
+    \item[\checkcaja] Adaptabilidad.
+    \item[\checkcaja] Responsabilidad.
+\end{itemize}
+
+% ============================================================
+% HERRAMIENTAS DE IA UTILIZADAS
+% ============================================================
+\section{Herramientas de IA utilizadas}
+
+\subsection{¿Qué IA se utilizó?}
+
+\begin{table}[H]
+\centering
+\small
+\begin{tabularx}{\textwidth}{|L{3.2cm}|L{2.2cm}|L{3cm}|Y|}
+\hline
+\textbf{Herramienta de IA} & \textbf{¿Se usó?} & \textbf{Versión / Modelo} & \textbf{¿Para qué?} \\ \hline
+ChatGPT & Sí & GPT & Apoyo en organización del informe, explicación de comandos y redacción académica. \\ \hline
+DeepSeek & No & -- & -- \\ \hline
+Copilot & No & -- & -- \\ \hline
+Gemini & No & -- & -- \\ \hline
+Claude & No & -- & -- \\ \hline
+Perplexity AI & No & -- & -- \\ \hline
+Otra & No & -- & -- \\ \hline
+\end{tabularx}
+\caption{Herramientas de IA utilizadas durante la práctica.}
+\end{table}
+
+\subsection{¿Cómo se utilizó la IA?}
+
+\begin{table}[H]
+\centering
+\small
+\begin{tabularx}{\textwidth}{|L{4.5cm}|L{2.5cm}|Y|}
+\hline
+\textbf{Tarea} & \textbf{¿Se usó IA?} & \textbf{Descripción del uso} \\ \hline
+Generar comandos OSPF & Sí & Se utilizó como apoyo para revisar la estructura de configuración OSPF por router. \\ \hline
+Explicar conceptos teóricos & Sí & Se consultaron conceptos como Router ID, vecinos OSPF, estado FULL y rutas OSPF. \\ \hline
+Interpretar salidas de \texttt{show} & Sí & Se interpretaron salidas de \texttt{show ip protocols}, \texttt{show ip ospf neighbor} y \texttt{show ip route ospf}. \\ \hline
+Resolver errores o dudas & Sí & Se corrigió el error de R3 al haber configurado redes que pertenecían a R2. \\ \hline
+Comparar RIP vs OSPF & Sí & Se utilizó para redactar una comparación clara entre ambos protocolos. \\ \hline
+Redactar el informe & Sí & Se usó para organizar el informe con metodología Kolb. \\ \hline
+\end{tabularx}
+\caption{Uso de IA durante el laboratorio.}
+\end{table}
+
+\subsection{Limitaciones encontradas en el uso de IA}
+
+Una limitación encontrada fue que la IA podía sugerir comandos generales que no siempre coincidían con la topología real del estudiante. Por esta razón, fue necesario validar las interfaces, las direcciones IP y las redes conectadas directamente antes de aplicar cualquier comando.
+
+\begin{table}[H]
+\centering
+\small
+\begin{tabularx}{\textwidth}{|L{5cm}|L{3cm}|Y|}
+\hline
+\textbf{Limitación} & \textbf{¿Se experimentó?} & \textbf{Ejemplo concreto} \\ \hline
+Comandos incorrectos para la topología real & Sí & En R3 se revisó que las redes anunciadas no correspondían al router y se corrigieron. \\ \hline
+Confusión entre routers & Sí & Se ingresaron redes de R2 en R3 y luego se corrigió con \texttt{no router ospf 1}. \\ \hline
+No entender completamente la topología específica & Parcialmente & Fue necesario adaptar la configuración a los enlaces reales disponibles. \\ \hline
+Errores en cálculos de costo/métrica & No & No se modificaron costos manualmente durante la configuración principal. \\ \hline
+Información desactualizada & No & Los comandos usados fueron válidos para Packet Tracer. \\ \hline
+\end{tabularx}
+\caption{Limitaciones observadas en el apoyo con IA.}
+\end{table}
+
+\subsection{Reflexión ética y académica}
+
+La IA puede utilizarse como apoyo para comprender comandos, organizar información y redactar informes, pero no debe reemplazar la práctica directa en Packet Tracer. En redes es necesario ejecutar, observar, verificar y corregir los errores dentro del simulador. Copiar comandos sin analizarlos puede causar configuraciones incorrectas, especialmente cuando las interfaces o direcciones IP no coinciden con la topología real.
+
+% ============================================================
+% CONCLUSIONES Y RECOMENDACIONES
+% ============================================================
+\section{Conclusiones}
+
+Se realizó la migración de la topología desde RIP hacia OSPF, manteniendo las mismas redes, enlaces e interfaces de la práctica anterior. La configuración se aplicó mediante el proceso OSPF 1 y área 0, asignando Router ID únicos a cada router.
+
+La verificación permitió comprobar que OSPF aprendió rutas dinámicamente y que los vecinos alcanzaron el estado \texttt{FULL}. En R3 se observaron rutas OSPF marcadas con la letra \texttt{O}, lo que confirmó que el protocolo estaba funcionando correctamente.
+
+Durante la práctica se corrigió un error de configuración en R3, donde inicialmente se anunciaron redes que no correspondían al router. Esta corrección permitió comprender la importancia de verificar las redes conectadas antes de anunciar rutas en OSPF.
+
+\section{Recomendaciones}
+
+Se recomienda verificar el direccionamiento de cada interfaz antes de configurar OSPF, para evitar anunciar redes incorrectas. También se recomienda utilizar comandos como \texttt{show ip protocols}, \texttt{show ip ospf neighbor} y \texttt{show ip route ospf} después de cada configuración.
+
+Además, se recomienda tomar capturas de pantalla de la topología, la configuración de cada router, las tablas de enrutamiento, los vecinos OSPF y las pruebas de conectividad, ya que estas evidencias respaldan el informe técnico.
+
+% ============================================================
+% REFERENCIAS
+% ============================================================
+\section{Referencias}
+
+\begin{thebibliography}{00}
+
+\bibitem{cisco}
+Cisco Networking Academy, \textit{Routing and Switching Essentials}. Cisco Systems, 2024.
+
+\bibitem{ospf}
+J. Moy, \textit{OSPF Version 2}, RFC 2328, Internet Engineering Task Force, 1998.
+
+\bibitem{packettracer}
+Cisco Systems, \textit{Cisco Packet Tracer: Network Simulation Tool}, Cisco Networking Academy, 2024.
+
+\end{thebibliography}
+% ============================================================
+% ANEXOS
+% ============================================================
+\section{Anexos}
+
+\subsection{Anexo 1: Topología general OSPF}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.95\textwidth]{imagenes/01_topologia_general_ospf.png}
+    \caption{Topología general implementada para la configuración de OSPF.}
+\end{figure}
+
+\subsection{Anexo 2: Topología con direccionamiento}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1.00\textwidth]{imagenes/02_topologia_direccionamiento_ospf.png}
+    \caption{Topología con direccionamiento IPv4, IPv6 y gateways configurados.}
+\end{figure}
+
+\subsection{Anexo 3: Configuración OSPF en los routers}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.85\textwidth]{imagenes/03_configuracion_ospf_r1.png}
+    \caption{Configuración OSPF aplicada en R1.}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.85\textwidth]{imagenes/04_configuracion_ospf_r2.png}
+    \caption{Configuración OSPF aplicada en R2.}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.85\textwidth]{imagenes/05_configuracion_ospf_r3.png}
+    \caption{Configuración OSPF aplicada en R3.}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.85\textwidth]{imagenes/06_configuracion_ospf_r4.png}
+    \caption{Configuración OSPF aplicada en R4.}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.85\textwidth]{imagenes/07_configuracion_ospf_r5.png}
+    \caption{Configuración OSPF aplicada en R5.}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.85\textwidth]{imagenes/08_configuracion_ospf_r6.png}
+    \caption{Configuración OSPF aplicada en R6.}
+\end{figure}
+
+\subsection{Anexo 4: Verificación del protocolo OSPF}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.90\textwidth]{imagenes/09_show_ip_protocols_r3.png}
+    \caption{Verificación del protocolo OSPF activo en R3 mediante el comando \texttt{show ip protocols}.}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.90\textwidth]{imagenes/10_vecinos_ospf_r3.png}
+    \caption{Vecinos OSPF de R3 en estado FULL.}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.90\textwidth]{imagenes/11_vecinos_ospf_r6.png}
+    \caption{Vecino OSPF de R6 establecido con R2 en estado FULL.}
+\end{figure}
+
+\subsection{Anexo 5: Rutas aprendidas mediante OSPF}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.95\textwidth]{imagenes/12_rutas_ospf_r3.png}
+    \caption{Rutas OSPF aprendidas en R3 mediante el comando \texttt{show ip route ospf}.}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.95\textwidth]{imagenes/13_rutas_ospf_r5.png}
+    \caption{Rutas OSPF aprendidas en R5 mediante el comando \texttt{show ip route ospf}.}
+\end{figure}
+
+\subsection{Anexo 6: Pruebas de conectividad}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.90\textwidth]{imagenes/14_ping_red_a_red_b.png}
+    \caption{Prueba de conectividad desde la Red A hacia la Red B.}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.90\textwidth]{imagenes/15_ping_red_a_red_c.png}
+    \caption{Prueba de conectividad desde la Red A hacia la Red C.}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.90\textwidth]{imagenes/16_ping_red_a_red_d.png}
+    \caption{Prueba de conectividad desde la Red A hacia la Red D.}
+\end{figure}
+
+\subsection{Anexo 7: Verificación de interfaces}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.90\textwidth]{imagenes/17_verificacion_interfaces_r3.png}
+    \caption{Verificación del estado de interfaces en R3 mediante \texttt{show ip interface brief}.}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.90\textwidth]{imagenes/18_verificacion_interfaces_r6.png}
+    \caption{Verificación del estado de interfaces en R6 mediante \texttt{show ip interface brief}.}
+\end{figure}
+
+\vfill
+
+\end{document}
