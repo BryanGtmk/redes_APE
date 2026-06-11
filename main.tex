@@ -1,148 +1,2250 @@
 \documentclass{article}
 
-% Language setting
-% Replace `english' with e.g. `spanish' to change the document language
-\usepackage[english]{babel}
-
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[spanish,es-tabla]{babel}
 \usepackage[letterpaper,top=2cm,bottom=5cm,left=3cm,right=3cm,marginparwidth=1.75cm]{geometry}
-
-% Useful packages
+\usepackage{lmodern}
 \usepackage{amsmath}
+\usepackage{amssymb}
 \usepackage{graphicx}
-\usepackage[colorlinks=true, allcolors=blue]{hyperref}
-\usepackage{amssymb} 
+\usepackage[table]{xcolor}
+\usepackage{longtable}
+\usepackage{array}
+\usepackage{booktabs}
+\usepackage{enumitem}
+\usepackage{microtype}
+\usepackage{titlesec}
 \usepackage{fancyhdr}
-\usepackage{lipsum} % Para generar texto de ejemplo
-\usepackage{multicol}
-\pagestyle{fancy} 
+\usepackage{lastpage}
+\usepackage{fancyvrb}
+\usepackage{fvextra}
+\usepackage[colorlinks=true, allcolors=blue]{hyperref}
 
+% ===================== MACROS DE RESALTADO DE SINTAXIS =====================
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\},fontsize=\footnotesize,frame=single,rulecolor=\color{codebg},fillcolor=\color{codebg},framesep=2mm,xleftmargin=1mm,xrightmargin=1mm,breaklines=true,breakanywhere=true,breaksymbolleft={},breaksymbolright={}}
+\newenvironment{Shaded}{}{}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{1.00,0.00,0.00}{\textbf{#1}}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{#1}}}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.49,0.56,0.16}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.25,0.63,0.44}{#1}}
+\newcommand{\BuiltInTok}[1]{#1}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{#1}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textit{#1}}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{#1}}}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.53,0.00,0.00}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.00,0.44,0.13}{\textbf{#1}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.56,0.13,0.00}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.25,0.63,0.44}{#1}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.73,0.13,0.13}{\textit{#1}}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{1.00,0.00,0.00}{\textbf{#1}}}
+\newcommand{\ExtensionTok}[1]{#1}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.25,0.63,0.44}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.02,0.16,0.49}{#1}}
+\newcommand{\ImportTok}[1]{#1}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{#1}}}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.00,0.44,0.13}{\textbf{#1}}}
+\newcommand{\NormalTok}[1]{#1}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.40,0.40,0.40}{#1}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.00,0.44,0.13}{#1}}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.74,0.48,0.00}{#1}}
+\newcommand{\RegionMarkerTok}[1]{#1}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{#1}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.73,0.40,0.53}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.10,0.09,0.49}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{#1}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{#1}}}}
 
+% ===================== COLORES =====================
+\definecolor{uta1}{HTML}{1F4E78}
+\definecolor{uta2}{HTML}{2E75B6}
+\definecolor{codebg}{HTML}{F2F2F2}
+\definecolor{notebg}{HTML}{FFF6CC}
+\definecolor{terminalblack}{HTML}{050505}
+\definecolor{termhead}{HTML}{111111}
+\definecolor{termfg}{HTML}{E6E6E6}
+\definecolor{termgreen}{HTML}{56D364}
+\definecolor{termyellow}{HTML}{F2CC60}
+\definecolor{termline}{HTML}{30363D}
 
-\fancyhf{} % Limpiar encabezado y pie de página por defecto
-\setlength{\headheight}{70pt} % Ajuste del tamaño del encabezado
+\fvset{
+  fontsize=\footnotesize,
+  framesep=2mm,
+  xleftmargin=1mm,
+  xrightmargin=1mm,
+  breaklines=true,
+  breakanywhere=true,
+  breaksymbolleft={},
+  breaksymbolright={}
+}
 
-% Definición del encabezado
+% ===================== TEXTOS AUTOMATICOS =====================
+\renewcommand{\contentsname}{Tabla de contenidos}
+\renewcommand{\figurename}{Figura}
+\renewcommand{\tablename}{Tabla}
+
+% ===================== PROFUNDIDAD DE NUMERACION =====================
+\setcounter{secnumdepth}{3}
+\setcounter{tocdepth}{3}
+
+% ===================== ESTILO DE TITULOS =====================
+\titleformat{\section}{\normalfont\Large\bfseries\color{uta1}}{\thesection.}{0.5em}{}
+\titlespacing*{\section}{0pt}{1.4em}{0.8em}
+\titleformat{\subsection}{\normalfont\large\bfseries\color{uta2}}{\thesubsection.}{0.5em}{}
+\titlespacing*{\subsection}{0pt}{1.1em}{0.6em}
+\titleformat{\subsubsection}{\normalfont\normalsize\bfseries\color{uta2}}{\thesubsubsection.}{0.5em}{}
+\titlespacing*{\subsubsection}{0pt}{1em}{0.5em}
+
+% ===================== ENCABEZADO INSTITUCIONAL =====================
+\pagestyle{fancy}
+\fancyhf{}
+\setlength{\headheight}{70pt}
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{0.4pt}
 \fancyhead[C]{%
     \begin{minipage}[c]{1.5cm}
         \includegraphics[width=1.5cm]{imagenes/uta.png}
     \end{minipage}%
-    \hfill  % <--- SIN EL SIGNO % (descomentado)
-    \begin{minipage}[c]{10cm} 
+    \hfill
+    \begin{minipage}[c]{10cm}
         \centering
-        \small {\textbf{UNIVERSIDAD TÉCNICA DE AMBATO}} \\[0.1cm]
-        \scriptsize \textit{FACULTAD DE INGENIERÍA EN SISTEMAS ELECTRÓNICA E INDUSTRIAL} \\[0.1cm]
-        \scriptsize \textbf{CARRERA INGENIERÍA DE SOFTWARE - REDES} \\[0.1cm]
-        \scriptsize \textbf{CICLO ACADÉMICO: ENERO - JULIO 2026}
-        \vspace{0.2cm} % <--- Espacio entre texto y línea horizontal
+        \small {\textbf{UNIVERSIDAD TECNICA DE AMBATO}} \\[0.1cm]
+        \scriptsize \textit{FACULTAD DE INGENIERIA EN SISTEMAS ELECTRONICA E INDUSTRIAL} \\[0.1cm]
+        \scriptsize \textbf{CARRERA INGENIERIA DE SOFTWARE - REDES} \\[0.1cm]
+        \scriptsize \textbf{CICLO ACADEMICO: ENERO - JULIO 2026}
+        \vspace{0.2cm}
     \end{minipage}%
-    \hfill  % <--- SIN EL SIGNO % (descomentado)
+    \hfill
     \begin{minipage}[c]{1.5cm}
         \centering
         \includegraphics[width=1.5cm]{imagenes/fisei.png}
     \end{minipage}%
 }
+\fancyfoot[C]{\textcolor{gray}{\small PAE 5 -- OPNsense como cortafuegos y enrutador \quad|\quad Pagina \thepage\ de \pageref{LastPage}}}
 
+\hypersetup{
+  colorlinks=true,
+  linkcolor=uta1,
+  citecolor=uta1,
+  urlcolor=uta2,
+  pdftitle={PAE 5 - Configuracion inicial de OPNsense como cortafuegos y enrutador en un entorno virtual},
+  pdfauthor={Guatemal Avilez Bryan Stalin},
+  bookmarksopen=true
+}
+
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+
+\let\oldunderscore\_
+\renewcommand{\_}{\oldunderscore\hskip0pt\relax}
+\setlength{\emergencystretch}{2em}
 
 \begin{document}
 \begin{center}
-    {\large \textbf{INFORME DE GUÍA PRÁCTICA}} \\    
+    {\large \textbf{INFORME DE GUIA PRACTICA}} \\
 \end{center}
 
-\section{Portada}
+\section*{Portada}
 \begin{flushleft}
-\begin{tabular}{ l l }
-    \textbf{Tema:} & Inter Vlans \\
-    \textbf{Unidad de Organización Curricular:} & Profesional \\
-    \textbf{Nivel y Paralelo:} & 4to Semestre "B"\\
+\renewcommand{\arraystretch}{1.3}
+\begin{tabular}{@{}p{4.2cm}p{\dimexpr\textwidth-4.2cm-2\tabcolsep\relax}@{}}
+    \textbf{Tema:} & PAE 5: Configuracion inicial de OPNsense como cortafuegos y enrutador en un entorno virtual \\
+    \textbf{Unidad de Organizacion Curricular:} & Profesional \\
+    \textbf{Nivel y Paralelo:} & 4to Semestre ``B''\\
     \textbf{Alumnos participante(s):} & Guatemal Avilez Bryan Stalin\\
     \textbf{Asignatura:} & Redes \\
-    \textbf{Docente:} & Ing.Wilson Gustavo Chango Sailema , Mg. \\
+    \textbf{Docente:} & Ing. Wilson Gustavo Chango Sailema, Mg. \\
 \end{tabular}
+\renewcommand{\arraystretch}{1}
 \end{flushleft}
 
+\section*{Informe de guia practica}
+\subsection*{Objetivos}
+\subsubsection*{General}
+Poner en marcha el entorno OPNsense como cortafuegos y enrutador, configurando una red virtual segmentada en zonas WAN, LAN y DMZ, aplicando reglas de firewall, NAT, servicios web, acceso SSH seguro, portal cautivo, certificados SSL y medidas basicas de seguridad.
 
-\section{Informe de guía práctica}
-\subsection{Objetivos}
-\subsubsection{General}
-(Especificado en la guía práctica proporcionada por el docente).
-\subsubsection{Específicos}
+\subsubsection*{Especificos}
 \begin{itemize}
-    \item (Se recomienda máximo 3).
-    \item 
-    \item 
-\end{itemize}
-\subsection{Modalidad}
-Detallada en la guía.
-
-\subsection{Tiempo de duración}
-
-Presenciales: Detallado en la guía\\
-No presenciales: Detallado en la guía
-
-
-\subsection{Instrucciones}
-
-Detalladas en la guía proporcionada por el docente.
-
-
-\subsection{Listado de equipos, materiales y recursos}
-\textbf{Listado de equipos y materiales generales empleados en la guía práctica:}
-\begin{itemize}
-    \item  
+    \item Instalar y configurar OPNsense como firewall/router dentro de GNS3.
+    \item Implementar reglas de firewall, NAT, portal cautivo, HTTPS, Fail2ban y acceso SSH por clave publica.
+    \item Validar el laboratorio mediante pruebas de conectividad, navegacion, seguridad y evidencias de captura.
 \end{itemize}
 
-\textbf{TAC (Tecnologías para el Aprendizaje y Conocimiento) empleados en la guía práctica:}
+\subsection*{Modalidad}
+Practica de laboratorio desarrollada en entorno virtual con GNS3 y maquinas virtuales.
+
+\subsection*{Tiempo de duracion}
+Presenciales: Detallado en la guia\\
+No presenciales: Detallado en la guia
+
+\subsection*{Instrucciones}
+Ejecutar la configuracion indicada, validar cada servicio y registrar las evidencias tecnicas requeridas.
+
+\subsection*{Listado de equipos, materiales y recursos}
+\textbf{Listado de equipos y materiales generales empleados en la guia practica:}
+\begin{itemize}
+    \item Computador anfitrion con GNS3 y soporte de virtualizacion.
+    \item Imagen ISO de OPNsense, maquina cliente Linux Mint y servidor Ubuntu/CentOS.
+    \item Navegador web, terminal Linux, Apache/Nginx, OpenSSH, OpenSSL y Fail2ban.
+\end{itemize}
+
+\textbf{TAC (Tecnologias para el Aprendizaje y Conocimiento) empleados en la guia practica:}
 \begin{itemize}
     \item[$\square$] Plataformas educativas
-    \item[$\square$] Simuladores y laboratorios virtuales
+    \item[$\boxtimes$] Simuladores y laboratorios virtuales
     \item[$\square$] Aplicaciones educativas
     \item[$\square$] Recursos audiovisuales
-    \item[$\square$] Gamificación
-    \item[$\square$] Inteligencia Artificial
-    \item Otros (Especifique): \underline{\hspace{5cm}}
+    \item[$\square$] Gamificacion
+    \item[$\boxtimes$] Inteligencia Artificial
+    \item Otros (Especifique): \underline{GNS3, OPNsense, maquinas virtuales}
 \end{itemize}
 
+\subsection*{Actividades por desarrollar}
+Las actividades se detallan en las secciones de metodologia, resultados obtenidos y anexo de pasos practicos.
 
-\subsection{Actividades por desarrollar}
-
-Detalladas en la guía proporcionada por el docente.
-
-\subsection{Resultados obtenidos}
-De acuerdo con el tipo de trabajo, se plasmarán los resultados alcanzados en la guía práctica una vez ejecutadas las actividades. Se pueden emplear figuras y tablas las cuales deben ser numeradas. 
-
-
-
-\subsection{Habilidades blandas empleadas en la práctica}
-
+\subsection*{Habilidades blandas empleadas en la practica}
 \begin{itemize}
     \item[$\square$] Liderazgo
-    \item[$\square$] Trabajo en equipo
-    \item[$\square$] Comunicación asertiva
-    \item[$\square$] La empatía
-    \item[$\square$] Pensamiento crítico
-    \item[$\square$] Flexibilidad
-    \item[$\square$] La resolución de conflictos
-    \item[$\square$] Adaptabilidad
-    \item[$\square$] Responsabilidad
+    \item[$\boxtimes$] Trabajo en equipo
+    \item[$\boxtimes$] Comunicacion asertiva
+    \item[$\square$] La empatia
+    \item[$\boxtimes$] Pensamiento critico
+    \item[$\boxtimes$] Flexibilidad
+    \item[$\square$] La resolucion de conflictos
+    \item[$\boxtimes$] Adaptabilidad
+    \item[$\boxtimes$] Responsabilidad
 \end{itemize}
 
+\newpage
+\tableofcontents
+\newpage
+\hypertarget{introducciuxf3n}{%
+\section{INTRODUCCIÓN}\label{introducciuxf3n}}
 
+En la actualidad, la seguridad perimetral constituye uno de los pilares
+fundamentales para la protección de la información dentro de cualquier
+organización. El crecimiento constante de los servicios conectados a
+Internet, sumado al incremento de amenazas como accesos no autorizados,
+escaneo de puertos, ataques de fuerza bruta y explotación de
+vulnerabilidades en servicios expuestos, obliga a las instituciones a
+implementar mecanismos de control de tráfico capaces de segmentar sus
+redes y filtrar las comunicaciones entre zonas de distinta confianza.
 
-\subsection{Conclusiones}
-Constituye la respuesta que propone el o los estudiantes para el problema que originó el trabajo desarrollado, de acuerdo con los datos recogidos y la teoría aplicada. 
+Dentro de este contexto, los cortafuegos (firewalls) de nueva generación
+basados en software libre, como \textbf{OPNsense}, se han convertido en
+una alternativa robusta, flexible y de bajo costo para pequeñas y
+medianas organizaciones, así como para entornos académicos de
+simulación. OPNsense es una distribución de firewall y enrutador de
+código abierto, basada en FreeBSD, que ofrece una interfaz web intuitiva
+y un conjunto amplio de funcionalidades empresariales: filtrado de
+paquetes con estado (\emph{stateful firewall}), traducción de
+direcciones de red (NAT), redes privadas virtuales (VPN), portal
+cautivo, sistema de detección/prevención de intrusos, balanceo de carga,
+alta disponibilidad, entre otras.
 
-\subsection{Recomendaciones}
-Redactar las sugerencias o acciones concretas que se derivan de la guía práctica desarrollada. \cite{greenwade93}
+La presente práctica (PAE 5) tiene como propósito que el estudiante
+construya, dentro de un entorno completamente virtualizado mediante
+\textbf{GNS3} (integrado con máquinas virtuales QEMU/VMware), una
+infraestructura de red segmentada en tres zonas de seguridad
+---\textbf{WAN}, \textbf{LAN} y \textbf{DMZ}--- gestionadas por un
+equipo OPNsense que actúa simultáneamente como enrutador y cortafuegos
+perimetral. Sobre esta infraestructura se aplican reglas de filtrado,
+NAT, alias, certificados SSL, portal cautivo, autenticación SSH basada
+en llaves públicas y un sistema de prevención de intrusiones (Fail2ban),
+con el fin de comprender de manera práctica los principios de defensa en
+profundidad y segmentación de redes.
 
+\hypertarget{objetivo-general}{%
+\subsection{Objetivo general}\label{objetivo-general}}
 
-\subsection{Referencias}
-Insertar las referencias bibliográficas empleadas aplicando la norma IEEE.
+Poner en marcha el entorno OPNsense como cortafuegos y enrutador,
+configurando una red virtual segmentada en zonas WAN, LAN y DMZ,
+aplicando reglas de firewall, NAT, servicios web, acceso SSH seguro,
+portal cautivo, certificados SSL y medidas básicas de seguridad.
 
-\vspace{-3em} %reduce el espacio causado por refname vacío
+\hypertarget{objetivos-especuxedficos}{%
+\subsection{Objetivos específicos}\label{objetivos-especuxedficos}}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Instalar y configurar OPNsense como firewall/router en una máquina
+  virtual dentro de GNS3, asignando correctamente las interfaces de red
+  WAN, LAN y DMZ.
+\item
+  Diseñar e implementar una topología de red segmentada, asignando
+  direccionamiento IP coherente a cada zona y a los equipos finales
+  (cliente Linux Mint y servidor Ubuntu/CentOS).
+\item
+  Configurar reglas de firewall y NAT en OPNsense que permitan el
+  tráfico necesario entre zonas (ICMP, HTTP/HTTPS) y bloqueen el acceso
+  no autorizado desde la DMZ hacia la LAN.
+\item
+  Implementar un servidor web (Apache o Nginx) en la DMZ con soporte
+  HTTPS mediante un certificado SSL autofirmado, un portal cautivo en la
+  LAN y un sistema de prevención de intrusos (Fail2ban) en el servidor.
+\item
+  Configurar el acceso remoto SSH mediante autenticación por clave
+  pública desde el cliente Linux Mint hacia el servidor de la DMZ, y
+  validar todo el entorno mediante pruebas de conectividad y de
+  seguridad.
+\item
+  Proponer una mejora de monitoreo en tiempo real mediante
+  notificaciones automáticas a Telegram cada vez que se registre un
+  acceso SSH al servidor.
+\end{enumerate}
+
+\hypertarget{alcance}{%
+\subsection{Alcance}\label{alcance}}
+
+El alcance de esta práctica comprende el diseño, la instalación y la
+configuración de un entorno de laboratorio completamente virtual,
+ejecutado sobre GNS3 con apoyo de máquinas virtuales (QEMU/VMware) o
+contenedores. No se trata de un despliegue en producción ni de un
+entorno expuesto a Internet real; el adaptador WAN se conecta a una red
+NAT/puente proporcionada por el hipervisor, simulando el acceso a
+Internet.
+
+El trabajo abarca: la instalación de OPNsense; la creación y
+configuración de las interfaces WAN, LAN y DMZ; la instalación de un
+servidor web Linux en la DMZ; la configuración de un cliente Linux Mint
+en la LAN; la definición de reglas de firewall y de NAT; la generación
+de un certificado SSL autofirmado; la implementación de un portal
+cautivo; la configuración de Fail2ban; el acceso SSH mediante llave
+pública; y la propuesta de un mecanismo de alertas vía Telegram. Quedan
+fuera del alcance la configuración de VPN site-to-site, el balanceo de
+carga y la alta disponibilidad, por no ser parte de los requerimientos
+de esta práctica.
+
+\hypertarget{metodologuxeda-ciclo-de-aprendizaje-experiencial-de-kolb}{%
+\section{METODOLOGÍA --- CICLO DE APRENDIZAJE EXPERIENCIAL DE
+KOLB}\label{metodologuxeda-ciclo-de-aprendizaje-experiencial-de-kolb}}
+
+Para el desarrollo de esta práctica se utilizó el \textbf{ciclo de
+aprendizaje experiencial de David Kolb}, el cual propone que el
+conocimiento se construye a través de cuatro etapas cíclicas y
+complementarias: la \emph{experiencia concreta} (realizar la actividad),
+la \emph{observación reflexiva} (analizar lo sucedido), la
+\emph{conceptualización abstracta} (relacionar lo observado con la
+teoría) y la \emph{experimentación activa} (aplicar lo aprendido en
+nuevas situaciones o proponer mejoras). A continuación, se describe cómo
+se aplicó cada etapa dentro del desarrollo de la PAE 5.
+
+\hypertarget{experiencia-concreta-quuxe9-se-hizo}{%
+\subsection{Experiencia concreta --- ¿Qué se
+hizo?}\label{experiencia-concreta-quuxe9-se-hizo}}
+
+Durante esta etapa se ejecutaron de manera práctica las siguientes
+actividades dentro del entorno virtual de GNS3:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Se descargó la imagen oficial de instalación
+  \texttt{OPNsense-*-dvd-amd64.iso} desde el sitio web oficial de
+  OPNsense.
+\item
+  Se creó una máquina virtual con un mínimo de \textbf{2048 MB de RAM} y
+  \textbf{tres adaptadores de red} (tipo Intel PRO/1000 o virtio),
+  correspondientes a las interfaces WAN, LAN y DMZ.
+\item
+  Se instaló OPNsense sobre dicha máquina virtual y se asignaron las
+  interfaces de red desde el menú de consola: la primera interfaz como
+  WAN, la segunda como LAN y la tercera como interfaz opcional (OPT1),
+  renombrada posteriormente como DMZ.
+\item
+  Se configuraron las direcciones IP de cada interfaz: WAN obtiene su
+  dirección por DHCP/NAT del hipervisor (o de forma estática, p.~ej.
+  192.168.1.2/24), LAN se configuró como 50.50.50.1/24 y DMZ como
+  172.17.0.1/24.
+\item
+  Se desplegó un servidor Ubuntu/CentOS dentro de la red DMZ
+  (172.17.0.10/24), sobre el cual se instaló y configuró un servidor web
+  Apache o Nginx.
+\item
+  Se desplegó un cliente Linux Mint dentro de la red LAN
+  (50.50.50.100/24), configurado con la puerta de enlace 50.50.50.1 y
+  servidor DNS.
+\item
+  Se crearon alias y reglas de firewall en OPNsense para permitir el
+  tráfico ICMP y HTTP/HTTPS desde la LAN hacia la DMZ, permitir la
+  salida de la LAN hacia la WAN, y bloquear explícitamente el acceso
+  desde la DMZ hacia la LAN.
+\item
+  Se configuró el NAT de salida (Outbound NAT) para que tanto la LAN
+  como la DMZ puedan salir hacia Internet (WAN) a través de la dirección
+  pública/simulada de OPNsense.
+\item
+  Se generó un certificado SSL autofirmado para habilitar HTTPS en el
+  servidor web de la DMZ.
+\item
+  Se implementó un portal cautivo en la interfaz LAN, configurado con
+  autenticación local de usuarios.
+\item
+  Se instaló y configuró Fail2ban en el servidor de la DMZ para proteger
+  el servicio SSH frente a ataques de fuerza bruta.
+\item
+  Se generó un par de llaves SSH (pública/privada) en el cliente Linux
+  Mint y se configuró el acceso sin contraseña hacia el servidor de la
+  DMZ.
+\item
+  Se realizaron pruebas de conectividad (ping), de navegación
+  HTTP/HTTPS, de portal cautivo, de bloqueo de Fail2ban y de acceso SSH
+  por llave pública.
+\item
+  Se diseñó una propuesta de mejora para el envío de alertas automáticas
+  a Telegram cada vez que un usuario ingresa por SSH al servidor.
+\end{enumerate}
+
+\hypertarget{observaciuxf3n-reflexiva-quuxe9-se-observuxf3}{%
+\subsection{Observación reflexiva --- ¿Qué se
+observó?}\label{observaciuxf3n-reflexiva-quuxe9-se-observuxf3}}
+
+A partir de la ejecución práctica descrita en la sección anterior, se
+realizaron las siguientes observaciones:
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{La segmentación de red funciona correctamente solo si existen
+  reglas explícitas.} Por defecto, OPNsense bloquea todo el tráfico
+  entrante en las interfaces opcionales (como la DMZ) y no permite
+  comunicación entre zonas si no existe una regla que lo autorice. Esto
+  comprueba el principio de ``denegación por defecto'' (\emph{default
+  deny}).
+\item
+  \textbf{El NAT de salida permite que los equipos de la LAN y la DMZ
+  naveguen hacia Internet} siempre que OPNsense tenga configurada
+  correctamente la interfaz WAN y el modo de NAT (automático o híbrido).
+  Sin esta configuración, los equipos internos no podrían resolver ni
+  alcanzar direcciones públicas.
+\item
+  \textbf{El tráfico ICMP (ping) está bloqueado por defecto entre
+  interfaces.} Para que un equipo de la LAN pueda hacer ping a la DMZ (o
+  a la propia interfaz de OPNsense), es indispensable crear una regla
+  específica que permita el protocolo ICMP en la interfaz
+  correspondiente.
+\item
+  \textbf{El certificado SSL autofirmado genera una advertencia de
+  seguridad en el navegador} (``conexión no privada'' o ``certificado no
+  confiable''), debido a que no fue emitido por una autoridad
+  certificadora reconocida. Sin embargo, la conexión HTTPS se establece
+  correctamente y el tráfico viaja cifrado.
+\item
+  \textbf{El portal cautivo intercepta todo el tráfico HTTP de la red
+  LAN} y redirige al usuario hacia una página de autenticación hasta que
+  ingrese credenciales válidas; una vez autenticado, el usuario obtiene
+  acceso normal a la red según las reglas de firewall configuradas.
+\item
+  \textbf{Fail2ban detecta automáticamente los intentos fallidos de
+  inicio de sesión SSH} registrados en los archivos de log del sistema,
+  y bloquea de forma temporal (mediante reglas de firewall locales) la
+  dirección IP del atacante tras superar el número de intentos
+  configurado.
+\item
+  \textbf{La autenticación SSH mediante llave pública elimina la
+  necesidad de contraseña} y reduce significativamente el riesgo de
+  ataques de fuerza bruta, ya que el atacante necesitaría poseer la
+  llave privada correspondiente.
+\item
+  \textbf{GNS3 permite interconectar virtualmente OPNsense, el servidor
+  de la DMZ y el cliente Linux Mint sin necesidad de hardware físico
+  adicional}, lo cual facilita la repetición de pruebas, la creación de
+  instantáneas (\emph{snapshots}) y la corrección de errores de
+  configuración sin riesgo para equipos reales.
+\end{itemize}
+
+\hypertarget{conceptualizaciuxf3n-abstracta-quuxe9-principios-teuxf3ricos-se-aplican}{%
+\subsection{Conceptualización abstracta --- ¿Qué principios teóricos se
+aplican?}\label{conceptualizaciuxf3n-abstracta-quuxe9-principios-teuxf3ricos-se-aplican}}
+
+La siguiente tabla relaciona cada actividad práctica realizada con el
+concepto teórico de redes y seguridad informática que la sustenta:
+
+\begin{longtable}[]{@{}ll@{}}
+\toprule
+\begin{minipage}[b]{0.48\columnwidth}\raggedright
+Práctica realizada\strut
+\end{minipage} & \begin{minipage}[b]{0.48\columnwidth}\raggedright
+Concepto abstracto aplicado\strut
+\end{minipage}\tabularnewline
+\midrule
+\endhead
+\begin{minipage}[t]{0.48\columnwidth}\raggedright
+Segmentación en interfaces WAN / LAN / DMZ\strut
+\end{minipage} & \begin{minipage}[t]{0.48\columnwidth}\raggedright
+Modelo de red perimetral con zonas de seguridad y defensa en
+profundidad\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.48\columnwidth}\raggedright
+Reglas de firewall\strut
+\end{minipage} & \begin{minipage}[t]{0.48\columnwidth}\raggedright
+Control de tráfico mediante filtrado de paquetes con estado, basado en
+dirección IP origen/destino, puerto y protocolo\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.48\columnwidth}\raggedright
+NAT (Network Address Translation)\strut
+\end{minipage} & \begin{minipage}[t]{0.48\columnwidth}\raggedright
+Traducción de direcciones para permitir que múltiples hosts privados
+compartan una IP pública (RFC 3022)\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.48\columnwidth}\raggedright
+Zona Desmilitarizada (DMZ)\strut
+\end{minipage} & \begin{minipage}[t]{0.48\columnwidth}\raggedright
+Subred intermedia que aloja servicios expuestos, aislando los servidores
+públicos de la red interna\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.48\columnwidth}\raggedright
+Certificados SSL/TLS\strut
+\end{minipage} & \begin{minipage}[t]{0.48\columnwidth}\raggedright
+Criptografía asimétrica aplicada a la confidencialidad, integridad y
+autenticidad de las comunicaciones\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.48\columnwidth}\raggedright
+Fail2ban\strut
+\end{minipage} & \begin{minipage}[t]{0.48\columnwidth}\raggedright
+Seguridad proactiva mediante detección de intrusiones basada en análisis
+de logs (host-based IPS)\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.48\columnwidth}\raggedright
+SSH con autenticación por llave pública\strut
+\end{minipage} & \begin{minipage}[t]{0.48\columnwidth}\raggedright
+Criptografía de clave pública/privada aplicada a la autenticación remota
+segura\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.48\columnwidth}\raggedright
+Portal cautivo\strut
+\end{minipage} & \begin{minipage}[t]{0.48\columnwidth}\raggedright
+Control de acceso a nivel de aplicación mediante autenticación previa al
+uso de la red\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.48\columnwidth}\raggedright
+GNS3\strut
+\end{minipage} & \begin{minipage}[t]{0.48\columnwidth}\raggedright
+Emulación y virtualización de redes para entornos de prueba sin riesgo
+sobre infraestructura real\strut
+\end{minipage}\tabularnewline
+\bottomrule
+\end{longtable}
+
+\hypertarget{experimentaciuxf3n-activa-quuxe9-se-puede-mejorar-o-probar-despuuxe9s}{%
+\subsection{Experimentación activa --- ¿Qué se puede mejorar o probar
+después?}\label{experimentaciuxf3n-activa-quuxe9-se-puede-mejorar-o-probar-despuuxe9s}}
+
+Como propuesta de extensión de la práctica, se plantea la implementación
+de un \textbf{sistema de alertas automáticas mediante Telegram}, que
+notifique en tiempo real cada vez que un usuario ingresa por SSH al
+servidor de la DMZ, indicando el usuario, la IP de origen, el puerto
+utilizado y la fecha/hora del evento. Esta mejora permite pasar de un
+modelo de seguridad reactivo (revisar logs después de un incidente) a un
+modelo de \textbf{monitoreo proactivo}, en el cual el administrador
+recibe información inmediata sobre accesos al servidor, lo que facilita
+la detección temprana de actividad sospechosa.
+
+Adicionalmente, como líneas futuras de experimentación derivadas de esta
+práctica se proponen:
+
+\begin{itemize}
+\tightlist
+\item
+  Integrar un sistema de detección/prevención de intrusos (IDS/IPS) como
+  \textbf{Suricata}, disponible como plugin de OPNsense, para
+  inspeccionar el tráfico que atraviesa el firewall.
+\item
+  Configurar \textbf{VLANs} adicionales para separar, por ejemplo,
+  dispositivos IoT o de invitados dentro de la misma LAN física.
+\item
+  Implementar una \textbf{VPN} (OpenVPN o WireGuard) en OPNsense para
+  permitir el acceso remoto seguro a la red interna desde el exterior.
+\item
+  Sustituir el certificado autofirmado por uno emitido por una
+  \textbf{autoridad certificadora interna} creada en OPNsense (System
+  \textgreater{} Trust \textgreater{} Authorities), de modo que los
+  equipos de la LAN confíen automáticamente en los certificados de los
+  servidores de la DMZ.
+\item
+  Centralizar los registros (logs) de OPNsense, del servidor web y de
+  Fail2ban en un servidor de monitoreo (por ejemplo, mediante Syslog o
+  un stack ELK/Grafana-Loki).
+\end{itemize}
+
+\hypertarget{resultados-obtenidos}{%
+\section{RESULTADOS OBTENIDOS}\label{resultados-obtenidos}}
+
+\hypertarget{explicaciuxf3n-de-la-topologuxeda}{%
+\subsection{Explicación de la
+topología}\label{explicaciuxf3n-de-la-topologuxeda}}
+
+La topología implementada está compuesta por un equipo \textbf{OPNsense}
+que actúa como enrutador y cortafuegos central, interconectando tres
+zonas de seguridad claramente diferenciadas:
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Zona WAN (Wide Area Network):} representa la conexión hacia
+  ``Internet''. En el entorno virtual, esta interfaz se conecta a la red
+  NAT/puente que ofrece el hipervisor (GNS3/VMware), por lo que puede
+  recibir una dirección IP por DHCP o configurarse de forma estática
+  (por ejemplo, 192.168.1.2/24). A través de esta interfaz, OPNsense
+  centraliza la salida hacia el exterior de toda la red interna.
+\item
+  \textbf{Zona LAN (Local Area Network):} corresponde a la red interna
+  de usuarios. Aquí se ubica el cliente \textbf{Linux Mint}
+  (50.50.50.100/24), que representa una estación de trabajo de un
+  usuario final. La interfaz LAN de OPNsense (50.50.50.1/24) actúa como
+  puerta de enlace predeterminada de esta red.
+\item
+  \textbf{Zona DMZ (Demilitarized Zone / Zona Desmilitarizada):} es una
+  subred intermedia, aislada tanto de la LAN como de la WAN, en la cual
+  se ubican los servicios que deben ser accesibles desde la red interna
+  (y opcionalmente desde el exterior), pero que, por seguridad, no deben
+  tener visibilidad directa hacia la LAN. En esta zona se encuentra el
+  \textbf{servidor Ubuntu/CentOS} (172.17.0.10/24) con el servicio web
+  Apache o Nginx. La interfaz DMZ de OPNsense (172.17.0.1/24) actúa como
+  puerta de enlace de esta subred.
+\end{itemize}
+
+OPNsense centraliza el control de todo el tráfico que circula entre
+estas tres zonas. Por defecto, el tráfico entre interfaces está
+\textbf{bloqueado} (política \emph{default deny}), por lo que es
+necesario crear reglas explícitas de firewall para permitir únicamente
+las comunicaciones requeridas (por ejemplo, ICMP y HTTP/HTTPS desde la
+LAN hacia la DMZ), manteniendo bloqueado cualquier intento de la DMZ de
+iniciar conexiones hacia la LAN. La siguiente figura resume gráficamente
+esta topología:
+
+\begin{figure}
+\centering
+\includegraphics[width=0.85\textwidth]{imagenes/topologia_opnsense.png}
+\caption{Topología de red implementada (OPNsense con interfaces WAN, LAN
+y DMZ).}
+\end{figure}
+
+\emph{Nota: complementar este diagrama con la captura real de la
+topología obtenida en GNS3 (ver ítem 01 de la tabla de evidencias).}
+
+\hypertarget{configuraciuxf3n-de-direcciones-ip}{%
+\subsection{Configuración de direcciones
+IP}\label{configuraciuxf3n-de-direcciones-ip}}
+
+El direccionamiento IP utilizado en toda la práctica se resume en la
+siguiente tabla. Esta distribución debe mantenerse coherente en todas
+las configuraciones (OPNsense, servidor DMZ, cliente LAN y reglas de
+firewall):
+
+{\small\setlength{\tabcolsep}{2pt}\begin{longtable}[]{@{}llllll@{}}
+\toprule
+\begin{minipage}[b]{0.168\columnwidth}\raggedright
+Equipo / Interfaz\strut
+\end{minipage} & \begin{minipage}[b]{0.143\columnwidth}\raggedright
+Rol\strut
+\end{minipage} & \begin{minipage}[b]{0.151\columnwidth}\raggedright
+Dirección IP\strut
+\end{minipage} & \begin{minipage}[b]{0.155\columnwidth}\raggedright
+Máscara\strut
+\end{minipage} & \begin{minipage}[b]{0.134\columnwidth}\raggedright
+Gateway\strut
+\end{minipage} & \begin{minipage}[b]{0.118\columnwidth}\raggedright
+DNS\strut
+\end{minipage}\tabularnewline
+\midrule
+\endhead
+\begin{minipage}[t]{0.168\columnwidth}\raggedright
+OPNsense -- Interfaz WAN\strut
+\end{minipage} & \begin{minipage}[t]{0.143\columnwidth}\raggedright
+Conexión a Internet (simulada)\strut
+\end{minipage} & \begin{minipage}[t]{0.151\columnwidth}\raggedright
+192.168.1.2/24 (o IP por DHCP del hipervisor)\strut
+\end{minipage} & \begin{minipage}[t]{0.155\columnwidth}\raggedright
+255.255.255.0\strut
+\end{minipage} & \begin{minipage}[t]{0.134\columnwidth}\raggedright
+Según red NAT/puente del entorno\strut
+\end{minipage} & \begin{minipage}[t]{0.118\columnwidth}\raggedright
+---\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.168\columnwidth}\raggedright
+OPNsense -- Interfaz LAN\strut
+\end{minipage} & \begin{minipage}[t]{0.143\columnwidth}\raggedright
+Puerta de enlace de la red interna\strut
+\end{minipage} & \begin{minipage}[t]{0.151\columnwidth}\raggedright
+50.50.50.1/24\strut
+\end{minipage} & \begin{minipage}[t]{0.155\columnwidth}\raggedright
+255.255.255.0\strut
+\end{minipage} & \begin{minipage}[t]{0.134\columnwidth}\raggedright
+---\strut
+\end{minipage} & \begin{minipage}[t]{0.118\columnwidth}\raggedright
+---\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.168\columnwidth}\raggedright
+OPNsense -- Interfaz DMZ (OPT1)\strut
+\end{minipage} & \begin{minipage}[t]{0.143\columnwidth}\raggedright
+Puerta de enlace de la red de servidores\strut
+\end{minipage} & \begin{minipage}[t]{0.151\columnwidth}\raggedright
+172.17.0.1/24\strut
+\end{minipage} & \begin{minipage}[t]{0.155\columnwidth}\raggedright
+255.255.255.0\strut
+\end{minipage} & \begin{minipage}[t]{0.134\columnwidth}\raggedright
+---\strut
+\end{minipage} & \begin{minipage}[t]{0.118\columnwidth}\raggedright
+---\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.168\columnwidth}\raggedright
+Cliente LAN -- Linux Mint\strut
+\end{minipage} & \begin{minipage}[t]{0.143\columnwidth}\raggedright
+Estación de trabajo de usuario\strut
+\end{minipage} & \begin{minipage}[t]{0.151\columnwidth}\raggedright
+50.50.50.100/24\strut
+\end{minipage} & \begin{minipage}[t]{0.155\columnwidth}\raggedright
+255.255.255.0\strut
+\end{minipage} & \begin{minipage}[t]{0.134\columnwidth}\raggedright
+50.50.50.1\strut
+\end{minipage} & \begin{minipage}[t]{0.118\columnwidth}\raggedright
+8.8.8.8 (o 50.50.50.1)\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.168\columnwidth}\raggedright
+Servidor DMZ -- Ubuntu/CentOS\strut
+\end{minipage} & \begin{minipage}[t]{0.143\columnwidth}\raggedright
+Servidor web (Apache/Nginx)\strut
+\end{minipage} & \begin{minipage}[t]{0.151\columnwidth}\raggedright
+172.17.0.10/24\strut
+\end{minipage} & \begin{minipage}[t]{0.155\columnwidth}\raggedright
+255.255.255.0\strut
+\end{minipage} & \begin{minipage}[t]{0.134\columnwidth}\raggedright
+172.17.0.1\strut
+\end{minipage} & \begin{minipage}[t]{0.118\columnwidth}\raggedright
+8.8.8.8 (o 50.50.50.1)\strut
+\end{minipage}\tabularnewline
+\bottomrule
+\end{longtable}}
+
+\begin{quote}
+\textbf{Nota:} si el docente asigna una red WAN distinta (por ejemplo,
+una red NAT propia de VMware/VirtualBox con un rango diferente al
+192.168.1.0/24), basta con conservar la dirección que el hipervisor
+entregue por DHCP a la interfaz WAN de OPNsense, sin que esto afecte el
+resto del direccionamiento de LAN y DMZ, que permanece fijo según la
+tabla anterior.
+\end{quote}
+
+\hypertarget{instalaciuxf3n-y-configuraciuxf3n-inicial-de-opnsense}{%
+\subsection{Instalación y configuración inicial de
+OPNsense}\label{instalaciuxf3n-y-configuraciuxf3n-inicial-de-opnsense}}
+
+\hypertarget{descarga-e-instalaciuxf3n}{%
+\subsubsection{Descarga e instalación}\label{descarga-e-instalaciuxf3n}}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Se descargó la imagen \texttt{OPNsense-*-dvd-amd64.iso} desde el sitio
+  oficial \url{https://opnsense.org/download/}, seleccionando
+  arquitectura \textbf{amd64} y tipo de imagen \textbf{DVD}.
+\item
+  En GNS3 (o VMware/VirtualBox), se creó una nueva máquina virtual
+  denominada \textbf{OPNsense} con las siguientes características
+  mínimas:
+
+  \begin{itemize}
+  \tightlist
+  \item
+    \textbf{Memoria RAM:} 2048 MB (se recomienda 3072--4096 MB para un
+    funcionamiento más fluido del panel web).
+  \item
+    \textbf{Disco duro:} 8--16 GB (suficiente para el sistema base y los
+    registros).
+  \item
+    \textbf{Adaptadores de red:} 3 interfaces virtuales (tipo
+    \emph{Intel PRO/1000} o \emph{virtio-net}), que se conectarán
+    respectivamente a la red WAN, a la red LAN y a la red DMZ dentro del
+    proyecto de GNS3.
+  \end{itemize}
+\item
+  Se montó el archivo ISO descargado como unidad de arranque y se inició
+  la máquina virtual.
+\item
+  Durante el instalador, se seleccionó el teclado (US por defecto), se
+  eligió la opción \textbf{Install (UFS)} y se indicó el disco virtual
+  de destino.
+\item
+  Se estableció la contraseña del usuario \texttt{root}, que será
+  utilizada tanto para el acceso por consola como para el acceso inicial
+  al panel web.
+\item
+  Al finalizar la instalación, se retiró la imagen ISO y se reinició la
+  máquina virtual para arrancar desde el disco.
+\end{enumerate}
+
+\hypertarget{asignaciuxf3n-de-interfaces-consola}{%
+\subsubsection{Asignación de interfaces
+(consola)}\label{asignaciuxf3n-de-interfaces-consola}}
+
+Al iniciar por primera vez, OPNsense presenta un menú de consola. Se
+utilizó la opción \textbf{1) Assign interfaces} para asignar cada
+interfaz física detectada (por ejemplo, \texttt{vtnet0},
+\texttt{vtnet1}, \texttt{vtnet2} o \texttt{em0}, \texttt{em1},
+\texttt{em2}, según el tipo de adaptador) a los roles correspondientes:
+
+\begin{Verbatim}[fontsize=\footnotesize,frame=single,rulecolor=\color{codebg},fillcolor=\color{codebg},framesep=2mm,xleftmargin=1mm,xrightmargin=1mm,breaklines=true,breakanywhere=true,breaksymbolleft={},breaksymbolright={}]
+¿Desea configurar VLANs ahora? [y/n]: n
+
+Interfaz WAN -> vtnet0 (o em0)
+Interfaz LAN -> vtnet1 (o em1)
+Interfaz(es) opcional(es) -> vtnet2 (o em2)   [se usará como DMZ / OPT1]
+
+¿Desea proceder? [y/n]: y
+\end{Verbatim}
+
+\hypertarget{configuraciuxf3n-de-direcciones-ip-por-consola}{%
+\subsubsection{Configuración de direcciones IP por
+consola}\label{configuraciuxf3n-de-direcciones-ip-por-consola}}
+
+Posteriormente, mediante la opción \textbf{2) Set interface IP address}
+del menú de consola, se configuraron las direcciones IP de LAN y DMZ (la
+interfaz WAN puede dejarse en modo DHCP inicialmente o configurarse de
+forma estática):
+
+\begin{Verbatim}[fontsize=\footnotesize,frame=single,rulecolor=\color{codebg},fillcolor=\color{codebg},framesep=2mm,xleftmargin=1mm,xrightmargin=1mm,breaklines=true,breakanywhere=true,breaksymbolleft={},breaksymbolright={}]
+Available interfaces:
+1 - WAN  (vtnet0)
+2 - LAN  (vtnet1)
+3 - OPT1 (vtnet2)
+
+Selecciona la interfaz: 2  (LAN)
+Configurar IPv4 mediante DHCP? [y/n]: n
+Ingrese la nueva dirección IPv4 para LAN: 50.50.50.1
+Ingrese la máscara de subred (CIDR, ej. 24): 24
+Ingrese la nueva dirección IPv4 de upstream gateway (en blanco para ninguna): <enter>
+¿Desea habilitar el servidor DHCP en LAN? [y/n]: y
+Ingrese el rango inicial de la subred para el servidor DHCP: 50.50.50.100
+Ingrese el rango final de la subred para el servidor DHCP: 50.50.50.200
+
+Selecciona la interfaz: 3  (OPT1 / DMZ)
+Configurar IPv4 mediante DHCP? [y/n]: n
+Ingrese la nueva dirección IPv4 para OPT1: 172.17.0.1
+Ingrese la máscara de subred (CIDR, ej. 24): 24
+\end{Verbatim}
+
+\hypertarget{acceso-al-panel-web-gui}{%
+\subsubsection{Acceso al panel web
+(GUI)}\label{acceso-al-panel-web-gui}}
+
+Una vez configurada la dirección IP de LAN, se accedió al panel de
+administración web desde el navegador del cliente Linux Mint, utilizando
+la URL \texttt{https://50.50.50.1} (HTTPS con certificado autofirmado de
+OPNsense, por lo que el navegador mostrará una advertencia inicial que
+se debe aceptar). Las credenciales por defecto son:
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Usuario:} \texttt{root}
+\item
+  \textbf{Contraseña:} la establecida durante la instalación.
+\end{itemize}
+
+Al ingresar por primera vez, OPNsense ejecuta un asistente de
+configuración inicial (\emph{setup wizard}) donde se definen el nombre
+de host, dominio, servidores DNS, zona horaria y la contraseña del
+usuario administrador.
+
+\hypertarget{asignaciuxf3n-y-configuraciuxf3n-de-interfaces-wan-lan-y-dmz}{%
+\subsection{Asignación y configuración de interfaces WAN, LAN y
+DMZ}\label{asignaciuxf3n-y-configuraciuxf3n-de-interfaces-wan-lan-y-dmz}}
+
+Desde el menú \textbf{Interfaces} del panel web se configuraron las tres
+interfaces de la siguiente manera:
+
+\hypertarget{interfaz-wan}{%
+\subsubsection{Interfaz WAN}\label{interfaz-wan}}
+
+\begin{itemize}
+\tightlist
+\item
+  Ruta: \texttt{Interfaces\ \textgreater{}\ WAN}
+\item
+  Tipo de IPv4: \textbf{DHCP} (si el adaptador WAN está conectado a una
+  red NAT del hipervisor) o \textbf{Static IPv4} con dirección
+  \texttt{192.168.1.2/24} y gateway \texttt{192.168.1.1} (si el entorno
+  utiliza una red puente fija).
+\item
+  Se desactivó la opción ``Block private networks'' únicamente si la red
+  WAN simulada utiliza direccionamiento privado (como en este
+  laboratorio), ya que de lo contrario OPNsense bloquearía el tráfico
+  proveniente de redes RFC 1918 en la interfaz WAN.
+\end{itemize}
+
+\hypertarget{interfaz-lan}{%
+\subsubsection{Interfaz LAN}\label{interfaz-lan}}
+
+\begin{itemize}
+\tightlist
+\item
+  Ruta: \texttt{Interfaces\ \textgreater{}\ LAN}
+\item
+  Tipo de IPv4: \textbf{Static IPv4}
+\item
+  Dirección IPv4: \texttt{50.50.50.1}, máscara \texttt{/24}
+  (255.255.255.0).
+\item
+  Se habilitó el servicio \textbf{DHCP Server}
+  (\texttt{Services\ \textgreater{}\ DHCPv4\ \textgreater{}\ LAN}) con
+  el rango \texttt{50.50.50.100\ –\ 50.50.50.200}, de manera que el
+  cliente Linux Mint pueda obtener su configuración automáticamente,
+  aunque en esta práctica también se documenta la configuración
+  manual/estática.
+\end{itemize}
+
+\hypertarget{interfaz-dmz-opt1}{%
+\subsubsection{Interfaz DMZ (OPT1)}\label{interfaz-dmz-opt1}}
+
+\begin{itemize}
+\tightlist
+\item
+  Ruta: \texttt{Interfaces\ \textgreater{}\ Assignments}. Se asignó la
+  tercera interfaz física disponible como \textbf{OPT1} y se renombró
+  como \textbf{DMZ} mediante la pestaña
+  \texttt{Interfaces\ \textgreater{}\ {[}OPT1{]}}.
+\item
+  Se marcó la casilla \textbf{Enable interface}.
+\item
+  Tipo de IPv4: \textbf{Static IPv4}
+\item
+  Dirección IPv4: \texttt{172.17.0.1}, máscara \texttt{/24}
+  (255.255.255.0).
+\item
+  Opcionalmente, se habilitó \textbf{DHCP Server} para la DMZ
+  (\texttt{Services\ \textgreater{}\ DHCPv4\ \textgreater{}\ DMZ}) con
+  un rango como \texttt{172.17.0.50\ –\ 172.17.0.100}, aunque para esta
+  práctica el servidor DMZ se configuró con IP estática
+  \texttt{172.17.0.10}.
+\end{itemize}
+
+\hypertarget{configuraciuxf3n-del-cliente-linux-mint-lan}{%
+\subsection{Configuración del cliente Linux Mint
+(LAN)}\label{configuraciuxf3n-del-cliente-linux-mint-lan}}
+
+En el cliente Linux Mint se configuró una dirección IP estática dentro
+del rango de la LAN, ya sea mediante la interfaz gráfica (Administrador
+de redes/Network Manager) o por línea de comandos con \texttt{nmcli}:
+
+\begin{Verbatim}[fontsize=\footnotesize,frame=single,rulecolor=\color{codebg},fillcolor=\color{codebg},framesep=2mm,xleftmargin=1mm,xrightmargin=1mm,breaklines=true,breakanywhere=true,breaksymbolleft={},breaksymbolright={}]
+# Ver las conexiones de red disponibles
+nmcli connection show
+
+# Configurar IP estática, máscara, gateway y DNS en la interfaz "Wired connection 1"
+sudo nmcli connection modify "Wired connection 1" ipv4.addresses 50.50.50.100/24
+sudo nmcli connection modify "Wired connection 1" ipv4.gateway 50.50.50.1
+sudo nmcli connection modify "Wired connection 1" ipv4.dns "8.8.8.8"
+sudo nmcli connection modify "Wired connection 1" ipv4.method manual
+
+# Aplicar los cambios reiniciando la conexión
+sudo nmcli connection down "Wired connection 1" && sudo nmcli connection up "Wired connection 1"
+
+# Verificar la configuración aplicada
+ip addr show
+ip route show
+\end{Verbatim}
+
+\hypertarget{configuraciuxf3n-del-servidor-dmz-ubuntucentos}{%
+\subsection{Configuración del servidor DMZ
+(Ubuntu/CentOS)}\label{configuraciuxf3n-del-servidor-dmz-ubuntucentos}}
+
+\hypertarget{configuraciuxf3n-de-ip-estuxe1tica}{%
+\subsubsection{Configuración de IP
+estática}\label{configuraciuxf3n-de-ip-estuxe1tica}}
+
+\textbf{En Ubuntu Server (Netplan):}
+
+\begin{Verbatim}[fontsize=\footnotesize,frame=single,rulecolor=\color{codebg},fillcolor=\color{codebg},framesep=2mm,xleftmargin=1mm,xrightmargin=1mm,breaklines=true,breakanywhere=true,breaksymbolleft={},breaksymbolright={}]
+sudo nano /etc/netplan/00-installer-config.yaml
+\end{Verbatim}
+
+\begin{Verbatim}[fontsize=\footnotesize,frame=single,rulecolor=\color{codebg},fillcolor=\color{codebg},framesep=2mm,xleftmargin=1mm,xrightmargin=1mm,breaklines=true,breakanywhere=true,breaksymbolleft={},breaksymbolright={}]
+network:
+  version: 2
+  ethernets:
+    enp0s3:
+      dhcp4: no
+      addresses: [172.17.0.10/24]
+      routes:
+        - to: default
+          via: 172.17.0.1
+      nameservers:
+        addresses: [8.8.8.8, 50.50.50.1]
+\end{Verbatim}
+
+\begin{Verbatim}[fontsize=\footnotesize,frame=single,rulecolor=\color{codebg},fillcolor=\color{codebg},framesep=2mm,xleftmargin=1mm,xrightmargin=1mm,breaklines=true,breakanywhere=true,breaksymbolleft={},breaksymbolright={}]
+sudo netplan apply
+ip addr show
+\end{Verbatim}
+
+\textbf{En CentOS (NetworkManager / nmcli):}
+
+\begin{Verbatim}[fontsize=\footnotesize,frame=single,rulecolor=\color{codebg},fillcolor=\color{codebg},framesep=2mm,xleftmargin=1mm,xrightmargin=1mm,breaklines=true,breakanywhere=true,breaksymbolleft={},breaksymbolright={}]
+sudo nmcli connection modify enp0s3 ipv4.addresses 172.17.0.10/24
+sudo nmcli connection modify enp0s3 ipv4.gateway 172.17.0.1
+sudo nmcli connection modify enp0s3 ipv4.dns "8.8.8.8"
+sudo nmcli connection modify enp0s3 ipv4.method manual
+sudo nmcli connection up enp0s3
+ip addr show
+\end{Verbatim}
+
+\hypertarget{reglas-de-firewall-en-opnsense}{%
+\subsection{Reglas de firewall en
+OPNsense}\label{reglas-de-firewall-en-opnsense}}
+
+OPNsense procesa las reglas de firewall \textbf{de arriba hacia abajo,
+aplicando la primera regla que coincida} con el tráfico (similar a
+pfSense). Si ningún tráfico coincide con una regla ``Pass'' explícita,
+se aplica la política por defecto: \textbf{bloquear todo (default
+deny)}. Por ello, fue necesario crear reglas explícitas para permitir el
+tráfico legítimo entre zonas y dejar implícito (o reforzar de manera
+explícita) el bloqueo del tráfico no autorizado desde la DMZ hacia la
+LAN.
+
+\hypertarget{creaciuxf3n-de-alias}{%
+\subsubsection{Creación de alias}\label{creaciuxf3n-de-alias}}
+
+Para simplificar la administración, se crearon los siguientes alias en
+\texttt{Firewall\ \textgreater{}\ Aliases\ \textgreater{}\ Add}:
+
+\begin{longtable}[]{@{}llll@{}}
+\toprule
+Nombre del alias & Tipo & Contenido & Descripción\tabularnewline
+\midrule
+\endhead
+\texttt{RED\_LAN} & Network(s) & 50.50.50.0/24 & Red interna de clientes
+(LAN)\tabularnewline
+\texttt{RED\_DMZ} & Network(s) & 172.17.0.0/24 & Red de servidores
+(DMZ)\tabularnewline
+\texttt{SRV\_WEB\_DMZ} & Host(s) & 172.17.0.10 & Servidor web de la
+DMZ\tabularnewline
+\texttt{PUERTOS\_WEB} & Port(s) & 80, 443 & Puertos HTTP y
+HTTPS\tabularnewline
+\bottomrule
+\end{longtable}
+
+\hypertarget{reglas-en-la-interfaz-lan}{%
+\subsubsection{Reglas en la interfaz
+LAN}\label{reglas-en-la-interfaz-lan}}
+
+Ruta:
+\texttt{Firewall\ \textgreater{}\ Rules\ \textgreater{}\ LAN\ \textgreater{}\ Add}.
+Se crearon las siguientes reglas, en este orden:
+
+{\footnotesize\setlength{\tabcolsep}{2pt}\begin{longtable}[]{@{}lllllll@{}}
+\toprule
+\begin{minipage}[b]{0.035\columnwidth}\raggedright
+\#\strut
+\end{minipage} & \begin{minipage}[b]{0.070\columnwidth}\raggedright
+Acción\strut
+\end{minipage} & \begin{minipage}[b]{0.095\columnwidth}\raggedright
+Protocolo\strut
+\end{minipage} & \begin{minipage}[b]{0.088\columnwidth}\raggedright
+Origen\strut
+\end{minipage} & \begin{minipage}[b]{0.114\columnwidth}\raggedright
+Destino\strut
+\end{minipage} & \begin{minipage}[b]{0.114\columnwidth}\raggedright
+Puerto destino\strut
+\end{minipage} & \begin{minipage}[b]{0.326\columnwidth}\raggedright
+Descripción\strut
+\end{minipage}\tabularnewline
+\midrule
+\endhead
+\begin{minipage}[t]{0.035\columnwidth}\raggedright
+1\strut
+\end{minipage} & \begin{minipage}[t]{0.070\columnwidth}\raggedright
+Pass\strut
+\end{minipage} & \begin{minipage}[t]{0.088\columnwidth}\raggedright
+ICMP\strut
+\end{minipage} & \begin{minipage}[t]{0.088\columnwidth}\raggedright
+RED\_LAN\strut
+\end{minipage} & \begin{minipage}[t]{0.114\columnwidth}\raggedright
+RED\_DMZ\strut
+\end{minipage} & \begin{minipage}[t]{0.114\columnwidth}\raggedright
+---\strut
+\end{minipage} & \begin{minipage}[t]{0.326\columnwidth}\raggedright
+Permitir ping desde la LAN hacia la DMZ\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.035\columnwidth}\raggedright
+2\strut
+\end{minipage} & \begin{minipage}[t]{0.070\columnwidth}\raggedright
+Pass\strut
+\end{minipage} & \begin{minipage}[t]{0.088\columnwidth}\raggedright
+TCP\strut
+\end{minipage} & \begin{minipage}[t]{0.088\columnwidth}\raggedright
+RED\_LAN\strut
+\end{minipage} & \begin{minipage}[t]{0.114\columnwidth}\raggedright
+SRV\_WEB\_DMZ\strut
+\end{minipage} & \begin{minipage}[t]{0.114\columnwidth}\raggedright
+PUERTOS\_WEB (80, 443)\strut
+\end{minipage} & \begin{minipage}[t]{0.326\columnwidth}\raggedright
+Permitir HTTP/HTTPS desde la LAN hacia el servidor de la DMZ\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.035\columnwidth}\raggedright
+3\strut
+\end{minipage} & \begin{minipage}[t]{0.070\columnwidth}\raggedright
+Pass\strut
+\end{minipage} & \begin{minipage}[t]{0.095\columnwidth}\raggedright
+* (any)\strut
+\end{minipage} & \begin{minipage}[t]{0.088\columnwidth}\raggedright
+RED\_LAN\strut
+\end{minipage} & \begin{minipage}[t]{0.114\columnwidth}\raggedright
+* (any)\strut
+\end{minipage} & \begin{minipage}[t]{0.114\columnwidth}\raggedright
+*\strut
+\end{minipage} & \begin{minipage}[t]{0.326\columnwidth}\raggedright
+Permitir la salida general de la LAN hacia WAN/Internet\strut
+\end{minipage}\tabularnewline
+\bottomrule
+\end{longtable}}
+
+\begin{quote}
+Para cada regla, en la pestaña de creación se selecciona la
+\textbf{interfaz LAN}, se define la acción \textbf{Pass}, el protocolo
+correspondiente, la dirección/red de origen (\texttt{RED\_LAN}), la
+dirección/red o alias de destino, el puerto (cuando aplica) y una
+descripción clara. Finalmente se pulsa \textbf{Save} y luego
+\textbf{Apply Changes}.
+\end{quote}
+
+\hypertarget{reglas-en-la-interfaz-dmz}{%
+\subsubsection{Reglas en la interfaz
+DMZ}\label{reglas-en-la-interfaz-dmz}}
+
+Ruta:
+\texttt{Firewall\ \textgreater{}\ Rules\ \textgreater{}\ DMZ\ \textgreater{}\ Add}.
+Se crearon las siguientes reglas:
+
+{\footnotesize\setlength{\tabcolsep}{2pt}\begin{longtable}[]{@{}lllllll@{}}
+\toprule
+\begin{minipage}[b]{0.035\columnwidth}\raggedright
+\#\strut
+\end{minipage} & \begin{minipage}[b]{0.070\columnwidth}\raggedright
+Acción\strut
+\end{minipage} & \begin{minipage}[b]{0.095\columnwidth}\raggedright
+Protocolo\strut
+\end{minipage} & \begin{minipage}[b]{0.088\columnwidth}\raggedright
+Origen\strut
+\end{minipage} & \begin{minipage}[b]{0.114\columnwidth}\raggedright
+Destino\strut
+\end{minipage} & \begin{minipage}[b]{0.114\columnwidth}\raggedright
+Puerto destino\strut
+\end{minipage} & \begin{minipage}[b]{0.326\columnwidth}\raggedright
+Descripción\strut
+\end{minipage}\tabularnewline
+\midrule
+\endhead
+\begin{minipage}[t]{0.035\columnwidth}\raggedright
+1\strut
+\end{minipage} & \begin{minipage}[t]{0.070\columnwidth}\raggedright
+Block\strut
+\end{minipage} & \begin{minipage}[t]{0.088\columnwidth}\raggedright
+* (any)\strut
+\end{minipage} & \begin{minipage}[t]{0.088\columnwidth}\raggedright
+RED\_DMZ\strut
+\end{minipage} & \begin{minipage}[t]{0.114\columnwidth}\raggedright
+RED\_LAN\strut
+\end{minipage} & \begin{minipage}[t]{0.114\columnwidth}\raggedright
+*\strut
+\end{minipage} & \begin{minipage}[t]{0.326\columnwidth}\raggedright
+Bloquear explícitamente cualquier acceso iniciado desde la DMZ hacia la
+LAN\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.035\columnwidth}\raggedright
+2\strut
+\end{minipage} & \begin{minipage}[t]{0.070\columnwidth}\raggedright
+Pass\strut
+\end{minipage} & \begin{minipage}[t]{0.095\columnwidth}\raggedright
+TCP/UDP\strut
+\end{minipage} & \begin{minipage}[t]{0.088\columnwidth}\raggedright
+RED\_DMZ\strut
+\end{minipage} & \begin{minipage}[t]{0.114\columnwidth}\raggedright
+* (any)\strut
+\end{minipage} & \begin{minipage}[t]{0.114\columnwidth}\raggedright
+53, 80, 443\strut
+\end{minipage} & \begin{minipage}[t]{0.326\columnwidth}\raggedright
+Permitir resolución DNS y actualizaciones del sistema (salida hacia
+WAN)\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.035\columnwidth}\raggedright
+3\strut
+\end{minipage} & \begin{minipage}[t]{0.070\columnwidth}\raggedright
+Pass\strut
+\end{minipage} & \begin{minipage}[t]{0.095\columnwidth}\raggedright
+ICMP\strut
+\end{minipage} & \begin{minipage}[t]{0.088\columnwidth}\raggedright
+RED\_DMZ\strut
+\end{minipage} & \begin{minipage}[t]{0.114\columnwidth}\raggedright
+RED\_LAN\strut
+\end{minipage} & \begin{minipage}[t]{0.114\columnwidth}\raggedright
+---\strut
+\end{minipage} & \begin{minipage}[t]{0.326\columnwidth}\raggedright
+(Opcional) Permitir respuesta de ping únicamente si se requiere
+diagnóstico bidireccional; en esta práctica se mantiene bloqueado por
+defecto\strut
+\end{minipage}\tabularnewline
+\bottomrule
+\end{longtable}}
+
+\begin{quote}
+La regla 1 (bloqueo explícito DMZ -\textgreater{} LAN) se ubicó
+\textbf{en la parte superior} del listado de reglas de la interfaz DMZ,
+ya que OPNsense aplica la primera coincidencia. Esto garantiza que,
+aunque en el futuro se agreguen reglas más permisivas por error, el
+tráfico DMZ -\textgreater{} LAN siempre sea bloqueado y registrado.
+\end{quote}
+
+\hypertarget{verificaciuxf3n-del-registro-de-reglas}{%
+\subsubsection{Verificación del registro de
+reglas}\label{verificaciuxf3n-del-registro-de-reglas}}
+
+Para comprobar que las reglas funcionan correctamente, se revisó el
+registro en
+\texttt{Firewall\ \textgreater{}\ Log\ Files\ \textgreater{}\ Live\ View},
+donde se observan en tiempo real los paquetes bloqueados (en rojo) y
+permitidos (en verde), incluyendo la interfaz, dirección IP
+origen/destino, protocolo y la regla que generó la coincidencia.
+
+\hypertarget{configuraciuxf3n-de-nat}{%
+\subsection{Configuración de NAT}\label{configuraciuxf3n-de-nat}}
+
+OPNsense ofrece varios modos de NAT de salida
+(\texttt{Firewall\ \textgreater{}\ NAT\ \textgreater{}\ Outbound}):
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Automatic outbound NAT:} genera automáticamente reglas de NAT
+  para todas las redes internas (LAN, DMZ, etc.) que tengan una ruta
+  hacia la interfaz WAN.
+\item
+  \textbf{Hybrid outbound NAT (recomendado para esta práctica):} permite
+  que OPNsense genere las reglas automáticas y, además, el administrador
+  agregue reglas manuales adicionales si lo requiere.
+\item
+  \textbf{Manual outbound NAT:} todas las reglas deben crearse
+  manualmente.
+\item
+  \textbf{Disabled:} desactiva el NAT de salida (no recomendado si se
+  desea acceso a Internet).
+\end{itemize}
+
+\hypertarget{procedimiento-aplicado}{%
+\subsubsection{Procedimiento aplicado}\label{procedimiento-aplicado}}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Se accedió a
+  \texttt{Firewall\ \textgreater{}\ NAT\ \textgreater{}\ Outbound}.
+\item
+  Se seleccionó el modo \textbf{Hybrid outbound NAT rule generation} y
+  se guardó el cambio.
+\item
+  OPNsense generó automáticamente las reglas de NAT para las redes
+  \texttt{50.50.50.0/24} (LAN) y \texttt{172.17.0.0/24} (DMZ) hacia la
+  interfaz WAN, traduciendo (enmascarando) las direcciones internas a la
+  dirección IP de la interfaz WAN (192.168.1.2 o la IP asignada por
+  DHCP).
+\item
+  Se verificó que cada regla de NAT tuviera como \textbf{interfaz}
+  ``WAN'', como \textbf{origen} la red interna correspondiente y como
+  \textbf{traducción/Address} la opción ``Interface address'' (NAT tipo
+  \emph{masquerade}).
+\end{enumerate}
+
+\hypertarget{opcional-redirecciuxf3n-de-puertos-port-forward-nat-de-destino}{%
+\subsubsection{(Opcional) Redirección de puertos (Port Forward / NAT de
+destino)}\label{opcional-redirecciuxf3n-de-puertos-port-forward-nat-de-destino}}
+
+Si el docente requiere que el servidor web de la DMZ sea accesible desde
+la red WAN (simulación de un servicio publicado a Internet), se puede
+crear una regla en
+\texttt{Firewall\ \textgreater{}\ NAT\ \textgreater{}\ Port\ Forward}:
+
+{\footnotesize\setlength{\tabcolsep}{2pt}\begin{longtable}[]{@{}lllllll@{}}
+\toprule
+\begin{minipage}[b]{0.070\columnwidth}\raggedright
+Interfaz\strut
+\end{minipage} & \begin{minipage}[b]{0.085\columnwidth}\raggedright
+Protocolo\strut
+\end{minipage} & \begin{minipage}[b]{0.088\columnwidth}\raggedright
+Destino\strut
+\end{minipage} & \begin{minipage}[b]{0.075\columnwidth}\raggedright
+Puerto destino\strut
+\end{minipage} & \begin{minipage}[b]{0.105\columnwidth}\raggedright
+Redirección a IP\strut
+\end{minipage} & \begin{minipage}[b]{0.115\columnwidth}\raggedright
+Redirección a puerto\strut
+\end{minipage} & \begin{minipage}[b]{0.303\columnwidth}\raggedright
+Descripción\strut
+\end{minipage}\tabularnewline
+\midrule
+\endhead
+\begin{minipage}[t]{0.070\columnwidth}\raggedright
+WAN\strut
+\end{minipage} & \begin{minipage}[t]{0.085\columnwidth}\raggedright
+TCP\strut
+\end{minipage} & \begin{minipage}[t]{0.088\columnwidth}\raggedright
+WAN address\strut
+\end{minipage} & \begin{minipage}[t]{0.075\columnwidth}\raggedright
+8080\strut
+\end{minipage} & \begin{minipage}[t]{0.105\columnwidth}\raggedright
+172.17.0.10\strut
+\end{minipage} & \begin{minipage}[t]{0.115\columnwidth}\raggedright
+80\strut
+\end{minipage} & \begin{minipage}[t]{0.303\columnwidth}\raggedright
+Publicar el servidor web de la DMZ en el puerto 8080 de la WAN\strut
+\end{minipage}\tabularnewline
+\bottomrule
+\end{longtable}}
+
+Al crear esta regla, OPNsense genera automáticamente la regla de
+firewall asociada en la interfaz WAN que permite el tráfico entrante
+hacia el servidor de la DMZ.
+
+\hypertarget{servidor-web-en-la-dmz-apache-o-nginx}{%
+\subsection{Servidor web en la DMZ (Apache o
+Nginx)}\label{servidor-web-en-la-dmz-apache-o-nginx}}
+
+\hypertarget{instalaciuxf3n-de-apache}{%
+\subsubsection{Instalación de Apache}\label{instalaciuxf3n-de-apache}}
+
+\begin{Verbatim}[fontsize=\footnotesize,frame=single,rulecolor=\color{codebg},fillcolor=\color{codebg},framesep=2mm,xleftmargin=1mm,xrightmargin=1mm,breaklines=true,breakanywhere=true,breaksymbolleft={},breaksymbolright={}]
+# Actualizar repositorios
+sudo apt update && sudo apt upgrade -y
+
+# Instalar Apache
+sudo apt install apache2 -y
+
+# Habilitar el servicio para que inicie con el sistema y arrancarlo
+sudo systemctl enable apache2
+sudo systemctl start apache2
+
+# Verificar el estado del servicio
+sudo systemctl status apache2
+\end{Verbatim}
+
+\hypertarget{instalaciuxf3n-de-nginx-alternativa}{%
+\subsubsection{Instalación de Nginx
+(alternativa)}\label{instalaciuxf3n-de-nginx-alternativa}}
+
+\begin{Verbatim}[fontsize=\footnotesize,frame=single,rulecolor=\color{codebg},fillcolor=\color{codebg},framesep=2mm,xleftmargin=1mm,xrightmargin=1mm,breaklines=true,breakanywhere=true,breaksymbolleft={},breaksymbolright={}]
+sudo apt update
+sudo apt install nginx -y
+sudo systemctl enable nginx
+sudo systemctl start nginx
+sudo systemctl status nginx
+\end{Verbatim}
+
+\hypertarget{personalizaciuxf3n-de-la-puxe1gina-principal}{%
+\subsubsection{Personalización de la página
+principal}\label{personalizaciuxf3n-de-la-puxe1gina-principal}}
+
+\begin{Verbatim}[fontsize=\footnotesize,frame=single,rulecolor=\color{codebg},fillcolor=\color{codebg},framesep=2mm,xleftmargin=1mm,xrightmargin=1mm,breaklines=true,breakanywhere=true,breaksymbolleft={},breaksymbolright={}]
+sudo nano /var/www/html/index.html
+\end{Verbatim}
+
+\begin{Verbatim}[fontsize=\footnotesize,frame=single,rulecolor=\color{codebg},fillcolor=\color{codebg},framesep=2mm,xleftmargin=1mm,xrightmargin=1mm,breaklines=true,breakanywhere=true,breaksymbolleft={},breaksymbolright={}]
+<!DOCTYPE html>
+<html lang="es">
+<head><title>Servidor DMZ - PAE 5</title></head>
+<body>
+  <h1>Bienvenido al Servidor Web de la DMZ</h1>
+  <p>Universidad Técnica de Ambato - Práctica PAE 5 - OPNsense</p>
+  <p>Estudiante: Guatemal Avilez Bryan Stalin</p>
+</body>
+</html>
+\end{Verbatim}
+
+\hypertarget{comprobaciuxf3n-local-del-servicio}{%
+\subsubsection{Comprobación local del
+servicio}\label{comprobaciuxf3n-local-del-servicio}}
+
+\begin{Verbatim}[fontsize=\footnotesize,frame=single,rulecolor=\color{codebg},fillcolor=\color{codebg},framesep=2mm,xleftmargin=1mm,xrightmargin=1mm,breaklines=true,breakanywhere=true,breaksymbolleft={},breaksymbolright={}]
+# Verificar que el servicio responde localmente
+curl http://localhost
+curl -I http://127.0.0.1   # -I muestra solo encabezados HTTP
+
+# Verificar el puerto en escucha
+sudo ss -tulnp | grep -E '80|443'
+\end{Verbatim}
+
+\begin{quote}
+\textbf{Nota sobre el cortafuegos local:} dado que OPNsense ya filtra el
+tráfico entre zonas, el firewall local del servidor (\texttt{ufw} en
+Ubuntu) puede mantenerse desactivado o configurarse de forma permisiva
+para los puertos 80, 443 y 22, evitando un doble filtrado que dificulte
+el diagnóstico durante la práctica:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{sudo}\NormalTok{ ufw allow 22/tcp}
+\FunctionTok{sudo}\NormalTok{ ufw allow 80/tcp}
+\FunctionTok{sudo}\NormalTok{ ufw allow 443/tcp}
+\FunctionTok{sudo}\NormalTok{ ufw enable}
+\FunctionTok{sudo}\NormalTok{ ufw status}
+\end{Highlighting}
+\end{Shaded}
+\end{quote}
+
+\hypertarget{pruebas-de-conectividad-ping}{%
+\subsection{Pruebas de conectividad
+(ping)}\label{pruebas-de-conectividad-ping}}
+
+Las pruebas de ping permiten validar que las reglas de firewall
+configuradas para el protocolo ICMP funcionan correctamente. Se
+ejecutaron desde el \textbf{cliente Linux Mint} (50.50.50.100):
+
+\begin{Verbatim}[fontsize=\footnotesize,frame=single,rulecolor=\color{codebg},fillcolor=\color{codebg},framesep=2mm,xleftmargin=1mm,xrightmargin=1mm,breaklines=true,breakanywhere=true,breaksymbolleft={},breaksymbolright={}]
+# Ping hacia la puerta de enlace de la LAN (interfaz LAN de OPNsense)
+ping -c 4 50.50.50.1
+
+# Ping hacia la interfaz DMZ de OPNsense (gateway de la DMZ)
+ping -c 4 172.17.0.1
+
+# Ping hacia el servidor web de la DMZ
+ping -c 4 172.17.0.10
+\end{Verbatim}
+
+\textbf{Resultados esperados:}
+
+\begin{itemize}
+\tightlist
+\item
+  La prueba 1 debe responder siempre, ya que corresponde a la puerta de
+  enlace directa del cliente.
+\item
+  Las pruebas 2 y 3 solo responderán correctamente \textbf{si existe la
+  regla ``Pass ICMP'' en la interfaz LAN} (sección 3.7.2, regla 1). Si
+  dicha regla no existe o está deshabilitada, el ping mostrará tiempo de
+  espera agotado (\emph{Request timeout}) y, al revisar
+  \texttt{Firewall\ \textgreater{}\ Log\ Files\ \textgreater{}\ Live\ View},
+  se observará el paquete ICMP bloqueado.
+\item
+  Esta prueba demuestra de forma práctica que \textbf{el enrutamiento
+  entre subredes existe a nivel IP}, pero el \textbf{firewall es quien
+  decide si el tráfico se permite o no}.
+\end{itemize}
+
+\hypertarget{pruebas-de-navegaciuxf3n-httphttps}{%
+\subsection{Pruebas de navegación
+HTTP/HTTPS}\label{pruebas-de-navegaciuxf3n-httphttps}}
+
+Desde el cliente Linux Mint, se realizaron las siguientes pruebas para
+validar el acceso al servidor web de la DMZ:
+
+\begin{Verbatim}[fontsize=\footnotesize,frame=single,rulecolor=\color{codebg},fillcolor=\color{codebg},framesep=2mm,xleftmargin=1mm,xrightmargin=1mm,breaklines=true,breakanywhere=true,breaksymbolleft={},breaksymbolright={}]
+# Prueba HTTP (sin cifrar)
+curl http://172.17.0.10
+
+# Prueba HTTPS (con certificado autofirmado; -k omite la validación del certificado)
+curl -k https://172.17.0.10
+
+# Prueba con encabezados de respuesta (para verificar el código de estado 200 OK)
+curl -I http://172.17.0.10
+curl -kI https://172.17.0.10
+\end{Verbatim}
+
+Adicionalmente, se abrió un navegador web (Firefox) en el cliente Linux
+Mint y se accedió a:
+
+\begin{itemize}
+\tightlist
+\item
+  \texttt{http://172.17.0.10} -\textgreater{} debe mostrar la página
+  principal del servidor (Apache/Nginx) configurada en el paso 3.9.3.
+\item
+  \texttt{https://172.17.0.10} -\textgreater{} debe mostrar la misma
+  página, pero el navegador presentará una \textbf{advertencia de
+  ``conexión no segura''} debido al certificado autofirmado (ver sección
+  3.12). Se debe aceptar el riesgo y continuar para visualizar la página
+  cifrada.
+\end{itemize}
+
+\hypertarget{certificado-ssl-autofirmado-para-https}{%
+\subsection{Certificado SSL autofirmado para
+HTTPS}\label{certificado-ssl-autofirmado-para-https}}
+
+\hypertarget{generaciuxf3n-del-certificado-con-openssl-en-el-servidor-dmz}{%
+\subsubsection{Generación del certificado con OpenSSL (en el servidor
+DMZ)}\label{generaciuxf3n-del-certificado-con-openssl-en-el-servidor-dmz}}
+
+\begin{Verbatim}[fontsize=\footnotesize,frame=single,rulecolor=\color{codebg},fillcolor=\color{codebg},framesep=2mm,xleftmargin=1mm,xrightmargin=1mm,breaklines=true,breakanywhere=true,breaksymbolleft={},breaksymbolright={}]
+# Crear un certificado autofirmado válido por 365 días, con clave RSA de 2048 bits
+sudo openssl req -x509 -nodes -days 365 -newkey rsa:2048 \
+  -keyout /etc/ssl/private/apache-selfsigned.key \
+  -out /etc/ssl/certs/apache-selfsigned.crt \
+  -subj "/C=EC/ST=Tungurahua/L=Ambato/O=UTA-FISEI/OU=Software/CN=172.17.0.10"
+\end{Verbatim}
+
+\hypertarget{configuraciuxf3n-en-apache}{%
+\subsubsection{Configuración en
+Apache}\label{configuraciuxf3n-en-apache}}
+
+\begin{Verbatim}[fontsize=\footnotesize,frame=single,rulecolor=\color{codebg},fillcolor=\color{codebg},framesep=2mm,xleftmargin=1mm,xrightmargin=1mm,breaklines=true,breakanywhere=true,breaksymbolleft={},breaksymbolright={}]
+# Habilitar el módulo SSL y el sitio SSL por defecto
+sudo a2enmod ssl
+sudo a2ensite default-ssl
+
+# Editar la configuración del sitio SSL
+sudo nano /etc/apache2/sites-available/default-ssl.conf
+\end{Verbatim}
+
+Dentro del bloque
+\texttt{\textless{}VirtualHost\ \_default\_:443\textgreater{}}, se
+actualizan las rutas del certificado y la llave privada:
+
+\begin{Verbatim}[fontsize=\footnotesize,frame=single,rulecolor=\color{codebg},fillcolor=\color{codebg},framesep=2mm,xleftmargin=1mm,xrightmargin=1mm,breaklines=true,breakanywhere=true,breaksymbolleft={},breaksymbolright={}]
+SSLCertificateFile    /etc/ssl/certs/apache-selfsigned.crt
+SSLCertificateKeyFile /etc/ssl/private/apache-selfsigned.key
+\end{Verbatim}
+
+\begin{Verbatim}[fontsize=\footnotesize,frame=single,rulecolor=\color{codebg},fillcolor=\color{codebg},framesep=2mm,xleftmargin=1mm,xrightmargin=1mm,breaklines=true,breakanywhere=true,breaksymbolleft={},breaksymbolright={}]
+# Reiniciar Apache para aplicar los cambios
+sudo systemctl restart apache2
+\end{Verbatim}
+
+\hypertarget{configuraciuxf3n-en-nginx-alternativa}{%
+\subsubsection{Configuración en Nginx
+(alternativa)}\label{configuraciuxf3n-en-nginx-alternativa}}
+
+\begin{Verbatim}[fontsize=\footnotesize,frame=single,rulecolor=\color{codebg},fillcolor=\color{codebg},framesep=2mm,xleftmargin=1mm,xrightmargin=1mm,breaklines=true,breakanywhere=true,breaksymbolleft={},breaksymbolright={}]
+server {
+    listen 443 ssl;
+    server_name 172.17.0.10;
+
+    ssl_certificate     /etc/ssl/certs/apache-selfsigned.crt;
+    ssl_certificate_key /etc/ssl/private/apache-selfsigned.key;
+
+    root /var/www/html;
+    index index.html;
+}
+\end{Verbatim}
+
+\begin{Verbatim}[fontsize=\footnotesize,frame=single,rulecolor=\color{codebg},fillcolor=\color{codebg},framesep=2mm,xleftmargin=1mm,xrightmargin=1mm,breaklines=true,breakanywhere=true,breaksymbolleft={},breaksymbolright={}]
+sudo systemctl restart nginx
+\end{Verbatim}
+
+\hypertarget{alternativa-ca-interna-en-opnsense}{%
+\subsubsection{Alternativa: CA interna en
+OPNsense}\label{alternativa-ca-interna-en-opnsense}}
+
+Como mejora opcional, OPNsense permite crear una \textbf{Autoridad
+Certificadora (CA) interna} en
+\texttt{System\ \textgreater{}\ Trust\ \textgreater{}\ Authorities\ \textgreater{}\ Add},
+y posteriormente emitir certificados firmados por dicha CA en
+\texttt{System\ \textgreater{}\ Trust\ \textgreater{}\ Certificates\ \textgreater{}\ Add}.
+Si el certificado de la CA interna se instala como confiable en el
+navegador del cliente Linux Mint, las advertencias de ``certificado no
+confiable'' desaparecerán al navegar por HTTPS hacia los servicios de la
+DMZ.
+
+\hypertarget{portal-cautivo-en-la-lan}{%
+\subsection{Portal cautivo en la LAN}\label{portal-cautivo-en-la-lan}}
+
+El portal cautivo obliga a los usuarios de la red LAN a autenticarse
+mediante una página web antes de poder acceder a Internet o a otros
+recursos de la red.
+
+\hypertarget{configuraciuxf3n-paso-a-paso}{%
+\subsubsection{Configuración paso a
+paso}\label{configuraciuxf3n-paso-a-paso}}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Ir a \texttt{Services\ \textgreater{}\ Captive\ Portal}.
+\item
+  En la pestaña \textbf{Administration}, hacer clic en \textbf{+ Add}
+  para crear una nueva zona, por ejemplo \texttt{portal\_lan}.
+\item
+  Marcar la casilla \textbf{Enable}.
+\item
+  En \textbf{Interfaces}, seleccionar \textbf{LAN} (la red donde se
+  aplicará el portal).
+\item
+  Configurar los tiempos de sesión:
+
+  \begin{itemize}
+  \tightlist
+  \item
+    \textbf{Idle timeout:} tiempo (en minutos) tras el cual se
+    desconecta a un usuario inactivo (p.~ej., 30 minutos).
+  \item
+    \textbf{Hard timeout:} tiempo máximo de sesión continua (p.~ej., 240
+    minutos).
+  \end{itemize}
+\item
+  En \textbf{Authentication}, seleccionar el método \textbf{Local
+  Database} (autenticación contra usuarios locales de OPNsense).
+\item
+  Crear los usuarios que podrán autenticarse en el portal desde
+  \texttt{System\ \textgreater{}\ Access\ \textgreater{}\ Users\ \textgreater{}\ Add}
+  (por ejemplo, usuario \texttt{estudiante1}, con una contraseña
+  segura).
+\item
+  (Opcional) En la pestaña \textbf{Templates}, personalizar la página
+  HTML de inicio de sesión con el logotipo y los colores institucionales
+  de la UTA.
+\item
+  Guardar y aplicar los cambios (\textbf{Save} -\textgreater{}
+  \textbf{Apply}).
+\end{enumerate}
+
+\hypertarget{comportamiento-esperado}{%
+\subsubsection{Comportamiento esperado}\label{comportamiento-esperado}}
+
+Al conectar el cliente Linux Mint a la red LAN y abrir un navegador,
+cualquier solicitud HTTP será \textbf{interceptada y redirigida}
+automáticamente hacia la página de autenticación del portal cautivo
+(típicamente en \texttt{https://50.50.50.1:8003} o similar). Una vez
+ingresadas las credenciales válidas, el portal autoriza la dirección
+MAC/IP del cliente durante el tiempo configurado, permitiendo el acceso
+normal según las reglas de firewall ya definidas.
+
+\hypertarget{configuraciuxf3n-de-fail2ban-en-el-servidor-de-la-dmz}{%
+\subsection{Configuración de Fail2ban en el servidor de la
+DMZ}\label{configuraciuxf3n-de-fail2ban-en-el-servidor-de-la-dmz}}
+
+Fail2ban es un sistema de prevención de intrusiones a nivel de host que
+analiza los archivos de registro (logs) en busca de patrones de fallos
+de autenticación repetidos y, al superar un umbral, bloquea
+temporalmente la dirección IP del origen mediante reglas de firewall
+locales (iptables/nftables).
+
+\hypertarget{instalaciuxf3n}{%
+\subsubsection{Instalación}\label{instalaciuxf3n}}
+
+\begin{Verbatim}[fontsize=\footnotesize,frame=single,rulecolor=\color{codebg},fillcolor=\color{codebg},framesep=2mm,xleftmargin=1mm,xrightmargin=1mm,breaklines=true,breakanywhere=true,breaksymbolleft={},breaksymbolright={}]
+sudo apt update
+sudo apt install fail2ban -y
+\end{Verbatim}
+
+\hypertarget{configuraciuxf3n-del-jail-para-ssh}{%
+\subsubsection{Configuración del jail para
+SSH}\label{configuraciuxf3n-del-jail-para-ssh}}
+
+\begin{Verbatim}[fontsize=\footnotesize,frame=single,rulecolor=\color{codebg},fillcolor=\color{codebg},framesep=2mm,xleftmargin=1mm,xrightmargin=1mm,breaklines=true,breakanywhere=true,breaksymbolleft={},breaksymbolright={}]
+sudo cp /etc/fail2ban/jail.conf /etc/fail2ban/jail.local
+sudo nano /etc/fail2ban/jail.local
+\end{Verbatim}
+
+Dentro de \texttt{jail.local}, en la sección \texttt{{[}sshd{]}}:
+
+\begin{Verbatim}[fontsize=\footnotesize,frame=single,rulecolor=\color{codebg},fillcolor=\color{codebg},framesep=2mm,xleftmargin=1mm,xrightmargin=1mm,breaklines=true,breakanywhere=true,breaksymbolleft={},breaksymbolright={}]
+[sshd]
+enabled  = true
+port     = ssh
+filter   = sshd
+logpath  = /var/log/auth.log
+maxretry = 3
+bantime  = 600
+findtime = 600
+\end{Verbatim}
+
+\begin{itemize}
+\tightlist
+\item
+  \texttt{maxretry\ =\ 3}: número máximo de intentos fallidos
+  permitidos.
+\item
+  \texttt{bantime\ =\ 600}: tiempo de bloqueo en segundos (10 minutos).
+\item
+  \texttt{findtime\ =\ 600}: ventana de tiempo en la que se cuentan los
+  intentos fallidos.
+\end{itemize}
+
+\hypertarget{activaciuxf3n-y-verificaciuxf3n}{%
+\subsubsection{Activación y
+verificación}\label{activaciuxf3n-y-verificaciuxf3n}}
+
+\begin{Verbatim}[fontsize=\footnotesize,frame=single,rulecolor=\color{codebg},fillcolor=\color{codebg},framesep=2mm,xleftmargin=1mm,xrightmargin=1mm,breaklines=true,breakanywhere=true,breaksymbolleft={},breaksymbolright={}]
+sudo systemctl enable fail2ban
+sudo systemctl restart fail2ban
+
+# Ver el estado general de Fail2ban
+sudo fail2ban-client status
+
+# Ver el estado específico del jail de SSH (incluye IPs baneadas)
+sudo fail2ban-client status sshd
+\end{Verbatim}
+
+\hypertarget{prueba-de-bloqueo}{%
+\subsubsection{Prueba de bloqueo}\label{prueba-de-bloqueo}}
+
+Desde el cliente Linux Mint, se intenta iniciar sesión SSH con una
+contraseña incorrecta varias veces (más de las permitidas por
+\texttt{maxretry}):
+
+\begin{Verbatim}[fontsize=\footnotesize,frame=single,rulecolor=\color{codebg},fillcolor=\color{codebg},framesep=2mm,xleftmargin=1mm,xrightmargin=1mm,breaklines=true,breakanywhere=true,breaksymbolleft={},breaksymbolright={}]
+ssh usuario@172.17.0.10   # repetir 3-4 veces ingresando una contraseña incorrecta
+\end{Verbatim}
+
+Luego, en el servidor DMZ, se verifica que la IP del cliente fue
+bloqueada:
+
+\begin{Verbatim}[fontsize=\footnotesize,frame=single,rulecolor=\color{codebg},fillcolor=\color{codebg},framesep=2mm,xleftmargin=1mm,xrightmargin=1mm,breaklines=true,breakanywhere=true,breaksymbolleft={},breaksymbolright={}]
+sudo fail2ban-client status sshd
+sudo iptables -L -n | grep -i fail2ban     # (en sistemas con iptables)
+# o, en sistemas con nftables:
+sudo nft list ruleset | grep -i fail2ban
+\end{Verbatim}
+
+\hypertarget{acceso-ssh-mediante-clave-puxfablica-linux-mint---servidor-dmz}{%
+\subsection{Acceso SSH mediante clave pública (Linux Mint
+-\textgreater{} Servidor
+DMZ)}\label{acceso-ssh-mediante-clave-puxfablica-linux-mint---servidor-dmz}}
+
+\hypertarget{generaciuxf3n-del-par-de-claves-en-linux-mint}{%
+\subsubsection{Generación del par de claves en Linux
+Mint}\label{generaciuxf3n-del-par-de-claves-en-linux-mint}}
+
+\begin{Verbatim}[fontsize=\footnotesize,frame=single,rulecolor=\color{codebg},fillcolor=\color{codebg},framesep=2mm,xleftmargin=1mm,xrightmargin=1mm,breaklines=true,breakanywhere=true,breaksymbolleft={},breaksymbolright={}]
+ssh-keygen -t ed25519 -C "bryan@linuxmint-pae5"
+# Presionar Enter para aceptar la ruta por defecto (~/.ssh/id_ed25519)
+# Opcionalmente, establecer una passphrase para mayor seguridad
+\end{Verbatim}
+
+\hypertarget{copia-de-la-clave-puxfablica-al-servidor-dmz}{%
+\subsubsection{Copia de la clave pública al servidor
+DMZ}\label{copia-de-la-clave-puxfablica-al-servidor-dmz}}
+
+\begin{Verbatim}[fontsize=\footnotesize,frame=single,rulecolor=\color{codebg},fillcolor=\color{codebg},framesep=2mm,xleftmargin=1mm,xrightmargin=1mm,breaklines=true,breakanywhere=true,breaksymbolleft={},breaksymbolright={}]
+ssh-copy-id usuario@172.17.0.10
+\end{Verbatim}
+
+Si \texttt{ssh-copy-id} no está disponible, se puede copiar manualmente:
+
+\begin{Verbatim}[fontsize=\footnotesize,frame=single,rulecolor=\color{codebg},fillcolor=\color{codebg},framesep=2mm,xleftmargin=1mm,xrightmargin=1mm,breaklines=true,breakanywhere=true,breaksymbolleft={},breaksymbolright={}]
+cat ~/.ssh/id_ed25519.pub | ssh usuario@172.17.0.10 \
+  "mkdir -p ~/.ssh && cat >> ~/.ssh/authorized_keys && chmod 700 ~/.ssh && chmod 600 ~/.ssh/authorized_keys"
+\end{Verbatim}
+
+\hypertarget{verificaciuxf3n-del-acceso-sin-contraseuxf1a}{%
+\subsubsection{Verificación del acceso sin
+contraseña}\label{verificaciuxf3n-del-acceso-sin-contraseuxf1a}}
+
+\begin{Verbatim}[fontsize=\footnotesize,frame=single,rulecolor=\color{codebg},fillcolor=\color{codebg},framesep=2mm,xleftmargin=1mm,xrightmargin=1mm,breaklines=true,breakanywhere=true,breaksymbolleft={},breaksymbolright={}]
+ssh usuario@172.17.0.10
+\end{Verbatim}
+
+El acceso debe completarse \textbf{sin solicitar contraseña} (o
+solicitando únicamente la passphrase de la llave privada, si se
+configuró una).
+
+\hypertarget{endurecimiento-del-servicio-ssh-servidor-dmz}{%
+\subsubsection{Endurecimiento del servicio SSH (servidor
+DMZ)}\label{endurecimiento-del-servicio-ssh-servidor-dmz}}
+
+\begin{quote}
+\textbf{Importante:} antes de deshabilitar la autenticación por
+contraseña, se debe \textbf{confirmar que el acceso por llave pública
+funciona correctamente}, para evitar quedar bloqueado fuera del
+servidor.
+\end{quote}
+
+\begin{Verbatim}[fontsize=\footnotesize,frame=single,rulecolor=\color{codebg},fillcolor=\color{codebg},framesep=2mm,xleftmargin=1mm,xrightmargin=1mm,breaklines=true,breakanywhere=true,breaksymbolleft={},breaksymbolright={}]
+sudo nano /etc/ssh/sshd_config
+\end{Verbatim}
+
+\begin{Verbatim}[fontsize=\footnotesize,frame=single,rulecolor=\color{codebg},fillcolor=\color{codebg},framesep=2mm,xleftmargin=1mm,xrightmargin=1mm,breaklines=true,breakanywhere=true,breaksymbolleft={},breaksymbolright={}]
+PasswordAuthentication no
+PermitRootLogin no
+PubkeyAuthentication yes
+\end{Verbatim}
+
+\begin{Verbatim}[fontsize=\footnotesize,frame=single,rulecolor=\color{codebg},fillcolor=\color{codebg},framesep=2mm,xleftmargin=1mm,xrightmargin=1mm,breaklines=true,breakanywhere=true,breaksymbolleft={},breaksymbolright={}]
+sudo systemctl restart sshd
+\end{Verbatim}
+
+A partir de este punto, \textbf{únicamente} los clientes que posean la
+clave privada correspondiente podrán autenticarse por SSH en el servidor
+de la DMZ.
+
+\hypertarget{propuesta-de-mejora-alertas-automuxe1ticas-por-telegram-ante-accesos-ssh}{%
+\subsection{Propuesta de mejora: alertas automáticas por Telegram ante
+accesos
+SSH}\label{propuesta-de-mejora-alertas-automuxe1ticas-por-telegram-ante-accesos-ssh}}
+
+Como mejora adicional al esquema de seguridad, se diseñó un mecanismo
+para \textbf{notificar automáticamente vía Telegram} cada vez que un
+usuario inicia sesión por SSH en el servidor de la DMZ, indicando
+usuario, IP de origen y fecha/hora.
+
+\hypertarget{creaciuxf3n-del-bot-de-telegram}{%
+\subsubsection{Creación del bot de
+Telegram}\label{creaciuxf3n-del-bot-de-telegram}}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  En Telegram, buscar el bot oficial \textbf{@BotFather} y enviar el
+  comando \texttt{/newbot}.
+\item
+  Asignar un nombre y un usuario al bot; BotFather entregará un
+  \textbf{token} de acceso (formato
+  \texttt{123456789:ABCdefGhIJKlmNoPQRstuVWXyz}).
+\item
+  Iniciar una conversación con el nuevo bot y obtener el
+  \textbf{chat\_id} del usuario o grupo destino (por ejemplo,
+  consultando
+  \texttt{https://api.telegram.org/bot\textless{}TOKEN\textgreater{}/getUpdates}
+  después de enviar un mensaje al bot).
+\end{enumerate}
+
+\newpage
+\hypertarget{script-de-notificaciuxf3n}{%
+\subsubsection{Script de notificación}\label{script-de-notificaciuxf3n}}
+
+\begin{Verbatim}[fontsize=\footnotesize,frame=single,rulecolor=\color{codebg},fillcolor=\color{codebg},framesep=2mm,xleftmargin=1mm,xrightmargin=1mm,breaklines=true,breakanywhere=true,breaksymbolleft={},breaksymbolright={}]
+sudo nano /usr/local/bin/ssh-alert.sh
+\end{Verbatim}
+
+\begin{Verbatim}[fontsize=\footnotesize,frame=single,rulecolor=\color{codebg},fillcolor=\color{codebg},framesep=2mm,xleftmargin=1mm,xrightmargin=1mm,breaklines=true,breakanywhere=true,breaksymbolleft={},breaksymbolright={}]
+#!/bin/bash
+# Script de alerta de acceso SSH vía Telegram
+
+TOKEN="TU_TOKEN_DEL_BOT"
+CHAT_ID="TU_CHAT_ID"
+
+if [ "$PAM_TYPE" = "open_session" ]; then
+  HOST=$(hostname)
+  FECHA=$(date '+%Y-%m-%d %H:%M:%S')
+  MENSAJE="[ALERTA] Acceso SSH detectado%0AServidor: ${HOST}%0AUsuario: ${PAM_USER}%0AOrigen: ${PAM_RHOST}%0AFecha: ${FECHA}"
+
+  curl -s -X POST "https://api.telegram.org/bot${TOKEN}/sendMessage" \
+    -d chat_id="${CHAT_ID}" \
+    -d text="${MENSAJE}"
+fi
+\end{Verbatim}
+
+\begin{Verbatim}[fontsize=\footnotesize,frame=single,rulecolor=\color{codebg},fillcolor=\color{codebg},framesep=2mm,xleftmargin=1mm,xrightmargin=1mm,breaklines=true,breakanywhere=true,breaksymbolleft={},breaksymbolright={}]
+sudo chmod +x /usr/local/bin/ssh-alert.sh
+\end{Verbatim}
+
+\hypertarget{integraciuxf3n-con-pam}{%
+\subsubsection{Integración con PAM}\label{integraciuxf3n-con-pam}}
+
+\begin{Verbatim}[fontsize=\footnotesize,frame=single,rulecolor=\color{codebg},fillcolor=\color{codebg},framesep=2mm,xleftmargin=1mm,xrightmargin=1mm,breaklines=true,breakanywhere=true,breaksymbolleft={},breaksymbolright={}]
+sudo nano /etc/pam.d/sshd
+\end{Verbatim}
+
+Agregar al final del archivo:
+
+\begin{Verbatim}[fontsize=\footnotesize,frame=single,rulecolor=\color{codebg},fillcolor=\color{codebg},framesep=2mm,xleftmargin=1mm,xrightmargin=1mm,breaklines=true,breakanywhere=true,breaksymbolleft={},breaksymbolright={}]
+session optional pam_exec.so /usr/local/bin/ssh-alert.sh
+\end{Verbatim}
+
+\hypertarget{prueba-de-la-alerta}{%
+\subsubsection{Prueba de la alerta}\label{prueba-de-la-alerta}}
+
+\begin{Verbatim}[fontsize=\footnotesize,frame=single,rulecolor=\color{codebg},fillcolor=\color{codebg},framesep=2mm,xleftmargin=1mm,xrightmargin=1mm,breaklines=true,breakanywhere=true,breaksymbolleft={},breaksymbolright={}]
+ssh usuario@172.17.0.10
+\end{Verbatim}
+
+Inmediatamente después de la autenticación exitosa, el chat de Telegram
+configurado debe recibir un mensaje similar a:
+
+\begin{Verbatim}[fontsize=\footnotesize,frame=single,rulecolor=\color{codebg},fillcolor=\color{codebg},framesep=2mm,xleftmargin=1mm,xrightmargin=1mm,breaklines=true,breakanywhere=true,breaksymbolleft={},breaksymbolright={}]
+[ALERTA] Acceso SSH detectado
+Servidor: dmz-server
+Usuario: usuario
+Origen: 50.50.50.100
+Fecha: 2026-06-10 21:45:03
+\end{Verbatim}
+
+\begin{quote}
+Esta misma lógica puede extenderse para notificar también los
+\textbf{bloqueos generados por Fail2ban}, configurando una acción
+personalizada (\texttt{action}) en \texttt{/etc/fail2ban/jail.local} que
+ejecute un script similar al recibir un evento de baneo.
+\end{quote}
+
+\hypertarget{tabla-de-evidencias-capturas-de-pantalla-requeridas}{%
+\subsection{Tabla de evidencias / capturas de pantalla requeridas}\label{tabla-de-evidencias-capturas-de-pantalla-requeridas}}
+
+La siguiente tabla detalla las capturas de pantalla que el estudiante debe tomar durante la ejecucion real de la practica. Se conserva como evidencia obligatoria del trabajo realizado y deben anexarse al informe final.
+
+{\small
+\setlength{\tabcolsep}{3pt}
+\renewcommand{\arraystretch}{1.15}
+\begin{longtable}{@{}>{\raggedright\arraybackslash}p{0.06\linewidth}>{\raggedright\arraybackslash}p{0.20\linewidth}>{\raggedright\arraybackslash}p{0.46\linewidth}>{\raggedright\arraybackslash}p{0.22\linewidth}@{}}
+\toprule
+\textbf{N°} & \textbf{Nombre sugerido} & \textbf{¿Qué debe mostrar la captura?} & \textbf{Momento de la práctica} \\
+\midrule
+\endhead
+01 & 01\_topologia\_gns3 & Vista completa del proyecto en GNS3 con OPNsense, servidor DMZ, cliente Linux Mint y las conexiones entre ellos. & Al finalizar el armado de la topologia, antes de iniciar las configuraciones. \\
+02 & 02\_opnsense\_interfaces & Pantalla de ``Interfaces > Assignments'' o el menu de consola mostrando las interfaces WAN, LAN y OPT1 (DMZ) asignadas. & Justo despues de asignar las interfaces en OPNsense. \\
+03 & 03\_configuracion\_wan & Pantalla ``Interfaces > WAN'' con el tipo de IPv4 (DHCP o estatica) configurado. & Al configurar la interfaz WAN. \\
+04 & 04\_configuracion\_lan & Pantalla ``Interfaces > LAN'' mostrando la IP 50.50.50.1/24. & Al configurar la interfaz LAN. \\
+05 & 05\_configuracion\_dmz & Pantalla ``Interfaces > DMZ (OPT1)'' con IP 172.17.0.1/24 e interfaz habilitada. & Al configurar la interfaz DMZ. \\
+06 & 06\_cliente\_linux\_mint\_ip & Terminal del cliente con \texttt{ip addr show} y la IP 50.50.50.100/24. & Despues de configurar el cliente LAN. \\
+07 & 07\_servidor\_dmz\_ip & Terminal del servidor con \texttt{ip addr show} y la IP 172.17.0.10/24. & Despues de configurar el servidor DMZ. \\
+08 & 08\_ping\_lan\_gateway & Terminal del cliente ejecutando \texttt{ping -c 4 50.50.50.1} con respuestas exitosas. & Durante pruebas de conectividad basica. \\
+09 & 09\_ping\_lan\_dmz & Terminal del cliente ejecutando ping a 172.17.0.1 y 172.17.0.10 con respuestas exitosas. & Tras aplicar la regla ICMP. \\
+10 & 10\_instalacion\_apache & Terminal del servidor mostrando Apache/Nginx instalado y servicio activo. & Durante la instalacion del servidor web. \\
+11 & 11\_pagina\_web\_dmz & Navegador del cliente mostrando \texttt{http://172.17.0.10}. & Despues de probar el servidor web. \\
+12 & 12\_reglas\_firewall\_lan & Pantalla ``Firewall > Rules > LAN'' con reglas ICMP, HTTP/HTTPS y salida a WAN. & Despues de crear reglas LAN. \\
+13 & 13\_reglas\_firewall\_dmz & Pantalla ``Firewall > Rules > DMZ'' con bloqueo DMZ hacia LAN y reglas de salida. & Despues de crear reglas DMZ. \\
+14 & 14\_configuracion\_nat & Pantalla ``Firewall > NAT > Outbound'' mostrando modo Hybrid/Automatic y reglas para LAN/DMZ. & Despues de configurar NAT. \\
+15 & 15\_prueba\_salida\_internet & Terminal ejecutando \texttt{ping -c 4 8.8.8.8} o \texttt{curl https://www.google.com} con respuesta. & Durante la prueba de salida a Internet. \\
+16 & 16\_certificado\_ssl & Terminal mostrando \texttt{openssl req} y archivos \texttt{.crt}/\texttt{.key} generados. & Al generar el certificado SSL. \\
+17 & 17\_prueba\_https & Navegador en \texttt{https://172.17.0.10} con advertencia de certificado y pagina cargada. & Durante la prueba HTTPS. \\
+18 & 18\_portal\_cautivo & Pantalla ``Services > Captive Portal'' con zona LAN y autenticacion local configurada. & Despues de configurar el portal. \\
+19 & 19\_login\_portal\_cautivo & Navegador mostrando la pagina de inicio de sesion del portal cautivo. & Al conectar el cliente LAN. \\
+20 & 20\_fail2ban\_status & Terminal ejecutando \texttt{sudo fail2ban-client status sshd} con jail activo. & Despues de configurar Fail2ban. \\
+21 & 21\_intento\_ssh\_fallido & Terminal con intentos fallidos de SSH y bloqueo posterior. & Durante prueba de bloqueo. \\
+22 & 22\_ssh\_clave\_publica & Terminal del cliente entrando por SSH sin solicitud de contrasena. & Despues de configurar llave publica. \\
+23 & 23\_alerta\_telegram & Chat de Telegram mostrando mensaje recibido tras inicio de sesion SSH. & Durante prueba del script de alertas. \\
+24 & 24\_resultado\_final\_topologia & Vista final de GNS3 con todos los equipos encendidos, conectados y funcionando. & Al finalizar la practica. \\
+\bottomrule
+\end{longtable}}
+\hypertarget{conclusiones}{%
+\section{CONCLUSIONES}\label{conclusiones}}
+
+La implementación de OPNsense como firewall y enrutador permitió comprobar de manera práctica la importancia de segmentar una red en zonas WAN, LAN y DMZ. Esta separación facilita el control del tráfico entre áreas con distintos niveles de confianza y reduce la exposición de los servidores ubicados en la DMZ, ya que cada comunicación depende de reglas explícitas de firewall. Además, la configuración de NAT de salida evidenció cómo los equipos internos pueden acceder a redes externas mediante la traducción de direcciones, manteniendo oculto el direccionamiento privado de la infraestructura.
+
+En general, la práctica demostró que la seguridad de una red no depende de una sola configuración, sino de la integración de varias capas de protección. El uso de HTTPS con certificado SSL, portal cautivo, Fail2ban y autenticación SSH por llave pública fortaleció el entorno frente a accesos no autorizados y ataques de fuerza bruta. Asimismo, el trabajo con GNS3 y máquinas virtuales permitió construir, probar y corregir la topología sin afectar equipos físicos, mientras que la propuesta de alertas por Telegram mostró la utilidad de incorporar mecanismos de monitoreo proactivo para notificar eventos importantes como los accesos remotos por SSH.
+
+\hypertarget{recomendaciones}{%
+\section{RECOMENDACIONES}\label{recomendaciones}}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  \textbf{Cambiar las credenciales por defecto} del usuario
+  \texttt{root} de OPNsense inmediatamente después de la instalación, y
+  crear usuarios administrativos individuales con contraseñas robustas
+  y, de ser posible, autenticación de dos factores (2FA) para el acceso
+  al panel web.
+\item
+  \textbf{Respaldar periódicamente la configuración de OPNsense} desde
+  \texttt{System\ \textgreater{}\ Configuration\ \textgreater{}\ Backups},
+  exportando el archivo \texttt{config.xml}, de manera que ante
+  cualquier error de configuración sea posible restaurar un estado
+  funcional conocido.
+\item
+  \textbf{Aplicar el principio de mínimo privilegio} al definir las
+  reglas de firewall: en lugar de reglas genéricas ``permitir todo'',
+  especificar siempre el protocolo, el puerto y las direcciones de
+  origen/destino estrictamente necesarios, como se realizó con los alias
+  \texttt{RED\_LAN}, \texttt{RED\_DMZ} y \texttt{SRV\_WEB\_DMZ}.
+\item
+  \textbf{Revisar periódicamente los registros (logs)} de OPNsense
+  (\texttt{Firewall\ \textgreater{}\ Log\ Files}), de Fail2ban
+  (\texttt{/var/log/fail2ban.log}) y del servidor web
+  (\texttt{/var/log/apache2/access.log} y \texttt{error.log}), para
+  identificar patrones de tráfico anómalo o intentos de ataque de manera
+  oportuna.
+\item
+  \textbf{Sustituir el certificado SSL autofirmado por uno emitido por
+  una autoridad certificadora interna} (creada en
+  \texttt{System\ \textgreater{}\ Trust\ \textgreater{}\ Authorities} de
+  OPNsense) o, en un entorno de producción real, por un certificado
+  emitido por una entidad certificadora pública reconocida (por ejemplo,
+  mediante Let's Encrypt), con el fin de evitar las advertencias de
+  seguridad en el navegador.
+\item
+  \textbf{Mantener actualizado el sistema operativo de OPNsense y del
+  servidor de la DMZ}
+  (\texttt{System\ \textgreater{}\ Firmware\ \textgreater{}\ Updates} en
+  OPNsense; \texttt{sudo\ apt\ update\ \&\&\ sudo\ apt\ upgrade} en
+  Ubuntu), ya que las actualizaciones suelen incluir parches de
+  seguridad críticos para el firewall, Fail2ban, OpenSSH y el servidor
+  web.
+\item
+  \textbf{Extender la segmentación mediante VLANs} para entornos con más
+  dispositivos (por ejemplo, separar impresoras, dispositivos IoT o
+  redes de invitados), y considerar la incorporación de un sistema
+  IDS/IPS como Suricata (disponible como plugin de OPNsense) para
+  inspeccionar el contenido del tráfico permitido.
+\item
+  \textbf{Documentar y versionar las reglas de firewall y NAT} (por
+  ejemplo, exportando capturas o archivos de configuración después de
+  cada cambio relevante), de modo que cualquier integrante del equipo
+  pueda comprender y auditar el estado de la red en cualquier momento.
+\end{enumerate}
+
+\hypertarget{uso-de-inteligencia-artificial}{%
+\section{USO DE INTELIGENCIA
+ARTIFICIAL}\label{uso-de-inteligencia-artificial}}
+
+\hypertarget{herramienta-utilizada}{%
+\subsection{Herramienta utilizada}\label{herramienta-utilizada}}
+
+Se utilizó \textbf{Claude (Anthropic)}, en su modo de asistencia para
+tareas de oficina/documentación (Cowork), como apoyo para la
+planificación, redacción y estructuración del presente informe
+académico.
+
+\hypertarget{prompt-utilizado-resumen}{%
+\subsection{Prompt utilizado (resumen)}\label{prompt-utilizado-resumen}}
+
+A continuación se presenta un resumen del prompt empleado para solicitar
+la asistencia de la IA:
+
+\begin{quote}
+``Actúa como experto en Redes, GNS3, OPNsense, seguridad perimetral y
+redacción académica universitaria. Ayúdame a desarrollar la Práctica APE
+5 de Redes (UTA - FISEI - Carrera de Software): `Configuración inicial
+de OPNsense como cortafuegos y enrutador en un entorno virtual'. El
+informe debe seguir la metodología del ciclo de Kolb (Experiencia
+Concreta, Observación Reflexiva, Conceptualización Abstracta,
+Experimentación Activa), incluir explicación de la topología WAN/LAN/DMZ
+con el direccionamiento indicado (LAN 50.50.50.0/24, DMZ 172.17.0.0/24,
+WAN 192.168.1.2/24), reglas de firewall, NAT, servidor web en la DMZ,
+certificado SSL autofirmado, portal cautivo, Fail2ban, SSH con clave
+pública, una propuesta de alertas por Telegram, una tabla de capturas
+necesarias (sin inventar capturas reales), conclusiones, recomendaciones
+y bibliografía en formato IEEE. Entrega el informe completo en Word y
+LaTeX, además de una lista resumida de pasos prácticos para ejecutar la
+práctica.''
+\end{quote}
+
+\hypertarget{cuxf3mo-ayuduxf3-la-inteligencia-artificial}{%
+\subsection{Cómo ayudó la inteligencia
+artificial}\label{cuxf3mo-ayuduxf3-la-inteligencia-artificial}}
+
+La herramienta de IA se utilizó como \textbf{apoyo de redacción,
+organización y estructuración académica}, no como sustituto de la
+ejecución práctica de la actividad. De forma específica, la IA
+contribuyó en:
+
+\begin{itemize}
+\tightlist
+\item
+  Estructurar el informe de acuerdo con los requisitos obligatorios
+  (carátula, introducción, metodología de Kolb, resultados,
+  conclusiones, recomendaciones, uso de IA y bibliografía).
+\item
+  Redactar la explicación teórica de los conceptos de red (DMZ, NAT,
+  firewall, certificados SSL, Fail2ban, SSH, portal cautivo) de forma
+  clara y comprensible.
+\item
+  Generar y explicar los \textbf{comandos reales} necesarios para
+  configurar el servidor web, el certificado SSL, Fail2ban, las llaves
+  SSH y el script de alertas de Telegram, los cuales el estudiante debe
+  ejecutar y verificar en su propio entorno GNS3/VM.
+\item
+  Diseñar la \textbf{tabla de capturas de pantalla} requeridas,
+  especificando qué debe mostrar cada captura y en qué momento tomarla,
+  sin generar ni inventar evidencias falsas.
+\item
+  Elaborar un \textbf{diagrama de topología} de referencia y una
+  \textbf{lista resumida de pasos prácticos} para guiar la ejecución de
+  la práctica sin perder el orden de las actividades.
+\item
+  Construir la bibliografía en formato IEEE con fuentes relacionadas a
+  OPNsense, GNS3, NAT, DMZ, SSH y Fail2ban.
+\end{itemize}
+
+Es importante señalar que \textbf{todas las configuraciones, capturas de
+pantalla y pruebas reales deben ser realizadas por el estudiante} dentro
+de su propio entorno GNS3/VM, ya que la IA no tiene acceso a dicho
+entorno ni puede certificar el funcionamiento real de la práctica.
+
+\hypertarget{bibliografuxeda-norma-ieee}{%
+\section{BIBLIOGRAFIA (NORMA IEEE)}\label{bibliografuxeda-norma-ieee}}
+
+\nocite{*}
+\vspace{-1em}
 \renewcommand{\refname}{}
 \bibliographystyle{ieeetr}
 \bibliography{sample}
+\hypertarget{anexo-lista-final-de-pasos-pruxe1cticos-resumidos-guuxeda-ruxe1pida-de-ejecuciuxf3n}{%
+\section{ANEXO --- LISTA FINAL DE PASOS PRÁCTICOS RESUMIDOS (GUÍA RÁPIDA
+DE
+EJECUCIÓN)}\label{anexo-lista-final-de-pasos-pruxe1cticos-resumidos-guuxeda-ruxe1pida-de-ejecuciuxf3n}}
 
-\subsection{Anexos}
-\vfill
+Esta lista resume, en orden, todas las acciones que se deben ejecutar en
+GNS3/VM para completar la PAE 5 sin perder el hilo del procedimiento. Se
+recomienda marcar cada paso conforme se va completando.
+
+\textbf{A. Preparación del entorno}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Descargar la imagen \texttt{OPNsense-*-dvd-amd64.iso} desde
+  \texttt{https://opnsense.org/download/}.
+\item
+  Descargar/preparar las imágenes de Ubuntu (o CentOS) Server y de Linux
+  Mint.
+\item
+  En GNS3, crear un nuevo proyecto y agregar tres nodos:
+  \textbf{OPNsense}, \textbf{Servidor DMZ (Ubuntu/CentOS)} y
+  \textbf{Cliente LAN (Linux Mint)}, además de dos switches (uno para
+  LAN y otro para DMZ).
+\end{enumerate}
+
+\textbf{B. Instalación y configuración base de OPNsense}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{3}
+\tightlist
+\item
+  Crear la VM de OPNsense con 2048 MB RAM (mínimo) y 3 adaptadores de
+  red.
+\item
+  Instalar OPNsense (idioma del teclado, instalación UFS, contraseña de
+  \texttt{root}).
+\item
+  Asignar interfaces: WAN (adaptador 1), LAN (adaptador 2), OPT1/DMZ
+  (adaptador 3).
+\item
+  Configurar IPs por consola: LAN = 50.50.50.1/24, DMZ (OPT1) =
+  172.17.0.1/24; WAN en DHCP o estática 192.168.1.2/24.
+\item
+  Acceder al panel web desde el cliente LAN: \texttt{https://50.50.50.1}
+  (usuario \texttt{root}).
+\item
+  Completar el asistente inicial (hostname, dominio, DNS, zona horaria,
+  contraseña).
+\end{enumerate}
+
+\textbf{C. Configuración de interfaces en el panel web}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{9}
+\tightlist
+\item
+  Revisar/ajustar \texttt{Interfaces\ \textgreater{}\ WAN} (DHCP o
+  estática 192.168.1.2/24, desmarcar ``Block private networks'' si
+  aplica).
+\item
+  Revisar/ajustar \texttt{Interfaces\ \textgreater{}\ LAN}
+  (50.50.50.1/24) y habilitar DHCP (rango 50.50.50.100--50.50.50.200) si
+  se desea.
+\item
+  Renombrar y habilitar \texttt{Interfaces\ \textgreater{}\ OPT1} como
+  \textbf{DMZ} (172.17.0.1/24).
+\end{enumerate}
+
+\textbf{D. Configuración de los equipos finales}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{12}
+\tightlist
+\item
+  Configurar IP estática en el cliente Linux Mint: 50.50.50.100/24,
+  gateway 50.50.50.1, DNS 8.8.8.8 (vía \texttt{nmcli} o Network
+  Manager).
+\item
+  Configurar IP estática en el servidor DMZ: 172.17.0.10/24, gateway
+  172.17.0.1 (Netplan en Ubuntu o \texttt{nmcli} en CentOS).
+\item
+  Instalar Apache o Nginx en el servidor DMZ y verificar con
+  \texttt{systemctl\ status} y \texttt{curl\ http://localhost}.
+\end{enumerate}
+
+\textbf{E. Reglas de firewall, alias y NAT}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{15}
+\tightlist
+\item
+  Crear los alias \texttt{RED\_LAN} (50.50.50.0/24), \texttt{RED\_DMZ}
+  (172.17.0.0/24), \texttt{SRV\_WEB\_DMZ} (172.17.0.10) y
+  \texttt{PUERTOS\_WEB} (80, 443) en
+  \texttt{Firewall\ \textgreater{}\ Aliases}.
+\item
+  Crear en \texttt{Firewall\ \textgreater{}\ Rules\ \textgreater{}\ LAN}
+  las reglas: permitir ICMP LAN-\textgreater DMZ, permitir TCP 80/443
+  LAN-\textgreater{}\texttt{SRV\_WEB\_DMZ}, permitir
+  LAN-\textgreater cualquier destino (salida a Internet).
+\item
+  Crear en \texttt{Firewall\ \textgreater{}\ Rules\ \textgreater{}\ DMZ}
+  la regla de bloqueo DMZ-\textgreater LAN (en la parte superior) y las
+  reglas de salida DMZ-\textgreater WAN (DNS, HTTP, HTTPS).
+\item
+  Configurar
+  \texttt{Firewall\ \textgreater{}\ NAT\ \textgreater{}\ Outbound} en
+  modo \textbf{Hybrid} y verificar que se generen las reglas de NAT para
+  LAN y DMZ hacia WAN.
+\end{enumerate}
+
+\textbf{F. Pruebas de conectividad}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{19}
+\tightlist
+\item
+  Desde Linux Mint: \texttt{ping\ -c\ 4\ 50.50.50.1},
+  \texttt{ping\ -c\ 4\ 172.17.0.1}, \texttt{ping\ -c\ 4\ 172.17.0.10}.
+\item
+  Desde Linux Mint: \texttt{curl\ http://172.17.0.10} y
+  \texttt{curl\ -k\ https://172.17.0.10}; abrir ambas URLs en el
+  navegador.
+\item
+  Verificar la salida a Internet: \texttt{ping\ -c\ 4\ 8.8.8.8} o
+  \texttt{curl\ https://www.google.com} desde la LAN y la DMZ.
+\end{enumerate}
+
+\textbf{G. Seguridad adicional}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{22}
+\tightlist
+\item
+  Generar el certificado SSL autofirmado con
+  \texttt{openssl\ req\ -x509\ ...} y configurarlo en Apache/Nginx;
+  reiniciar el servicio.
+\item
+  Configurar el portal cautivo en
+  \texttt{Services\ \textgreater{}\ Captive\ Portal} para la interfaz
+  LAN, con autenticación local.
+\item
+  Instalar y configurar Fail2ban (\texttt{jail.local}, sección
+  \texttt{{[}sshd{]}}) en el servidor DMZ; verificar con
+  \texttt{fail2ban-client\ status\ sshd}.
+\item
+  Generar llaves SSH en Linux Mint (\texttt{ssh-keygen\ -t\ ed25519}),
+  copiar la clave pública con \texttt{ssh-copy-id} y verificar acceso
+  sin contraseña.
+\item
+  (Opcional) Endurecer SSH (\texttt{PasswordAuthentication\ no},
+  \texttt{PermitRootLogin\ no}) solo después de confirmar el acceso por
+  llave.
+\end{enumerate}
+
+\textbf{H. Mejora propuesta y cierre}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{27}
+\tightlist
+\item
+  Crear un bot de Telegram con BotFather, obtener el token y el
+  \texttt{chat\_id}.
+\item
+  Crear el script \texttt{/usr/local/bin/ssh-alert.sh}, integrarlo en
+  \texttt{/etc/pam.d/sshd} y probar con un inicio de sesión SSH.
+\item
+  Tomar todas las capturas de la tabla de evidencias (sección 3.17)
+  durante cada paso correspondiente.
+\item
+  Revisar que todas las pruebas (ping, HTTP/HTTPS, portal cautivo,
+  Fail2ban, SSH y Telegram) funcionen correctamente y guardar/respaldar
+  la configuración final de OPNsense.
+\end{enumerate}
+
 \end{document}
