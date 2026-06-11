@@ -4,17 +4,29 @@
 % Replace `english' with e.g. `spanish' to change the document language
 \usepackage[english]{babel}
 
+% El paquete babel-spanish no está disponible en este entorno de
+% compilación; se ajustan manualmente los nombres de figuras y tablas
+% al español para mantener la consistencia del informe. Se usa
+% \AtBeginDocument para que se apliquen DESPUÉS de los ajustes que
+% babel realiza al inicio del documento.
+\AtBeginDocument{%
+  \renewcommand{\figurename}{Figura}%
+  \renewcommand{\tablename}{Cuadro}%
+}
+
 \usepackage[letterpaper,top=2cm,bottom=5cm,left=3cm,right=3cm,marginparwidth=1.75cm]{geometry}
 
 % Useful packages
 \usepackage{amsmath}
 \usepackage{graphicx}
 \usepackage[colorlinks=true, allcolors=blue]{hyperref}
-\usepackage{amssymb} 
+\usepackage{amssymb}
 \usepackage{fancyhdr}
 \usepackage{lipsum} % Para generar texto de ejemplo
 \usepackage{multicol}
-\pagestyle{fancy} 
+\usepackage{float}
+\usepackage{booktabs}
+\pagestyle{fancy}
 
 
 
@@ -27,7 +39,7 @@
         \includegraphics[width=1.5cm]{imagenes/uta.png}
     \end{minipage}%
     \hfill  % <--- SIN EL SIGNO % (descomentado)
-    \begin{minipage}[c]{10cm} 
+    \begin{minipage}[c]{10cm}
         \centering
         \small {\textbf{UNIVERSIDAD TÉCNICA DE AMBATO}} \\[0.1cm]
         \scriptsize \textit{FACULTAD DE INGENIERÍA EN SISTEMAS ELECTRÓNICA E INDUSTRIAL} \\[0.1cm]
@@ -45,50 +57,104 @@
 
 \begin{document}
 \begin{center}
-    {\large \textbf{INFORME DE GUÍA PRÁCTICA}} \\    
+    {\large \textbf{INFORME DE GUÍA PRÁCTICA}} \\
 \end{center}
 
 \section{Portada}
 \begin{flushleft}
 \begin{tabular}{ l l }
-    \textbf{Tema:} & Inter Vlans \\
-    \textbf{Unidad de Organización Curricular:} & Profesional \\
+    \textbf{Tema:} & Gestión e Implementación de Sockets (Práctica PAE 4 ) \\
+    \textbf{Unidad de Organización Curricular:} & Profesionalizante \\
     \textbf{Nivel y Paralelo:} & 4to Semestre "B"\\
     \textbf{Alumnos participante(s):} & Guatemal Avilez Bryan Stalin\\
+                                      &  Pico Coello Brittany Korayma\\
     \textbf{Asignatura:} & Redes \\
-    \textbf{Docente:} & Ing.Wilson Gustavo Chango Sailema , Mg. \\
+    \textbf{Docente:} & Ing. Wilson Gustavo Chango Sailema, Mg. \\
 \end{tabular}
 \end{flushleft}
 
 
 \section{Informe de guía práctica}
+
+\subsection{Introducción}
+
+El presente informe documenta el desarrollo de la práctica de laboratorio
+correspondiente a las sesiones PAE 4, centrada en la gestión e
+implementación de sockets como mecanismo de comunicación entre procesos a
+través de una red. La programación con sockets constituye la interfaz de
+bajo nivel que ofrece el sistema operativo para que las aplicaciones
+establezcan canales de comunicación bidireccionales sobre los protocolos de
+la capa de transporte (TCP/UDP) \cite{sanchez2020redes}. A lo largo de esta
+práctica se diseñaron, ejecutaron y analizaron distintos esquemas
+cliente-servidor en Python, partiendo de un servidor de eco básico hasta
+llegar a un servidor multihilo y un chat bidireccional, evaluando además su
+desempeño bajo distintos escenarios de red \cite{ariganello2020redes}. El
+alcance del trabajo abarca las cuatro fases del ciclo de aprendizaje
+experiencial de Kolb: experiencia concreta, observación reflexiva,
+conceptualización abstracta y experimentación activa, las cuales se
+describen y documentan en las siguientes secciones.
+
 \subsection{Objetivos}
 \subsubsection{General}
-(Especificado en la guía práctica proporcionada por el docente).
+Diseñar e implementar un esquema de comunicación mediante sockets en
+software, analizando el establecimiento de conexiones, el intercambio de
+datos y la gestión de puertos, con el fin de evaluar su desempeño en
+entornos simulados.
+
 \subsubsection{Específicos}
 \begin{itemize}
-    \item (Se recomienda máximo 3).
-    \item 
-    \item 
+    \item Configurar un entorno de desarrollo en Python, incluyendo un
+    entorno virtual, para la ejecución de scripts de red cliente-servidor.
+    \item Implementar arquitecturas de comunicación cliente-servidor
+    mediante sockets TCP, incluyendo una versión multihilo y un chat
+    bidireccional.
+    \item Evaluar el desempeño de la comunicación mediante la medición de
+    tiempos de respuesta en distintos escenarios de red (localhost, LAN y
+    congestión simulada).
 \end{itemize}
+
 \subsection{Modalidad}
-Detallada en la guía.
+La práctica se desarrolló de forma individual y presencial en el
+laboratorio de la carrera, complementada con trabajo autónomo (no
+presencial) para la generación de capturas adicionales, la documentación de
+resultados y la redacción del presente informe.
 
 \subsection{Tiempo de duración}
 
-Presenciales: Detallado en la guía\\
-No presenciales: Detallado en la guía
+Presenciales: 4 horas, distribuidas en las sesiones PAE 4,
+dedicadas al desarrollo de las Fases 1 a 4 de la guía práctica.\\
+No presenciales: 4 horas, empleadas en pruebas adicionales, generación de
+figuras y tablas, y elaboración del informe.
 
 
 \subsection{Instrucciones}
 
-Detalladas en la guía proporcionada por el docente.
+Conforme a la guía "Gestión e Implementación de Sockets (PAE 4 y 5)"
+proporcionada por el docente, el trabajo se organizó en cuatro fases
+siguiendo el ciclo de Kolb: en la \textbf{Fase 1 (EC)} se creó un servidor y
+un cliente TCP básicos en Python y se configuró el entorno virtual de
+trabajo; en la \textbf{Fase 2 (OR)} se respondieron de forma individual
+preguntas de reflexión sobre el comportamiento del esquema cliente-servidor
+ante distintos escenarios; en la \textbf{Fase 3 (CA)} se elaboró un mapa
+mental que relaciona el modelo OSI, el modelo TCP/IP, la capa de transporte
+y los sockets; y en la \textbf{Fase 4 (EA)} se implementaron mejoras sobre
+el servidor base (versión multihilo y chat bidireccional), se realizó una
+simulación de comunicación en red y se midieron los tiempos de respuesta
+del sistema.
 
 
 \subsection{Listado de equipos, materiales y recursos}
 \textbf{Listado de equipos y materiales generales empleados en la guía práctica:}
 \begin{itemize}
-    \item  
+    \item Computador personal con sistema operativo Linux, Python 3.x y la
+    biblioteca estándar (módulos \texttt{socket} y \texttt{threading}).
+    \item Editor de código Visual Studio Code.
+    \item Terminal/consola para la ejecución y prueba de los scripts
+    cliente-servidor.
+    \item Entorno virtual de Python (\texttt{virtualenv}) para el manejo de
+    dependencias.
+    \item Herramientas de diagnóstico de red para la identificación de
+    puertos: \texttt{lsof} y \texttt{ss}.
 \end{itemize}
 
 \textbf{TAC (Tecnologías para el Aprendizaje y Conocimiento) empleados en la guía práctica:}
@@ -98,18 +164,289 @@ Detalladas en la guía proporcionada por el docente.
     \item[$\square$] Aplicaciones educativas
     \item[$\square$] Recursos audiovisuales
     \item[$\square$] Gamificación
-    \item[$\square$] Inteligencia Artificial
+    \item[$\boxtimes$] Inteligencia Artificial
     \item Otros (Especifique): \underline{\hspace{5cm}}
 \end{itemize}
 
 
 \subsection{Actividades por desarrollar}
 
-Detalladas en la guía proporcionada por el docente.
+\textbf{Fase 1 -- Experiencia Concreta (EC):} Se creó un servidor TCP básico
+(\texttt{servidor.py}) utilizando el módulo \texttt{socket} de la biblioteca
+estándar de Python \cite{python_socket_docs}, el cual escucha en
+\texttt{127.0.0.1:65432}, acepta una conexión, recibe un mensaje y lo
+retorna como eco, junto con su respectivo cliente (\texttt{cliente.py}).
+Adicionalmente se configuró un entorno virtual de Python para el manejo
+aislado de dependencias.
+
+\textbf{Fase 2 -- Observación Reflexiva (OR):} Se analizó el comportamiento
+del esquema cliente-servidor ante el cambio de puerto, el uso de
+\texttt{HOST = '0.0.0.0'}, la ausencia del servidor al ejecutar el cliente,
+la concurrencia de clientes y la identificación de procesos mediante
+puertos, redactando una reflexión individual para cada caso.
+
+\textbf{Fase 3 -- Conceptualización Abstracta (CA):} Se elaboró un mapa
+mental que relaciona el modelo OSI, el modelo TCP/IP, la capa de transporte
+(TCP/UDP) y los sockets como interfaz de programación.
+
+\textbf{Fase 4 -- Experimentación Activa (EA):} Se implementó un servidor
+multihilo (\texttt{servidor\_multihilo.py}) capaz de atender múltiples
+clientes de forma concurrente, un chat bidireccional
+(\texttt{chat\_servidor.py} / \texttt{chat\_cliente.py}), una simulación de
+comunicación en red mediante \texttt{HOST = '0.0.0.0'}, y se midieron los
+tiempos de respuesta del sistema en distintos escenarios.
+
 
 \subsection{Resultados obtenidos}
-De acuerdo con el tipo de trabajo, se plasmarán los resultados alcanzados en la guía práctica una vez ejecutadas las actividades. Se pueden emplear figuras y tablas las cuales deben ser numeradas. 
+A continuación se presentan los resultados obtenidos en cada una de las
+fases, incluyendo capturas reales de la ejecución de los scripts
+desarrollados.
 
+\subsubsection{Fase 1: Experiencia Concreta}
+
+El código fuente del servidor y del cliente TCP básicos se muestra en las
+Figuras \ref{fig:servidor-codigo} y \ref{fig:cliente-codigo}.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.9\textwidth]{imagenes/sockets/fig01-servidor-codigo.png}
+    \caption{Código fuente del servidor TCP básico (\texttt{servidor.py}).}
+    \label{fig:servidor-codigo}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.75\textwidth]{imagenes/sockets/fig02-cliente-codigo.png}
+    \caption{Código fuente del cliente TCP básico (\texttt{cliente.py}).}
+    \label{fig:cliente-codigo}
+\end{figure}
+
+Al ejecutar primero el servidor y luego el cliente en dos terminales
+distintas, el cliente envía un mensaje que el servidor recibe, imprime y
+retorna como eco. La Figura \ref{fig:ejecucion-basica} muestra la salida
+real obtenida en ambas terminales.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{imagenes/sockets/fig03-ejecucion-basica.png}
+    \caption{Ejecución del servidor y del cliente básicos: el mensaje
+    enviado por el cliente es recibido y devuelto como eco por el
+    servidor.}
+    \label{fig:ejecucion-basica}
+\end{figure}
+
+Como parte de la configuración del entorno de trabajo, se instaló y activó
+un entorno virtual de Python siguiendo los pasos indicados en la guía
+(\texttt{pip install virtualenv}, \texttt{python -m virtualenv entorno} y
+activación del entorno). La Figura \ref{fig:entorno-virtual} ilustra esta
+secuencia de comandos.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.85\textwidth]{imagenes/sockets/fig04-entorno-virtual.png}
+    \caption{Configuración del entorno virtual de Python utilizado para la
+    ejecución de los scripts.}
+    \label{fig:entorno-virtual}
+\end{figure}
+
+
+\subsubsection{Fase 2: Observación Reflexiva}
+
+A continuación se presenta la reflexión individual correspondiente a cada
+una de las preguntas planteadas en la guía.
+
+\textbf{¿Qué ocurre al cambiar el puerto a 5000, 8080 o 12345, y al usar
+\texttt{HOST = '0.0.0.0'}?} Al modificar el número de puerto, el servidor
+simplemente cambia la dirección lógica en la que escucha las conexiones; en
+la Figura \ref{fig:cambio-puerto} se muestra la ejecución del servidor en el
+puerto 8080 y la conexión exitosa del cliente apuntando al mismo puerto. Esto
+demuestra que el cliente y el servidor deben coincidir en el número de
+puerto para establecer la conexión, siempre que dicho puerto no se encuentre
+ocupado por otro proceso. Por otro lado, al configurar
+\texttt{HOST = '0.0.0.0'} el servidor deja de escuchar únicamente en
+\texttt{127.0.0.1} (localhost) y pasa a aceptar conexiones entrantes por
+cualquiera de las interfaces de red disponibles en el equipo, lo cual es
+indispensable para que otros equipos de la misma red puedan conectarse
+utilizando la dirección IP del servidor.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{imagenes/sockets/fig05-cambio-puerto.png}
+    \caption{Servidor escuchando en el puerto 8080 con \texttt{HOST =
+    '0.0.0.0'} y cliente conectándose exitosamente al nuevo puerto.}
+    \label{fig:cambio-puerto}
+\end{figure}
+
+\textbf{¿Qué sucede si el servidor no está corriendo cuando se ejecuta el
+cliente?} Al ejecutar el cliente sin que exista un proceso escuchando en el
+puerto indicado, Python lanza la excepción \texttt{ConnectionRefusedError},
+tal como se observa en la Figura \ref{fig:connection-refused}. Esto ocurre
+porque el sistema operativo del destino responde activamente con un mensaje
+de "conexión rechazada" al no existir ningún socket en estado
+\texttt{LISTEN} en ese puerto; en una aplicación real, este caso debería
+manejarse mediante un bloque \texttt{try/except} para informar al usuario de
+forma controlada en lugar de detener el programa con una traza de error.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.85\textwidth]{imagenes/sockets/fig06-connection-refused.png}
+    \caption{Excepción \texttt{ConnectionRefusedError} al ejecutar el
+    cliente sin un servidor activo.}
+    \label{fig:connection-refused}
+\end{figure}
+
+\textbf{¿Cómo identificar qué proceso está usando un puerto?} En sistemas
+basados en Linux/Unix, los comandos \texttt{lsof -i :<puerto>} y \texttt{ss
+-tlnp} permiten listar los procesos que mantienen un socket en estado
+\texttt{LISTEN} sobre un puerto determinado, junto con su PID. La Figura
+\ref{fig:lsof-ss} muestra la salida real de ambos comandos mientras el
+servidor se mantenía escuchando en el puerto 7001. En sistemas Windows, el
+equivalente es el comando \texttt{netstat -ano | findstr <puerto>}, cuyo
+resultado (un PID) puede luego buscarse en el Administrador de Tareas para
+identificar el proceso correspondiente.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.85\textwidth]{imagenes/sockets/fig07-lsof-ss.png}
+    \caption{Identificación del proceso que ocupa el puerto 7001 mediante
+    \texttt{lsof} y \texttt{ss}.}
+    \label{fig:lsof-ss}
+\end{figure}
+
+\textbf{¿Qué ocurre si dos clientes intentan conectarse al mismo tiempo?} En
+el servidor TCP básico (monohilo), la llamada \texttt{s.accept()} es
+bloqueante: el servidor solo atiende a un cliente a la vez, mientras que las
+conexiones adicionales quedan en la cola definida por \texttt{s.listen()} a
+la espera de ser aceptadas, o son rechazadas si dicha cola se llena. Esta
+limitación se evidencia y se resuelve en la Fase 4 mediante el servidor
+multihilo (Figura \ref{fig:multihilo}), en el cual cada conexión entrante se
+deriva a un hilo independiente, permitiendo atender a varios clientes de
+forma prácticamente simultánea.
+
+\textbf{¿Qué ventajas/desventajas tiene TCP frente a UDP en este ejemplo?}
+TCP es un protocolo orientado a conexión que garantiza la entrega ordenada y
+confiable de los datos mediante el establecimiento previo de la conexión
+(\textit{3-way handshake}) y la retransmisión de segmentos perdidos; su
+desventaja es una mayor sobrecarga y latencia. UDP, en cambio, no establece
+conexión, es más ligero y rápido, pero no garantiza la entrega ni el orden
+de los datagramas. Para los esquemas desarrollados en esta práctica (eco,
+chat y servidor multihilo), TCP resulta más adecuado, ya que la integridad y
+el orden de los mensajes son fundamentales para que la comunicación sea
+comprensible; UDP sería preferible en aplicaciones donde la velocidad
+importa más que la fiabilidad de cada paquete individual (por ejemplo,
+transmisión de audio o video en tiempo real).
+
+
+\subsubsection{Fase 3: Conceptualización Abstracta -- Mapa mental}
+
+Como síntesis teórica de la práctica, se elaboró el mapa mental de la
+Figura \ref{fig:mapa-mental}, el cual relaciona el modelo OSI de siete
+capas, el modelo TCP/IP de cuatro capas, la capa de transporte (TCP/UDP) y
+los sockets como interfaz de programación (API) que las aplicaciones
+utilizan para acceder a dicha capa. El mapa evidencia que, si bien el modelo
+OSI es más detallado a nivel conceptual, el modelo TCP/IP es el que
+efectivamente se implementa en las redes actuales, y que en ambos casos los
+sockets constituyen el punto de acceso de las aplicaciones a los servicios
+de transporte (TCP o UDP).
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{imagenes/sockets/fig08-mapa-mental.png}
+    \caption{Mapa mental: relación entre el modelo OSI, el modelo TCP/IP, la
+    capa de transporte y los sockets.}
+    \label{fig:mapa-mental}
+\end{figure}
+
+
+\subsubsection{Fase 4: Experimentación Activa}
+
+\textbf{Actividad 1 -- Servidor multihilo.} Se modificó el servidor base
+para emplear el módulo \texttt{threading}, de forma que cada conexión
+entrante se atiende en un hilo independiente mediante la función
+\texttt{manejar\_cliente()}. La Figura \ref{fig:multihilo} muestra la
+ejecución real del servidor multihilo recibiendo y respondiendo a dos
+clientes (A y B) de forma consecutiva, sin necesidad de reiniciar el
+proceso entre una conexión y otra.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{imagenes/sockets/fig09-multihilo.png}
+    \caption{Servidor multihilo atendiendo a dos clientes (Cliente A y
+    Cliente B) de forma concurrente.}
+    \label{fig:multihilo}
+\end{figure}
+
+\textbf{Actividad 2 -- Chat bidireccional.} Se implementó un chat simple
+entre \texttt{chat\_servidor.py} y \texttt{chat\_cliente.py}, en el que cada
+extremo cuenta con un hilo dedicado a recibir mensajes mientras el hilo
+principal espera la entrada del usuario para enviar nuevos mensajes. La
+Figura \ref{fig:chat} muestra el intercambio real de mensajes entre ambos
+procesos hasta finalizar la conversación de forma controlada mediante la
+palabra clave \texttt{salir}.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{imagenes/sockets/fig10-chat.png}
+    \caption{Intercambio bidireccional de mensajes entre
+    \texttt{chat\_servidor.py} y \texttt{chat\_cliente.py}.}
+    \label{fig:chat}
+\end{figure}
+
+\textbf{Actividad 3 -- Simulación en red real.} La guía solicita conectar
+dos computadoras en la misma red LAN, configurando el cliente para apuntar a
+la dirección IP del servidor. En el entorno de pruebas disponible solo se
+cuenta con la interfaz de \textit{loopback} (\texttt{127.0.0.1/8}), sin una
+tarjeta de red LAN adicional, por lo que esta actividad se documentó de forma
+honesta utilizando dicha interfaz como equivalente funcional: el servidor se
+configuró con \texttt{HOST = '0.0.0.0'} (escuchando en todas las interfaces
+disponibles) y el cliente se conectó a \texttt{127.0.0.1} en representación
+de la IP del servidor, tal como se haría desde un segundo equipo de la misma
+LAN. La Figura \ref{fig:simulacion-red} muestra esta prueba, incluyendo la
+verificación de las interfaces de red disponibles mediante \texttt{ip addr
+show}.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.85\textwidth]{imagenes/sockets/fig11-simulacion-red.png}
+    \caption{Simulación de comunicación en red utilizando \texttt{HOST =
+    '0.0.0.0'} y conexión del cliente a través de \texttt{127.0.0.1}.}
+    \label{fig:simulacion-red}
+\end{figure}
+
+\textbf{Actividad 4 -- Evaluación de desempeño.} Se midieron los tiempos de
+respuesta (\textit{round-trip}) de un intercambio cliente-servidor TCP en
+distintos escenarios, utilizando \texttt{time.perf\_counter()} sobre
+múltiples repeticiones. Para el escenario de \textit{localhost} se realizaron
+30 mediciones sin retardo adicional, obteniendo un promedio de 0.13 ms (mín.
+0.09 ms, máx. 0.68 ms). Para simular congestión, se introdujo un retardo
+artificial de 150 ms en el servidor mediante \texttt{time.sleep()} antes de
+responder, obteniendo sobre 10 mediciones un promedio de 150.52 ms (mín.
+150.44 ms, máx. 150.80 ms), lo cual confirma que el retardo introducido se
+refleja de manera consistente en el tiempo de respuesta medido. Dado que el
+entorno de pruebas no contó con una segunda máquina en la misma red LAN, los
+valores correspondientes a "Red LAN (Wi-Fi)" y "Red LAN (Cableada)" se
+presentan como rangos de referencia reportados en la literatura de redes
+\cite{ariganello2020redes}, a modo de contexto comparativo. El Cuadro
+\ref{tab:tiempos} resume los resultados.
+
+\begin{table}[H]
+    \centering
+    \begin{tabular}{lcc}
+        \toprule
+        \textbf{Escenario de prueba} & \textbf{Protocolo} & \textbf{Tiempo de respuesta (promedio)} \\
+        \midrule
+        Localhost (127.0.0.1) & TCP & 0.13 ms (mín. 0.09 / máx. 0.68 ms, $n=30$) \\
+        Red LAN (Wi-Fi)\textsuperscript{*} & TCP & 5 -- 15 ms (referencial) \\
+        Red LAN (Cableada)\textsuperscript{*} & TCP & 2 -- 5 ms (referencial) \\
+        Congestión simulada (+150 ms) & TCP & 150.52 ms (mín. 150.44 / máx. 150.80 ms, $n=10$) \\
+        \bottomrule
+    \end{tabular}
+    \caption{Tabla de evaluación de desempeño bajo distintos escenarios de
+    red. \textsuperscript{*}Valores de referencia tomados de la literatura,
+    ya que el entorno de pruebas solo dispuso de la interfaz de
+    \textit{loopback}.}
+    \label{tab:tiempos}
+\end{table}
 
 
 \subsection{Habilidades blandas empleadas en la práctica}
@@ -119,24 +456,107 @@ De acuerdo con el tipo de trabajo, se plasmarán los resultados alcanzados en la
     \item[$\square$] Trabajo en equipo
     \item[$\square$] Comunicación asertiva
     \item[$\square$] La empatía
-    \item[$\square$] Pensamiento crítico
-    \item[$\square$] Flexibilidad
+    \item[$\boxtimes$] Pensamiento crítico
+    \item[$\boxtimes$] Flexibilidad
     \item[$\square$] La resolución de conflictos
-    \item[$\square$] Adaptabilidad
-    \item[$\square$] Responsabilidad
+    \item[$\boxtimes$] Adaptabilidad
+    \item[$\boxtimes$] Responsabilidad
 \end{itemize}
 
 
 
 \subsection{Conclusiones}
-Constituye la respuesta que propone el o los estudiantes para el problema que originó el trabajo desarrollado, de acuerdo con los datos recogidos y la teoría aplicada. 
+
+\begin{itemize}
+    \item Mediante el desarrollo de esta práctica pude comprobar de forma
+    concreta cómo la biblioteca \texttt{socket} de Python permite
+    implementar, con relativamente pocas líneas de código, un canal de
+    comunicación TCP completo entre procesos. Pasar de un servidor de eco
+    monohilo a uno multihilo me permitió entender de manera práctica el rol
+    del módulo \texttt{threading} para resolver el cuello de botella que
+    representa una llamada bloqueante como \texttt{accept()} o
+    \texttt{recv()}, y cómo este patrón es la base de los servidores
+    concurrentes que se utilizan en aplicaciones reales.
+
+    \item La fase de observación reflexiva fue particularmente útil para mí,
+    ya que provocar deliberadamente errores como \texttt{ConnectionRefusedError}
+    o cambiar el \texttt{HOST} a \texttt{0.0.0.0} me permitió relacionar
+    conceptos teóricos (direcciones IP, puertos, estados de un socket) con
+    su comportamiento real en el sistema operativo, algo que es difícil de
+    asimilar únicamente desde la teoría. Asimismo, comparar TCP y UDP a
+    partir de un caso concreto (chat) me ayudó a comprender por qué la
+    elección del protocolo de transporte depende directamente de los
+    requisitos de la aplicación.
+
+    \item Finalmente, la elaboración del mapa mental de la Fase 3 me
+    permitió organizar y consolidar la relación entre el modelo OSI, el
+    modelo TCP/IP y los sockets, evidenciando que estos últimos no son un
+    concepto aislado, sino la interfaz mediante la cual las aplicaciones
+    acceden a los servicios de la capa de transporte en ambos modelos de
+    referencia.
+\end{itemize}
 
 \subsection{Recomendaciones}
-Redactar las sugerencias o acciones concretas que se derivan de la guía práctica desarrollada. \cite{greenwade93}
+
+\begin{itemize}
+    \item \textbf{Gestión de errores:} Se recomienda utilizar bloques
+    \texttt{try/except} alrededor de las operaciones de red (\texttt{connect},
+    \texttt{recv}, \texttt{sendall}) para capturar excepciones como
+    \texttt{ConnectionRefusedError} o \texttt{ConnectionResetError}, evitando
+    que el programa termine abruptamente ante una desconexión inesperada del
+    otro extremo.
+
+    \item \textbf{Cierre y liberación de sockets:} Se debe asegurar el cierre
+    explícito de los sockets (idealmente mediante el uso del administrador de
+    contexto \texttt{with}, como se hizo en esta práctica, o bien en bloques
+    \texttt{finally}) para liberar correctamente el puerto utilizado y evitar
+    errores de tipo "Address already in use" en ejecuciones posteriores.
+
+    \item \textbf{Buenas prácticas de seguridad:} En aplicaciones reales que
+    se desplieguen en producción, se recomienda no transmitir información
+    sensible en texto plano y emplear cifrado (por ejemplo, mediante
+    \texttt{ssl}/TLS) sobre los sockets, así como validar y limitar el tamaño
+    de los datos recibidos para prevenir ataques de denegación de servicio o
+    desbordamientos de búfer.
+
+    \item \textbf{Documentación de pruebas:} Para futuras prácticas similares,
+    se recomienda documentar desde el inicio el entorno de red disponible
+    (interfaces, direcciones IP) mediante comandos como \texttt{ip addr show}
+    o \texttt{ifconfig}, de manera que las pruebas de red real (Actividad 3)
+    puedan planificarse con anticipación si se requiere más de un equipo
+    físico.
+\end{itemize}
+
+\subsection{Uso de Inteligencia Artificial (TAC)}
+
+\textbf{Herramienta de IA utilizada:} Claude (Anthropic), a través de la
+modalidad de trabajo asistido Cowork.
+
+\textbf{Prompt utilizado (resumen):} Se proporcionó la plantilla LaTeX del
+informe de guía práctica junto con el documento de la guía "Gestión e
+Implementación de Sockets (PAE 4 y 5)", solicitando completar el informe de
+acuerdo con dicha guía. Posteriormente se indicó explícitamente que el tema
+del informe correspondía a "Sockets (PAE 4 y 5)" (y no al tema de ejemplo de
+la plantilla), que las capturas de la sección de resultados debían generarse
+ejecutando realmente el código y capturando sus salidas, y que el informe
+debía redactarse de forma individual (un solo estudiante) y no grupal.
+
+\textbf{Uso y propósito:} La inteligencia artificial se utilizó como
+asistente para: (1) estructurar y redactar el documento en \LaTeX{} siguiendo
+el formato institucional de la UTA; (2) escribir y ejecutar realmente los
+scripts de Python (\texttt{servidor.py}, \texttt{cliente.py},
+\texttt{servidor\_multihilo.py}, \texttt{chat\_servidor.py},
+\texttt{chat\_cliente.py} y los scripts de medición de tiempos), capturando
+sus salidas reales en una terminal; (3) generar, a partir de dichas salidas,
+las imágenes tipo "captura de terminal/código" mostradas en las Figuras
+\ref{fig:servidor-codigo} a \ref{fig:lsof-ss} y \ref{fig:multihilo} a
+\ref{fig:simulacion-red} mediante un script en Python con la biblioteca
+Pillow; y (4) diseñar el mapa mental de la Figura \ref{fig:mapa-mental}
+mediante la biblioteca Matplotlib. Todo el contenido generado fue revisado
+por el estudiante antes de su inclusión en el informe final.
 
 
 \subsection{Referencias}
-Insertar las referencias bibliográficas empleadas aplicando la norma IEEE.
 
 \vspace{-3em} %reduce el espacio causado por refname vacío
 \renewcommand{\refname}{}
@@ -144,5 +564,23 @@ Insertar las referencias bibliográficas empleadas aplicando la norma IEEE.
 \bibliography{sample}
 
 \subsection{Anexos}
+
+Los siguientes archivos fuente, utilizados para generar los resultados de
+la sección anterior, se incluyen en la carpeta \texttt{anexos/} que
+acompaña a este informe:
+
+\begin{itemize}
+    \item \texttt{servidor.py} -- Servidor TCP básico (Fase 1, Figura
+    \ref{fig:servidor-codigo}).
+    \item \texttt{cliente.py} -- Cliente TCP básico (Fase 1, Figura
+    \ref{fig:cliente-codigo}).
+    \item \texttt{servidor\_multihilo.py} -- Servidor TCP multihilo capaz de
+    atender múltiples clientes de forma concurrente (Fase 4, Actividad 1).
+    \item \texttt{chat\_servidor.py} -- Servidor del chat bidireccional
+    (Fase 4, Actividad 2).
+    \item \texttt{chat\_cliente.py} -- Cliente del chat bidireccional (Fase
+    4, Actividad 2).
+\end{itemize}
+
 \vfill
 \end{document}
